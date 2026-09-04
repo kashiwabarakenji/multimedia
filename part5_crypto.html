@@ -363,8 +363,8 @@
 </div>
 <div class="callout-content">
 <ul>
-<li><strong>中央集権（銀行）</strong>： 学級委員が一人で連絡帳を書く。学級委員がサボったり、後からこっそり消しゴムで書き換えても誰も気づけない。</li>
-<li><strong>分散型台帳（ブロックチェーン）</strong>： 先生が黒板に書いた連絡事項を、<strong>クラス40人全員が自分のノートに一言一句同じように書き写す</strong>。 もし誰か1人が「宿題はなし」とズルして改ざんしても、<strong>残り39人のノートと突き合わせれば一瞬で「お前のノートだけ嘘だ！」とバレて却下</strong>される！</li>
+<li><p><strong>中央集権（銀行）</strong>： 学級委員が一人で連絡帳を書く。学級委員がサボったり、後からこっそり消しゴムで書き換えても誰も気づけない。</p></li>
+<li><p><strong>分散型台帳（ブロックチェーン）</strong>： 先生が黒板に書いた連絡事項を、<strong>クラス40人全員が自分のノートに一言一句同じように書き写す</strong>。 もし誰か1人が「宿題はなし」とズルして改ざんしても、<strong>残り39人のノートと突き合わせれば一瞬で「お前のノートだけ嘘だ！」とバレて却下</strong>される！</p></li>
 </ul>
 </div>
 </div>
@@ -473,7 +473,7 @@
 <section id="イメージ改ざんを数学的に無効化するハッシュチェーン" class="slide level3">
 <h3>【イメージ】改ざんを数学的に無効化するハッシュチェーン</h3>
 
-<img data-src="images/blockchain_tamper.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><div title="過去を書き換えると鎖が断裂する">
+<img data-src="images/blockchain_tamper.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"><div title="過去を書き換えると鎖が断裂する">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -600,8 +600,8 @@
 </div>
 <div class="callout-content">
 <ul>
-<li><strong>従来の契約（お店）</strong>： 店員（人間）に注文を伝え、代金を渡し、店員がレジを打ち、商品を受け取る（仲介者が必要）。</li>
-<li><strong>自動販売機（スマートコントラクト）</strong>： 「150円が投入されたら、ジュースのストッパーを解除して落下させる」という条件が機械に組み込まれている。 店員がいなくても、<strong>条件が満たされれば誰の許可もいらず自動的・不可逆的に契約が完了</strong>する！</li>
+<li><p><strong>従来の契約（お店）</strong>： 店員（人間）に注文を伝え、代金を渡し、店員がレジを打ち、商品を受け取る（仲介者が必要）。</p></li>
+<li><p><strong>自動販売機（スマートコントラクト）</strong>： 「150円が投入されたら、ジュースのストッパーを解除して落下させる」という条件が機械に組み込まれている。 店員がいなくても、<strong>条件が満たされれば誰の許可もいらず自動的・不可逆的に契約が完了</strong>する！</p></li>
 </ul>
 </div>
 </div>
@@ -631,17 +631,32 @@
 </div>
 </div>
 </div>
-<div title="🤖 「コードが法律（Code is Law）」の世界">
+</section>
+<section id="スマートコントラクトの特徴コードが法律code-is-law" class="slide level3">
+<h3>スマートコントラクトの特徴：コードが法律（Code is Law）</h3>
+<ul>
+<li><strong>仲介者の完全排除</strong>：
+<ul>
+<li>銀行、証券会社、弁護士、不動産登記所などを一切介さずに取引を実行。</li>
+<li>中抜き手数料の劇的削減と、人間による着服・改ざんの余地を排除。</li>
+</ul></li>
+<li><strong>不可逆的な強制力</strong>：
+<ul>
+<li>一度ブロックチェーンに刻まれたプログラムは、開発者であっても勝手に書き換えることはできない。</li>
+<li>条件が満たされれば、感情や都合を挟まず100%機械的・自動的に実行される。</li>
+</ul></li>
+</ul>
+<div title="自律分散型アプリケーション（dApps）の基盤">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>🤖 「コードが法律（Code is Law）」の世界</strong></p>
+<p><strong>自律分散型アプリケーション（dApps）の基盤</strong></p>
 </div>
 <div class="callout-content">
-<p>仲介者（銀行、弁護士、登記所）を一切介さず、プログラムが条件通りに機械的・不可逆的に実行されるため、中抜き手数料の削減と不正防止が同時に実現します。</p>
+<p>この仕組みを応用することで、貸出・取引を行う分散型金融（DeFi）や、中央管理者のいない自律分散型組織（DAO）が誕生しました。</p>
 </div>
 </div>
 </div>
@@ -704,17 +719,31 @@
 </div>
 </div>
 </div>
-<div title="⚠️ デペッグ（乖離）のリスク">
+</section>
+<section id="ステーブルコインの構造とデペッグ乖離リスク" class="slide level3">
+<h3>ステーブルコインの構造とデペッグ（乖離）リスク</h3>
+<ul>
+<li><strong>1:1ペッグの成立要件</strong>：
+<ul>
+<li>運営企業（Tether社、Circle社など）が、発行したトークンと同額の米ドル現金を保有し続けることで信用が保たれる。</li>
+</ul></li>
+<li><strong>デペッグ（価格乖離）の危険性</strong>：
+<ul>
+<li>準備金の不足や不正疑惑が生じると、取り付け騒ぎ（パニック売り）が発生し、「1コイン＝1ドル」が割り込む暴落を引き起こす。</li>
+<li>2022年の無担保型（アルゴリズム型）ステーブルコイン「Terra/UST」の崩壊では、数十兆円規模の市場資産がわずか数日で消滅した。</li>
+</ul></li>
+</ul>
+<div title="⚠️ 監査報告と透明性の重要性">
 <div class="callout callout-warning callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>⚠️ デペッグ（乖離）のリスク</strong></p>
+<p><strong>⚠️ 監査報告と透明性の重要性</strong></p>
 </div>
 <div class="callout-content">
-<p>運営企業が本当に同額の裏付け資産を保有しているかどうかの「透明性（監査報告）」が生命線です。準備金不足が疑われると、1ドルの連動が崩れる「デペッグ騒動」が発生します。</p>
+<p>近年は、米国債など高流動性の裏付け資産の監査報告書（Attestation）を毎月公開する「USDC」のような規制準拠型コインが主流になりつつあります。</p>
 </div>
 </div>
 </div>
@@ -872,21 +901,24 @@
 </div>
 </div>
 </div>
-<div title="ホットウォレットとコールドウォレット">
-<div class="callout callout-warning callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>ホットウォレットとコールドウォレット</strong></p>
-</div>
-<div class="callout-content">
-<p>コインチェックやDMM Bitcoinの事件では、本来ネットから切り離すべき暗号資産の秘密鍵がネットワークに繋がった状態（ホットウォレット）で管理されていた隙を突かれました。</p>
-</div>
-</div>
-</div>
-</div>
+</section>
+<section id="取引所ハッキングの真相ホットウォレットと秘密鍵" class="slide level3">
+<h3>取引所ハッキングの真相：ホットウォレットと秘密鍵</h3>
+<ul>
+<li><strong>ブロックチェーン自体の安全性</strong>：
+<ul>
+<li>ビットコイン本体のネットワークが外部ハッカーに突破されたことは<strong>過去15年以上一度もない</strong>。</li>
+</ul></li>
+<li><strong>狙われるのは「取引所の秘密鍵管理」</strong>：
+<ul>
+<li><strong>ホットウォレット</strong>：ネットに常時接続されたサーバー。利便性は高いがサイバー攻撃の格好の標的。</li>
+<li><strong>コールドウォレット</strong>：物理的にネットから遮断された端末・金庫。安全だが即座の送金には手間がかかる。</li>
+</ul></li>
+<li><strong>コインチェックやDMM Bitcoin等の巨額流出</strong>：
+<ul>
+<li>本来オフライン（コールド）に置くべき秘密鍵が、運用上の不手際や標的型攻撃でホットウォレット側から奪取されたことが原因。</li>
+</ul></li>
+</ul>
 </section>
 <section id="自己責任の鉄則-秘密鍵を失うと財産は永久消滅" class="slide level3">
 <h3>「自己責任」の鉄則 —— 秘密鍵を失うと財産は永久消滅</h3>

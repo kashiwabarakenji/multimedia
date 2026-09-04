@@ -330,6 +330,19 @@
 </div>
 </div>
 </div>
+</section>
+<section id="認証と認可の違いと利用者の自衛策" class="slide level3">
+<h3>「認証」と「認可」の違いと利用者の自衛策</h3>
+<ul>
+<li><strong>認証（Authentication：お前は誰だ？）</strong>：
+<ul>
+<li>ID・パスワードや生体認証で「本人確認」を行う手続き（例：ホテルのチェックイン）。</li>
+</ul></li>
+<li><strong>認可（Authorization：何をしてよいか？）</strong>：
+<ul>
+<li>本人に対して「特定の操作権限」を与える手続き（例：宿泊階の部屋を開ける鍵）。</li>
+</ul></li>
+</ul>
 <div title="📱 利用者の自衛ポイント">
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -340,7 +353,7 @@
 <p><strong>📱 利用者の自衛ポイント</strong></p>
 </div>
 <div class="callout-content">
-<p>アプリ連携時に「プロフィールの取得」だけでなく「勝手な投稿」「友達リストの取得」など、過剰な権限（認可）を要求されていないか必ず確認しましょう。</p>
+<p>スマホアプリの連携時に「プロフィールの取得」だけでなく「勝手な投稿」「連絡先リストの全取得」など、過剰な権限（認可）を要求されていないか必ず確認しましょう。</p>
 </div>
 </div>
 </div>
@@ -562,9 +575,9 @@
 </div>
 <div class="callout-content">
 <ul>
-<li><strong>ハッシュ化の仕組み</strong>： 牛肉をミンチ機にかけると「ひき肉」になる（一方向の不可逆計算）。</li>
-<li><strong>復元は絶対に不可能</strong>： どんな天才科学者でも、<strong>ひき肉から元の牛の姿を復元することは不可能</strong>です！</li>
-<li><strong>どうやってログイン確認するのか？</strong>： ログイン時、入力された文字をその場でミンチ機にかけ、保存されている「ひき肉」と形が完全に一致するかだけを照合しています。</li>
+<li><p><strong>ハッシュ化の仕組み</strong>： 牛肉をミンチ機にかけると「ひき肉」になる（一方向の不可逆計算）。</p></li>
+<li><p><strong>復元は絶対に不可能</strong>： どんな天才科学者でも、<strong>ひき肉から元の牛の姿を復元することは不可能</strong>です！</p></li>
+<li><p><strong>どうやってログイン確認するのか？</strong>： ログイン時、入力された文字をその場でミンチ機にかけ、保存されている「ひき肉」と形が完全に一致するかだけを照合しています。</p></li>
 </ul>
 </div>
 </div>
@@ -599,10 +612,10 @@
 <h3>なぜ他人に乗っ取られない？ —— 「使い捨て暗号トークン」の秘密</h3>
 <h4 id="メールで届く長いリンクの正体">⏱️ メールで届く長いリンクの正体</h4>
 <ul>
-<li>メールで送られてくるURL：<br>
-<code>https://service.com/reset?token=a8f9b2c3d4e5...</code></li>
-<li>末尾のランダムな英数字が<strong>「使い捨て暗号トークン（合鍵）」</strong>。</li>
-<li><strong>強力な3大防衛ルール</strong>：
+<li><p>メールで送られてくるURL：<br>
+<code>https://service.com/reset?token=a8f9b2c3d4e5...</code></p></li>
+<li><p>末尾のランダムな英数字が<strong>「使い捨て暗号トークン（合鍵）」</strong>。</p></li>
+<li><p><strong>強力な3大防衛ルール</strong>：</p>
 <ol type="1">
 <li><strong>超高難度のランダム生成</strong>：暗号学的に安全な乱数で、第三者が推測・総当たりするのは不可能。</li>
 <li><strong>短い有効期限（TTL）</strong>：発行から「30分」や「1時間」で自動消滅（期限切れ）。</li>
@@ -1038,12 +1051,12 @@
 <h3>通信不要で一致する数学のカラクリ（Time-based OTP）</h3>
 <h4 id="共通の秘密鍵-正確な時刻">🧮 共通の秘密鍵 ＋ 正確な時刻</h4>
 <ul>
-<li><strong>登録時（QRコード読み取り）</strong>：<br>
-スマホとサーバーの間だけで、<strong>「共通の秘密鍵（計算のタネ）」</strong>を最初に1回だけ安全に共有する。</li>
-<li><strong>コード生成の瞬間</strong>：<br>
-<code>共通の秘密鍵 ＋ 現在の正確な時刻（30秒刻み）</code> をハッシュ関数に投入！</li>
-<li><strong>結果</strong>：<br>
-通信しなくても、<strong>「同じタネ」と「同じ時刻」から数学的に全く同じ6桁の数字が導き出される</strong>仕組み！</li>
+<li><p><strong>登録時（QRコード読み取り）</strong>：<br>
+スマホとサーバーの間だけで、<strong>「共通の秘密鍵（計算のタネ）」</strong>を最初に1回だけ安全に共有する。</p></li>
+<li><p><strong>コード生成の瞬間</strong>：<br>
+<code>共通の秘密鍵 ＋ 現在の正確な時刻（30秒刻み）</code> をハッシュ関数に投入！</p></li>
+<li><p><strong>結果</strong>：<br>
+通信しなくても、<strong>「同じタネ」と「同じ時刻」から数学的に全く同じ6桁の数字が導き出される</strong>仕組み！</p></li>
 </ul>
 </section>
 <section id="夜中に届くログイン承認しますかの恐怖-mfa疲労攻撃" class="slide level3">
@@ -1281,7 +1294,7 @@
 <section id="イラストパスキー生体認証公開鍵暗号の仕組み" class="slide level3">
 <h3>【イラスト】パスキー（生体認証×公開鍵暗号）の仕組み</h3>
 
-<img data-src="images/passkey_auth.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><div title="安全性の根拠：秘密鍵は端末の外に絶対出ない">
+<img data-src="images/passkey_auth.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"><div title="安全性の根拠：秘密鍵は端末の外に絶対出ない">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -1315,7 +1328,7 @@
 <section id="図解本物のサイト-vs-精巧な偽フィッシングサイト" class="slide level3">
 <h3>【図解】本物のサイト vs 精巧な偽フィッシングサイト</h3>
 
-<img data-src="images/phishing_comparison.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><div title="人間には見分けがつかないURLの罠">
+<img data-src="images/phishing_comparison.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"><div title="人間には見分けがつかないURLの罠">
 <div class="callout callout-warning callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -1428,10 +1441,10 @@
 <h3>相手のアプリにGoogleのパスワードはバレる？</h3>
 <h4 id="最も多い素朴な疑問と真実">❓ 最も多い素朴な疑問と真実</h4>
 <ul>
-<li><strong>生徒の疑問</strong>：<br>
-「相手の見知らぬゲームアプリに、自分の大事なGoogleのパスワードが見られちゃうんじゃないの？」</li>
-<li><strong>結論：相手にあなたのパスワードは1文字も渡っていません！</strong></li>
-<li>相手アプリが見ているのは、Googleから発行された「認証済みの安全な暗号化記号（トークン）」だけです。</li>
+<li><p><strong>生徒の疑問</strong>：<br>
+「相手の見知らぬゲームアプリに、自分の大事なGoogleのパスワードが見られちゃうんじゃないの？」</p></li>
+<li><p><strong>結論：相手にあなたのパスワードは1文字も渡っていません！</strong></p></li>
+<li><p>相手アプリが見ているのは、Googleから発行された「認証済みの安全な暗号化記号（トークン）」だけです。</p></li>
 </ul>
 </section>
 <section id="パスワードを渡さずにログインできるカラクリ" class="slide level3">
@@ -1446,10 +1459,10 @@
 <h3>ソーシャルログインが選ばれる理由</h3>
 <h4 id="利用者とサービス双方のメリット">🛡️ 利用者とサービス双方のメリット</h4>
 <ul>
-<li><strong>利用者側の安心</strong>：<br>
-パスワードを新しく覚える必要がなく、相手サイトがハッキングされてもパスワードが流出する心配がゼロ！</li>
-<li><strong>サービス側の安心</strong>：<br>
-パスワードを預かる巨大な漏洩リスクを抱えずに済み、世界最強クラスのセキュリティ基盤をそのまま活用できる。</li>
+<li><p><strong>利用者側の安心</strong>：<br>
+パスワードを新しく覚える必要がなく、相手サイトがハッキングされてもパスワードが流出する心配がゼロ！</p></li>
+<li><p><strong>サービス側の安心</strong>：<br>
+パスワードを預かる巨大な漏洩リスクを抱えずに済み、世界最強クラスのセキュリティ基盤をそのまま活用できる。</p></li>
 </ul>
 </section>
 <section id="たとえ話-共通の知人でたとえると" class="slide level3">
@@ -1703,7 +1716,12 @@
 <p><strong>🛡️ 1秒で解決する対処法</strong></p>
 </div>
 <div class="callout-content">
-<p>電話をかけてはいけません！ * Windows：<code>Ctrl + W</code>（タブを閉じる）または <code>Alt + F4</code> * Mac：<code>command + W</code>（タブを閉じる） * スマホ：ブラウザのタブをゴミ箱へ捨てるだけ！</p>
+<p>電話をかけてはいけません！</p>
+<ul>
+<li>Windows：<code>Ctrl + W</code>（タブを閉じる）または <code>Alt + F4</code></li>
+<li>Mac：<code>command + W</code>（タブを閉じる）</li>
+<li>スマホ：ブラウザのタブをゴミ箱へ捨てるだけ！</li>
+</ul>
 </div>
 </div>
 </div>
@@ -1758,19 +1776,9 @@
 </div>
 </div>
 </div>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Note</strong></p>
-</div>
-<div class="callout-content">
-<p>正規のWebサイトは <code>X-Frame-Options: DENY</code> という設定を入れて、自サイトが他所の透明レイヤーに埋め込まれないよう防御しています。</p>
-</div>
-</div>
-</div>
+<ul>
+<li><strong>サーバー側の防御技術</strong>：正規のWebサイトは <code>X-Frame-Options: DENY</code>（またはCSPの <code>frame-ancestors</code>）を設定し、他サイトによる自画面の透明埋め込みを遮断しています。</li>
+</ul>
 </section>
 <section id="非公式modアプリと構成プロファイルの罠" class="slide level3">
 <h3>「非公式MODアプリ」と「構成プロファイル」の罠</h3>
@@ -1881,6 +1889,19 @@
 </div>
 </div>
 </div>
+</section>
+<section id="公衆wi-fiに潜む危険なサインと自衛策" class="slide level3">
+<h3>公衆Wi-Fiに潜む危険なサインと自衛策</h3>
+<ul>
+<li><strong>スマホの自動接続が仇になる</strong>：
+<ul>
+<li>過去に一度繋いだフリーWi-Fiと同名の電波があると、端末は警告なしに接続してしまう。</li>
+</ul></li>
+<li><strong>偽の認証画面（キャプティブポータル）の罠</strong>：
+<ul>
+<li>「利用規約同意のためSNSでログインしてください」と促し、IDとパスワードを入力させる。</li>
+</ul></li>
+</ul>
 <div title="⚠️ 危険なサイン">
 <div class="callout callout-caution callout-titled callout-style-default">
 <div class="callout-body">
@@ -1900,7 +1921,7 @@
 <section id="図解カフェでの中間者攻撃mitmとvpn防御" class="slide level3">
 <h3>【図解】カフェでの中間者攻撃（MitM）とVPN防御</h3>
 
-<img data-src="images/mitm_attack.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><div title="暗号化のトンネルが命綱">
+<img data-src="images/mitm_attack.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"><div title="暗号化のトンネルが命綱">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -1961,7 +1982,12 @@
 <section id="実践チェック-4" class="slide level3">
 <h3>📱 実践チェック</h3>
 <h4 id="どっちが本物クイズ">🕵️ どっちが本物？クイズ</h4>
-<p>以下のURLのうち、本物のメルカリ（<code>mercari.com</code>）はどれ？ 1. <code>https://www.mercari.com.account-update.info/login</code> 2. <code>https://mercari.com/jp/</code> 3. <code>https://login-mercari-jp.com/</code></p>
+<p>以下のURLのうち、本物のメルカリ（<code>mercari.com</code>）はどれ？</p>
+<ol type="1">
+<li><code>https://www.mercari.com.account-update.info/login</code></li>
+<li><code>https://mercari.com/jp/</code></li>
+<li><code>https://login-mercari-jp.com/</code></li>
+</ol>
 </section>
 <section id="考えてみよう振り返り-4" class="slide level3">
 <h3>🤔 考えてみよう（振り返り）</h3>
@@ -2440,17 +2466,17 @@
 <section id="図解ランサムウェア感染-vs-3-2-1バックアップ復旧" class="slide level3">
 <h3>【図解】ランサムウェア感染 vs 3-2-1バックアップ復旧</h3>
 
-<img data-src="images/ransomware_defense_visual.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><div title="バックアップを「抜いておく」ことの決定的な重要性">
+<img data-src="images/ransomware_defense_visual.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><div title="バックアップを「抜いておく（エアギャップ）」重要性">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>バックアップを「抜いておく」ことの決定的な重要性</strong></p>
+<p><strong>バックアップを「抜いておく（エアギャップ）」重要性</strong></p>
 </div>
 <div class="callout-content">
-<p>PCにUSBハードディスクを繋いだままにしていると、ウイルスが外付けドライブまで探索してバックアップごと暗号化してしまいます。「物理的にケーブルを抜いて金庫にしまう（エアギャップ）」ことで、感染しても1円も払わずに100%復旧できます。</p>
+<p>PCに外付けHDDを繋ぎっぱなしにしているとバックアップごと暗号化されます。「物理的にケーブルを抜いて保管」することで、感染しても1円も払わずに100%復旧可能です。</p>
 </div>
 </div>
 </div>
@@ -2658,8 +2684,8 @@
 <h3>利用者が守るべき基本動作① —— アカウントと端末の防衛</h3>
 <h4 id="アップデートを放置しない">1. アップデートを放置しない</h4>
 <ul>
-<li>OSやブラウザの更新は、攻撃者に狙われる「壊れた鍵穴（脆弱性）」を塞ぐ緊急工事。 #### 2. 私用USBメモリを挿さない</li>
-<li>マルウェア感染媒体や情報漏洩経路として最も事故が多い。</li>
+<li><p>OSやブラウザの更新は、攻撃者に狙われる「壊れた鍵穴（脆弱性）」を塞ぐ緊急工事。 #### 2. 私用USBメモリを挿さない</p></li>
+<li><p>マルウェア感染媒体や情報漏洩経路として最も事故が多い。</p></li>
 </ul>
 </section>
 <section id="利用者が守るべき基本動作②-シャドーitの禁止" class="slide level3">
@@ -2763,8 +2789,8 @@
 <h3>写真投稿の自衛鉄則①② —— 位置情報オフと時間差投稿</h3>
 <h4 id="カメラの位置情報オフ">1. カメラの位置情報オフ</h4>
 <ul>
-<li>自宅周辺で撮る写真は、カメラアプリの位置情報付与をオフにする。 #### 2. タイムラグ投稿</li>
-<li>「今ここにいます！」ではなく、帰宅後や数日後に投稿する。</li>
+<li><p>自宅周辺で撮る写真は、カメラアプリの位置情報付与をオフにする。 #### 2. タイムラグ投稿</p></li>
+<li><p>「今ここにいます！」ではなく、帰宅後や数日後に投稿する。</p></li>
 </ul>
 </section>
 <section id="写真投稿の自衛鉄則③-窓の外瞳の反射背景の徹底確認" class="slide level3">
@@ -3390,7 +3416,7 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <section id="イメージ共通のキー鍵で表を結びつけるjoin" class="slide level3">
 <h3>【イメージ】共通のキー（鍵）で表を結びつける「JOIN」</h3>
 
-<img data-src="images/rdb_join.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><div title="🔑 主キーと外部キーで表を結合">
+<img data-src="images/rdb_join.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"><div title="🔑 主キーと外部キーで表を結合">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -3513,9 +3539,9 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <li>ガチャは引くたびに確率がリセットされる「独立試行」。</li>
 <li><strong>数学の冷酷な真実</strong>
 <ul>
-<li>1回外れる確率：<span class="math inline">\(0.99\)</span>（99%）</li>
-<li>100連引いて「すべて外れる」確率： <span class="math display">\[(0.99)^{100} \approx 0.366 \quad (36.6\%)\]</span></li>
-<li>つまり、<strong>「約3人に1人以上」は1回も当たらず大爆死する</strong>のが純粋な数学的必然！</li>
+<li><p>1回外れる確率：<span class="math inline">\(0.99\)</span>（99%）</p></li>
+<li><p>100連引いて「すべて外れる」確率： <span class="math display">\[(0.99)^{100} \approx 0.366 \quad (36.6\%)\]</span></p></li>
+<li><p>つまり、<strong>「約3人に1人以上」は1回も当たらず大爆死する</strong>のが純粋な数学的必然！</p></li>
 </ul></li>
 </ul>
 <div title="🎰 天井（救済措置）の導入背景">
@@ -3631,24 +3657,14 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 </div>
 </div>
 </div>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Note</strong></p>
-</div>
-<div class="callout-content">
-<p><strong>ACID特性</strong>：不可分性（Atomicity）、一貫性（Consistency）、独立性（Isolation）、永続性（Durability）の頭文字です。</p>
-</div>
-</div>
-</div>
+<ul>
+<li><strong>ACID特性のAtomicity（不可分性）</strong>：「すべて成功するか、すべて取り消すか（All or Nothing）」をシステムが厳格に保証します。</li>
+</ul>
 </section>
 <section id="イラストトランザクションall-or-nothingとロールバック" class="slide level3">
 <h3>【イラスト】トランザクション（All or Nothing）とロールバック</h3>
 
-<img data-src="images/acid_rollback_visual.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><div title="お金が絶対に消えない数学的・工学的保証">
+<img data-src="images/acid_rollback_visual.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><div title="お金が絶対に消えない数学的・工学的保証">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -3722,7 +3738,12 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <section id="実践チェック-9" class="slide level3">
 <h3>📱 実践チェック</h3>
 <h4 id="身近なトランザクション">💡 身近なトランザクション</h4>
-<p>「All or Nothing」でなければ困るものはどれ？ 1. メルカリでの購入とポイント支払い 2. LINEメッセージ送信と既読 3. ゲームのガチャと課金石の消費</p>
+<p>「All or Nothing」でなければ困るものはどれ？</p>
+<ol type="1">
+<li>メルカリでの購入とポイント支払い</li>
+<li>LINEメッセージ送信と既読</li>
+<li>ゲームのガチャと課金石の消費</li>
+</ol>
 </section>
 <section id="考えてみよう振り返り-9" class="slide level3">
 <h3>🤔 考えてみよう（振り返り）</h3>
@@ -3855,10 +3876,10 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <h3>ネットの「通信速度（Mbps）」と「応答速度（Ping値）」</h3>
 <h4 id="通信速度mbps-帯域幅">🚛 通信速度（Mbps / 帯域幅）</h4>
 <ul>
-<li>一度に運べる「道路の車線数・トラックの大きさ」。</li>
-<li>動画鑑賞やファイルDLで重要。 #### 🏎️ 応答速度（Ping値 / レイテンシ）</li>
-<li>往復にかかる「時間（ミリ秒）」。</li>
-<li><strong>対戦ゲームや通話のラグはPing値（15ms以下が理想）で決まる！</strong></li>
+<li><p>一度に運べる「道路の車線数・トラックの大きさ」。</p></li>
+<li><p>動画鑑賞やファイルDLで重要。 #### 🏎️ 応答速度（Ping値 / レイテンシ）</p></li>
+<li><p>往復にかかる「時間（ミリ秒）」。</p></li>
+<li><p><strong>対戦ゲームや通話のラグはPing値（15ms以下が理想）で決まる！</strong></p></li>
 </ul>
 </section>
 <section id="比較一覧ネットの通信速度mbpsと応答速度ping値" class="slide level3">
@@ -4084,7 +4105,7 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <section id="現場カゴを置くだけで一瞬計算-ユニクロのrfidレジ" class="slide level3">
 <h3>【現場】カゴを置くだけで一瞬計算！ ユニクロのRFIDレジ</h3>
 
-<img data-src="images/uniqlo_rfid.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><div title="UHF帯RFIDの一括認識パワー">
+<img data-src="images/uniqlo_rfid.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"><div title="UHF帯RFIDの一括認識パワー">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -4107,23 +4128,20 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <div>
 <p></p><figure class=""><p></p>
 <div>
-<pre class="mermaid mermaid-js">flowchart TB
-    subgraph RFID["📡 RFID（Radio Frequency Identification / 電波による自動認識の総称）"]
+<pre class="mermaid mermaid-js">flowchart LR
+    subgraph RFID["📡 RFID（電波による自動認識の総称）"]
+        direction TB
         UHF["🏷️ 広域RFID（UHF帯 / 920MHz）&lt;br/&gt;・通信距離：数メートル〜十数メートル&lt;br/&gt;・用途：ユニクロの棚卸し・物流パレット・ETC"]
-        subgraph NFC["📶 NFC（Near Field Communication / 近距離無線通信）"]
-            HF["13.56MHz帯 / 通信距離：10cm以内&lt;br/&gt;（離れると通信不能にして「誤決済・誤引き落とし」を物理的に防ぐ！）"]
-            subgraph FeliCa["⚡ FeliCa（Type-F / 日本発規格）"]
-                FELICA_DESC["・通信速度：超高速 212/424 kbps&lt;br/&gt;・認証時間：驚異の0.1秒以内！&lt;br/&gt;・用途：Suica, PASMO, iD, QUICPay"]
-            end
-            subgraph TYPEAB["💳 NFC Type-A / Type-B（世界標準規格）"]
-                AB_DESC["・用途：マイナンバーカード, 免許証, クレカのタッチ決済"]
-            end
+        subgraph NFC["📶 NFC（近距離無線通信 13.56MHz / 10cm以内）"]
+            direction TB
+            FeliCa["⚡ FeliCa（Type-F / 日本発規格）&lt;br/&gt;・驚異の0.1秒以内認証！&lt;br/&gt;・用途：Suica, PASMO, iD, QUICPay"]
+            TYPEAB["💳 Type-A / Type-B（世界標準規格）&lt;br/&gt;・用途：マイナンバーカード, 免許証&lt;br/&gt;・クレカのタッチ決済"]
         end
     end
     style RFID fill:#f5f5f5,stroke:#9e9e9e
     style UHF fill:#e3f2fd,stroke:#1976d2
     style NFC fill:#fff8e1,stroke:#ffa000,stroke-width:2px
-    style FeliCa fill:#e8f5e9,stroke:#2e7d32,stroke-width:3px
+    style FeliCa fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
     style TYPEAB fill:#ede7f6,stroke:#7b1fa2
 </pre>
 </div>
@@ -4329,11 +4347,11 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <h3>なぜQRコードはこんなに凄いのか？ —— 4大技術的メリット</h3>
 <h4 id="圧倒的な情報量バーコードの約200倍">1. 📚 圧倒的な情報量（バーコードの約200倍）</h4>
 <ul>
-<li>英数字で最大4,296文字、数字なら7,089文字、漢字なら1,817文字を小さな四角に格納可能。 #### 2. ⚡ 360度どこからでも一瞬で読める（QR＝Quick Response）</li>
-<li>四隅の3箇所にある<strong>「切り出しシンボル（回の字マーク）」</strong>。</li>
-<li>白黒の比率が<strong>「1:1:3:1:1」</strong>という印刷物の中で最も出現しにくい黄金比率になっており、斜め・逆さま・遠くからでも瞬時に向きを検出！ #### 3. 🩹 汚れても破れても読める「誤り訂正機能（リード・ソロモン符号）」</li>
-<li>コードの一部が最大約30%汚損・欠損しても、数学的に元データを復元可能！ #### 4. 🈩 日本語（漢字・かな）にネイティブ対応</li>
-<li>日本発祥のため、世界で初めて2バイト文字を高効率にエンコード可能。</li>
+<li><p>英数字で最大4,296文字、数字なら7,089文字、漢字なら1,817文字を小さな四角に格納可能。 #### 2. ⚡ 360度どこからでも一瞬で読める（QR＝Quick Response）</p></li>
+<li><p>四隅の3箇所にある<strong>「切り出しシンボル（回の字マーク）」</strong>。</p></li>
+<li><p>白黒の比率が<strong>「1:1:3:1:1」</strong>という印刷物の中で最も出現しにくい黄金比率になっており、斜め・逆さま・遠くからでも瞬時に向きを検出！ #### 3. 🩹 汚れても破れても読める「誤り訂正機能（リード・ソロモン符号）」</p></li>
+<li><p>コードの一部が最大約30%汚損・欠損しても、数学的に元データを復元可能！ #### 4. 🈩 日本語（漢字・かな）にネイティブ対応</p></li>
+<li><p>日本発祥のため、世界で初めて2バイト文字を高効率にエンコード可能。</p></li>
 </ul>
 </section>
 <section id="図解一次元バーコード-vs-二次元qrコードの構造比較" class="slide level3">
@@ -4365,10 +4383,10 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <h3>社会のあらゆる場所で動くQRコード —— 現代の多様な活用法</h3>
 <h4 id="キャッシュレス決済コード決済">📱 1. キャッシュレス決済（コード決済）</h4>
 <ul>
-<li>PayPay、WeChat Pay等。お店は<strong>「紙に印刷して貼るだけ（MPM）」</strong>で専用機械不要！ #### 🚚 2. 物流・在庫管理（元祖の使い道）</li>
-<li>Amazonの自動倉庫ロボット、宅配便の仕分け、メルカリの匿名配送。 #### ✈️ 3. デジタルチケット・入退場管理</li>
-<li>飛行機のモバイル搭乗券、新幹線のQR乗車、映画館・音楽ライブの入場認証。 #### 🏥 4. 医療・トレーサビリティ・行政</li>
-<li>処方箋・お薬手帳、食品の産地履歴（牛肉のトレーサビリティ）、Wi-Fi簡単接続。</li>
+<li><p>PayPay、WeChat Pay等。お店は<strong>「紙に印刷して貼るだけ（MPM）」</strong>で専用機械不要！ #### 🚚 2. 物流・在庫管理（元祖の使い道）</p></li>
+<li><p>Amazonの自動倉庫ロボット、宅配便の仕分け、メルカリの匿名配送。 #### ✈️ 3. デジタルチケット・入退場管理</p></li>
+<li><p>飛行機のモバイル搭乗券、新幹線のQR乗車、映画館・音楽ライブの入場認証。 #### 🏥 4. 医療・トレーサビリティ・行政</p></li>
+<li><p>処方箋・お薬手帳、食品の産地履歴（牛肉のトレーサビリティ）、Wi-Fi簡単接続。</p></li>
 </ul>
 </section>
 <section id="メルカリ等の匿名配送はなぜ住所を知られずに届くのか" class="slide level3">
@@ -4445,7 +4463,7 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <section id="図解レジ待ち中の肩越し盗撮の現場" class="slide level3">
 <h3>【図解】レジ待ち中の「肩越し盗撮」の現場</h3>
 
-<img data-src="images/qr_theft.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><div title="背後のスマホカメラに警戒！">
+<img data-src="images/qr_theft.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"><div title="背後のスマホカメラに警戒！">
 <div class="callout callout-warning callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -4676,21 +4694,20 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <section id="図解クレジットカードの表面と裏面の精密解剖図" class="slide level3">
 <h3>【図解】クレジットカードの表面と裏面の精密解剖図</h3>
 
-<img data-src="images/credit_card_anatomy.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><div title="裏面の「セキュリティコード（3桁）」は絶対に人に見せるな！">
-<div class="callout callout-warning callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>裏面の「セキュリティコード（3桁）」は絶対に人に見せるな！</strong></p>
-</div>
-<div class="callout-content">
-<p>店員にカードを裏返して預けると、スマホで裏面を撮影されたり暗記されたりして、ネット通販で即座に不正利用される事件が多発しています。店頭では「タッチ決済」か「自分でICチップを差し込む」を徹底しましょう。</p>
-</div>
-</div>
-</div>
-</div>
+<img data-src="images/credit_card_anatomy.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
+<section id="クレジットカード取扱いの鉄則裏面コードの死守" class="slide level3">
+<h3>クレジットカード取扱いの鉄則：裏面コードの死守</h3>
+<ul>
+<li><strong>券面に記された情報の危険性</strong>：
+<ul>
+<li>「16桁のカード番号・有効期限・裏面3桁（CVV/セキュリティコード）」の3点が揃えば、誰でもネットショッピングが可能。</li>
+</ul></li>
+<li><strong>店頭での自衛ポイント</strong>：
+<ul>
+<li>店員にカードを手渡して裏返されないようにする（スマホで撮影・暗記される不正が多発）。</li>
+<li>店頭では可能な限り「タッチ決済」か「自分で端末に差し込む」運用を徹底する。</li>
+</ul></li>
+</ul>
 </section>
 <section id="黒い磁気テープから金色のicチップへ-スキミング撲滅の歴史" class="slide level3">
 <h3>黒い磁気テープから「金色のICチップ」へ —— スキミング撲滅の歴史</h3>
@@ -4708,7 +4725,7 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <section id="比較磁気ストライプ-vs-接触icチップのセキュリティ" class="slide level3">
 <h3>【比較】磁気ストライプ vs 接触ICチップのセキュリティ</h3>
 
-<img data-src="images/card_chip_vs_mag.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><div title="静的データから動的認証へ">
+<img data-src="images/card_chip_vs_mag.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"><div title="静的データから動的認証へ">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -4835,7 +4852,7 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
     participant U as "ユーザー (iPhone)"
     participant S as "ネットショップ"
     participant N as "カード会社"
-    U-&gt;&gt;S: Apple Payで支払い (メダル/トークン送信)
+    U-&gt;&gt;S: Apple Payで支払い (トークン送信)
     Note over S: 本物のカード番号は&lt;br/&gt;ショップに一切伝わらない！
     S-&gt;&gt;N: トークンを照会
     N--&gt;&gt;S: 決済承認 ✅
@@ -4845,21 +4862,9 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 </div>
 </div>
 </div>
-<div title="💡 ネット通販での安心">
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>💡 ネット通販での安心</strong></p>
-</div>
-<div class="callout-content">
-<p>カード番号を直接入力させられるサイトより、Apple Pay / Google Pay対応サイトで支払う方が圧倒的に安全です。</p>
-</div>
-</div>
-</div>
-</div>
+<ul>
+<li><strong>安全性の本質</strong>：ショップ側に本物のカード番号が一切渡らないため、店舗サーバーが情報漏洩を起こしても不正利用のリスクがありません。</li>
+</ul>
 </section>
 <section id="iphoneの安全性を支える心臓部secure-element金庫チップ" class="slide level3">
 <h3>iPhoneの安全性を支える心臓部「Secure Element（金庫チップ）」</h3>
@@ -4982,7 +4987,11 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <p><strong>🛡️ アプリを開かずに一発解約する裏技</strong></p>
 </div>
 <div class="callout-content">
-<p>アプリ内の迷路を探す必要はありません！ * <strong>iPhone</strong>：「設定」→「自分の名前」→<strong>「サブスクリプション」</strong>から一覧確認＆一発解約！ * <strong>Android</strong>：「Google Play」→「アイコン」→<strong>「お支払いと定期購入」</strong>から解約！</p>
+<p>アプリ内の迷路を探す必要はありません！</p>
+<ul>
+<li><strong>iPhone</strong>：「設定」→「自分の名前」→<strong>「サブスクリプション」</strong>から一覧確認＆一発解約！</li>
+<li><strong>Android</strong>：「Google Play」→「アイコン」→<strong>「お支払いと定期購入」</strong>から解約！</li>
+</ul>
 </div>
 </div>
 </div>
@@ -5040,8 +5049,8 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <h3>3Dセキュア 2.0 —— 買い物の最後に飛んでくる画面</h3>
 <h4 id="aiによるリスクベース認証">🛡️ AIによる「リスクベース認証」</h4>
 <ul>
-<li><strong>低リスク判定（いつものスマホ、いつもの配送先、通常時間帯）</strong>： 追加のパスワード入力なしで一瞬で決済完了（フリクションレス・フロー）。全体の9割以上はこれ！</li>
-<li><strong>高リスク判定（深夜の初見高額品、海外IP、不審な端末環境）</strong>： 怪しいとAIが判断した時だけ、ワンタイムパスワードやスマホの生体認証（チャレンジ・フロー）を発動！</li>
+<li><p><strong>低リスク判定（いつものスマホ、いつもの配送先、通常時間帯）</strong>： 追加のパスワード入力なしで一瞬で決済完了（フリクションレス・フロー）。全体の9割以上はこれ！</p></li>
+<li><p><strong>高リスク判定（深夜の初見高額品、海外IP、不審な端末環境）</strong>： 怪しいとAIが判断した時だけ、ワンタイムパスワードやスマホの生体認証（チャレンジ・フロー）を発動！</p></li>
 </ul>
 </section>
 <section id="図解3dセキュア2.0-リスクベース認証フロー" class="slide level3">
@@ -5600,8 +5609,8 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 </div>
 <div class="callout-content">
 <ul>
-<li><strong>中央集権（銀行）</strong>： 学級委員が一人で連絡帳を書く。学級委員がサボったり、後からこっそり消しゴムで書き換えても誰も気づけない。</li>
-<li><strong>分散型台帳（ブロックチェーン）</strong>： 先生が黒板に書いた連絡事項を、<strong>クラス40人全員が自分のノートに一言一句同じように書き写す</strong>。 もし誰か1人が「宿題はなし」とズルして改ざんしても、<strong>残り39人のノートと突き合わせれば一瞬で「お前のノートだけ嘘だ！」とバレて却下</strong>される！</li>
+<li><p><strong>中央集権（銀行）</strong>： 学級委員が一人で連絡帳を書く。学級委員がサボったり、後からこっそり消しゴムで書き換えても誰も気づけない。</p></li>
+<li><p><strong>分散型台帳（ブロックチェーン）</strong>： 先生が黒板に書いた連絡事項を、<strong>クラス40人全員が自分のノートに一言一句同じように書き写す</strong>。 もし誰か1人が「宿題はなし」とズルして改ざんしても、<strong>残り39人のノートと突き合わせれば一瞬で「お前のノートだけ嘘だ！」とバレて却下</strong>される！</p></li>
 </ul>
 </div>
 </div>
@@ -5710,7 +5719,7 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <section id="イメージ改ざんを数学的に無効化するハッシュチェーン" class="slide level3">
 <h3>【イメージ】改ざんを数学的に無効化するハッシュチェーン</h3>
 
-<img data-src="images/blockchain_tamper.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><div title="過去を書き換えると鎖が断裂する">
+<img data-src="images/blockchain_tamper.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"><div title="過去を書き換えると鎖が断裂する">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -5837,8 +5846,8 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 </div>
 <div class="callout-content">
 <ul>
-<li><strong>従来の契約（お店）</strong>： 店員（人間）に注文を伝え、代金を渡し、店員がレジを打ち、商品を受け取る（仲介者が必要）。</li>
-<li><strong>自動販売機（スマートコントラクト）</strong>： 「150円が投入されたら、ジュースのストッパーを解除して落下させる」という条件が機械に組み込まれている。 店員がいなくても、<strong>条件が満たされれば誰の許可もいらず自動的・不可逆的に契約が完了</strong>する！</li>
+<li><p><strong>従来の契約（お店）</strong>： 店員（人間）に注文を伝え、代金を渡し、店員がレジを打ち、商品を受け取る（仲介者が必要）。</p></li>
+<li><p><strong>自動販売機（スマートコントラクト）</strong>： 「150円が投入されたら、ジュースのストッパーを解除して落下させる」という条件が機械に組み込まれている。 店員がいなくても、<strong>条件が満たされれば誰の許可もいらず自動的・不可逆的に契約が完了</strong>する！</p></li>
 </ul>
 </div>
 </div>
@@ -5868,17 +5877,32 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 </div>
 </div>
 </div>
-<div title="🤖 「コードが法律（Code is Law）」の世界">
+</section>
+<section id="スマートコントラクトの特徴コードが法律code-is-law" class="slide level3">
+<h3>スマートコントラクトの特徴：コードが法律（Code is Law）</h3>
+<ul>
+<li><strong>仲介者の完全排除</strong>：
+<ul>
+<li>銀行、証券会社、弁護士、不動産登記所などを一切介さずに取引を実行。</li>
+<li>中抜き手数料の劇的削減と、人間による着服・改ざんの余地を排除。</li>
+</ul></li>
+<li><strong>不可逆的な強制力</strong>：
+<ul>
+<li>一度ブロックチェーンに刻まれたプログラムは、開発者であっても勝手に書き換えることはできない。</li>
+<li>条件が満たされれば、感情や都合を挟まず100%機械的・自動的に実行される。</li>
+</ul></li>
+</ul>
+<div title="自律分散型アプリケーション（dApps）の基盤">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>🤖 「コードが法律（Code is Law）」の世界</strong></p>
+<p><strong>自律分散型アプリケーション（dApps）の基盤</strong></p>
 </div>
 <div class="callout-content">
-<p>仲介者（銀行、弁護士、登記所）を一切介さず、プログラムが条件通りに機械的・不可逆的に実行されるため、中抜き手数料の削減と不正防止が同時に実現します。</p>
+<p>この仕組みを応用することで、貸出・取引を行う分散型金融（DeFi）や、中央管理者のいない自律分散型組織（DAO）が誕生しました。</p>
 </div>
 </div>
 </div>
@@ -5941,17 +5965,31 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 </div>
 </div>
 </div>
-<div title="⚠️ デペッグ（乖離）のリスク">
+</section>
+<section id="ステーブルコインの構造とデペッグ乖離リスク" class="slide level3">
+<h3>ステーブルコインの構造とデペッグ（乖離）リスク</h3>
+<ul>
+<li><strong>1:1ペッグの成立要件</strong>：
+<ul>
+<li>運営企業（Tether社、Circle社など）が、発行したトークンと同額の米ドル現金を保有し続けることで信用が保たれる。</li>
+</ul></li>
+<li><strong>デペッグ（価格乖離）の危険性</strong>：
+<ul>
+<li>準備金の不足や不正疑惑が生じると、取り付け騒ぎ（パニック売り）が発生し、「1コイン＝1ドル」が割り込む暴落を引き起こす。</li>
+<li>2022年の無担保型（アルゴリズム型）ステーブルコイン「Terra/UST」の崩壊では、数十兆円規模の市場資産がわずか数日で消滅した。</li>
+</ul></li>
+</ul>
+<div title="⚠️ 監査報告と透明性の重要性">
 <div class="callout callout-warning callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>⚠️ デペッグ（乖離）のリスク</strong></p>
+<p><strong>⚠️ 監査報告と透明性の重要性</strong></p>
 </div>
 <div class="callout-content">
-<p>運営企業が本当に同額の裏付け資産を保有しているかどうかの「透明性（監査報告）」が生命線です。準備金不足が疑われると、1ドルの連動が崩れる「デペッグ騒動」が発生します。</p>
+<p>近年は、米国債など高流動性の裏付け資産の監査報告書（Attestation）を毎月公開する「USDC」のような規制準拠型コインが主流になりつつあります。</p>
 </div>
 </div>
 </div>
@@ -6109,21 +6147,24 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 </div>
 </div>
 </div>
-<div title="ホットウォレットとコールドウォレット">
-<div class="callout callout-warning callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>ホットウォレットとコールドウォレット</strong></p>
-</div>
-<div class="callout-content">
-<p>コインチェックやDMM Bitcoinの事件では、本来ネットから切り離すべき暗号資産の秘密鍵がネットワークに繋がった状態（ホットウォレット）で管理されていた隙を突かれました。</p>
-</div>
-</div>
-</div>
-</div>
+</section>
+<section id="取引所ハッキングの真相ホットウォレットと秘密鍵" class="slide level3">
+<h3>取引所ハッキングの真相：ホットウォレットと秘密鍵</h3>
+<ul>
+<li><strong>ブロックチェーン自体の安全性</strong>：
+<ul>
+<li>ビットコイン本体のネットワークが外部ハッカーに突破されたことは<strong>過去15年以上一度もない</strong>。</li>
+</ul></li>
+<li><strong>狙われるのは「取引所の秘密鍵管理」</strong>：
+<ul>
+<li><strong>ホットウォレット</strong>：ネットに常時接続されたサーバー。利便性は高いがサイバー攻撃の格好の標的。</li>
+<li><strong>コールドウォレット</strong>：物理的にネットから遮断された端末・金庫。安全だが即座の送金には手間がかかる。</li>
+</ul></li>
+<li><strong>コインチェックやDMM Bitcoin等の巨額流出</strong>：
+<ul>
+<li>本来オフライン（コールド）に置くべき秘密鍵が、運用上の不手際や標的型攻撃でホットウォレット側から奪取されたことが原因。</li>
+</ul></li>
+</ul>
 </section>
 <section id="自己責任の鉄則-秘密鍵を失うと財産は永久消滅" class="slide level3">
 <h3>「自己責任」の鉄則 —— 秘密鍵を失うと財産は永久消滅</h3>
@@ -6421,21 +6462,21 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 </div>
 </div>
 </div>
-<div title="🪙 「無料」の対価はあなたのアテンション（注意・時間）">
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>🪙 「無料」の対価はあなたのアテンション（注意・時間）</strong></p>
-</div>
-<div class="callout-content">
-<p>利用者は金銭を払っていない代わりに、自分自身の行動データと広告を見る「時間（アテンション）」をプラットフォームに差し出しています。</p>
-</div>
-</div>
-</div>
-</div>
+</section>
+<section id="無料の対価はあなたのアテンション注意と時間" class="slide level3">
+<h3>🪙 「無料」の対価はあなたのアテンション（注意と時間）</h3>
+<h4 id="利用者が差し出している本当のコスト">👁️ 利用者が差し出している本当のコスト</h4>
+<ul>
+<li><strong>「あなたが代金を払っていないなら、あなた自身が商品である」</strong>
+<ul>
+<li>金銭を払わない代わりに、自分の詳細な行動履歴・趣味・人間関係をデータとして提供。</li>
+</ul></li>
+<li><strong>アテンション・エコノミー（関心経済）</strong>：
+<ul>
+<li>プラットフォームの至上命題は<strong>「いかにユーザーの目を1秒でも長く画面に釘付けにするか」</strong>。</li>
+<li>通知バッジ（赤丸）、無限スクロール、おすすめ動画など、心理学・脳科学を応用したUIで滞在時間を最大化させています。</li>
+</ul></li>
+</ul>
 </section>
 <section id="クリエイターの収益化と投げ銭" class="slide level3">
 <h3>クリエイターの収益化と「投げ銭」</h3>
@@ -6802,7 +6843,7 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <section id="イメージフィルターバブル情報の泡に包まれた私たち" class="slide level3">
 <h3>【イメージ】フィルターバブル：情報の泡に包まれた私たち</h3>
 
-<img data-src="images/filter_bubble.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><div title="🫧 心地よい泡の外側に広がる世界">
+<img data-src="images/filter_bubble.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"><div title="🫧 心地よい泡の外側に広がる世界">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -6812,7 +6853,7 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <p><strong>🫧 心地よい泡の外側に広がる世界</strong></p>
 </div>
 <div class="callout-content">
-<p>アルゴリズムはあなたを喜ばせる情報だけを泡の中に入れます。その結果、泡の外側にある「客観的事実」や「異なる視点」が見えなくなってしまいます。</p>
+<p>アルゴリズムは好む情報だけを届けます。その結果、泡の外側にある「客観的事実」や「異なる視点」が見えなくなってしまいます。</p>
 </div>
 </div>
 </div>
@@ -6934,21 +6975,22 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 </div>
 </div>
 </div>
-<div title="⚖️ ネット空間に「完全な匿名」は存在しない">
-<div class="callout callout-caution callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>⚖️ ネット空間に「完全な匿名」は存在しない</strong></p>
-</div>
-<div class="callout-content">
-<p>発信者がいくら捨てアカウントを使っても、通信キャリア（docomo、au、ソフトバンク等）のSIMカード契約者情報と通信ログが直結しているため、裁判所命令により100%特定されます。</p>
-</div>
-</div>
-</div>
-</div>
+</section>
+<section id="ネット空間に完全な匿名は存在しない" class="slide level3">
+<h3>⚖️ ネット空間に「完全な匿名」は存在しない！</h3>
+<h4 id="sim契約と通信ログの絶対的な紐付け">📡 SIM契約と通信ログの絶対的な紐付け</h4>
+<ul>
+<li><strong>「捨て垢」でも逃げられない理由</strong>：
+<ul>
+<li>発信者がどんな偽名を使っても、接続元のIPアドレスとタイムスタンプが記録される。</li>
+<li>裁判所命令により、docomo、au、SoftBank等の<strong>SIMカード契約者情報（本名・現住所・銀行口座）</strong>が特定されます。</li>
+</ul></li>
+<li><strong>加害者を待つ厳しい現実</strong>：
+<ul>
+<li>裁判費用・調査費用（数十万〜百万円単位）＋慰謝料の損害賠償請求。</li>
+<li>勤務先や学校への通知、就職・内定への深刻な影響（前科・民事判決）。</li>
+</ul></li>
+</ul>
 </section>
 <section id="リポストリツイートしただけでも有罪" class="slide level3">
 <h3>リポスト（リツイート）しただけでも有罪！？</h3>
@@ -7139,7 +7181,7 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <section id="イメージクラウドコンピューティングの構造" class="slide level3">
 <h3>【イメージ】クラウドコンピューティングの構造</h3>
 
-<img data-src="images/cloud_architecture.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><div title="手元の端末から雲の上のデータセンターへ">
+<img data-src="images/cloud_architecture.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"><div title="手元の端末から雲の上のデータセンターへ">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -7155,23 +7197,39 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 </div>
 </div>
 </section>
-<section id="クラウドサービスの3層モデルsaas-paas-iaas" class="slide level3">
-<h3>クラウドサービスの3層モデル（SaaS / PaaS / IaaS）</h3>
-<h4 id="どこまでサービス提供会社に任せるかの違い">🏗️ 「どこまでサービス提供会社に任せるか」の違い</h4>
+<section id="最も身近なクラウドsaasサース" class="slide level3">
+<h3>最も身近なクラウド「SaaS（サース）」</h3>
+<h4 id="完成したソフトウェアをブラウザから利用">📦 完成したソフトウェアをブラウザから利用</h4>
 <ul>
-<li><strong>SaaS（Software as a Service：サース）</strong>：
+<li><strong>SaaS（Software as a Service）とは</strong>：
 <ul>
-<li>完成したソフトウェアをネット経由で利用（利用者は使うだけ）。</li>
-<li>例：Google Workspace, Microsoft 365, LINE, Zoom, Notion</li>
+<li>面倒なインストールやアップデートが不要で、ネット経由ですぐに使える完成品サービス。</li>
 </ul></li>
+<li><strong>代表的なSaaS</strong>：
+<ul>
+<li><strong>オフィス業務</strong>：Google Workspace（Docs/Sheets）, Microsoft 365</li>
+<li><strong>コミュニケーション</strong>：LINE, Slack, Zoom, Teams</li>
+<li><strong>ノート・タスク管理</strong>：Notion, Trello</li>
+</ul></li>
+<li><strong>メリット</strong>：
+<ul>
+<li>スマホ、PC、タブレットどこからログインしても同じ作業環境が再現される！</li>
+</ul></li>
+</ul>
+</section>
+<section id="開発インフラを支えるpaasとiaas" class="slide level3">
+<h3>開発・インフラを支える「PaaS」と「IaaS」</h3>
+<h4 id="土台と計算インフラを借りるプロの世界">⚙️🖥️ 土台と計算インフラを借りるプロの世界</h4>
+<ul>
 <li><strong>PaaS（Platform as a Service：パース）</strong>：
 <ul>
-<li>アプリを動かすための「土台（OS・ミドルウェア・実行環境）」を提供。開発者はコードを書くだけ。</li>
+<li>アプリを動かすための「土台（OS・ミドルウェア・実行環境）」を提供。</li>
+<li>開発者はサーバー設定を気にせず、プログラムコードを書くだけで世界中に公開可能。</li>
 <li>例：Google App Engine, Heroku, AWS Elastic Beanstalk</li>
 </ul></li>
 <li><strong>IaaS（Infrastructure as a Service：アイアース）</strong>：
 <ul>
-<li>仮想サーバー、CPU/GPU、ストレージ、ネットワークなど「インフラ基盤そのもの」を提供。</li>
+<li>仮想サーバー（CPU/GPU）、大容量ストレージ、ネットワークなど「ハード基盤そのもの」を提供。</li>
 <li>例：AWS EC2, Microsoft Azure VM, Google Compute Engine</li>
 </ul></li>
 </ul>
@@ -7265,21 +7323,24 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 </div>
 </div>
 </div>
-<div title="✨ 差分同期の高速性">
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>✨ 差分同期の高速性</strong></p>
-</div>
-<div class="callout-content">
-<p>ファイル全体を再送信するのではなく、「修正・追記された箇所だけ（差分）」を暗号化して高速同期するため、大容量ファイルでも数秒で全端末に反映されます。</p>
-</div>
-</div>
-</div>
-</div>
+</section>
+<section id="クラウド同期の秘密超高速な差分同期" class="slide level3">
+<h3>✨ クラウド同期の秘密：超高速な「差分同期」</h3>
+<h4 id="なぜ数gbのファイルでも一瞬で同期されるのか">⚡ なぜ数GBのファイルでも一瞬で同期されるのか？</h4>
+<ul>
+<li><strong>丸ごと再送信の無駄を排除</strong>：
+<ul>
+<li>ファイル全体を送り直すのではなく、<strong>「追記・修正された部分（差分ブロック）だけ」を暗号化して高速同期</strong>！</li>
+</ul></li>
+<li><strong>マルチデバイスの同時編集</strong>：
+<ul>
+<li>ノートPCでレポートの1行目を直した瞬間、スマホ画面の1行目も数秒でリアルタイムに書き換わる。</li>
+</ul></li>
+<li><strong>コンフリクト（競合）の防止</strong>：
+<ul>
+<li>オフライン中に別々の端末で編集した場合、両方の版を残してファイル名の末尾に「（競合コピー）」を付けてデータ消失を防ぐ仕組み。</li>
+</ul></li>
+</ul>
 </section>
 <section id="写真動画用クラウドとai検索の進化" class="slide level3">
 <h3>写真・動画用クラウドとAI検索の進化</h3>
@@ -7328,20 +7389,34 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <h3>大学のDX —— メールシステムのクラウド移行（獨協大学の事例）</h3>
 <h4 id="学内サーバーからmicrosoft-365exchange-onlineへ">🏫 学内サーバーからMicrosoft 365（Exchange Online）へ</h4>
 <ul>
-<li><strong>従来のシステム</strong>：
+<li><strong>従来のオンプレミス運用</strong>：
 <ul>
-<li>大学が自前のメールサーバー（オンプレミス）を構築し、Webメール（<code>webmail.dokkyo.ac.jp</code>）を提供。</li>
-<li>サーバーの老朽化、容量制限、スパム対策の負担が課題。</li>
+<li>大学が自前のメールサーバーを構築・管理（<code>webmail.dokkyo.ac.jp</code>）。</li>
+<li>機器の老朽化、容量制限、スパム対策の負担が限界に。</li>
 </ul></li>
-<li><strong>2024年10月のMicrosoft 365への完全移行</strong>：
+<li><strong>Microsoft 365への完全移行（2024年10月）</strong>：
 <ul>
-<li>メール基盤をクラウド（Exchange Online）へ移行し、大容量ストレージとTeams・OneDriveとの連携を実現。</li>
-<li><strong>外部アクセス時の多要素認証（MFA）必須化</strong>：学外からアクセスする際はスマホ認証を義務付け、不正アクセスを鉄壁防御！</li>
+<li>メール基盤をクラウドへ移行し、大容量化とTeams・OneDrive連携を実現。</li>
+<li><strong>学外アクセス時の多要素認証（MFA）必須化</strong>：スマホ認証によりアカウント乗っ取りを鉄壁防御！</li>
 </ul></li>
-<li><strong>LMS（manaba）と教務システム（Porta II）の役割分担</strong>：
+</ul>
+</section>
+<section id="大学システムのハイブリッド構造クラウド-vs-学内管理" class="slide level3">
+<h3>大学システムのハイブリッド構造（クラウド vs 学内管理）</h3>
+<h4 id="用途に応じたクラウドとオンプレミスの使い分け">🎓 用途に応じたクラウドとオンプレミスの使い分け</h4>
 <ul>
-<li>授業支援（manaba）：学外クラウドで柔軟に運用。</li>
-<li>成績・学籍（Porta II）：極めて厳重な個人情報のため学内管理（オンプレミス）を併用。</li>
+<li><strong>授業支援システム（manaba）</strong>：
+<ul>
+<li>学外クラウド（SaaS）で柔軟に運用。</li>
+<li>レポート提出や講義資料の配布など、アクセス集中に強いクラウドの利点を活用。</li>
+</ul></li>
+<li><strong>教務・成績システム（Porta II）</strong>：
+<ul>
+<li>極めて厳重な個人情報・成績データのため、学内ネットワーク（オンプレミス）と厳重に連携。</li>
+</ul></li>
+<li><strong>教訓</strong>：
+<ul>
+<li>大学のような大規模組織でも、「すべてクラウド」ではなく重要度に応じた<strong>ハイブリッド構成</strong>が標準！</li>
 </ul></li>
 </ul>
 </section>
@@ -7351,17 +7426,27 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <ul>
 <li><strong>Git（ギット）</strong>：
 <ul>
-<li>ソースコードや文章の「変更履歴」をタイムマシンのように記録・管理する分散型バージョン管理ツール。</li>
+<li>ソースコードや文章の「変更履歴」をタイムマシンのように記録・管理する分散型ツール。</li>
 </ul></li>
 <li><strong>GitHub（ギットハブ）</strong>：
 <ul>
 <li>Gitの台帳（リポジトリ）をクラウド上に保存・共有できる世界最大のWebサービス（Microsoft傘下）。</li>
-<li>オープンソース（OSS）の開発拠点、複数エンジニアによる共同開発の標準。</li>
+<li>世界中のエンジニアがオープンソース開発や共同作業を行う「プログラマーのインフラ」。</li>
 </ul></li>
-<li><strong>最新の進化</strong>：
+</ul>
+</section>
+<section id="クラウド開発の最前線-github-copilot-と-codespaces" class="slide level3">
+<h3>クラウド開発の最前線 —— GitHub Copilot と Codespaces</h3>
+<h4 id="パソコンに開発環境を作らない時代へ">🤖 パソコンに開発環境を作らない時代へ</h4>
 <ul>
-<li><strong>GitHub Copilot</strong>：AIがプログラマーの意図を汲んでコードを自動生成。</li>
-<li><strong>GitHub Codespaces</strong>：ローカルPCに環境を作らなくても、ブラウザだけで5秒でクラウド開発環境が起動！</li>
+<li><strong>GitHub Copilot（AIペアプログラミング）</strong>：
+<ul>
+<li>クラウド上のLLMがプログラマーのコードをリアルタイムで自動補完・生成。</li>
+</ul></li>
+<li><strong>GitHub Codespaces（クラウド開発環境）</strong>：
+<ul>
+<li>重い開発ソフトをパソコンにインストールする必要がない。</li>
+<li>ブラウザを開くだけで、雲の上の強力な仮想マシンで5秒で開発がスタート！</li>
 </ul></li>
 </ul>
 </section>
@@ -7961,7 +8046,7 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <section id="比較5g-sub-6広域回り込み-vs-ミリ波超高速直進" class="slide level3">
 <h3>【比較】5G Sub-6（広域回り込み） vs ミリ波（超高速直進）</h3>
 
-<img data-src="images/fiveg_sub6_vs_mmwave.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><div title="周波数による電波の飛び方の違い">
+<img data-src="images/fiveg_sub6_vs_mmwave.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"><div title="周波数による電波の飛び方の違い">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -7971,7 +8056,7 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <p><strong>周波数による電波の飛び方の違い</strong></p>
 </div>
 <div class="callout-content">
-<p>Sub-6はビルの陰や屋内へ回り込んで広範囲をカバーします。一方、ミリ波はギガビット級の爆速ですが直進性が高く、ガラスや壁で反射・遮断されやすい特徴があります。</p>
+<p>Sub-6はビルの陰へ回り込んで広域カバー。ミリ波は爆速ですが直進性が高く壁で遮断されやすい特性を持ちます。</p>
 </div>
 </div>
 </div>
@@ -8041,7 +8126,7 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <section id="図解スマホ直結衛星通信空が見えれば圏外ゼロへ" class="slide level3">
 <h3>【図解】スマホ直結衛星通信：空が見えれば圏外ゼロへ</h3>
 
-<img data-src="images/satellite_comm.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><div title="地上基地局から宇宙のスターリンクへ">
+<img data-src="images/satellite_comm.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"><div title="地上基地局から宇宙のスターリンクへ">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -8051,7 +8136,7 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <p><strong>地上基地局から宇宙のスターリンクへ</strong></p>
 </div>
 <div class="callout-content">
-<p>山岳遭難や大地震で地上の電波塔が全滅しても、空が開けていれば上空数百kmを周回する低軌道衛星と直接通信がつながり、命を救う通信インフラになります。</p>
+<p>地上の電波塔が全滅しても、上空の低軌道衛星と直接電波を送受信して命を救うインフラになります。</p>
 </div>
 </div>
 </div>
@@ -8072,17 +8157,17 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <section id="構造図深海底の水圧と障害に耐える海底光ケーブルの断面" class="slide level3">
 <h3>【構造図】深海底の水圧と障害に耐える「海底光ケーブル」の断面</h3>
 
-<img data-src="images/submarine_cable.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"><div title="髪の毛ほどの細さの光ファイバーを守る強固な多重構造">
+<img data-src="images/submarine_cable.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"><div title="細い光ファイバーを守る多重防護">
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>髪の毛ほどの細さの光ファイバーを守る強固な多重構造</strong></p>
+<p><strong>細い光ファイバーを守る多重防護</strong></p>
 </div>
 <div class="callout-content">
-<p>中心にある光ファイバー芯線を、高張力鋼線、アルミ遮水層、ポリカーボネート、絶縁ポリエチレンなどの強固な層で何重にも保護し、水深数千mの超高水圧や地震から守っています。</p>
+<p>中心の光ファイバーを鋼線や絶縁層で何重にも保護し、水深数千mの水圧や地震に耐える構造です。</p>
 </div>
 </div>
 </div>
@@ -8444,8 +8529,8 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <li>1秒間に何コマ？ 映画（24fps）とテレビ（30fps）とゲーム（60/120fps）の違いとは？</li>
 </ul>
 </section>
-<section id="画素ピクセルと画面解像度" class="slide level3">
-<h3>画素（ピクセル）と画面解像度</h3>
+<section id="画素ピクセルとは何か" class="slide level3">
+<h3>画素（ピクセル）とは何か？</h3>
 <h4 id="光の3原色が集まって映像を作る">🔴🟢🔵 光の3原色が集まって映像を作る</h4>
 <ul>
 <li><strong>ピクセル（Pixel / 画素）</strong>：
@@ -8453,13 +8538,31 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <li>デジタル画像を構成する最小単位の「点」。</li>
 <li>拡大すると、<strong>赤（Red）・緑（Green）・青（Blue）</strong>の3つの微小な光の明るさで無数の色を表現。</li>
 </ul></li>
-<li><strong>画面解像度（Resolution）</strong>：
+<li><strong>画面の網目</strong>：
 <ul>
-<li>画面に並んでいるピクセルの「横 × 縦」の総数。</li>
-<li><strong>SD画質（昔のDVD・アナログ放送）</strong>：720 × 480（約35万画素）</li>
-<li><strong>フルHD（地デジ・Blu-ray）</strong>：1920 × 1080（約207万画素）</li>
-<li><strong>4K（最新テレビ・配信）</strong>：3840 × 2160（<strong>約829万画素＝フルHDの4倍！</strong>）</li>
-<li><strong>8K</strong>：7680 × 4320（約3318万画素＝フルHDの16倍！）</li>
+<li>ディスプレイに顔を近づけて虫眼鏡で見ると、赤・緑・青の極小の光の粒（サブピクセル）が並んでいるのが見えます。</li>
+</ul></li>
+</ul>
+</section>
+<section id="画面解像度の進化-sdから4k8kへ" class="slide level3">
+<h3>画面解像度の進化 —— SDから4K・8Kへ</h3>
+<h4 id="ピクセルの横-縦の総数">📐 ピクセルの「横 × 縦」の総数</h4>
+<ul>
+<li><strong>SD画質（昔のDVD・アナログ放送）</strong>：
+<ul>
+<li>720 × 480（約35万画素）</li>
+</ul></li>
+<li><strong>フルHD（地上波デジタル・Blu-ray）</strong>：
+<ul>
+<li>1920 × 1080（約207万画素）</li>
+</ul></li>
+<li><strong>4K（最新テレビ・配信・PS5）</strong>：
+<ul>
+<li>3840 × 2160（<strong>約829万画素＝フルHDの4倍！</strong>）</li>
+</ul></li>
+<li><strong>8K（超高精細放送）</strong>：
+<ul>
+<li>7680 × 4320（約3318万画素＝フルHDの16倍！）</li>
 </ul></li>
 </ul>
 </section>
@@ -8525,17 +8628,17 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <section id="比較インターレース走査1080i-vs-プログレッシブ走査1080p" class="slide level3">
 <h3>【比較】インターレース走査（1080i） vs プログレッシブ走査（1080p）</h3>
 
-<img data-src="images/interlace_vs_progressive_scan.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><div title="画面の塗りつぶし方の決定的な違い">
+<img data-src="images/interlace_vs_progressive_scan.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><div title="画面の塗りつぶし方の違い">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>画面の塗りつぶし方の決定的な違い</strong></p>
+<p><strong>画面の塗りつぶし方の違い</strong></p>
 </div>
 <div class="callout-content">
-<p>インターレースは奇数行・偶数行を交互に送るため、動きの速いスポーツで横縞ノイズが発生します。一方、プログレッシブは上から順に全走査線を一気に描くため、ブレずにくっきり滑らかな映像になります。</p>
+<p>地デジ（1080i）は電波節約のため奇数・偶数行を交互に送信。ネット配信（1080p）は1行ずつ全行を描くためブレずに鮮明です。</p>
 </div>
 </div>
 </div>
@@ -8629,15 +8732,8 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 </ul></li>
 </ul>
 </section>
-<section id="図解著作権保護技術hdcpの秘密" class="slide level3">
-<h3>【図解】著作権保護技術「HDCP」の秘密</h3>
-<h4 id="画面に届くまで映像を暗号化して盗難を防ぐ">🔐 画面に届くまで映像を暗号化して盗難を防ぐ</h4>
-<ul>
-<li><strong>HDCP（High-bandwidth Digital Content Protection）</strong>：
-<ul>
-<li>映像を再生する機器（ゲーム機、PC、Blu-ray）と、表示するディスプレイの間で<strong>暗号化ハンドシェイク</strong>を実行！</li>
-</ul></li>
-</ul>
+<section id="図解著作権保護技術hdcpの暗号化ハンドシェイク" class="slide level3">
+<h3>【図解】著作権保護技術「HDCP」の暗号化ハンドシェイク</h3>
 <div class="cell" data-reveal="true" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -8646,7 +8742,7 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <pre class="mermaid mermaid-js">flowchart LR
     A["🎮 再生機器&lt;br/&gt;（PS5 / レコーダー / PC）"] --&gt;|① 暗号鍵の相互認証| B["📺 ディスプレイ&lt;br/&gt;（テレビ / モニタ）"]
     A --&gt;|② 暗号化された映像信号を伝送| B
-    B --&gt;|③ ディスプレイ内部で復号して表示| B
+    B --&gt;|③ 内部で復号して表示| B
     
     H["🦹 キャプチャ機器 / 海賊版コピー機&lt;br/&gt;（HDCP非対応）"] -.-&gt;|途中で抜き取ろうとする| A
     style H fill:#ffebee,stroke:#c62828,stroke-width:2px
@@ -8657,21 +8753,25 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 </div>
 </div>
 </div>
-<div title="⚠️ 画面が真っ暗になる原因">
-<div class="callout callout-warning callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>⚠️ 画面が真っ暗になる原因</strong></p>
-</div>
-<div class="callout-content">
-<p>HDCP非対応の古いモニタや怪しい分配器に繋ぐと、著作権保護が働き、Netflixやゲーム画面が真っ暗になって映りません。</p>
-</div>
-</div>
-</div>
-</div>
+</section>
+<section id="hdcpの落とし穴-画面が真っ暗になる原因" class="slide level3">
+<h3>⚠️ HDCPの落とし穴 —— 画面が真っ暗になる原因</h3>
+<h4 id="著作権保護が画面をブラックアウトさせる">🔐 著作権保護が画面をブラックアウトさせる</h4>
+<ul>
+<li><strong>HDCP（High-bandwidth Digital Content Protection）</strong>：
+<ul>
+<li>映像を再生する機器とディスプレイ間で暗号鍵を確かめ合う海賊版防止規格。</li>
+</ul></li>
+<li><strong>画面が真っ暗になるケース</strong>：
+<ul>
+<li>HDCP非対応の古いPCモニタやプロジェクターに繋いだとき。</li>
+<li>ネット通販で買った怪しい安物HDMI分配器やスプリッターを挟んだとき。</li>
+</ul></li>
+<li><strong>著作権保護の作動</strong>：
+<ul>
+<li>不正コピーの恐れがあると判定され、NetflixやU-NEXT、PS5の映像出力が自動停止（ブラックアウト）します！</li>
+</ul></li>
+</ul>
 </section>
 <section id="usb-type-c-の万能性と見えない落とし穴" class="slide level3">
 <h3>USB Type-C の万能性と「見えない落とし穴」</h3>
@@ -8792,29 +8892,48 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 </div>
 </div>
 </div>
-<div title="💡 放送と通信の決定的な違い">
+</section>
+<section id="放送電波と通信ネットの決定的な違い" class="slide level3">
+<h3>💡 放送（電波）と通信（ネット）の決定的な違い</h3>
+<h4 id="対無制限-vs-1対1の個別パケット">⚡ 1対無制限 vs 1対1の個別パケット</h4>
+<ul>
+<li><strong>放送（電波）の最大の強み</strong>：
+<ul>
+<li>「電波を空中に放射しているだけ」なので、<strong>視聴者が1人でも1億人でもサーバーダウンしない</strong>！</li>
+<li>緊急地震速報や国民的スポーツ中継で絶対に映像が途切れない信頼性。</li>
+</ul></li>
+<li><strong>ネット配信（通信）の宿命</strong>：
+<ul>
+<li>視聴者1人ひとりとサーバーが通信（IPパケット送受信）を行うため、アクセスが殺到すると<strong>CDNや配信サーバーがパンクして読み込み停止（くるくる）</strong>に陥る。</li>
+</ul></li>
+</ul>
+</section>
+<section id="実物写真テレビの横に刺さっていた赤いb-casカード" class="slide level3">
+<h3>【実物写真】テレビの横に刺さっていた「赤いB-CASカード」</h3>
+
+<img data-src="images/bcas_card.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"><div title="これ何のためのカード？">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>💡 放送と通信の決定的な違い</strong></p>
+<p><strong>これ何のためのカード？</strong></p>
 </div>
 <div class="callout-content">
-<p>放送は視聴者が1億人になってもサーバーダウンしません（電波を浴びるだけ）。一方、ネット配信はアクセスが集中するとCDNや配信サーバーがパンクするリスクを抱えています。</p>
+<p>かつてテレビの横に必ず刺さっていたICカード。実はテレビ放送の暗号化を解除する「秘密鍵」が入っていました。</p>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="b-casカードからacasチップへの進化" class="slide level3">
-<h3>B-CASカードから「ACASチップ」への進化</h3>
-<h4 id="テレビの横の赤いカードが消えた理由">💳 テレビの横の「赤いカード」が消えた理由</h4>
+<section id="b-casカードの正体とacasチップへの進化" class="slide level3">
+<h3>B-CASカードの正体と「ACASチップ」への進化</h3>
+<h4 id="赤いカードが最新テレビから消えた理由">💳 赤いカードが最新テレビから消えた理由</h4>
 <ul>
 <li><strong>B-CASカードの役目</strong>：
 <ul>
-<li>テレビ放送は暗号化されて送信されており、B-CASカードの中の暗号鍵を使って復号（視聴）する仕組み。</li>
+<li>テレビ放送は暗号化されて送信されており、カード内の暗号鍵を使って復号（視聴）する仕組み。</li>
 </ul></li>
 <li><strong>不正書き換え事件の発生</strong>：
 <ul>
@@ -8822,29 +8941,10 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 </ul></li>
 <li><strong>ACAS（新世代チップ）への移行</strong>：
 <ul>
-<li>2018年に始まった新4K8K衛星放送以降のテレビでは、カードを差し込む方式を全廃。</li>
+<li>2018年以降の4K8Kテレビでは、カード方式を全廃。</li>
 <li><strong>テレビ本体の基板内に高度なセキュリティチップ（ACAS）を直接ハンダ付けで内蔵</strong>し、物理的に抜き差し・改造できないように進化！</li>
 </ul></li>
 </ul>
-</section>
-<section id="実物写真暗号鍵を握っていた赤いb-casカード" class="slide level3">
-<h3>【実物写真】暗号鍵を握っていた「赤いB-CASカード」</h3>
-
-<img data-src="images/bcas_card.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"><div title="テレビの横に必ず刺さっていたICカード">
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>テレビの横に必ず刺さっていたICカード</strong></p>
-</div>
-<div class="callout-content">
-<p>放送波のスクランブル（暗号化）を解除するための鍵が入ったカード。不正改造事件を経て、現代の4K/8Kテレビでは基板に直接ハンダ付けされた「ACASチップ」へと進化し、カードスロット自体が姿を消しました。</p>
-</div>
-</div>
-</div>
-</div>
 </section>
 <section id="年-放送法の歴史的大改正-nhkネット配信義務化" class="slide level3">
 <h3>2024〜2025年 放送法の歴史的大改正 —— NHKネット配信義務化</h3>
@@ -8986,30 +9086,42 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 </ul></li>
 </ul>
 </section>
-<section id="コネクテッドtvctvとチューナーレステレビ" class="slide level3">
-<h3>コネクテッドTV（CTV）と「チューナーレステレビ」</h3>
-<h4 id="テレビは放送を受信する箱から大型スマートモニタへ">🖥️ テレビは「放送を受信する箱」から「大型スマートモニタ」へ</h4>
+<section id="コネクテッドtvctvの台頭" class="slide level3">
+<h3>コネクテッドTV（CTV）の台頭</h3>
+<h4 id="テレビは放送を受信する箱からスマートモニタへ">🖥️ テレビは「放送を受信する箱」から「スマートモニタ」へ</h4>
 <ul>
-<li><strong>コネクテッドTV（CTV）</strong>：
+<li><strong>コネクテッドTV（CTV）とは</strong>：
 <ul>
-<li>ネットに接続されたテレビ。Fire TV StickやApple TV、Google TV内蔵テレビの普及により、<strong>リビングの大画面でYouTubeやNetflixを見るのが当たり前</strong>に。</li>
+<li>インターネットに接続されたテレビ受像機の総称。</li>
+<li>Fire TV Stick、Apple TV、Google TV内蔵スマートテレビが普及。</li>
 </ul></li>
-<li><strong>チューナーレステレビの大ヒット</strong>：
+<li><strong>リビングの変化</strong>：
 <ul>
-<li>地デジやBSの受像チューナーを一切搭載せず、動画配信アプリだけが動くディスプレイ。</li>
-<li><strong>なぜ売れるのか？</strong>：
+<li>家族全員でリビングの大画面でYouTube、Netflix、TVerをリモコン操作で視聴するのが日常に。</li>
+<li>視聴時間シェアで「地上波テレビ」をネット動画配信が猛追しています。</li>
+</ul></li>
+</ul>
+</section>
+<section id="チューナーレステレビの大ヒット" class="slide level3">
+<h3>チューナーレステレビの大ヒット</h3>
+<h4 id="なぜテレビ放送が映らないテレビが売れるのか">🛒 なぜ「テレビ放送が映らないテレビ」が売れるのか？</h4>
+<ul>
+<li><strong>チューナーレステレビとは</strong>：
+<ul>
+<li>地デジやBSの受像チューナーを一切搭載せず、ネット動画アプリだけが動くディスプレイ。</li>
+</ul></li>
+<li><strong>爆発的人気の3大理由</strong>：
 <ol type="1">
-<li>チューナーがない分、<strong>4K大画面でも3〜4万円台と圧倒的に安い</strong>！</li>
-<li>テレビ放送を受信する設備ではないため、<strong>NHK受信契約が不要</strong>。</li>
-<li>「リアルタイムのテレビは見ない、YouTubeとNetflixだけで十分」という単身世帯のニーズに完全に合致。</li>
+<li><strong>圧倒的な安さ</strong>：チューナー部品代と特許料が浮くため、<strong>4K大画面でも3〜4万円台</strong>！</li>
+<li><strong>NHK受信契約の対象外</strong>：テレビ放送を受信する設備ではないため、受信料の支払いが不要。</li>
+<li><strong>若年層のライフスタイル合致</strong>：「リアルタイムの地上波は見ない、YouTubeとNetflixだけで十分」という単身世帯に最適。</li>
 </ol></li>
-</ul></li>
 </ul>
 </section>
 <section id="生活風景アンテナ線不要-コネクテッドtvのある暮らし" class="slide level3">
 <h3>【生活風景】アンテナ線不要！ コネクテッドTVのある暮らし</h3>
 
-<img data-src="images/connected_tv.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><div title="放送波からネット配信へシフトしたリビング">
+<img data-src="images/connected_tv.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"><div title="放送波からネット配信へシフトしたリビング">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -9019,7 +9131,7 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <p><strong>放送波からネット配信へシフトしたリビング</strong></p>
 </div>
 <div class="callout-content">
-<p>壁のアンテナ端子にケーブルを繋ぐことなく、Wi-Fiを通じてYouTubeやNetflix、TVerなどの動画配信サービスをリビングの4K大画面で楽しむスタイルが定着しています。</p>
+<p>壁のアンテナ線に縛られず、Wi-Fi環境さえあればリビングの4K大画面で世界中の動画配信を楽しめる時代になりました。</p>
 </div>
 </div>
 </div>

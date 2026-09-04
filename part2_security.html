@@ -244,7 +244,12 @@
 <p><strong>🛡️ 1秒で解決する対処法</strong></p>
 </div>
 <div class="callout-content">
-<p>電話をかけてはいけません！ * Windows：<code>Ctrl + W</code>（タブを閉じる）または <code>Alt + F4</code> * Mac：<code>command + W</code>（タブを閉じる） * スマホ：ブラウザのタブをゴミ箱へ捨てるだけ！</p>
+<p>電話をかけてはいけません！</p>
+<ul>
+<li>Windows：<code>Ctrl + W</code>（タブを閉じる）または <code>Alt + F4</code></li>
+<li>Mac：<code>command + W</code>（タブを閉じる）</li>
+<li>スマホ：ブラウザのタブをゴミ箱へ捨てるだけ！</li>
+</ul>
 </div>
 </div>
 </div>
@@ -299,19 +304,9 @@
 </div>
 </div>
 </div>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Note</strong></p>
-</div>
-<div class="callout-content">
-<p>正規のWebサイトは <code>X-Frame-Options: DENY</code> という設定を入れて、自サイトが他所の透明レイヤーに埋め込まれないよう防御しています。</p>
-</div>
-</div>
-</div>
+<ul>
+<li><strong>サーバー側の防御技術</strong>：正規のWebサイトは <code>X-Frame-Options: DENY</code>（またはCSPの <code>frame-ancestors</code>）を設定し、他サイトによる自画面の透明埋め込みを遮断しています。</li>
+</ul>
 </section>
 <section id="非公式modアプリと構成プロファイルの罠" class="slide level3">
 <h3>「非公式MODアプリ」と「構成プロファイル」の罠</h3>
@@ -422,6 +417,19 @@
 </div>
 </div>
 </div>
+</section>
+<section id="公衆wi-fiに潜む危険なサインと自衛策" class="slide level3">
+<h3>公衆Wi-Fiに潜む危険なサインと自衛策</h3>
+<ul>
+<li><strong>スマホの自動接続が仇になる</strong>：
+<ul>
+<li>過去に一度繋いだフリーWi-Fiと同名の電波があると、端末は警告なしに接続してしまう。</li>
+</ul></li>
+<li><strong>偽の認証画面（キャプティブポータル）の罠</strong>：
+<ul>
+<li>「利用規約同意のためSNSでログインしてください」と促し、IDとパスワードを入力させる。</li>
+</ul></li>
+</ul>
 <div title="⚠️ 危険なサイン">
 <div class="callout callout-caution callout-titled callout-style-default">
 <div class="callout-body">
@@ -441,7 +449,7 @@
 <section id="図解カフェでの中間者攻撃mitmとvpn防御" class="slide level3">
 <h3>【図解】カフェでの中間者攻撃（MitM）とVPN防御</h3>
 
-<img data-src="images/mitm_attack.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><div title="暗号化のトンネルが命綱">
+<img data-src="images/mitm_attack.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"><div title="暗号化のトンネルが命綱">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -502,7 +510,12 @@
 <section id="実践チェック" class="slide level3">
 <h3>📱 実践チェック</h3>
 <h4 id="どっちが本物クイズ">🕵️ どっちが本物？クイズ</h4>
-<p>以下のURLのうち、本物のメルカリ（<code>mercari.com</code>）はどれ？ 1. <code>https://www.mercari.com.account-update.info/login</code> 2. <code>https://mercari.com/jp/</code> 3. <code>https://login-mercari-jp.com/</code></p>
+<p>以下のURLのうち、本物のメルカリ（<code>mercari.com</code>）はどれ？</p>
+<ol type="1">
+<li><code>https://www.mercari.com.account-update.info/login</code></li>
+<li><code>https://mercari.com/jp/</code></li>
+<li><code>https://login-mercari-jp.com/</code></li>
+</ol>
 </section>
 <section id="考えてみよう振り返り" class="slide level3">
 <h3>🤔 考えてみよう（振り返り）</h3>
@@ -981,17 +994,17 @@
 <section id="図解ランサムウェア感染-vs-3-2-1バックアップ復旧" class="slide level3">
 <h3>【図解】ランサムウェア感染 vs 3-2-1バックアップ復旧</h3>
 
-<img data-src="images/ransomware_defense_visual.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><div title="バックアップを「抜いておく」ことの決定的な重要性">
+<img data-src="images/ransomware_defense_visual.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><div title="バックアップを「抜いておく（エアギャップ）」重要性">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>バックアップを「抜いておく」ことの決定的な重要性</strong></p>
+<p><strong>バックアップを「抜いておく（エアギャップ）」重要性</strong></p>
 </div>
 <div class="callout-content">
-<p>PCにUSBハードディスクを繋いだままにしていると、ウイルスが外付けドライブまで探索してバックアップごと暗号化してしまいます。「物理的にケーブルを抜いて金庫にしまう（エアギャップ）」ことで、感染しても1円も払わずに100%復旧できます。</p>
+<p>PCに外付けHDDを繋ぎっぱなしにしているとバックアップごと暗号化されます。「物理的にケーブルを抜いて保管」することで、感染しても1円も払わずに100%復旧可能です。</p>
 </div>
 </div>
 </div>
@@ -1199,8 +1212,8 @@
 <h3>利用者が守るべき基本動作① —— アカウントと端末の防衛</h3>
 <h4 id="アップデートを放置しない">1. アップデートを放置しない</h4>
 <ul>
-<li>OSやブラウザの更新は、攻撃者に狙われる「壊れた鍵穴（脆弱性）」を塞ぐ緊急工事。 #### 2. 私用USBメモリを挿さない</li>
-<li>マルウェア感染媒体や情報漏洩経路として最も事故が多い。</li>
+<li><p>OSやブラウザの更新は、攻撃者に狙われる「壊れた鍵穴（脆弱性）」を塞ぐ緊急工事。 #### 2. 私用USBメモリを挿さない</p></li>
+<li><p>マルウェア感染媒体や情報漏洩経路として最も事故が多い。</p></li>
 </ul>
 </section>
 <section id="利用者が守るべき基本動作②-シャドーitの禁止" class="slide level3">
@@ -1304,8 +1317,8 @@
 <h3>写真投稿の自衛鉄則①② —— 位置情報オフと時間差投稿</h3>
 <h4 id="カメラの位置情報オフ">1. カメラの位置情報オフ</h4>
 <ul>
-<li>自宅周辺で撮る写真は、カメラアプリの位置情報付与をオフにする。 #### 2. タイムラグ投稿</li>
-<li>「今ここにいます！」ではなく、帰宅後や数日後に投稿する。</li>
+<li><p>自宅周辺で撮る写真は、カメラアプリの位置情報付与をオフにする。 #### 2. タイムラグ投稿</p></li>
+<li><p>「今ここにいます！」ではなく、帰宅後や数日後に投稿する。</p></li>
 </ul>
 </section>
 <section id="写真投稿の自衛鉄則③-窓の外瞳の反射背景の徹底確認" class="slide level3">

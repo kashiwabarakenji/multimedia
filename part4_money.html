@@ -273,7 +273,7 @@
 <section id="現場カゴを置くだけで一瞬計算-ユニクロのrfidレジ" class="slide level3">
 <h3>【現場】カゴを置くだけで一瞬計算！ ユニクロのRFIDレジ</h3>
 
-<img data-src="images/uniqlo_rfid.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><div title="UHF帯RFIDの一括認識パワー">
+<img data-src="images/uniqlo_rfid.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"><div title="UHF帯RFIDの一括認識パワー">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -296,23 +296,20 @@
 <div>
 <p></p><figure class=""><p></p>
 <div>
-<pre class="mermaid mermaid-js">flowchart TB
-    subgraph RFID["📡 RFID（Radio Frequency Identification / 電波による自動認識の総称）"]
+<pre class="mermaid mermaid-js">flowchart LR
+    subgraph RFID["📡 RFID（電波による自動認識の総称）"]
+        direction TB
         UHF["🏷️ 広域RFID（UHF帯 / 920MHz）&lt;br/&gt;・通信距離：数メートル〜十数メートル&lt;br/&gt;・用途：ユニクロの棚卸し・物流パレット・ETC"]
-        subgraph NFC["📶 NFC（Near Field Communication / 近距離無線通信）"]
-            HF["13.56MHz帯 / 通信距離：10cm以内&lt;br/&gt;（離れると通信不能にして「誤決済・誤引き落とし」を物理的に防ぐ！）"]
-            subgraph FeliCa["⚡ FeliCa（Type-F / 日本発規格）"]
-                FELICA_DESC["・通信速度：超高速 212/424 kbps&lt;br/&gt;・認証時間：驚異の0.1秒以内！&lt;br/&gt;・用途：Suica, PASMO, iD, QUICPay"]
-            end
-            subgraph TYPEAB["💳 NFC Type-A / Type-B（世界標準規格）"]
-                AB_DESC["・用途：マイナンバーカード, 免許証, クレカのタッチ決済"]
-            end
+        subgraph NFC["📶 NFC（近距離無線通信 13.56MHz / 10cm以内）"]
+            direction TB
+            FeliCa["⚡ FeliCa（Type-F / 日本発規格）&lt;br/&gt;・驚異の0.1秒以内認証！&lt;br/&gt;・用途：Suica, PASMO, iD, QUICPay"]
+            TYPEAB["💳 Type-A / Type-B（世界標準規格）&lt;br/&gt;・用途：マイナンバーカード, 免許証&lt;br/&gt;・クレカのタッチ決済"]
         end
     end
     style RFID fill:#f5f5f5,stroke:#9e9e9e
     style UHF fill:#e3f2fd,stroke:#1976d2
     style NFC fill:#fff8e1,stroke:#ffa000,stroke-width:2px
-    style FeliCa fill:#e8f5e9,stroke:#2e7d32,stroke-width:3px
+    style FeliCa fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
     style TYPEAB fill:#ede7f6,stroke:#7b1fa2
 </pre>
 </div>
@@ -518,11 +515,11 @@
 <h3>なぜQRコードはこんなに凄いのか？ —— 4大技術的メリット</h3>
 <h4 id="圧倒的な情報量バーコードの約200倍">1. 📚 圧倒的な情報量（バーコードの約200倍）</h4>
 <ul>
-<li>英数字で最大4,296文字、数字なら7,089文字、漢字なら1,817文字を小さな四角に格納可能。 #### 2. ⚡ 360度どこからでも一瞬で読める（QR＝Quick Response）</li>
-<li>四隅の3箇所にある<strong>「切り出しシンボル（回の字マーク）」</strong>。</li>
-<li>白黒の比率が<strong>「1:1:3:1:1」</strong>という印刷物の中で最も出現しにくい黄金比率になっており、斜め・逆さま・遠くからでも瞬時に向きを検出！ #### 3. 🩹 汚れても破れても読める「誤り訂正機能（リード・ソロモン符号）」</li>
-<li>コードの一部が最大約30%汚損・欠損しても、数学的に元データを復元可能！ #### 4. 🈩 日本語（漢字・かな）にネイティブ対応</li>
-<li>日本発祥のため、世界で初めて2バイト文字を高効率にエンコード可能。</li>
+<li><p>英数字で最大4,296文字、数字なら7,089文字、漢字なら1,817文字を小さな四角に格納可能。 #### 2. ⚡ 360度どこからでも一瞬で読める（QR＝Quick Response）</p></li>
+<li><p>四隅の3箇所にある<strong>「切り出しシンボル（回の字マーク）」</strong>。</p></li>
+<li><p>白黒の比率が<strong>「1:1:3:1:1」</strong>という印刷物の中で最も出現しにくい黄金比率になっており、斜め・逆さま・遠くからでも瞬時に向きを検出！ #### 3. 🩹 汚れても破れても読める「誤り訂正機能（リード・ソロモン符号）」</p></li>
+<li><p>コードの一部が最大約30%汚損・欠損しても、数学的に元データを復元可能！ #### 4. 🈩 日本語（漢字・かな）にネイティブ対応</p></li>
+<li><p>日本発祥のため、世界で初めて2バイト文字を高効率にエンコード可能。</p></li>
 </ul>
 </section>
 <section id="図解一次元バーコード-vs-二次元qrコードの構造比較" class="slide level3">
@@ -554,10 +551,10 @@
 <h3>社会のあらゆる場所で動くQRコード —— 現代の多様な活用法</h3>
 <h4 id="キャッシュレス決済コード決済">📱 1. キャッシュレス決済（コード決済）</h4>
 <ul>
-<li>PayPay、WeChat Pay等。お店は<strong>「紙に印刷して貼るだけ（MPM）」</strong>で専用機械不要！ #### 🚚 2. 物流・在庫管理（元祖の使い道）</li>
-<li>Amazonの自動倉庫ロボット、宅配便の仕分け、メルカリの匿名配送。 #### ✈️ 3. デジタルチケット・入退場管理</li>
-<li>飛行機のモバイル搭乗券、新幹線のQR乗車、映画館・音楽ライブの入場認証。 #### 🏥 4. 医療・トレーサビリティ・行政</li>
-<li>処方箋・お薬手帳、食品の産地履歴（牛肉のトレーサビリティ）、Wi-Fi簡単接続。</li>
+<li><p>PayPay、WeChat Pay等。お店は<strong>「紙に印刷して貼るだけ（MPM）」</strong>で専用機械不要！ #### 🚚 2. 物流・在庫管理（元祖の使い道）</p></li>
+<li><p>Amazonの自動倉庫ロボット、宅配便の仕分け、メルカリの匿名配送。 #### ✈️ 3. デジタルチケット・入退場管理</p></li>
+<li><p>飛行機のモバイル搭乗券、新幹線のQR乗車、映画館・音楽ライブの入場認証。 #### 🏥 4. 医療・トレーサビリティ・行政</p></li>
+<li><p>処方箋・お薬手帳、食品の産地履歴（牛肉のトレーサビリティ）、Wi-Fi簡単接続。</p></li>
 </ul>
 </section>
 <section id="メルカリ等の匿名配送はなぜ住所を知られずに届くのか" class="slide level3">
@@ -634,7 +631,7 @@
 <section id="図解レジ待ち中の肩越し盗撮の現場" class="slide level3">
 <h3>【図解】レジ待ち中の「肩越し盗撮」の現場</h3>
 
-<img data-src="images/qr_theft.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><div title="背後のスマホカメラに警戒！">
+<img data-src="images/qr_theft.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"><div title="背後のスマホカメラに警戒！">
 <div class="callout callout-warning callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -865,21 +862,20 @@
 <section id="図解クレジットカードの表面と裏面の精密解剖図" class="slide level3">
 <h3>【図解】クレジットカードの表面と裏面の精密解剖図</h3>
 
-<img data-src="images/credit_card_anatomy.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><div title="裏面の「セキュリティコード（3桁）」は絶対に人に見せるな！">
-<div class="callout callout-warning callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>裏面の「セキュリティコード（3桁）」は絶対に人に見せるな！</strong></p>
-</div>
-<div class="callout-content">
-<p>店員にカードを裏返して預けると、スマホで裏面を撮影されたり暗記されたりして、ネット通販で即座に不正利用される事件が多発しています。店頭では「タッチ決済」か「自分でICチップを差し込む」を徹底しましょう。</p>
-</div>
-</div>
-</div>
-</div>
+<img data-src="images/credit_card_anatomy.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
+<section id="クレジットカード取扱いの鉄則裏面コードの死守" class="slide level3">
+<h3>クレジットカード取扱いの鉄則：裏面コードの死守</h3>
+<ul>
+<li><strong>券面に記された情報の危険性</strong>：
+<ul>
+<li>「16桁のカード番号・有効期限・裏面3桁（CVV/セキュリティコード）」の3点が揃えば、誰でもネットショッピングが可能。</li>
+</ul></li>
+<li><strong>店頭での自衛ポイント</strong>：
+<ul>
+<li>店員にカードを手渡して裏返されないようにする（スマホで撮影・暗記される不正が多発）。</li>
+<li>店頭では可能な限り「タッチ決済」か「自分で端末に差し込む」運用を徹底する。</li>
+</ul></li>
+</ul>
 </section>
 <section id="黒い磁気テープから金色のicチップへ-スキミング撲滅の歴史" class="slide level3">
 <h3>黒い磁気テープから「金色のICチップ」へ —— スキミング撲滅の歴史</h3>
@@ -897,7 +893,7 @@
 <section id="比較磁気ストライプ-vs-接触icチップのセキュリティ" class="slide level3">
 <h3>【比較】磁気ストライプ vs 接触ICチップのセキュリティ</h3>
 
-<img data-src="images/card_chip_vs_mag.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><div title="静的データから動的認証へ">
+<img data-src="images/card_chip_vs_mag.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"><div title="静的データから動的認証へ">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -1024,7 +1020,7 @@
     participant U as "ユーザー (iPhone)"
     participant S as "ネットショップ"
     participant N as "カード会社"
-    U-&gt;&gt;S: Apple Payで支払い (メダル/トークン送信)
+    U-&gt;&gt;S: Apple Payで支払い (トークン送信)
     Note over S: 本物のカード番号は&lt;br/&gt;ショップに一切伝わらない！
     S-&gt;&gt;N: トークンを照会
     N--&gt;&gt;S: 決済承認 ✅
@@ -1034,21 +1030,9 @@
 </div>
 </div>
 </div>
-<div title="💡 ネット通販での安心">
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>💡 ネット通販での安心</strong></p>
-</div>
-<div class="callout-content">
-<p>カード番号を直接入力させられるサイトより、Apple Pay / Google Pay対応サイトで支払う方が圧倒的に安全です。</p>
-</div>
-</div>
-</div>
-</div>
+<ul>
+<li><strong>安全性の本質</strong>：ショップ側に本物のカード番号が一切渡らないため、店舗サーバーが情報漏洩を起こしても不正利用のリスクがありません。</li>
+</ul>
 </section>
 <section id="iphoneの安全性を支える心臓部secure-element金庫チップ" class="slide level3">
 <h3>iPhoneの安全性を支える心臓部「Secure Element（金庫チップ）」</h3>
@@ -1171,7 +1155,11 @@
 <p><strong>🛡️ アプリを開かずに一発解約する裏技</strong></p>
 </div>
 <div class="callout-content">
-<p>アプリ内の迷路を探す必要はありません！ * <strong>iPhone</strong>：「設定」→「自分の名前」→<strong>「サブスクリプション」</strong>から一覧確認＆一発解約！ * <strong>Android</strong>：「Google Play」→「アイコン」→<strong>「お支払いと定期購入」</strong>から解約！</p>
+<p>アプリ内の迷路を探す必要はありません！</p>
+<ul>
+<li><strong>iPhone</strong>：「設定」→「自分の名前」→<strong>「サブスクリプション」</strong>から一覧確認＆一発解約！</li>
+<li><strong>Android</strong>：「Google Play」→「アイコン」→<strong>「お支払いと定期購入」</strong>から解約！</li>
+</ul>
 </div>
 </div>
 </div>
@@ -1229,8 +1217,8 @@
 <h3>3Dセキュア 2.0 —— 買い物の最後に飛んでくる画面</h3>
 <h4 id="aiによるリスクベース認証">🛡️ AIによる「リスクベース認証」</h4>
 <ul>
-<li><strong>低リスク判定（いつものスマホ、いつもの配送先、通常時間帯）</strong>： 追加のパスワード入力なしで一瞬で決済完了（フリクションレス・フロー）。全体の9割以上はこれ！</li>
-<li><strong>高リスク判定（深夜の初見高額品、海外IP、不審な端末環境）</strong>： 怪しいとAIが判断した時だけ、ワンタイムパスワードやスマホの生体認証（チャレンジ・フロー）を発動！</li>
+<li><p><strong>低リスク判定（いつものスマホ、いつもの配送先、通常時間帯）</strong>： 追加のパスワード入力なしで一瞬で決済完了（フリクションレス・フロー）。全体の9割以上はこれ！</p></li>
+<li><p><strong>高リスク判定（深夜の初見高額品、海外IP、不審な端末環境）</strong>： 怪しいとAIが判断した時だけ、ワンタイムパスワードやスマホの生体認証（チャレンジ・フロー）を発動！</p></li>
 </ul>
 </section>
 <section id="図解3dセキュア2.0-リスクベース認証フロー" class="slide level3">

@@ -249,7 +249,7 @@
 <section id="イメージクラウドコンピューティングの構造" class="slide level3">
 <h3>【イメージ】クラウドコンピューティングの構造</h3>
 
-<img data-src="images/cloud_architecture.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><div title="手元の端末から雲の上のデータセンターへ">
+<img data-src="images/cloud_architecture.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"><div title="手元の端末から雲の上のデータセンターへ">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -265,23 +265,39 @@
 </div>
 </div>
 </section>
-<section id="クラウドサービスの3層モデルsaas-paas-iaas" class="slide level3">
-<h3>クラウドサービスの3層モデル（SaaS / PaaS / IaaS）</h3>
-<h4 id="どこまでサービス提供会社に任せるかの違い">🏗️ 「どこまでサービス提供会社に任せるか」の違い</h4>
+<section id="最も身近なクラウドsaasサース" class="slide level3">
+<h3>最も身近なクラウド「SaaS（サース）」</h3>
+<h4 id="完成したソフトウェアをブラウザから利用">📦 完成したソフトウェアをブラウザから利用</h4>
 <ul>
-<li><strong>SaaS（Software as a Service：サース）</strong>：
+<li><strong>SaaS（Software as a Service）とは</strong>：
 <ul>
-<li>完成したソフトウェアをネット経由で利用（利用者は使うだけ）。</li>
-<li>例：Google Workspace, Microsoft 365, LINE, Zoom, Notion</li>
+<li>面倒なインストールやアップデートが不要で、ネット経由ですぐに使える完成品サービス。</li>
 </ul></li>
+<li><strong>代表的なSaaS</strong>：
+<ul>
+<li><strong>オフィス業務</strong>：Google Workspace（Docs/Sheets）, Microsoft 365</li>
+<li><strong>コミュニケーション</strong>：LINE, Slack, Zoom, Teams</li>
+<li><strong>ノート・タスク管理</strong>：Notion, Trello</li>
+</ul></li>
+<li><strong>メリット</strong>：
+<ul>
+<li>スマホ、PC、タブレットどこからログインしても同じ作業環境が再現される！</li>
+</ul></li>
+</ul>
+</section>
+<section id="開発インフラを支えるpaasとiaas" class="slide level3">
+<h3>開発・インフラを支える「PaaS」と「IaaS」</h3>
+<h4 id="土台と計算インフラを借りるプロの世界">⚙️🖥️ 土台と計算インフラを借りるプロの世界</h4>
+<ul>
 <li><strong>PaaS（Platform as a Service：パース）</strong>：
 <ul>
-<li>アプリを動かすための「土台（OS・ミドルウェア・実行環境）」を提供。開発者はコードを書くだけ。</li>
+<li>アプリを動かすための「土台（OS・ミドルウェア・実行環境）」を提供。</li>
+<li>開発者はサーバー設定を気にせず、プログラムコードを書くだけで世界中に公開可能。</li>
 <li>例：Google App Engine, Heroku, AWS Elastic Beanstalk</li>
 </ul></li>
 <li><strong>IaaS（Infrastructure as a Service：アイアース）</strong>：
 <ul>
-<li>仮想サーバー、CPU/GPU、ストレージ、ネットワークなど「インフラ基盤そのもの」を提供。</li>
+<li>仮想サーバー（CPU/GPU）、大容量ストレージ、ネットワークなど「ハード基盤そのもの」を提供。</li>
 <li>例：AWS EC2, Microsoft Azure VM, Google Compute Engine</li>
 </ul></li>
 </ul>
@@ -375,21 +391,24 @@
 </div>
 </div>
 </div>
-<div title="✨ 差分同期の高速性">
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>✨ 差分同期の高速性</strong></p>
-</div>
-<div class="callout-content">
-<p>ファイル全体を再送信するのではなく、「修正・追記された箇所だけ（差分）」を暗号化して高速同期するため、大容量ファイルでも数秒で全端末に反映されます。</p>
-</div>
-</div>
-</div>
-</div>
+</section>
+<section id="クラウド同期の秘密超高速な差分同期" class="slide level3">
+<h3>✨ クラウド同期の秘密：超高速な「差分同期」</h3>
+<h4 id="なぜ数gbのファイルでも一瞬で同期されるのか">⚡ なぜ数GBのファイルでも一瞬で同期されるのか？</h4>
+<ul>
+<li><strong>丸ごと再送信の無駄を排除</strong>：
+<ul>
+<li>ファイル全体を送り直すのではなく、<strong>「追記・修正された部分（差分ブロック）だけ」を暗号化して高速同期</strong>！</li>
+</ul></li>
+<li><strong>マルチデバイスの同時編集</strong>：
+<ul>
+<li>ノートPCでレポートの1行目を直した瞬間、スマホ画面の1行目も数秒でリアルタイムに書き換わる。</li>
+</ul></li>
+<li><strong>コンフリクト（競合）の防止</strong>：
+<ul>
+<li>オフライン中に別々の端末で編集した場合、両方の版を残してファイル名の末尾に「（競合コピー）」を付けてデータ消失を防ぐ仕組み。</li>
+</ul></li>
+</ul>
 </section>
 <section id="写真動画用クラウドとai検索の進化" class="slide level3">
 <h3>写真・動画用クラウドとAI検索の進化</h3>
@@ -438,20 +457,34 @@
 <h3>大学のDX —— メールシステムのクラウド移行（獨協大学の事例）</h3>
 <h4 id="学内サーバーからmicrosoft-365exchange-onlineへ">🏫 学内サーバーからMicrosoft 365（Exchange Online）へ</h4>
 <ul>
-<li><strong>従来のシステム</strong>：
+<li><strong>従来のオンプレミス運用</strong>：
 <ul>
-<li>大学が自前のメールサーバー（オンプレミス）を構築し、Webメール（<code>webmail.dokkyo.ac.jp</code>）を提供。</li>
-<li>サーバーの老朽化、容量制限、スパム対策の負担が課題。</li>
+<li>大学が自前のメールサーバーを構築・管理（<code>webmail.dokkyo.ac.jp</code>）。</li>
+<li>機器の老朽化、容量制限、スパム対策の負担が限界に。</li>
 </ul></li>
-<li><strong>2024年10月のMicrosoft 365への完全移行</strong>：
+<li><strong>Microsoft 365への完全移行（2024年10月）</strong>：
 <ul>
-<li>メール基盤をクラウド（Exchange Online）へ移行し、大容量ストレージとTeams・OneDriveとの連携を実現。</li>
-<li><strong>外部アクセス時の多要素認証（MFA）必須化</strong>：学外からアクセスする際はスマホ認証を義務付け、不正アクセスを鉄壁防御！</li>
+<li>メール基盤をクラウドへ移行し、大容量化とTeams・OneDrive連携を実現。</li>
+<li><strong>学外アクセス時の多要素認証（MFA）必須化</strong>：スマホ認証によりアカウント乗っ取りを鉄壁防御！</li>
 </ul></li>
-<li><strong>LMS（manaba）と教務システム（Porta II）の役割分担</strong>：
+</ul>
+</section>
+<section id="大学システムのハイブリッド構造クラウド-vs-学内管理" class="slide level3">
+<h3>大学システムのハイブリッド構造（クラウド vs 学内管理）</h3>
+<h4 id="用途に応じたクラウドとオンプレミスの使い分け">🎓 用途に応じたクラウドとオンプレミスの使い分け</h4>
 <ul>
-<li>授業支援（manaba）：学外クラウドで柔軟に運用。</li>
-<li>成績・学籍（Porta II）：極めて厳重な個人情報のため学内管理（オンプレミス）を併用。</li>
+<li><strong>授業支援システム（manaba）</strong>：
+<ul>
+<li>学外クラウド（SaaS）で柔軟に運用。</li>
+<li>レポート提出や講義資料の配布など、アクセス集中に強いクラウドの利点を活用。</li>
+</ul></li>
+<li><strong>教務・成績システム（Porta II）</strong>：
+<ul>
+<li>極めて厳重な個人情報・成績データのため、学内ネットワーク（オンプレミス）と厳重に連携。</li>
+</ul></li>
+<li><strong>教訓</strong>：
+<ul>
+<li>大学のような大規模組織でも、「すべてクラウド」ではなく重要度に応じた<strong>ハイブリッド構成</strong>が標準！</li>
 </ul></li>
 </ul>
 </section>
@@ -461,17 +494,27 @@
 <ul>
 <li><strong>Git（ギット）</strong>：
 <ul>
-<li>ソースコードや文章の「変更履歴」をタイムマシンのように記録・管理する分散型バージョン管理ツール。</li>
+<li>ソースコードや文章の「変更履歴」をタイムマシンのように記録・管理する分散型ツール。</li>
 </ul></li>
 <li><strong>GitHub（ギットハブ）</strong>：
 <ul>
 <li>Gitの台帳（リポジトリ）をクラウド上に保存・共有できる世界最大のWebサービス（Microsoft傘下）。</li>
-<li>オープンソース（OSS）の開発拠点、複数エンジニアによる共同開発の標準。</li>
+<li>世界中のエンジニアがオープンソース開発や共同作業を行う「プログラマーのインフラ」。</li>
 </ul></li>
-<li><strong>最新の進化</strong>：
+</ul>
+</section>
+<section id="クラウド開発の最前線-github-copilot-と-codespaces" class="slide level3">
+<h3>クラウド開発の最前線 —— GitHub Copilot と Codespaces</h3>
+<h4 id="パソコンに開発環境を作らない時代へ">🤖 パソコンに開発環境を作らない時代へ</h4>
 <ul>
-<li><strong>GitHub Copilot</strong>：AIがプログラマーの意図を汲んでコードを自動生成。</li>
-<li><strong>GitHub Codespaces</strong>：ローカルPCに環境を作らなくても、ブラウザだけで5秒でクラウド開発環境が起動！</li>
+<li><strong>GitHub Copilot（AIペアプログラミング）</strong>：
+<ul>
+<li>クラウド上のLLMがプログラマーのコードをリアルタイムで自動補完・生成。</li>
+</ul></li>
+<li><strong>GitHub Codespaces（クラウド開発環境）</strong>：
+<ul>
+<li>重い開発ソフトをパソコンにインストールする必要がない。</li>
+<li>ブラウザを開くだけで、雲の上の強力な仮想マシンで5秒で開発がスタート！</li>
 </ul></li>
 </ul>
 </section>

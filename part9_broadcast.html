@@ -183,8 +183,8 @@
 <li>1秒間に何コマ？ 映画（24fps）とテレビ（30fps）とゲーム（60/120fps）の違いとは？</li>
 </ul>
 </section>
-<section id="画素ピクセルと画面解像度" class="slide level3">
-<h3>画素（ピクセル）と画面解像度</h3>
+<section id="画素ピクセルとは何か" class="slide level3">
+<h3>画素（ピクセル）とは何か？</h3>
 <h4 id="光の3原色が集まって映像を作る">🔴🟢🔵 光の3原色が集まって映像を作る</h4>
 <ul>
 <li><strong>ピクセル（Pixel / 画素）</strong>：
@@ -192,13 +192,31 @@
 <li>デジタル画像を構成する最小単位の「点」。</li>
 <li>拡大すると、<strong>赤（Red）・緑（Green）・青（Blue）</strong>の3つの微小な光の明るさで無数の色を表現。</li>
 </ul></li>
-<li><strong>画面解像度（Resolution）</strong>：
+<li><strong>画面の網目</strong>：
 <ul>
-<li>画面に並んでいるピクセルの「横 × 縦」の総数。</li>
-<li><strong>SD画質（昔のDVD・アナログ放送）</strong>：720 × 480（約35万画素）</li>
-<li><strong>フルHD（地デジ・Blu-ray）</strong>：1920 × 1080（約207万画素）</li>
-<li><strong>4K（最新テレビ・配信）</strong>：3840 × 2160（<strong>約829万画素＝フルHDの4倍！</strong>）</li>
-<li><strong>8K</strong>：7680 × 4320（約3318万画素＝フルHDの16倍！）</li>
+<li>ディスプレイに顔を近づけて虫眼鏡で見ると、赤・緑・青の極小の光の粒（サブピクセル）が並んでいるのが見えます。</li>
+</ul></li>
+</ul>
+</section>
+<section id="画面解像度の進化-sdから4k8kへ" class="slide level3">
+<h3>画面解像度の進化 —— SDから4K・8Kへ</h3>
+<h4 id="ピクセルの横-縦の総数">📐 ピクセルの「横 × 縦」の総数</h4>
+<ul>
+<li><strong>SD画質（昔のDVD・アナログ放送）</strong>：
+<ul>
+<li>720 × 480（約35万画素）</li>
+</ul></li>
+<li><strong>フルHD（地上波デジタル・Blu-ray）</strong>：
+<ul>
+<li>1920 × 1080（約207万画素）</li>
+</ul></li>
+<li><strong>4K（最新テレビ・配信・PS5）</strong>：
+<ul>
+<li>3840 × 2160（<strong>約829万画素＝フルHDの4倍！</strong>）</li>
+</ul></li>
+<li><strong>8K（超高精細放送）</strong>：
+<ul>
+<li>7680 × 4320（約3318万画素＝フルHDの16倍！）</li>
 </ul></li>
 </ul>
 </section>
@@ -264,17 +282,17 @@
 <section id="比較インターレース走査1080i-vs-プログレッシブ走査1080p" class="slide level3">
 <h3>【比較】インターレース走査（1080i） vs プログレッシブ走査（1080p）</h3>
 
-<img data-src="images/interlace_vs_progressive_scan.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><div title="画面の塗りつぶし方の決定的な違い">
+<img data-src="images/interlace_vs_progressive_scan.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><div title="画面の塗りつぶし方の違い">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>画面の塗りつぶし方の決定的な違い</strong></p>
+<p><strong>画面の塗りつぶし方の違い</strong></p>
 </div>
 <div class="callout-content">
-<p>インターレースは奇数行・偶数行を交互に送るため、動きの速いスポーツで横縞ノイズが発生します。一方、プログレッシブは上から順に全走査線を一気に描くため、ブレずにくっきり滑らかな映像になります。</p>
+<p>地デジ（1080i）は電波節約のため奇数・偶数行を交互に送信。ネット配信（1080p）は1行ずつ全行を描くためブレずに鮮明です。</p>
 </div>
 </div>
 </div>
@@ -368,15 +386,8 @@
 </ul></li>
 </ul>
 </section>
-<section id="図解著作権保護技術hdcpの秘密" class="slide level3">
-<h3>【図解】著作権保護技術「HDCP」の秘密</h3>
-<h4 id="画面に届くまで映像を暗号化して盗難を防ぐ">🔐 画面に届くまで映像を暗号化して盗難を防ぐ</h4>
-<ul>
-<li><strong>HDCP（High-bandwidth Digital Content Protection）</strong>：
-<ul>
-<li>映像を再生する機器（ゲーム機、PC、Blu-ray）と、表示するディスプレイの間で<strong>暗号化ハンドシェイク</strong>を実行！</li>
-</ul></li>
-</ul>
+<section id="図解著作権保護技術hdcpの暗号化ハンドシェイク" class="slide level3">
+<h3>【図解】著作権保護技術「HDCP」の暗号化ハンドシェイク</h3>
 <div class="cell" data-reveal="true" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -385,7 +396,7 @@
 <pre class="mermaid mermaid-js">flowchart LR
     A["🎮 再生機器&lt;br/&gt;（PS5 / レコーダー / PC）"] --&gt;|① 暗号鍵の相互認証| B["📺 ディスプレイ&lt;br/&gt;（テレビ / モニタ）"]
     A --&gt;|② 暗号化された映像信号を伝送| B
-    B --&gt;|③ ディスプレイ内部で復号して表示| B
+    B --&gt;|③ 内部で復号して表示| B
     
     H["🦹 キャプチャ機器 / 海賊版コピー機&lt;br/&gt;（HDCP非対応）"] -.-&gt;|途中で抜き取ろうとする| A
     style H fill:#ffebee,stroke:#c62828,stroke-width:2px
@@ -396,21 +407,25 @@
 </div>
 </div>
 </div>
-<div title="⚠️ 画面が真っ暗になる原因">
-<div class="callout callout-warning callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>⚠️ 画面が真っ暗になる原因</strong></p>
-</div>
-<div class="callout-content">
-<p>HDCP非対応の古いモニタや怪しい分配器に繋ぐと、著作権保護が働き、Netflixやゲーム画面が真っ暗になって映りません。</p>
-</div>
-</div>
-</div>
-</div>
+</section>
+<section id="hdcpの落とし穴-画面が真っ暗になる原因" class="slide level3">
+<h3>⚠️ HDCPの落とし穴 —— 画面が真っ暗になる原因</h3>
+<h4 id="著作権保護が画面をブラックアウトさせる">🔐 著作権保護が画面をブラックアウトさせる</h4>
+<ul>
+<li><strong>HDCP（High-bandwidth Digital Content Protection）</strong>：
+<ul>
+<li>映像を再生する機器とディスプレイ間で暗号鍵を確かめ合う海賊版防止規格。</li>
+</ul></li>
+<li><strong>画面が真っ暗になるケース</strong>：
+<ul>
+<li>HDCP非対応の古いPCモニタやプロジェクターに繋いだとき。</li>
+<li>ネット通販で買った怪しい安物HDMI分配器やスプリッターを挟んだとき。</li>
+</ul></li>
+<li><strong>著作権保護の作動</strong>：
+<ul>
+<li>不正コピーの恐れがあると判定され、NetflixやU-NEXT、PS5の映像出力が自動停止（ブラックアウト）します！</li>
+</ul></li>
+</ul>
 </section>
 <section id="usb-type-c-の万能性と見えない落とし穴" class="slide level3">
 <h3>USB Type-C の万能性と「見えない落とし穴」</h3>
@@ -531,29 +546,48 @@
 </div>
 </div>
 </div>
-<div title="💡 放送と通信の決定的な違い">
+</section>
+<section id="放送電波と通信ネットの決定的な違い" class="slide level3">
+<h3>💡 放送（電波）と通信（ネット）の決定的な違い</h3>
+<h4 id="対無制限-vs-1対1の個別パケット">⚡ 1対無制限 vs 1対1の個別パケット</h4>
+<ul>
+<li><strong>放送（電波）の最大の強み</strong>：
+<ul>
+<li>「電波を空中に放射しているだけ」なので、<strong>視聴者が1人でも1億人でもサーバーダウンしない</strong>！</li>
+<li>緊急地震速報や国民的スポーツ中継で絶対に映像が途切れない信頼性。</li>
+</ul></li>
+<li><strong>ネット配信（通信）の宿命</strong>：
+<ul>
+<li>視聴者1人ひとりとサーバーが通信（IPパケット送受信）を行うため、アクセスが殺到すると<strong>CDNや配信サーバーがパンクして読み込み停止（くるくる）</strong>に陥る。</li>
+</ul></li>
+</ul>
+</section>
+<section id="実物写真テレビの横に刺さっていた赤いb-casカード" class="slide level3">
+<h3>【実物写真】テレビの横に刺さっていた「赤いB-CASカード」</h3>
+
+<img data-src="images/bcas_card.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"><div title="これ何のためのカード？">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>💡 放送と通信の決定的な違い</strong></p>
+<p><strong>これ何のためのカード？</strong></p>
 </div>
 <div class="callout-content">
-<p>放送は視聴者が1億人になってもサーバーダウンしません（電波を浴びるだけ）。一方、ネット配信はアクセスが集中するとCDNや配信サーバーがパンクするリスクを抱えています。</p>
+<p>かつてテレビの横に必ず刺さっていたICカード。実はテレビ放送の暗号化を解除する「秘密鍵」が入っていました。</p>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="b-casカードからacasチップへの進化" class="slide level3">
-<h3>B-CASカードから「ACASチップ」への進化</h3>
-<h4 id="テレビの横の赤いカードが消えた理由">💳 テレビの横の「赤いカード」が消えた理由</h4>
+<section id="b-casカードの正体とacasチップへの進化" class="slide level3">
+<h3>B-CASカードの正体と「ACASチップ」への進化</h3>
+<h4 id="赤いカードが最新テレビから消えた理由">💳 赤いカードが最新テレビから消えた理由</h4>
 <ul>
 <li><strong>B-CASカードの役目</strong>：
 <ul>
-<li>テレビ放送は暗号化されて送信されており、B-CASカードの中の暗号鍵を使って復号（視聴）する仕組み。</li>
+<li>テレビ放送は暗号化されて送信されており、カード内の暗号鍵を使って復号（視聴）する仕組み。</li>
 </ul></li>
 <li><strong>不正書き換え事件の発生</strong>：
 <ul>
@@ -561,29 +595,10 @@
 </ul></li>
 <li><strong>ACAS（新世代チップ）への移行</strong>：
 <ul>
-<li>2018年に始まった新4K8K衛星放送以降のテレビでは、カードを差し込む方式を全廃。</li>
+<li>2018年以降の4K8Kテレビでは、カード方式を全廃。</li>
 <li><strong>テレビ本体の基板内に高度なセキュリティチップ（ACAS）を直接ハンダ付けで内蔵</strong>し、物理的に抜き差し・改造できないように進化！</li>
 </ul></li>
 </ul>
-</section>
-<section id="実物写真暗号鍵を握っていた赤いb-casカード" class="slide level3">
-<h3>【実物写真】暗号鍵を握っていた「赤いB-CASカード」</h3>
-
-<img data-src="images/bcas_card.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"><div title="テレビの横に必ず刺さっていたICカード">
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>テレビの横に必ず刺さっていたICカード</strong></p>
-</div>
-<div class="callout-content">
-<p>放送波のスクランブル（暗号化）を解除するための鍵が入ったカード。不正改造事件を経て、現代の4K/8Kテレビでは基板に直接ハンダ付けされた「ACASチップ」へと進化し、カードスロット自体が姿を消しました。</p>
-</div>
-</div>
-</div>
-</div>
 </section>
 <section id="年-放送法の歴史的大改正-nhkネット配信義務化" class="slide level3">
 <h3>2024〜2025年 放送法の歴史的大改正 —— NHKネット配信義務化</h3>
@@ -725,30 +740,42 @@
 </ul></li>
 </ul>
 </section>
-<section id="コネクテッドtvctvとチューナーレステレビ" class="slide level3">
-<h3>コネクテッドTV（CTV）と「チューナーレステレビ」</h3>
-<h4 id="テレビは放送を受信する箱から大型スマートモニタへ">🖥️ テレビは「放送を受信する箱」から「大型スマートモニタ」へ</h4>
+<section id="コネクテッドtvctvの台頭" class="slide level3">
+<h3>コネクテッドTV（CTV）の台頭</h3>
+<h4 id="テレビは放送を受信する箱からスマートモニタへ">🖥️ テレビは「放送を受信する箱」から「スマートモニタ」へ</h4>
 <ul>
-<li><strong>コネクテッドTV（CTV）</strong>：
+<li><strong>コネクテッドTV（CTV）とは</strong>：
 <ul>
-<li>ネットに接続されたテレビ。Fire TV StickやApple TV、Google TV内蔵テレビの普及により、<strong>リビングの大画面でYouTubeやNetflixを見るのが当たり前</strong>に。</li>
+<li>インターネットに接続されたテレビ受像機の総称。</li>
+<li>Fire TV Stick、Apple TV、Google TV内蔵スマートテレビが普及。</li>
 </ul></li>
-<li><strong>チューナーレステレビの大ヒット</strong>：
+<li><strong>リビングの変化</strong>：
 <ul>
-<li>地デジやBSの受像チューナーを一切搭載せず、動画配信アプリだけが動くディスプレイ。</li>
-<li><strong>なぜ売れるのか？</strong>：
+<li>家族全員でリビングの大画面でYouTube、Netflix、TVerをリモコン操作で視聴するのが日常に。</li>
+<li>視聴時間シェアで「地上波テレビ」をネット動画配信が猛追しています。</li>
+</ul></li>
+</ul>
+</section>
+<section id="チューナーレステレビの大ヒット" class="slide level3">
+<h3>チューナーレステレビの大ヒット</h3>
+<h4 id="なぜテレビ放送が映らないテレビが売れるのか">🛒 なぜ「テレビ放送が映らないテレビ」が売れるのか？</h4>
+<ul>
+<li><strong>チューナーレステレビとは</strong>：
+<ul>
+<li>地デジやBSの受像チューナーを一切搭載せず、ネット動画アプリだけが動くディスプレイ。</li>
+</ul></li>
+<li><strong>爆発的人気の3大理由</strong>：
 <ol type="1">
-<li>チューナーがない分、<strong>4K大画面でも3〜4万円台と圧倒的に安い</strong>！</li>
-<li>テレビ放送を受信する設備ではないため、<strong>NHK受信契約が不要</strong>。</li>
-<li>「リアルタイムのテレビは見ない、YouTubeとNetflixだけで十分」という単身世帯のニーズに完全に合致。</li>
+<li><strong>圧倒的な安さ</strong>：チューナー部品代と特許料が浮くため、<strong>4K大画面でも3〜4万円台</strong>！</li>
+<li><strong>NHK受信契約の対象外</strong>：テレビ放送を受信する設備ではないため、受信料の支払いが不要。</li>
+<li><strong>若年層のライフスタイル合致</strong>：「リアルタイムの地上波は見ない、YouTubeとNetflixだけで十分」という単身世帯に最適。</li>
 </ol></li>
-</ul></li>
 </ul>
 </section>
 <section id="生活風景アンテナ線不要-コネクテッドtvのある暮らし" class="slide level3">
 <h3>【生活風景】アンテナ線不要！ コネクテッドTVのある暮らし</h3>
 
-<img data-src="images/connected_tv.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><div title="放送波からネット配信へシフトしたリビング">
+<img data-src="images/connected_tv.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"><div title="放送波からネット配信へシフトしたリビング">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -758,7 +785,7 @@
 <p><strong>放送波からネット配信へシフトしたリビング</strong></p>
 </div>
 <div class="callout-content">
-<p>壁のアンテナ端子にケーブルを繋ぐことなく、Wi-Fiを通じてYouTubeやNetflix、TVerなどの動画配信サービスをリビングの4K大画面で楽しむスタイルが定着しています。</p>
+<p>壁のアンテナ線に縛られず、Wi-Fi環境さえあればリビングの4K大画面で世界中の動画配信を楽しめる時代になりました。</p>
 </div>
 </div>
 </div>

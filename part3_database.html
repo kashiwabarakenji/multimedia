@@ -435,7 +435,7 @@
 <section id="イメージ共通のキー鍵で表を結びつけるjoin" class="slide level3">
 <h3>【イメージ】共通のキー（鍵）で表を結びつける「JOIN」</h3>
 
-<img data-src="images/rdb_join.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><div title="🔑 主キーと外部キーで表を結合">
+<img data-src="images/rdb_join.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"><div title="🔑 主キーと外部キーで表を結合">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -558,9 +558,9 @@
 <li>ガチャは引くたびに確率がリセットされる「独立試行」。</li>
 <li><strong>数学の冷酷な真実</strong>
 <ul>
-<li>1回外れる確率：<span class="math inline">\(0.99\)</span>（99%）</li>
-<li>100連引いて「すべて外れる」確率： <span class="math display">\[(0.99)^{100} \approx 0.366 \quad (36.6\%)\]</span></li>
-<li>つまり、<strong>「約3人に1人以上」は1回も当たらず大爆死する</strong>のが純粋な数学的必然！</li>
+<li><p>1回外れる確率：<span class="math inline">\(0.99\)</span>（99%）</p></li>
+<li><p>100連引いて「すべて外れる」確率： <span class="math display">\[(0.99)^{100} \approx 0.366 \quad (36.6\%)\]</span></p></li>
+<li><p>つまり、<strong>「約3人に1人以上」は1回も当たらず大爆死する</strong>のが純粋な数学的必然！</p></li>
 </ul></li>
 </ul>
 <div title="🎰 天井（救済措置）の導入背景">
@@ -676,24 +676,14 @@
 </div>
 </div>
 </div>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Note</strong></p>
-</div>
-<div class="callout-content">
-<p><strong>ACID特性</strong>：不可分性（Atomicity）、一貫性（Consistency）、独立性（Isolation）、永続性（Durability）の頭文字です。</p>
-</div>
-</div>
-</div>
+<ul>
+<li><strong>ACID特性のAtomicity（不可分性）</strong>：「すべて成功するか、すべて取り消すか（All or Nothing）」をシステムが厳格に保証します。</li>
+</ul>
 </section>
 <section id="イラストトランザクションall-or-nothingとロールバック" class="slide level3">
 <h3>【イラスト】トランザクション（All or Nothing）とロールバック</h3>
 
-<img data-src="images/acid_rollback_visual.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><div title="お金が絶対に消えない数学的・工学的保証">
+<img data-src="images/acid_rollback_visual.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><div title="お金が絶対に消えない数学的・工学的保証">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -767,7 +757,12 @@
 <section id="実践チェック-1" class="slide level3">
 <h3>📱 実践チェック</h3>
 <h4 id="身近なトランザクション">💡 身近なトランザクション</h4>
-<p>「All or Nothing」でなければ困るものはどれ？ 1. メルカリでの購入とポイント支払い 2. LINEメッセージ送信と既読 3. ゲームのガチャと課金石の消費</p>
+<p>「All or Nothing」でなければ困るものはどれ？</p>
+<ol type="1">
+<li>メルカリでの購入とポイント支払い</li>
+<li>LINEメッセージ送信と既読</li>
+<li>ゲームのガチャと課金石の消費</li>
+</ol>
 </section>
 <section id="考えてみよう振り返り-1" class="slide level3">
 <h3>🤔 考えてみよう（振り返り）</h3>
@@ -900,10 +895,10 @@
 <h3>ネットの「通信速度（Mbps）」と「応答速度（Ping値）」</h3>
 <h4 id="通信速度mbps-帯域幅">🚛 通信速度（Mbps / 帯域幅）</h4>
 <ul>
-<li>一度に運べる「道路の車線数・トラックの大きさ」。</li>
-<li>動画鑑賞やファイルDLで重要。 #### 🏎️ 応答速度（Ping値 / レイテンシ）</li>
-<li>往復にかかる「時間（ミリ秒）」。</li>
-<li><strong>対戦ゲームや通話のラグはPing値（15ms以下が理想）で決まる！</strong></li>
+<li><p>一度に運べる「道路の車線数・トラックの大きさ」。</p></li>
+<li><p>動画鑑賞やファイルDLで重要。 #### 🏎️ 応答速度（Ping値 / レイテンシ）</p></li>
+<li><p>往復にかかる「時間（ミリ秒）」。</p></li>
+<li><p><strong>対戦ゲームや通話のラグはPing値（15ms以下が理想）で決まる！</strong></p></li>
 </ul>
 </section>
 <section id="比較一覧ネットの通信速度mbpsと応答速度ping値" class="slide level3">

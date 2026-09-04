@@ -244,6 +244,19 @@
 </div>
 </div>
 </div>
+</section>
+<section id="認証と認可の違いと利用者の自衛策" class="slide level3">
+<h3>「認証」と「認可」の違いと利用者の自衛策</h3>
+<ul>
+<li><strong>認証（Authentication：お前は誰だ？）</strong>：
+<ul>
+<li>ID・パスワードや生体認証で「本人確認」を行う手続き（例：ホテルのチェックイン）。</li>
+</ul></li>
+<li><strong>認可（Authorization：何をしてよいか？）</strong>：
+<ul>
+<li>本人に対して「特定の操作権限」を与える手続き（例：宿泊階の部屋を開ける鍵）。</li>
+</ul></li>
+</ul>
 <div title="📱 利用者の自衛ポイント">
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -254,7 +267,7 @@
 <p><strong>📱 利用者の自衛ポイント</strong></p>
 </div>
 <div class="callout-content">
-<p>アプリ連携時に「プロフィールの取得」だけでなく「勝手な投稿」「友達リストの取得」など、過剰な権限（認可）を要求されていないか必ず確認しましょう。</p>
+<p>スマホアプリの連携時に「プロフィールの取得」だけでなく「勝手な投稿」「連絡先リストの全取得」など、過剰な権限（認可）を要求されていないか必ず確認しましょう。</p>
 </div>
 </div>
 </div>
@@ -476,9 +489,9 @@
 </div>
 <div class="callout-content">
 <ul>
-<li><strong>ハッシュ化の仕組み</strong>： 牛肉をミンチ機にかけると「ひき肉」になる（一方向の不可逆計算）。</li>
-<li><strong>復元は絶対に不可能</strong>： どんな天才科学者でも、<strong>ひき肉から元の牛の姿を復元することは不可能</strong>です！</li>
-<li><strong>どうやってログイン確認するのか？</strong>： ログイン時、入力された文字をその場でミンチ機にかけ、保存されている「ひき肉」と形が完全に一致するかだけを照合しています。</li>
+<li><p><strong>ハッシュ化の仕組み</strong>： 牛肉をミンチ機にかけると「ひき肉」になる（一方向の不可逆計算）。</p></li>
+<li><p><strong>復元は絶対に不可能</strong>： どんな天才科学者でも、<strong>ひき肉から元の牛の姿を復元することは不可能</strong>です！</p></li>
+<li><p><strong>どうやってログイン確認するのか？</strong>： ログイン時、入力された文字をその場でミンチ機にかけ、保存されている「ひき肉」と形が完全に一致するかだけを照合しています。</p></li>
 </ul>
 </div>
 </div>
@@ -513,10 +526,10 @@
 <h3>なぜ他人に乗っ取られない？ —— 「使い捨て暗号トークン」の秘密</h3>
 <h4 id="メールで届く長いリンクの正体">⏱️ メールで届く長いリンクの正体</h4>
 <ul>
-<li>メールで送られてくるURL：<br>
-<code>https://service.com/reset?token=a8f9b2c3d4e5...</code></li>
-<li>末尾のランダムな英数字が<strong>「使い捨て暗号トークン（合鍵）」</strong>。</li>
-<li><strong>強力な3大防衛ルール</strong>：
+<li><p>メールで送られてくるURL：<br>
+<code>https://service.com/reset?token=a8f9b2c3d4e5...</code></p></li>
+<li><p>末尾のランダムな英数字が<strong>「使い捨て暗号トークン（合鍵）」</strong>。</p></li>
+<li><p><strong>強力な3大防衛ルール</strong>：</p>
 <ol type="1">
 <li><strong>超高難度のランダム生成</strong>：暗号学的に安全な乱数で、第三者が推測・総当たりするのは不可能。</li>
 <li><strong>短い有効期限（TTL）</strong>：発行から「30分」や「1時間」で自動消滅（期限切れ）。</li>
@@ -952,12 +965,12 @@
 <h3>通信不要で一致する数学のカラクリ（Time-based OTP）</h3>
 <h4 id="共通の秘密鍵-正確な時刻">🧮 共通の秘密鍵 ＋ 正確な時刻</h4>
 <ul>
-<li><strong>登録時（QRコード読み取り）</strong>：<br>
-スマホとサーバーの間だけで、<strong>「共通の秘密鍵（計算のタネ）」</strong>を最初に1回だけ安全に共有する。</li>
-<li><strong>コード生成の瞬間</strong>：<br>
-<code>共通の秘密鍵 ＋ 現在の正確な時刻（30秒刻み）</code> をハッシュ関数に投入！</li>
-<li><strong>結果</strong>：<br>
-通信しなくても、<strong>「同じタネ」と「同じ時刻」から数学的に全く同じ6桁の数字が導き出される</strong>仕組み！</li>
+<li><p><strong>登録時（QRコード読み取り）</strong>：<br>
+スマホとサーバーの間だけで、<strong>「共通の秘密鍵（計算のタネ）」</strong>を最初に1回だけ安全に共有する。</p></li>
+<li><p><strong>コード生成の瞬間</strong>：<br>
+<code>共通の秘密鍵 ＋ 現在の正確な時刻（30秒刻み）</code> をハッシュ関数に投入！</p></li>
+<li><p><strong>結果</strong>：<br>
+通信しなくても、<strong>「同じタネ」と「同じ時刻」から数学的に全く同じ6桁の数字が導き出される</strong>仕組み！</p></li>
 </ul>
 </section>
 <section id="夜中に届くログイン承認しますかの恐怖-mfa疲労攻撃" class="slide level3">
@@ -1195,7 +1208,7 @@
 <section id="イラストパスキー生体認証公開鍵暗号の仕組み" class="slide level3">
 <h3>【イラスト】パスキー（生体認証×公開鍵暗号）の仕組み</h3>
 
-<img data-src="images/passkey_auth.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><div title="安全性の根拠：秘密鍵は端末の外に絶対出ない">
+<img data-src="images/passkey_auth.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"><div title="安全性の根拠：秘密鍵は端末の外に絶対出ない">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -1229,7 +1242,7 @@
 <section id="図解本物のサイト-vs-精巧な偽フィッシングサイト" class="slide level3">
 <h3>【図解】本物のサイト vs 精巧な偽フィッシングサイト</h3>
 
-<img data-src="images/phishing_comparison.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><div title="人間には見分けがつかないURLの罠">
+<img data-src="images/phishing_comparison.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"><div title="人間には見分けがつかないURLの罠">
 <div class="callout callout-warning callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -1342,10 +1355,10 @@
 <h3>相手のアプリにGoogleのパスワードはバレる？</h3>
 <h4 id="最も多い素朴な疑問と真実">❓ 最も多い素朴な疑問と真実</h4>
 <ul>
-<li><strong>生徒の疑問</strong>：<br>
-「相手の見知らぬゲームアプリに、自分の大事なGoogleのパスワードが見られちゃうんじゃないの？」</li>
-<li><strong>結論：相手にあなたのパスワードは1文字も渡っていません！</strong></li>
-<li>相手アプリが見ているのは、Googleから発行された「認証済みの安全な暗号化記号（トークン）」だけです。</li>
+<li><p><strong>生徒の疑問</strong>：<br>
+「相手の見知らぬゲームアプリに、自分の大事なGoogleのパスワードが見られちゃうんじゃないの？」</p></li>
+<li><p><strong>結論：相手にあなたのパスワードは1文字も渡っていません！</strong></p></li>
+<li><p>相手アプリが見ているのは、Googleから発行された「認証済みの安全な暗号化記号（トークン）」だけです。</p></li>
 </ul>
 </section>
 <section id="パスワードを渡さずにログインできるカラクリ" class="slide level3">
@@ -1360,10 +1373,10 @@
 <h3>ソーシャルログインが選ばれる理由</h3>
 <h4 id="利用者とサービス双方のメリット">🛡️ 利用者とサービス双方のメリット</h4>
 <ul>
-<li><strong>利用者側の安心</strong>：<br>
-パスワードを新しく覚える必要がなく、相手サイトがハッキングされてもパスワードが流出する心配がゼロ！</li>
-<li><strong>サービス側の安心</strong>：<br>
-パスワードを預かる巨大な漏洩リスクを抱えずに済み、世界最強クラスのセキュリティ基盤をそのまま活用できる。</li>
+<li><p><strong>利用者側の安心</strong>：<br>
+パスワードを新しく覚える必要がなく、相手サイトがハッキングされてもパスワードが流出する心配がゼロ！</p></li>
+<li><p><strong>サービス側の安心</strong>：<br>
+パスワードを預かる巨大な漏洩リスクを抱えずに済み、世界最強クラスのセキュリティ基盤をそのまま活用できる。</p></li>
 </ul>
 </section>
 <section id="たとえ話-共通の知人でたとえると" class="slide level3">
