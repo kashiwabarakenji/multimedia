@@ -1,6 +1,6 @@
 ---
 title: "現代デジタル社会の歩き方と裏側の仕組み"
-subtitle: "スマホ・決済・パスワード・個人情報・暗号通貨・SNSの「なぜ？」を読み解くデジタル教養（全6回）"
+subtitle: "スマホ・決済・パスワード・個人情報・暗号通貨・SNS・クラウドの「なぜ？」を読み解くデジタル教養（全7回）"
 author: "デジタルリテラシー講義資料"
 format:
   revealjs:
@@ -31,5 +31,8 @@ format:
 {{< include part5_crypto.qmd >}}
 
 {{< include part6_sns.qmd >}}
+
+{{< include part7_cloud.qmd >}}
+
 
 
