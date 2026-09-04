@@ -167,8 +167,42 @@
 <li>不正アクセス禁止法や著作権法、生成AI利用時の法的リスクを正しく把握できる</li>
 </ul>
 </section>
-<section class="slide level3">
-
+<section id="そもそも情報セキュリティとは何か-3大要素cia" class="slide level3">
+<h3>そもそも情報セキュリティとは何か？ —— 「3大要素（CIA）」</h3>
+<h4 id="世界標準の安全基準ciaトライアングル">🏛️ 世界標準の安全基準：CIAトライアングル</h4>
+<ul>
+<li>単に「パスワードをかけて隠す」ことだけがセキュリティではありません。</li>
+<li>国際規格（ISO）で定められた<strong>情報セキュリティの3大原則（CIA）</strong>：
+<ol type="1">
+<li><strong>機密性（Confidentiality）</strong>：
+<ul>
+<li>許可された人だけが情報にアクセスできる（盗聴・覗き見の防止）。</li>
+</ul></li>
+<li><strong>完全性（Integrity）</strong>：
+<ul>
+<li>情報が改ざんされたり破壊されず、正確である（Web改ざん・データ偽造の防止）。</li>
+</ul></li>
+<li><strong>可用性（Availability）</strong>：
+<ul>
+<li>利用者が必要なときにいつでも安全にアクセスできる（サーバーダウン・DDoS停止の防止）。</li>
+</ul></li>
+</ol></li>
+</ul>
+<div title="⚖️ 利便性とセキュリティのバランス">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>⚖️ 利便性とセキュリティのバランス</strong></p>
+</div>
+<div class="callout-content">
+<p>ガチガチに厳しくしすぎると日常業務が使いにくくなり、緩めすぎると情報が漏洩します。この3要素と使いやすさのバランスをとることがセキュリティの本質です。</p>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section class="slide level3">
 
@@ -425,6 +459,26 @@
 <li><strong>重要手続きは「4G/5G回線」で行う</strong>（ギガを少し使うだけで圧倒的に安全！）。</li>
 <li><strong>公共の場では「VPN」を活用</strong>する。</li>
 </ol>
+</section>
+<section id="通信暗号化の究極形-e2eeエンドツーエンド暗号化" class="slide level3">
+<h3>通信暗号化の究極形 —— 「E2EE（エンドツーエンド暗号化）」</h3>
+<h4 id="サービス運営会社ですら中身を覗けない技術">🔒 サービス運営会社ですら「中身を覗けない」技術</h4>
+<ul>
+<li><strong>通常のHTTPS（TLS）暗号化</strong>：
+<ul>
+<li>あなたのスマホと「企業のサーバー」の間が暗号化される。</li>
+<li>つまり、<strong>企業の社内やサーバー管理者は、見ようと思えば中身を見られる</strong>（暗号を解く鍵をサーバーが持っているため）。</li>
+</ul></li>
+<li><strong>E2EE（End-to-End Encryption）</strong>：
+<ul>
+<li>「送信者の端末」で暗号化し、「受信者の端末」だけが鍵を持つ。</li>
+<li><strong>中継する通信会社も、LINEやZoomの運営会社自身も、警察や政府ですらメッセージを絶対に盗み見できない！</strong></li>
+</ul></li>
+<li><strong>身近な採用例</strong>：
+<ul>
+<li>LINEの「Letter Sealing」、WhatsApp、Signal、ZoomのE2EEミーティング。</li>
+</ul></li>
+</ul>
 </section>
 <section id="実践チェック" class="slide level3">
 <h3>📱 実践チェック</h3>
@@ -839,6 +893,22 @@
 </div>
 </div>
 </section>
+<section id="盗まれる重要データがないから平気の致命的な誤解" class="slide level3">
+<h3>「盗まれる重要データがないから平気」の致命的な誤解</h3>
+<h4 id="あなたのpcがサイバー犯罪の加害者ゾンビpcにされる">🧟 あなたのPCがサイバー犯罪の「加害者（ゾンビPC）」にされる</h4>
+<ul>
+<li><strong>学生や個人が陥りがちな油断</strong>：
+<ul>
+<li>「私のパソコンには企業の機密データなんて入っていないから、ウイルスに感染しても失うものはない」</li>
+</ul></li>
+<li><strong>真の恐怖：ボットネット（Botnet）化</strong>：
+<ul>
+<li>マルウェアに感染した端末は、遠隔の指令サーバー（C2サーバー）から操られる<strong>「ゾンビPC」</strong>に変貌。</li>
+<li>あなたが寝ている間に、政府や大企業のサーバーを一斉攻撃してダウンさせる<strong>「DDoS攻撃（分散型サービス妨害）」の凶器</strong>として悪用される！</li>
+</ul></li>
+<li><strong>知らない間に自分が犯罪加害者</strong>となり、警察から事情聴取を受けたりプロバイダから回線を強制遮断されるリスクがあります。</li>
+</ul>
+</section>
 <section id="身代金を絶対に払ってはいけない3つの理由" class="slide level3">
 <h3>身代金を絶対に払ってはいけない3つの理由</h3>
 <ol type="1">
@@ -1100,6 +1170,25 @@
 <h4 id="シャドーit野良クラウドの禁止">3. シャドーIT（野良クラウド）の禁止</h4>
 <ul>
 <li>会社の資料を私用のGoogleドライブ等に勝手に保存してはいけない（漏洩の引き金）。</li>
+</ul>
+</section>
+<section id="日本企業の悪習ppapパスワード付きzipの別送の罠" class="slide level3">
+<h3>日本企業の悪習「PPAP（パスワード付きZipの別送）」の罠</h3>
+<h4 id="通目に暗号化zip2通目にパスワードを送る茶番">✉️ 1通目に暗号化Zip、2通目にパスワードを送る茶番</h4>
+<ul>
+<li>かつて日本の官公庁や大企業で大流行したビジネスマナー<strong>「PPAP」</strong>：
+<ul>
+<li><strong>P</strong>：Password付きZip暗号化ファイルを送る</li>
+<li><strong>P</strong>：Passwordを別便のメールで送る</li>
+<li><strong>A</strong>：暗号化（An-goka）</li>
+<li><strong>P</strong>：Protocol（プロトコル）</li>
+</ul></li>
+<li><strong>なぜ無意味で危険なのか？</strong>：
+<ol type="1">
+<li><strong>盗聴耐性ゼロ</strong>：メール通信やメールボックスが盗聴されていたら、1通目も2通目も同じ犯人に盗まれる！</li>
+<li><strong>ウイルスの温床</strong>：Zip暗号化されると、企業のセキュリティゲートウェイがウイルススキャンできずにすり抜けてしまう。</li>
+</ol></li>
+<li><strong>政府が全廃宣言</strong>：2020年にデジタル改革会議で<strong>政府機関でのPPAP全廃</strong>が決定。クラウド共有リンク（GoogleドライブやBox）へ完全移行しました。</li>
 </ul>
 </section>
 <section id="実践チェック-2" class="slide level3">
