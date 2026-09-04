@@ -200,7 +200,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">現代デジタル社会の歩き方と裏側の仕組み</h1>
-  <p class="subtitle">スマホ・通信・決済・セキュリティ・暗号通貨・SNS・クラウドの「なぜ？」を読み解くデジタル教養（全8回）</p>
+  <p class="subtitle">スマホ・通信・放送・決済・セキュリティ・暗号資産・SNS・クラウドの「なぜ？」を読み解くデジタル教養（全9回）</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -222,6 +222,7 @@
 <li><a href="#/第6部ソーシャルメディアと情報モラル" id="/toc-第6部ソーシャルメディアと情報モラル">第6部：ソーシャルメディアと情報モラル</a></li>
 <li><a href="#/第7部クラウドコンピューティングと巨大プラットフォーム" id="/toc-第7部クラウドコンピューティングと巨大プラットフォーム">第7部：クラウドコンピューティングと巨大プラットフォーム</a></li>
 <li><a href="#/第8部モバイルデバイスと次世代通信ネットワーク" id="/toc-第8部モバイルデバイスと次世代通信ネットワーク">第8部：モバイルデバイスと次世代通信ネットワーク</a></li>
+<li><a href="#/第9部テレビ放送とインターネット動画配信の未来" id="/toc-第9部テレビ放送とインターネット動画配信の未来">第9部：テレビ放送とインターネット動画配信の未来</a></li>
 </ul>
 </nav>
 </section>
@@ -7779,6 +7780,569 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 </div>
 <div class="callout-content">
 <p>テクノロジーは魔法ではありません。すべて人間が作り出した「論理とルール」の積み重ねです。仕組みを知ったあなたなら、どんな新しい技術が現れても騙されず、恐れず、自らの武器として使いこなせます。素晴らしいデジタル未来を楽しんでください！</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section>
+<section id="第9部テレビ放送とインターネット動画配信の未来" class="title-slide slide level1 center">
+<h1>第9部：テレビ放送とインターネット動画配信の未来</h1>
+
+</section>
+<section id="本日の講義マップ-アジェンダ-6" class="slide level3">
+<h3>本日の講義マップ —— アジェンダ</h3>
+<ol type="1">
+<li><strong>映像テクノロジーの基礎と進化</strong>（画素・走査線・インターレース vs プログレッシブ・超解像技術）</li>
+<li><strong>映像端子とデジタル著作権の砦</strong>（HDMI・HDCP・USB Type-Cの罠・DisplayPort）</li>
+<li><strong>電波で届くテレビ放送の仕組み</strong>（地デジ・BS/CS・B-CASからACASへ・放送法の激震）</li>
+<li><strong>インターネット動画配信と「テレビ」の変容</strong>（TVerとサイマル配信・VODの覇権・コネクテッドTVとチューナーレス）</li>
+</ol>
+</section>
+<section id="本日の到達目標-リビングの画面とネット配信の裏側を解き明かす" class="slide level3">
+<h3>本日の到達目標 —— リビングの画面とネット配信の裏側を解き明かす</h3>
+<ul>
+<li>画面解像度（FHD/4K/8K）と走査方式（インターレース vs プログレッシブ）の原理を説明できる</li>
+<li>HDMIとHDCP（暗号化著作権保護）、USB Type-CのAlt Modeの仕組みを理解する</li>
+<li>地上波デジタルと衛星放送（BS/CS）の仕組み、CASによるアクセス制御を把握する</li>
+<li>TVerなどの見逃し配信・サイマル放送と、NetflixなどのVODビジネスモデルを比較できる</li>
+<li>チューナーレステレビの登場やNHKネット配信義務化など、テレビメディアの激変を考察できる</li>
+</ul>
+</section>
+<section class="slide level3">
+
+</section>
+<section class="slide level3">
+
+</section>
+<section id="映像テクノロジーの基礎と進化" class="title-slide slide level2 center">
+<h2>1. 映像テクノロジーの基礎と進化</h2>
+
+</section>
+<section id="考えてみたい問い-31" class="slide level3">
+<h3>考えてみたい問い</h3>
+<ul>
+<li>テレビの「1080i」とYouTubeの「1080p」は何が違う？</li>
+<li>なぜ昔のアナログテレビ番組は横が黒帯（4:3）だったのか？</li>
+<li>地デジや昔の映像が、最新の4K大画面で見てもなぜ綺麗に映るの？</li>
+<li>1秒間に何コマ？ 映画（24fps）とテレビ（30fps）とゲーム（60/120fps）の違いとは？</li>
+</ul>
+</section>
+<section id="画素ピクセルと画面解像度" class="slide level3">
+<h3>画素（ピクセル）と画面解像度</h3>
+<h4 id="光の3原色が集まって映像を作る">🔴🟢🔵 光の3原色が集まって映像を作る</h4>
+<ul>
+<li><strong>ピクセル（Pixel / 画素）</strong>：
+<ul>
+<li>デジタル画像を構成する最小単位の「点」。</li>
+<li>拡大すると、<strong>赤（Red）・緑（Green）・青（Blue）</strong>の3つの微小な光の明るさで無数の色を表現。</li>
+</ul></li>
+<li><strong>画面解像度（Resolution）</strong>：
+<ul>
+<li>画面に並んでいるピクセルの「横 × 縦」の総数。</li>
+<li><strong>SD画質（昔のDVD・アナログ放送）</strong>：720 × 480（約35万画素）</li>
+<li><strong>フルHD（地デジ・Blu-ray）</strong>：1920 × 1080（約207万画素）</li>
+<li><strong>4K（最新テレビ・配信）</strong>：3840 × 2160（<strong>約829万画素＝フルHDの4倍！</strong>）</li>
+<li><strong>8K</strong>：7680 × 4320（約3318万画素＝フルHDの16倍！）</li>
+</ul></li>
+</ul>
+</section>
+<section id="アスペクト比の歴史-43から169そして縦型916へ" class="slide level3">
+<h3>アスペクト比の歴史 —— 4:3から16:9、そして「縦型（9:16）」へ</h3>
+<h4 id="人間の視界とデバイスに合わせた画面比率">📐 人間の視界とデバイスに合わせた画面比率</h4>
+<ul>
+<li><strong>アスペクト比</strong>：画面の「横の長さ ： 縦の長さ」の比率。</li>
+<li><strong>4:3（スタンダード / アナログ時代）</strong>：
+<ul>
+<li>かつてのブラウン管テレビや初期PCモニタの標準。</li>
+</ul></li>
+<li><strong>16:9（ワイド / 地デジ・ハイビジョン時代）</strong>：
+<ul>
+<li>人間の両目の視野角に近く、映画館のような臨場感を持つ現代テレビの黄金比。</li>
+</ul></li>
+<li><strong>9:16（縦型 / モバイル動画時代）</strong>：
+<ul>
+<li>TikTok、YouTube Shorts、Instagramリールなど、<strong>「スマホを片手で持ったままスクロールして見る」</strong>現代の主流比率へ！</li>
+</ul></li>
+</ul>
+</section>
+<section id="走査スキャンとは-画面を塗りつぶす順番" class="slide level3">
+<h3>走査（スキャン）とは？ —— 画面を塗りつぶす順番</h3>
+<h4 id="秒間に何十回も光の点を走らせる">🖌️ 1秒間に何十回も光の点を走らせる</h4>
+<ul>
+<li>ディスプレイは、画面全体を一度に光らせているのではなく、<strong>電子ビームや信号が「左から右、上から下」へと超高速でなぞる（走査 / スキャン）</strong>ことで1枚の絵を作っています。</li>
+<li>走査の方式には、歴史的に決定的な2つの規格が存在します：
+<ol type="1">
+<li><strong>インターレース走査（飛び越し走査：i）</strong></li>
+<li><strong>プログレッシブ走査（順次走査：p）</strong></li>
+</ol></li>
+</ul>
+</section>
+<section id="図解インターレースivs-プログレッシブp" class="slide level3">
+<h3>【図解】インターレース（i）vs プログレッシブ（p）</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    subgraph Interlace["📺 インターレース走査（1080i / 地上波テレビ）"]
+        direction TB
+        I1["1回目：奇数行だけ描画（1, 3, 5...行）"] --&gt; I2["2回目：偶数行だけ描画（2, 4, 6...行）"]
+        INote["2回の走査で1枚の絵を完成！&lt;br/&gt;・少ない通信データ量で滑らかに見せる昔の知恵&lt;br/&gt;・静止画にすると横縞（チラつき）が出る弱点"]
+    end
+    
+    subgraph Progressive["💻 プログレッシブ走査（1080p / PC・YouTube・配信）"]
+        direction TB
+        P1["上から1行ずつ順番に全部描画（1, 2, 3, 4, 5...行）"]
+        PNote["1回で完全な1枚の絵を描画！&lt;br/&gt;・データ量は2倍だが、チラつきゼロで鮮明&lt;br/&gt;・PCモニタやスマホ、Netflix等の標準"]
+    end
+    style Interlace fill:#fff3e0,stroke:#e65100
+    style Progressive fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="超解像技術アップコンバートとai高画質化" class="slide level3">
+<h3>超解像技術（アップコンバート）とAI高画質化</h3>
+<h4 id="粗い映像を4k大画面で綺麗に見せる魔法">🔍 粗い映像を4K大画面で綺麗に見せる魔法</h4>
+<ul>
+<li><strong>アップコンバートの必要性</strong>：
+<ul>
+<li>地上波テレビ（1080i / フルHD）の映像を、画素数が4倍ある「4Kテレビ」にそのまま拡大表示すると、画素がぼやけて粗くなってしまう。</li>
+</ul></li>
+<li><strong>超解像エンジン（テレビ内部プロセッサの処理）</strong>：
+<ul>
+<li><strong>画素の補間・推測</strong>：AIが被写体の輪郭、肌の質感、文字のエッジを推測し、<strong>「もともとそこに存在したかのような高精細画素」を描き足して4K化</strong>！</li>
+<li><strong>フレーム補間（倍速駆動）</strong>：秒間30コマや60コマの映像の間をつなぐ「中間のコマ」を瞬時に生成し、激しいスポーツも滑らかに表示。</li>
+</ul></li>
+</ul>
+</section>
+<section id="フレームレートfpsの世界" class="slide level3">
+<h3>フレームレート（fps）の世界</h3>
+<h4 id="秒間に何枚の画像をパラパラ漫画にするか">🎞️ 1秒間に何枚の画像をパラパラ漫画にするか</h4>
+<ul>
+<li><strong>24 fps（映画）</strong>：
+<ul>
+<li>100年間変わらない映画の標準。適度な残像感（モーションブラー）が「映画らしいドラマチックな質感」を生む。</li>
+</ul></li>
+<li><strong>30 fps / 60フィールド（日本のテレビ放送）</strong>：
+<ul>
+<li>ニュースやバラエティ番組の滑らかな標準。</li>
+</ul></li>
+<li><strong>60 fps 〜 120 fps（ゲーム・最新スマホ）</strong>：
+<ul>
+<li>PS5やゲーミングPC、iPhoneのProMotionディスプレイ。カクつきが一切なく、競技性の高い対戦ゲームに必須。</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level3">
+
+</section>
+<section class="slide level3">
+
+</section>
+
+<section id="映像端子とデジタル著作権の砦" class="title-slide slide level2 center">
+<h2>2. 映像端子とデジタル著作権の砦</h2>
+
+</section>
+<section id="考えてみたい問い-32" class="slide level3">
+<h3>考えてみたい問い</h3>
+<ul>
+<li>なぜ黄色・白・赤の「あのビデオ端子」は完全に姿を消したのか？</li>
+<li>なぜテレビのHDMIケーブルは、画面だけでなく「音」も送れるの？</li>
+<li>コネクタの形は同じなのに「画面が映らないType-Cケーブル」があるのはなぜ？</li>
+<li>「HDCP」って何？ なぜゲーム実況者はHDMIキャプチャで苦労する？</li>
+</ul>
+</section>
+<section id="レガシーアナログ端子の終焉" class="slide level3">
+<h3>レガシーアナログ端子の終焉</h3>
+<h4 id="ケーブルだらけだった時代の終わり">📼 ケーブルだらけだった時代の終わり</h4>
+<ul>
+<li><strong>コンポジット端子（黄・白・赤ピン）</strong>：
+<ul>
+<li>黄色（映像）、白・赤（ステレオ音声）。SD画質（480i）しか送れず、色にじみが発生。</li>
+</ul></li>
+<li><strong>D端子（日本独自の悲劇の規格）</strong>：
+<ul>
+<li>ハイビジョン（D3=1080i, D4=720p）に対応したアナログ端子だったが、<strong>「暗号化されていないため高画質映像をそのままダビング（海賊版コピー）できてしまう」</strong>という致命的欠点により全廃！</li>
+</ul></li>
+<li><strong>VGA端子（D-Sub 15ピン）</strong>：
+<ul>
+<li>昔のPC用アナログ映像端子。音声は送れず、徐々に姿を消す。</li>
+</ul></li>
+</ul>
+</section>
+<section id="hdmihigh-definition-multimedia-interfaceの覇権" class="slide level3">
+<h3>HDMI（High-Definition Multimedia Interface）の覇権</h3>
+<h4 id="ケーブル1本で映像も音声も完璧に送るデジタル標準">🔌 ケーブル1本で映像も音声も完璧に送るデジタル標準</h4>
+<ul>
+<li><strong>HDMIの革命</strong>：
+<ul>
+<li>映像と音声を1本の細いケーブルで非圧縮デジタル伝送。</li>
+<li>リモコン連動機能（CEC）：テレビの電源を入れるとゲーム機やレコーダーが連動して起動。</li>
+</ul></li>
+<li><strong>世代ごとの進化</strong>：
+<ul>
+<li><strong>HDMI 1.4</strong>：フルHD対応。</li>
+<li><strong>HDMI 2.0</strong>：4K 60Hzに対応。</li>
+<li><strong>HDMI 2.1（最新）</strong>：4K 120Hz / 8K対応、可変リフレッシュレート（VRR）。PS5などの最新ゲームに必須！</li>
+</ul></li>
+</ul>
+</section>
+<section id="図解著作権保護技術hdcpの秘密" class="slide level3">
+<h3>【図解】著作権保護技術「HDCP」の秘密</h3>
+<h4 id="画面に届くまで映像を暗号化して盗難を防ぐ">🔐 画面に届くまで映像を暗号化して盗難を防ぐ</h4>
+<ul>
+<li><strong>HDCP（High-bandwidth Digital Content Protection）</strong>：
+<ul>
+<li>映像を再生する機器（ゲーム機、PC、Blu-ray）と、表示するディスプレイの間で<strong>暗号化ハンドシェイク</strong>を実行！</li>
+</ul></li>
+</ul>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    A["🎮 再生機器&lt;br/&gt;（PS5 / レコーダー / PC）"] --&gt;|① 暗号鍵の相互認証| B["📺 ディスプレイ&lt;br/&gt;（テレビ / モニタ）"]
+    A --&gt;|② 暗号化された映像信号を伝送| B
+    B --&gt;|③ ディスプレイ内部で復号して表示| B
+    
+    H["🦹 キャプチャ機器 / 海賊版コピー機&lt;br/&gt;（HDCP非対応）"] -.-&gt;|途中で抜き取ろうとする| A
+    style H fill:#ffebee,stroke:#c62828,stroke-width:2px
+    style B fill:#e8f5e9,stroke:#2e7d32
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div title="⚠️ 画面が真っ暗になる原因">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>⚠️ 画面が真っ暗になる原因</strong></p>
+</div>
+<div class="callout-content">
+<p>HDCP非対応の古いモニタや怪しい分配器に繋ぐと、著作権保護が働き、Netflixやゲーム画面が真っ暗になって映りません。</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="usb-type-c-の万能性と見えない落とし穴" class="slide level3">
+<h3>USB Type-C の万能性と「見えない落とし穴」</h3>
+<h4 id="本のケーブルで充電通信映像出力をすべてこなす">⚡ 1本のケーブルで充電・通信・映像出力をすべてこなす</h4>
+<ul>
+<li><strong>DisplayPort Alt Mode（オルタネートモード）</strong>：
+<ul>
+<li>ノートPCやスマホのType-C端子から、直接HDMI/DisplayPort信号を出力して大画面モニタに映す機能。</li>
+<li><strong>ケーブル1本で「ノートPCの画面を大画面に映しながら、モニタからノートPCへ急速充電（USB PD）」</strong>できる神機能！</li>
+</ul></li>
+<li><strong>コネクタの形が同じでも中身が違う「Type-Cの罠」</strong>：
+<ul>
+<li>❌ <strong>100均の充電専用ケーブル</strong>：充電しかできない（映像もデータも不可）。</li>
+<li>❌ <strong>スマホ付属ケーブル（USB 2.0速度）</strong>：充電と低速転送のみ（映像出力非対応）。</li>
+<li>⭕ <strong>USB4 / Thunderbolt 4ケーブル</strong>：40Gbps超高速通信・4K/8K映像出力・高出力充電すべて対応。</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level3">
+
+</section>
+<section class="slide level3">
+
+</section>
+
+<section id="電波で届くテレビ放送の仕組み" class="title-slide slide level2 center">
+<h2>3. 電波で届くテレビ放送の仕組み</h2>
+
+</section>
+<section id="考えてみたい問い-33" class="slide level3">
+<h3>考えてみたい問い</h3>
+<ul>
+<li>なぜ2011年に「地デジ化」で日本中のテレビを買い替えることになったのか？</li>
+<li>「地上波」「BS」「CS」は何が違う？ パラボラアンテナはどこを向いている？</li>
+<li>テレビの横に刺さっていた「赤いB-CASカード」はどこへ消えた？</li>
+<li>「テレビを持っていなくても、スマホがあればNHK受信料を払う」時代が来るって本当？</li>
+</ul>
+</section>
+<section id="年-地デジ完全移行の本当の理由" class="slide level3">
+<h3>2011年 地デジ完全移行の「本当の理由」</h3>
+<h4 id="電波の有効利用とスマートフォンの爆発的普及">📡 電波の有効利用とスマートフォンの爆発的普及</h4>
+<ul>
+<li>2011年7月24日、半世紀続いたアナログテレビ放送が終了し、地上波デジタル（地デジ）へ完全移行。</li>
+<li><strong>なぜ国を挙げて移行させたのか？</strong>：
+<ul>
+<li>アナログ放送は広大な電波周波数を占有していた。</li>
+<li>デジタル化（映像圧縮技術 MPEG-2）により、<strong>同じ電波の幅で何倍もの番組を高画質（フルHD）で送れる</strong>ようになった。</li>
+</ul></li>
+<li><strong>空いた「プラチナバンド」の行方</strong>：
+<ul>
+<li>アナログ終了で空いた貴重な電波帯（700MHz〜900MHz）は、<strong>急速に普及していた「スマートフォン（4G/LTE・5G）」の通信網へ再割り当て</strong>されました！</li>
+</ul></li>
+</ul>
+</section>
+<section id="地上波デジタル-vs-衛星放送bs-cs" class="slide level3">
+<h3>地上波デジタル vs 衛星放送（BS / CS）</h3>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">放送区分</th>
+<th style="text-align: left;">送信方法</th>
+<th style="text-align: left;">周波数・特徴</th>
+<th style="text-align: left;">番組内容・利用形態</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>地上波デジタル（地デジ）</strong></td>
+<td style="text-align: left;">地上の電波塔（東京スカイツリー等）から送信</td>
+<td style="text-align: left;">UHF帯（極超短波）。障害物があれば中継局を設置。</td>
+<td style="text-align: left;">地域ごとの地方局放送。無料。1080i放送。</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>BSデジタル（放送衛星）</strong></td>
+<td style="text-align: left;">宇宙の静止衛星（東経110度）から日本全土へ一括送信</td>
+<td style="text-align: left;">パラボラアンテナで受信。大雨で電波減衰あり。</td>
+<td style="text-align: left;">全国一律放送。NHK、民放各社の無料BS、4K/8K放送。</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>CSデジタル（通信衛星）</strong></td>
+<td style="text-align: left;">宇宙の通信衛星（東経110度等）から送信</td>
+<td style="text-align: left;">スカパー等の専用アンテナ・契約。</td>
+<td style="text-align: left;">専門性の高い有料多チャンネル（スポーツ、アニメ、映画）。</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="b-casカードからacasチップへの進化" class="slide level3">
+<h3>B-CASカードから「ACASチップ」への進化</h3>
+<h4 id="テレビの横の赤いカードが消えた理由">💳 テレビの横の「赤いカード」が消えた理由</h4>
+<ul>
+<li><strong>B-CASカードの役目</strong>：
+<ul>
+<li>テレビ放送は暗号化されて送信されており、B-CASカードの中の暗号鍵を使って復号（視聴）する仕組み。</li>
+</ul></li>
+<li><strong>不正書き換え事件の発生</strong>：
+<ul>
+<li>過去にカード内の暗号鍵やプログラムが解析され、有料放送を勝手にタダ見できる改造ツールが出回る事件が発生。</li>
+</ul></li>
+<li><strong>ACAS（新世代チップ）への移行</strong>：
+<ul>
+<li>2018年に始まった新4K8K衛星放送以降のテレビでは、カードを差し込む方式を全廃。</li>
+<li><strong>テレビ本体の基板内に高度なセキュリティチップ（ACAS）を直接ハンダ付けで内蔵</strong>し、物理的に抜き差し・改造できないように進化！</li>
+</ul></li>
+</ul>
+</section>
+<section id="年-放送法の歴史的大改正-nhkネット配信義務化" class="slide level3">
+<h3>2024〜2025年 放送法の歴史的大改正 —— NHKネット配信義務化</h3>
+<h4 id="テレビ設置からスマホでの利用へ広がる受信料">🏛️ 「テレビ設置」から「スマホでの利用」へ広がる受信料</h4>
+<ul>
+<li><strong>放送法の改正（2024年成立・2025年施行）</strong>：
+<ul>
+<li>これまでNHKのインターネット配信（NHKプラス）はテレビ放送の「補完業務」だったが、<strong>「必須業務（本来業務）」へ格上げ</strong>。</li>
+</ul></li>
+<li><strong>受信料の新しいルール</strong>：
+<ul>
+<li>テレビを持たない人でも、<strong>「スマホやPCでNHKのネット配信アプリをインストールし、利用登録（ID取得）して日常的に視聴する人」は受信料支払いの義務対象</strong>に！</li>
+<li>（※単にスマホを持っているだけ、またはブラウザで検索しただけでは請求されません）。</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level3">
+
+</section>
+<section class="slide level3">
+
+</section>
+
+<section id="インターネット動画配信とテレビの変容" class="title-slide slide level2 center">
+<h2>4. インターネット動画配信と「テレビ」の変容</h2>
+
+</section>
+<section id="考えてみたい問い-34" class="slide level3">
+<h3>考えてみたい問い</h3>
+<ul>
+<li>なぜ最近の若者は「テレビ受像機」を持たず「TVer」や「YouTube」で済ませるのか？</li>
+<li>Netflix、Amazon Prime、U-NEXTはどうやって儲けている？</li>
+<li>ドン・キホーテで話題になった「チューナーレステレビ」が売れる理由とは？</li>
+<li>なぜサッカーW杯やボクシング世界戦が「地上波テレビ」で生中継されなくなったのか？</li>
+</ul>
+</section>
+<section id="動画配信ビジネスの3大モデル" class="slide level3">
+<h3>動画配信ビジネスの3大モデル</h3>
+<h4 id="ネット配信はどうやってお金を稼いでいるのか">💰 ネット配信はどうやってお金を稼いでいるのか？</h4>
+<ul>
+<li><strong>SVOD（Subscription Video on Demand：定額見放題）</strong>：
+<ul>
+<li>月額定額制。広告なしで映画やドラマが見放題。</li>
+<li>例：Netflix, Amazonプライム・ビデオ, Disney+, U-NEXT</li>
+</ul></li>
+<li><strong>AVOD（Advertising Video on Demand：広告付き無料配信）</strong>：
+<ul>
+<li>視聴者は無料。途中で流れるCMの広告費で運営。</li>
+<li>例：YouTube, TVer, ABEMA無料枠</li>
+</ul></li>
+<li><strong>TVOD / PPV（Transactional VOD / Pay-Per-View：都度課金）</strong>：
+<ul>
+<li>映画1本ごとのレンタル・購入や、格闘技・アーティストの有料生配信。</li>
+</ul></li>
+</ul>
+<div title="最新トレンド「FAST」の台頭">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>最新トレンド「FAST」の台頭</strong></p>
+</div>
+<div class="callout-content">
+<p>欧米や日本で、広告付きで24時間番組を流し続ける無料のリニア配信（<strong>FAST: Free Ad-supported Streaming TV</strong>）が注目されています（ABEMAの専門チャンネルなど）。</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="tverの爆発的普及とサイマル同時配信" class="slide level3">
+<h3>TVerの爆発的普及と「サイマル同時配信」</h3>
+<h4 id="テレビ番組を時間と場所の束縛から解放した">📺 テレビ番組を「時間と場所の束縛」から解放した</h4>
+<ul>
+<li><strong>TVer（ティーバー）とは</strong>：
+<ul>
+<li>日本の民放キー5局が共同で立ち上げた公式見逃し配信サービス。</li>
+<li>放送後1週間、ドラマやバラエティを無料で見放題（AVOD）。</li>
+</ul></li>
+<li><strong>ゴールデンタイムの「サイマル配信（同時配信）」</strong>：
+<ul>
+<li>2021年以降、テレビの電波と同時にインターネットでも生配信。</li>
+</ul></li>
+<li><strong>テレビ局の評価軸の変化</strong>：
+<ul>
+<li>かつての「世帯視聴率」至上主義から、若者がいつどこで何回見たかを示す<strong>「TVer再生数・お気に入り登録数」</strong>が番組の存続を左右する時代へ！</li>
+</ul></li>
+</ul>
+</section>
+<section id="巨大資本の衝突-メガイベントの地上波撤退" class="slide level3">
+<h3>巨大資本の衝突 —— メガイベントの地上波撤退</h3>
+<h4 id="放映権料の高騰とネット独占配信">⚽ 放映権料の高騰とネット独占配信</h4>
+<ul>
+<li><strong>地上波でビッグマッチが見られない時代</strong>：
+<ul>
+<li><strong>2022年 サッカーW杯カタール大会</strong>：サイバーエージェント（ABEMA）が全64試合を無料生中継。</li>
+<li><strong>ボクシング井上尚弥戦</strong>：Amazon Prime Videoが独占生配信。</li>
+<li><strong>MLB大谷翔平戦</strong>：ABEMAやSPOTV NOWが中継枠を獲得。</li>
+</ul></li>
+<li><strong>なぜテレビ局は買えないのか？</strong>：
+<ul>
+<li>世界的な配信大手の参入により、国際スポーツの放映権料が数百億〜数千億円へ暴騰。</li>
+<li>テレビCMの広告収入だけではペイできず、有料会員獲得を狙うネット配信企業が放映権を独占する構造へシフト！</li>
+</ul></li>
+</ul>
+</section>
+<section id="コネクテッドtvctvとチューナーレステレビ" class="slide level3">
+<h3>コネクテッドTV（CTV）と「チューナーレステレビ」</h3>
+<h4 id="テレビは放送を受信する箱から大型スマートモニタへ">🖥️ テレビは「放送を受信する箱」から「大型スマートモニタ」へ</h4>
+<ul>
+<li><strong>コネクテッドTV（CTV）</strong>：
+<ul>
+<li>ネットに接続されたテレビ。Fire TV StickやApple TV、Google TV内蔵テレビの普及により、<strong>リビングの大画面でYouTubeやNetflixを見るのが当たり前</strong>に。</li>
+</ul></li>
+<li><strong>チューナーレステレビの大ヒット</strong>：
+<ul>
+<li>地デジやBSの受像チューナーを一切搭載せず、動画配信アプリだけが動くディスプレイ。</li>
+<li><strong>なぜ売れるのか？</strong>：
+<ol type="1">
+<li>チューナーがない分、<strong>4K大画面でも3〜4万円台と圧倒的に安い</strong>！</li>
+<li>テレビ放送を受信する設備ではないため、<strong>NHK受信契約が不要</strong>。</li>
+<li>「リアルタイムのテレビは見ない、YouTubeとNetflixだけで十分」という単身世帯のニーズに完全に合致。</li>
+</ol></li>
+</ul></li>
+</ul>
+</section>
+<section id="ミラーリング技術-手元のスマホを居間の大画面へ" class="slide level3">
+<h3>ミラーリング技術 —— 手元のスマホを居間の大画面へ</h3>
+<h4 id="ケーブル不要でワイヤレス映像伝送">📲 ケーブル不要でワイヤレス映像伝送</h4>
+<ul>
+<li><strong>ミラーリング（Screen Mirroring）</strong>：
+<ul>
+<li>スマホやPCの画面を、Wi-Fiを経由してテレビの大画面にそのまま映し出す技術。</li>
+</ul></li>
+<li><strong>主要なワイヤレス規格</strong>：
+<ul>
+<li><strong>AirPlay（Apple）</strong>：iPhone/Macの画面をApple TVや対応スマートテレビに秒速転送。</li>
+<li><strong>Google Cast（Chromecast）</strong>：YouTubeやNetflixの再生指示だけをテレビに送り、テレビ側で高画質ストリーミング再生。</li>
+<li><strong>Miracast</strong>：Wi-Fi Allianceによる業界標準規格。</li>
+</ul></li>
+</ul>
+</section>
+<section id="実践チェック-18" class="slide level3">
+<h3>📱 実践チェック</h3>
+<h4 id="我が家の映像通信環境をチェックしてみよう">🔍 我が家の映像・通信環境をチェックしてみよう</h4>
+<ol type="1">
+<li><strong>テレビの裏側を覗いてみよう</strong>：
+<ul>
+<li>繋がっているケーブルは「HDMI」か？ 端子に「4K 120Hz」や「eARC」と書いてあるか確認しよう。</li>
+</ul></li>
+<li><strong>テレビのスマート機能</strong>：
+<ul>
+<li>自宅のテレビにYouTubeやTVer、Netflixのボタンがあるか？ なければFire TV Stick等の外部機器がついているか確認しよう。</li>
+</ul></li>
+<li><strong>PCやスマホのType-C</strong>：
+<ul>
+<li>手持ちのノートPCやスマホのType-C端子が「画面出力（DisplayPort Alt Mode）」に対応しているかスペック表を調べてみよう。</li>
+</ul></li>
+</ol>
+</section>
+<section id="考えてみよう講義の振り返り-4" class="slide level3">
+<h3>🤔 考えてみよう（講義の振り返り）</h3>
+<h4 id="問いかけ-4">💭 問いかけ</h4>
+<ol type="1">
+<li>「リアルタイムに同じ時間に同じ番組を見る」テレビ放送の文化は、オンデマンドや倍速視聴が当たり前になった現代社会で、今後どのような独自の価値（速報性、災害報道、国民的一体感など）を残していくだろうか？</li>
+<li>チューナーレステレビの普及やNHKネット配信義務化が進む中、未来の「公共放送（公のメディア）」の費用負担はどうあるべきだろうか？</li>
+</ol>
+</section>
+<section id="全9部作の完全完結-現代デジタル社会の歩き方" class="slide level3">
+<h3>全9部作の完全完結 —— 現代デジタル社会の歩き方</h3>
+<h4 id="あなたが手に入れた9つのデジタル知性">🏛️ あなたが手に入れた「9つのデジタル知性」</h4>
+<ol type="1">
+<li><strong>認証（Part 1）</strong>：パスキーとMFAで自己の存在証明を守る。</li>
+<li><strong>通信（Part 2）</strong>：暗号化と人の心の隙を突く攻撃を警戒する。</li>
+<li><strong>データ（Part 3）</strong>：検索技術とDBの構造で真実を見極める。</li>
+<li><strong>決済（Part 4）</strong>：FeliCa・NFC・QRの仕組みを知り、カード情報を守る。</li>
+<li><strong>暗号通貨（Part 5）</strong>：中央のないブロックチェーンの革新と自己責任を知る。</li>
+<li><strong>SNS（Part 6）</strong>：アルゴリズムに操られず、情報発信の責任を持つ。</li>
+<li><strong>クラウド（Part 7）</strong>：巨大ITの利便性を享受しつつ、データ主権を保つ。</li>
+<li><strong>モバイル（Part 8）</strong>：ポケットの中の電波と端末を自らコントロールする。</li>
+<li><strong>映像・放送（Part 9）</strong>：電波と配信が融合するメディアの未来を客観的に見抜く。</li>
+</ol>
+<div title="🎓 デジタル教養の旅を終えたあなたへ">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>🎓 デジタル教養の旅を終えたあなたへ</strong></p>
+</div>
+<div class="callout-content">
+<p>現代社会のあらゆるスクリーンと電波の裏側には、人類の知恵と暗号、通信プロトコル、そしてビジネスの思惑が張り巡らされています。仕組みを知ったあなたなら、デジタルに流されることなく、自らの知性と意志で未来を切り拓いていけます。素晴らしいデジタルライフを！</p>
 </div>
 </div>
 </div>
