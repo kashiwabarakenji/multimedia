@@ -2437,6 +2437,25 @@
 </div>
 </div>
 </section>
+<section id="図解ランサムウェア感染-vs-3-2-1バックアップ復旧" class="slide level3">
+<h3>【図解】ランサムウェア感染 vs 3-2-1バックアップ復旧</h3>
+
+<img data-src="images/ransomware_defense_visual.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><div title="バックアップを「抜いておく」ことの決定的な重要性">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>バックアップを「抜いておく」ことの決定的な重要性</strong></p>
+</div>
+<div class="callout-content">
+<p>PCにUSBハードディスクを繋いだままにしていると、ウイルスが外付けドライブまで探索してバックアップごと暗号化してしまいます。「物理的にケーブルを抜いて金庫にしまう（エアギャップ）」ことで、感染しても1円も払わずに100%復旧できます。</p>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section id="考えてみよう振り返り-5" class="slide level3">
 <h3>🤔 考えてみよう（振り返り）</h3>
 <h4 id="ケーススタディ-1">🤔 ケーススタディ</h4>
@@ -3626,6 +3645,25 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 </div>
 </div>
 </section>
+<section id="イラストトランザクションall-or-nothingとロールバック" class="slide level3">
+<h3>【イラスト】トランザクション（All or Nothing）とロールバック</h3>
+
+<img data-src="images/acid_rollback_visual.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><div title="お金が絶対に消えない数学的・工学的保証">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>お金が絶対に消えない数学的・工学的保証</strong></p>
+</div>
+<div class="callout-content">
+<p>A口座から出金された後、通信エラーや停電が起きても、トランザクション機能が処理前の状態に自動復元（Rollback）するため、中途半端なデータ不整合は絶対に生じません。</p>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section id="新幹線の最後の1席を同時に予約したら排他制御" class="slide level3">
 <h3>新幹線の最後の1席を同時に予約したら？（排他制御）</h3>
 <h4 id="秒を争うタッチ差の世界">🚄 0.001秒を争うタッチ差の世界</h4>
@@ -4634,6 +4672,25 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <li>券面に印刷されている<strong>「16桁の番号・有効期限・裏の3桁（セキュリティコード）」</strong>の3つさえ知っていれば、<strong>持ち主本人でなくても世界中のネット通販で買い物ができてしまう！</strong></li>
 <li>つまり、「鍵と暗証番号が表面にデカデカと刻印された金庫」を持ち歩いているような危うさを持っています。</li>
 </ul>
+</section>
+<section id="図解クレジットカードの表面と裏面の精密解剖図" class="slide level3">
+<h3>【図解】クレジットカードの表面と裏面の精密解剖図</h3>
+
+<img data-src="images/credit_card_anatomy.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><div title="裏面の「セキュリティコード（3桁）」は絶対に人に見せるな！">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>裏面の「セキュリティコード（3桁）」は絶対に人に見せるな！</strong></p>
+</div>
+<div class="callout-content">
+<p>店員にカードを裏返して預けると、スマホで裏面を撮影されたり暗記されたりして、ネット通販で即座に不正利用される事件が多発しています。店頭では「タッチ決済」か「自分でICチップを差し込む」を徹底しましょう。</p>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="黒い磁気テープから金色のicチップへ-スキミング撲滅の歴史" class="slide level3">
 <h3>黒い磁気テープから「金色のICチップ」へ —— スキミング撲滅の歴史</h3>
@@ -8000,6 +8057,37 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 </div>
 </div>
 </section>
+<section id="コラム宇宙-vs-深海-国際通信の99は海の底を通る" class="slide level3">
+<h3>【コラム】宇宙 vs 深海 —— 国際通信の99%は「海の底」を通る！</h3>
+<h4 id="なぜ衛星通信ではなく海底ケーブルなのか">🌊 なぜ衛星通信ではなく「海底ケーブル」なのか？</h4>
+<ul>
+<li>スマホで海外のWebサイトを見たり、海外サーバーと通信するとき、電波が宇宙へ飛んでいると思っていませんか？</li>
+<li><strong>衝撃の事実：国際通信の約99%は「海底光ファイバーケーブル」が運んでいる！</strong>
+<ul>
+<li><strong>衛星通信</strong>：宇宙を往復するため遅延（ラグ）が発生し、運べるデータ容量も限られる。</li>
+<li><strong>海底光ケーブル</strong>：光の速度で大陸間を直結し、毎秒数百テラビットの超大容量データを瞬時に伝送。</li>
+</ul></li>
+</ul>
+</section>
+<section id="構造図深海底の水圧と障害に耐える海底光ケーブルの断面" class="slide level3">
+<h3>【構造図】深海底の水圧と障害に耐える「海底光ケーブル」の断面</h3>
+
+<img data-src="images/submarine_cable.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"><div title="髪の毛ほどの細さの光ファイバーを守る強固な多重構造">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>髪の毛ほどの細さの光ファイバーを守る強固な多重構造</strong></p>
+</div>
+<div class="callout-content">
+<p>中心にある光ファイバー芯線を、高張力鋼線、アルミ遮水層、ポリカーボネート、絶縁ポリエチレンなどの強固な層で何重にも保護し、水深数千mの超高水圧や地震から守っています。</p>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section class="slide level3">
 
 </section>
@@ -8434,6 +8522,25 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 </div>
 </div>
 </section>
+<section id="比較インターレース走査1080i-vs-プログレッシブ走査1080p" class="slide level3">
+<h3>【比較】インターレース走査（1080i） vs プログレッシブ走査（1080p）</h3>
+
+<img data-src="images/interlace_vs_progressive_scan.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><div title="画面の塗りつぶし方の決定的な違い">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>画面の塗りつぶし方の決定的な違い</strong></p>
+</div>
+<div class="callout-content">
+<p>インターレースは奇数行・偶数行を交互に送るため、動きの速いスポーツで横縞ノイズが発生します。一方、プログレッシブは上から順に全走査線を一気に描くため、ブレずにくっきり滑らかな映像になります。</p>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section id="超解像技術アップコンバートとai高画質化" class="slide level3">
 <h3>超解像技術（アップコンバート）とAI高画質化</h3>
 <h4 id="粗い映像を4k大画面で綺麗に見せる魔法">🔍 粗い映像を4K大画面で綺麗に見せる魔法</h4>
@@ -8719,6 +8826,25 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <li><strong>テレビ本体の基板内に高度なセキュリティチップ（ACAS）を直接ハンダ付けで内蔵</strong>し、物理的に抜き差し・改造できないように進化！</li>
 </ul></li>
 </ul>
+</section>
+<section id="実物写真暗号鍵を握っていた赤いb-casカード" class="slide level3">
+<h3>【実物写真】暗号鍵を握っていた「赤いB-CASカード」</h3>
+
+<img data-src="images/bcas_card.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"><div title="テレビの横に必ず刺さっていたICカード">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>テレビの横に必ず刺さっていたICカード</strong></p>
+</div>
+<div class="callout-content">
+<p>放送波のスクランブル（暗号化）を解除するための鍵が入ったカード。不正改造事件を経て、現代の4K/8Kテレビでは基板に直接ハンダ付けされた「ACASチップ」へと進化し、カードスロット自体が姿を消しました。</p>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="年-放送法の歴史的大改正-nhkネット配信義務化" class="slide level3">
 <h3>2024〜2025年 放送法の歴史的大改正 —— NHKネット配信義務化</h3>

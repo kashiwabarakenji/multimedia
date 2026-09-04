@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16" />
+      <stop offset="100%" stop-color="#111827" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000" flood-opacity="0.5" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="720" fill="url(#bgGrad)" />
+
+  <!-- Header -->
+  <text x="640" y="55" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="bold" fill="#f8fafc" text-anchor="middle">
+    映像走査方式の徹底対比：インターレース（1080i） vs プログレッシブ（1080p）
+  </text>
+  <text x="640" y="85" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">
+    なぜ地デジは「i」で、YouTubeやNetflixは「p」なのか？ 画面の塗りつぶし方の違い
+  </text>
+
+  <!-- ==================== LEFT: INTERLACE (1080i) ==================== -->
+  <g transform="translate(80, 115)">
+    <!-- Header Box -->
+    <rect x="0" y="0" width="520" height="42" rx="8" fill="#e11d48" />
+    <text x="260" y="27" font-family="sans-serif" font-size="17" font-weight="bold" fill="#ffffff" text-anchor="middle">
+      📺 インターレース走査（1080i / 飛び越し走査）
+    </text>
+
+    <!-- Monitor Frame -->
+    <rect x="0" y="55" width="520" height="340" rx="12" fill="#1f2937" stroke="#374151" stroke-width="2" filter="url(#shadow)" />
+    <!-- Screen Inner -->
+    <rect x="15" y="70" width="490" height="310" rx="6" fill="#030712" />
+
+    <!-- Sub-labels for fields -->
+    <text x="135" y="95" font-family="sans-serif" font-size="13" font-weight="bold" fill="#38bdf8" text-anchor="middle">1回目：奇数行（1/60秒）</text>
+    <text x="365" y="95" font-family="sans-serif" font-size="13" font-weight="bold" fill="#fb7185" text-anchor="middle">2回目：偶数行（2/60秒）</text>
+
+    <!-- Left Subscreen: Odd lines -->
+    <g transform="translate(30, 110)">
+      <rect width="210" height="180" fill="#111827" stroke="#1e293b" />
+      <!-- Odd Lines -->
+      <line x1="10" y1="20" x2="200" y2="20" stroke="#38bdf8" stroke-width="6" />
+      <line x1="10" y1="50" x2="200" y2="50" stroke="#38bdf8" stroke-width="6" />
+      <line x1="10" y1="80" x2="200" y2="80" stroke="#38bdf8" stroke-width="6" />
+      <line x1="10" y1="110" x2="200" y2="110" stroke="#38bdf8" stroke-width="6" />
+      <line x1="10" y1="140" x2="200" y2="140" stroke="#38bdf8" stroke-width="6" />
+      <line x1="10" y1="170" x2="200" y2="170" stroke="#38bdf8" stroke-width="6" />
+      <text x="105" y="105" font-family="sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">行 1, 3, 5, 7, 9...</text>
+    </g>
+
+    <!-- Right Subscreen: Even lines & Combing Artifact -->
+    <g transform="translate(260, 110)">
+      <rect width="210" height="180" fill="#111827" stroke="#1e293b" />
+      <!-- Moving Object with horizontal comb tearing -->
+      <path d="M 60,20 L 140,20 M 80,35 L 160,35 M 60,50 L 140,50 M 80,65 L 160,65 M 60,80 L 140,80 M 80,95 L 160,95 M 60,110 L 140,110 M 80,125 L 160,125 M 60,140 L 140,140" stroke="#fb7185" stroke-width="5" />
+      <!-- Jagged warning -->
+      <rect x="35" y="145" width="140" height="26" rx="4" fill="#881337" opacity="0.9" />
+      <text x="105" y="163" font-family="sans-serif" font-size="11" font-weight="bold" fill="#fecdd3" text-anchor="middle">⚠️ 横縞・ギザギザノイズ</text>
+    </g>
+
+    <text x="260" y="325" font-family="sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+      2回の走査（計2/60秒＝1/30秒）で合成して1枚の絵を作る
+    </text>
+
+    <!-- Bottom Description Box -->
+    <rect x="0" y="405" width="520" height="95" rx="8" fill="#1e293b" stroke="#334155" />
+    <text x="20" y="430" font-family="sans-serif" font-size="14" font-weight="bold" fill="#f87171">【主な用途】地上波テレビ放送（地デジ 1080i）</text>
+    <text x="20" y="455" font-family="sans-serif" font-size="13" fill="#cbd5e1">・昔のアナログ電波の制約から生まれた「伝送データ半減」の知恵</text>
+    <text x="20" y="478" font-family="sans-serif" font-size="13" fill="#cbd5e1">・激しく動くスポーツ等で輪郭に「すだれ状のズレ」が出る弱点</text>
+  </g>
+
+  <!-- ==================== RIGHT: PROGRESSIVE (1080p) ==================== -->
+  <g transform="translate(680, 115)">
+    <!-- Header Box -->
+    <rect x="0" y="0" width="520" height="42" rx="8" fill="#059669" />
+    <text x="260" y="27" font-family="sans-serif" font-size="17" font-weight="bold" fill="#ffffff" text-anchor="middle">
+      🌐 プログレッシブ走査（1080p / 順次走査）
+    </text>
+
+    <!-- Monitor Frame -->
+    <rect x="0" y="55" width="520" height="340" rx="12" fill="#1f2937" stroke="#374151" stroke-width="2" filter="url(#shadow)" />
+    <!-- Screen Inner -->
+    <rect x="15" y="70" width="490" height="310" rx="6" fill="#030712" />
+
+    <text x="245" y="95" font-family="sans-serif" font-size="13" font-weight="bold" fill="#34d399" text-anchor="middle">
+      上から1行ずつ順番に隙間なく一気に描画！（1/60秒で全行完成）
+    </text>
+
+    <!-- Full Screen Scan -->
+    <g transform="translate(50, 110)">
+      <rect width="420" height="180" fill="#111827" stroke="#1e293b" />
+      <!-- Scanning arrow -->
+      <line x1="20" y1="15" x2="20" y2="165" stroke="#10b981" stroke-width="3" stroke-dasharray="4,4" />
+      <polygon points="20,175 14,162 26,162" fill="#10b981" />
+      <text x="40" y="95" font-family="sans-serif" font-size="11" fill="#6ee7b7" transform="rotate(90,40,95)" text-anchor="middle">走査順序（上→下）</text>
+
+      <!-- Smooth Clean Object -->
+      <circle cx="250" cy="90" r="55" fill="#10b981" opacity="0.85" />
+      <!-- Clean sharp lines -->
+      <line x1="80" y1="20" x2="400" y2="20" stroke="#34d399" stroke-width="2" opacity="0.3" />
+      <line x1="80" y1="40" x2="400" y2="40" stroke="#34d399" stroke-width="2" opacity="0.3" />
+      <line x1="80" y1="60" x2="400" y2="60" stroke="#34d399" stroke-width="2" opacity="0.3" />
+      <line x1="80" y1="80" x2="400" y2="80" stroke="#34d399" stroke-width="2" opacity="0.3" />
+      <line x1="80" y1="100" x2="400" y2="100" stroke="#34d399" stroke-width="2" opacity="0.3" />
+      <line x1="80" y1="120" x2="400" y2="120" stroke="#34d399" stroke-width="2" opacity="0.3" />
+      <line x1="80" y1="140" x2="400" y2="140" stroke="#34d399" stroke-width="2" opacity="0.3" />
+      <line x1="80" y1="160" x2="400" y2="160" stroke="#34d399" stroke-width="2" opacity="0.3" />
+
+      <rect x="180" y="145" width="140" height="26" rx="4" fill="#065f46" opacity="0.9" />
+      <text x="250" y="163" font-family="sans-serif" font-size="11" font-weight="bold" fill="#a7f3d0" text-anchor="middle">✅ ブレなし・極めて鮮明</text>
+    </g>
+
+    <text x="260" y="325" font-family="sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+      毎秒60回（60fps）、常に完全な1フレームを描画し続ける
+    </text>
+
+    <!-- Bottom Description Box -->
+    <rect x="0" y="405" width="520" height="95" rx="8" fill="#1e293b" stroke="#334155" />
+    <text x="20" y="430" font-family="sans-serif" font-size="14" font-weight="bold" fill="#34d399">【主な用途】YouTube, Netflix, PCモニター, ゲーム</text>
+    <text x="20" y="455" font-family="sans-serif" font-size="13" fill="#cbd5e1">・データ量はiの2倍だが、光回線や高速スマホ通信なら余裕で伝送可能</text>
+    <text x="20" y="478" font-family="sans-serif" font-size="13" fill="#cbd5e1">・一時停止しても横縞が出ず、動体視認性が圧倒的にクリア！</text>
+  </g>
+
+  <!-- ==================== BOTTOM SUMMARY BAR ==================== -->
+  <g transform="translate(80, 630)">
+    <rect x="0" y="0" width="1120" height="60" rx="8" fill="#0f172a" stroke="#1e293b" />
+    <text x="560" y="36" font-family="sans-serif" font-size="15" font-weight="bold" fill="#e2e8f0" text-anchor="middle">
+      💡 結論：地デジは電波帯域の節約で「1080i」を採用。高速ネット時代の動画配信は高画質な「1080p」がデファクトスタンダード！
+    </text>
+  </g>
+</svg>

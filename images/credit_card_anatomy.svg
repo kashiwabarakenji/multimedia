@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="cardFront" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a8a" />
+      <stop offset="50%" stop-color="#2563eb" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+    <linearGradient id="cardBack" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#334155" />
+    </linearGradient>
+    <linearGradient id="chipGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="50%" stop-color="#eab308" />
+      <stop offset="100%" stop-color="#ca8a04" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000" flood-opacity="0.4" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="720" fill="url(#bgGrad)" />
+
+  <!-- Header Title -->
+  <text x="640" y="55" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="bold" fill="#f8fafc" text-anchor="middle">
+    クレジットカードの「表面」と「裏面」の精密解剖図
+  </text>
+  <text x="640" y="85" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">
+    なぜ店員にカードを裏返して預けてはいけないのか？ どこが漏れると不正利用されるのか？
+  </text>
+
+  <!-- ==================== FRONT OF CARD ==================== -->
+  <g transform="translate(80, 120)">
+    <!-- Label -->
+    <rect x="0" y="0" width="120" height="32" rx="6" fill="#3b82f6" />
+    <text x="60" y="21" font-family="sans-serif" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">表面（Face）</text>
+
+    <!-- Card Body -->
+    <rect x="0" y="45" width="480" height="300" rx="16" fill="url(#cardFront)" filter="url(#shadow)" stroke="#60a5fa" stroke-width="1.5" />
+
+    <!-- Contactless Wave Icon -->
+    <g transform="translate(140, 115)" stroke="#ffffff" stroke-width="2.5" fill="none" opacity="0.85">
+      <path d="M0,20 A15,15 0 0,1 15,5" />
+      <path d="M5,25 A22,22 0 0,1 25,5" />
+      <path d="M10,30 A29,29 0 0,1 35,5" />
+    </g>
+
+    <!-- EMV Chip -->
+    <rect x="50" y="105" width="65" height="50" rx="6" fill="url(#chipGrad)" stroke="#a16207" stroke-width="1" />
+    <!-- Chip internal lines -->
+    <path d="M50,130 L115,130 M75,105 L75,155 M90,105 L90,155" stroke="#854d0e" stroke-width="1" opacity="0.6" fill="none" />
+    <rect x="68" y="120" width="28" height="20" rx="3" fill="#ca8a04" opacity="0.4" />
+
+    <!-- 16 Digits Number -->
+    <text x="50" y="210" font-family="'Courier New', monospace" font-size="24" font-weight="bold" fill="#f8fafc" letter-spacing="3">
+      4532  8901  2345  6789
+    </text>
+
+    <!-- Expiry Date -->
+    <text x="50" y="245" font-family="sans-serif" font-size="10" fill="#cbd5e1" letter-spacing="1">GOOD THRU</text>
+    <text x="120" y="245" font-family="'Courier New', monospace" font-size="16" font-weight="bold" fill="#f8fafc">12/28</text>
+
+    <!-- Cardholder Name -->
+    <text x="50" y="295" font-family="sans-serif" font-size="17" font-weight="bold" fill="#f8fafc" letter-spacing="2">
+      TARO YAMADA
+    </text>
+
+    <!-- Brand Logo Placeholder -->
+    <circle cx="400" cy="285" r="22" fill="#ef4444" opacity="0.9" />
+    <circle cx="425" cy="285" r="22" fill="#f59e0b" opacity="0.9" />
+
+    <!-- Annotations for Front -->
+    <!-- Annotation 1: IC Chip -->
+    <path d="M82,105 L82,65 L-20,65" stroke="#38bdf8" stroke-width="1.5" fill="none" stroke-dasharray="3,3" />
+    <circle cx="-20" cy="65" r="4" fill="#38bdf8" />
+    <rect x="-70" y="75" width="220" height="48" rx="6" fill="#0369a1" opacity="0.9" />
+    <text x="40" y="94" font-family="sans-serif" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">EMV ICチップ（接触）</text>
+    <text x="40" y="112" font-family="sans-serif" font-size="11" fill="#bae6fd" text-anchor="middle">暗号鍵内蔵・偽造不可能</text>
+
+    <!-- Annotation 2: Touch Wave -->
+    <path d="M165,115 L165,65 L280,65" stroke="#38bdf8" stroke-width="1.5" fill="none" stroke-dasharray="3,3" />
+    <circle cx="280" cy="65" r="4" fill="#38bdf8" />
+    <rect x="240" y="75" width="210" height="48" rx="6" fill="#0369a1" opacity="0.9" />
+    <text x="345" y="94" font-family="sans-serif" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">タッチ決済（NFC Type-A/B）</text>
+    <text x="345" y="112" font-family="sans-serif" font-size="11" fill="#bae6fd" text-anchor="middle">手渡さず端末にかざすだけ安全</text>
+
+    <!-- Annotation 3: 16 Digits -->
+    <path d="M240,225 L240,370 L140,370" stroke="#fbbf24" stroke-width="1.5" fill="none" stroke-dasharray="3,3" />
+    <circle cx="140" cy="370" r="4" fill="#fbbf24" />
+    <rect x="20" y="385" width="240" height="48" rx="6" fill="#854d0e" opacity="0.95" />
+    <text x="140" y="404" font-family="sans-serif" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">16桁番号 ＋ 有効期限</text>
+    <text x="140" y="422" font-family="sans-serif" font-size="11" fill="#fef08a" text-anchor="middle">ネット通販の決済識別子（重要）</text>
+  </g>
+
+  <!-- ==================== BACK OF CARD ==================== -->
+  <g transform="translate(680, 120)">
+    <!-- Label -->
+    <rect x="0" y="0" width="120" height="32" rx="6" fill="#dc2626" />
+    <text x="60" y="21" font-family="sans-serif" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">裏面（Back）</text>
+
+    <!-- Card Body -->
+    <rect x="0" y="45" width="480" height="300" rx="16" fill="url(#cardBack)" filter="url(#shadow)" stroke="#475569" stroke-width="1.5" />
+
+    <!-- Magnetic Stripe -->
+    <rect x="0" y="75" width="480" height="55" fill="#0f172a" />
+
+    <!-- Signature Panel -->
+    <rect x="40" y="165" width="270" height="45" rx="3" fill="#f1f5f9" />
+    <text x="120" y="195" font-family="'Brush Script MT', cursive, sans-serif" font-size="20" fill="#334155" font-style="italic">Taro Yamada</text>
+
+    <!-- Security Code (CVV / CVC) -->
+    <rect x="315" y="165" width="65" height="45" rx="3" fill="#ffffff" stroke="#ef4444" stroke-width="2" />
+    <text x="347" y="194" font-family="'Courier New', monospace" font-size="20" font-weight="bold" fill="#dc2626" text-anchor="middle">789</text>
+
+    <!-- Small Note on Card -->
+    <text x="40" y="240" font-family="sans-serif" font-size="9" fill="#94a3b8">
+      Authorized Signature • Not Valid Unless Signed • Issued under license
+    </text>
+
+    <!-- Annotations for Back -->
+    <!-- Annotation 1: Magnetic Stripe -->
+    <path d="M240,75 L240,30 L350,30" stroke="#f87171" stroke-width="1.5" fill="none" stroke-dasharray="3,3" />
+    <circle cx="350" cy="30" r="4" fill="#f87171" />
+    <rect x="250" y="-20" width="240" height="48" rx="6" fill="#991b1b" opacity="0.95" />
+    <text x="370" y="0" font-family="sans-serif" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">磁気ストライプ（危険！）</text>
+    <text x="370" y="18" font-family="sans-serif" font-size="11" fill="#fecaca" text-anchor="middle">暗号化なし・スキミングで丸ごと複製</text>
+
+    <!-- Annotation 2: CVV / CVC Code -->
+    <path d="M347,210 L347,370 L240,370" stroke="#f87171" stroke-width="1.5" fill="none" stroke-dasharray="3,3" />
+    <circle cx="240" cy="370" r="4" fill="#f87171" />
+    <rect x="250" y="385" width="250" height="60" rx="6" fill="#b91c1c" opacity="0.95" />
+    <text x="375" y="404" font-family="sans-serif" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">🚨 セキュリティコード（CVV/CVC）</text>
+    <text x="375" y="422" font-family="sans-serif" font-size="11" fill="#fee2e2" text-anchor="middle">ネット不正利用の最終防壁！</text>
+    <text x="375" y="437" font-family="sans-serif" font-size="11" fill="#fecaca" text-anchor="middle">店員に見られたら即ネットで買い物される</text>
+
+    <!-- Annotation 3: Signature -->
+    <path d="M150,210 L150,370 L40,370" stroke="#94a3b8" stroke-width="1.5" fill="none" stroke-dasharray="3,3" />
+    <circle cx="40" cy="370" r="4" fill="#94a3b8" />
+    <rect x="-10" y="385" width="220" height="48" rx="6" fill="#334155" opacity="0.95" />
+    <text x="100" y="404" font-family="sans-serif" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">署名欄（サインパネル）</text>
+    <text x="100" y="422" font-family="sans-serif" font-size="11" fill="#cbd5e1" text-anchor="middle">未署名は盗難時の補償対象外</text>
+  </g>
+
+  <!-- ==================== BOTTOM WARNING BAR ==================== -->
+  <g transform="translate(80, 590)">
+    <rect x="0" y="0" width="1120" height="85" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+    <rect x="15" y="15" width="55" height="55" rx="8" fill="#ef4444" opacity="0.2" />
+    <text x="42" y="52" font-size="28" text-anchor="middle">🛡️</text>
+
+    <text x="85" y="36" font-family="sans-serif" font-size="16" font-weight="bold" fill="#f8fafc">
+      【決済自衛の結論】店頭では「タッチ決済」か「ICチップ挿入」を徹底！
+    </text>
+    <text x="85" y="62" font-family="sans-serif" font-size="14" fill="#94a3b8">
+      店員にカードを渡すと、裏面の「セキュリティコード（3桁）」と表面の「16桁番号」を数秒でスマホ撮影・暗記され、海外通販で即不正利用される被害が多発しています。
+    </text>
+  </g>
+</svg>
