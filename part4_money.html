@@ -246,6 +246,62 @@
 </div>
 </div>
 </section>
+<section id="ユニクロのセルフレジとsuicaは何が違う-rfidとnfc" class="slide level3">
+<h3>ユニクロのセルフレジとSuicaは何が違う？ —— 「RFID」と「NFC」</h3>
+<h4 id="カゴを置くだけで一瞬で合計が出るユニクロの秘密">🛍️ カゴを置くだけで一瞬で合計が出るユニクロの秘密</h4>
+<ul>
+<li>ユニクロのセルフレジに服をカゴごと置くと、数秒で全商品の値段が画面に表示される。</li>
+<li>各商品の値札タグに薄い<strong>「RFIDタグ（ICチップ＋アンテナ）」</strong>が埋め込まれている！</li>
+<li><strong>UHF帯（約920MHz）の電波</strong>を使い、<strong>数メートルの距離から数百個のタグのIDを一括で読み取れる</strong>のが特徴。</li>
+</ul>
+<div title="🤔 なぜSuicaはユニクロのように数メートル飛ばないのか？">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>🤔 なぜSuicaはユニクロのように数メートル飛ばないのか？</strong></p>
+</div>
+<div class="callout-content">
+<p>もしSuicaがユニクロと同じように数メートル飛んだら、<strong>「改札の3m手前で隣の人の残高から勝手に引かれる」「満員電車の中で乗客全員のカードから運賃が引かれる」</strong>という大惨事になります！</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="図解電波でモノを認識するrfidと決済を守るnfc" class="slide level3">
+<h3>【図解】電波でモノを認識する「RFID」と決済を守る「NFC」</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TB
+    subgraph RFID["📡 RFID（Radio Frequency Identification / 電波による自動認識の総称）"]
+        UHF["🏷️ 広域RFID（UHF帯 / 920MHz）&lt;br/&gt;・通信距離：数メートル〜十数メートル&lt;br/&gt;・用途：ユニクロの棚卸し・物流パレット・ETC"]
+        subgraph NFC["📶 NFC（Near Field Communication / 近距離無線通信）"]
+            HF["13.56MHz帯 / 通信距離：10cm以内&lt;br/&gt;（離れると通信不能にして「誤決済・誤引き落とし」を物理的に防ぐ！）"]
+            subgraph FeliCa["⚡ FeliCa（Type-F / 日本発規格）"]
+                FELICA_DESC["・通信速度：超高速 212/424 kbps&lt;br/&gt;・認証時間：驚異の0.1秒以内！&lt;br/&gt;・用途：Suica, PASMO, iD, QUICPay"]
+            end
+            subgraph TYPEAB["💳 NFC Type-A / Type-B（世界標準規格）"]
+                AB_DESC["・用途：マイナンバーカード, 免許証, クレカのタッチ決済"]
+            end
+        end
+    end
+    style RFID fill:#f5f5f5,stroke:#9e9e9e
+    style UHF fill:#e3f2fd,stroke:#1976d2
+    style NFC fill:#fff8e1,stroke:#ffa000,stroke-width:2px
+    style FeliCa fill:#e8f5e9,stroke:#2e7d32,stroke-width:3px
+    style TYPEAB fill:#ede7f6,stroke:#7b1fa2
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
 <section id="suicaはなぜピピッと一瞬で通れるのか" class="slide level3">
 <h3>Suicaはなぜ「ピピッ」と一瞬で通れるのか？</h3>
 <h4 id="驚異の0.1秒処理">⚡ 驚異の0.1秒処理</h4>
@@ -547,6 +603,39 @@
 </div>
 </div>
 </section>
+<section id="qrコード決済の死角-背後からの盗撮vs偽シール貼り替え" class="slide level3">
+<h3>QRコード決済の死角 —— 「背後からの盗撮」vs「偽シール貼り替え」</h3>
+<h4 id="手口①-ユーザー提示型cpmレジ待ち中の肩越し盗撮">🚨 手口① ユーザー提示型（CPM）：レジ待ち中の「肩越し盗撮」</h4>
+<ul>
+<li>レジの列に並びながら、スマホ画面にバーコードを表示したまま待っていませんか？</li>
+<li><strong>手口</strong>：背後に並ぶ犯人がスマホカメラや望遠であなたの画面を盗撮。犯人の端末に転送され、<strong>数秒の間に別店舗やネットで即座に不正決済</strong>される！</li>
+<li><strong>自衛策</strong>：バーコード画面は<strong>自分の番が来てレジ直前になるまで絶対に開かない</strong>！</li>
+</ul>
+</section>
+<section id="qrコード決済の死角-卓上の偽qrシール貼り替え詐欺" class="slide level3">
+<h3>QRコード決済の死角 —— 卓上の「偽QRシール貼り替え詐欺」</h3>
+<h4 id="手口②-店舗提示型mpm偽コードの重ね貼り">🚨 手口② 店舗提示型（MPM）：偽コードの重ね貼り</h4>
+<ul>
+<li>個人商店や飲食店のレジ横・卓上にある「支払い用QRスタンド」。</li>
+<li><strong>手口</strong>：犯人が客を装い、<strong>店員が目を離した隙に「犯人の受取用QRコード」を印刷したシールを上から重ね貼り</strong>する！</li>
+<li><strong>被害</strong>：善意の客がいくら支払っても、売上はすべて犯人の口座へ直行。店も客も気づきにくい（中国や日本でも被害事例あり）。</li>
+<li><strong>お店の自衛策</strong>：QRスタンドをアクリル等で密閉する、毎朝シールが重ね貼りされていないか指で触って段差を確認する。</li>
+</ul>
+</section>
+<section id="レジのqr多すぎ問題を解決した統一規格smart-code" class="slide level3">
+<h3>レジのQR多すぎ問題を解決した統一規格「Smart Code」</h3>
+<h4 id="乱立するコード決済を1本のqrに束ねるjcbの秘策">🏁 乱立するコード決済を1本のQRに束ねるJCBの秘策</h4>
+<ul>
+<li><strong>店舗の悲鳴</strong>：「PayPay、d払い、au PAY、楽天ペイ、メルペイ… レジ横にQRコードが何十枚も並んで邪魔！」</li>
+<li><strong>解決策</strong>：日本発の国際ブランド・JCBが開発した統一規格<strong>「Smart Code（スマートコード）」</strong>。</li>
+<li><strong>仕組み</strong>：
+<ul>
+<li>お店は<strong>Smart Codeのステッカー1枚</strong>を置く（またはバーコードリーダーで1回読み取る）だけ！</li>
+<li>利用者のアプリ（メルペイ、銀行Pay、ANA Pay、atone、EPOS Pay等、数十種類）を裏側の共通中継センターで自動識別して一括決済。</li>
+</ul></li>
+<li><strong>最新動向</strong>：JR東日本が計画する<strong>「SuicaアプリでのQR乗車基盤」にもSmart Codeが採用予定</strong>！</li>
+</ul>
+</section>
 <section id="非接触決済の規格比較" class="slide level3">
 <h3>非接触決済の規格比較</h3>
 <table class="caption-top">
@@ -626,6 +715,74 @@
 <li><strong>個人の「信用（与信）」</strong>に基づく大人の仕組み。使いすぎ注意。</li>
 </ul>
 </section>
+<section id="idやquicpayって何者-電子マネーなのにチャージ不要" class="slide level3">
+<h3>「iD」や「QUICPay」って何者？ —— 電子マネーなのにチャージ不要？</h3>
+<h4 id="レジでタントンと鳴るあの決済の正体">⚡ レジで「タントン♪」と鳴るあの決済の正体</h4>
+<ul>
+<li>コンビニで「iDで」「QUICPayで」とスマホをかざす人を見かけますが、<strong>「残高をチャージしている人」はいません</strong>。</li>
+<li><strong>正体</strong>：クレジットカード会社の<strong>「非接触・後払い（ポストペイ）別動隊」</strong>！</li>
+<li><strong>仕組み</strong>：
+<ul>
+<li>カード本体を取り出さず、FeliCaで0.1秒で安全に決済。</li>
+<li>代金は<strong>後日クレジットカードの利用分としてまとめて引き落とし</strong>！</li>
+<li>事前チャージ不要、残高不足で恥ずかしい思いをすることもゼロ。</li>
+</ul></li>
+</ul>
+</section>
+<section id="電子マネーの3大系統交通系流通系クレジット系" class="slide level3">
+<h3>電子マネーの3大系統（交通系・流通系・クレジット系）</h3>
+<table class="caption-top">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 29%">
+<col style="width: 23%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">系統</th>
+<th style="text-align: left;">代表例</th>
+<th style="text-align: center;">支払い方式</th>
+<th style="text-align: left;">主な特徴・メリット</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>交通系</strong></td>
+<td style="text-align: left;">Suica, PASMO, ICOCA</td>
+<td style="text-align: center;"><strong>前払い</strong>（プリペイド）</td>
+<td style="text-align: left;">全国の改札を0.1秒通過。審査不要で子供も持てる。</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>流通系</strong></td>
+<td style="text-align: left;">nanaco, WAON, 楽天Edy</td>
+<td style="text-align: center;"><strong>前払い</strong>（プリペイド）</td>
+<td style="text-align: left;">セブンやイオン等の系列店でポイント高還元。</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>クレジット系</strong></td>
+<td style="text-align: left;"><strong>iD, QUICPay</strong></td>
+<td style="text-align: center;"><strong>後払い</strong>（ポストペイ）</td>
+<td style="text-align: left;"><strong>チャージ不要</strong>。クレカ番号を店に渡さないため安全。</td>
+</tr>
+</tbody>
+</table>
+<div title="💡 Apple PayやGoogle Payの中身">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>💡 Apple PayやGoogle Payの中身</strong></p>
+</div>
+<div class="callout-content">
+<p>スマホにクレカを登録すると、自動的に「iD」や「QUICPay」が割り当てられ、お店の端末にかざすだけでポストペイ決済ができるようになります。</p>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section id="実践チェック" class="slide level3">
 <h3>📱 実践チェック</h3>
 <h4 id="paypay残高チェック">💳 PayPay残高チェック</h4>
@@ -665,6 +822,36 @@
 <li>クレジットカードは、もともと「対面店舗で店員にカードを渡し、サイン（署名）して使う紙伝票時代」に作られた古い仕組み。</li>
 <li>券面に印刷されている<strong>「16桁の番号・有効期限・裏の3桁（セキュリティコード）」</strong>の3つさえ知っていれば、<strong>持ち主本人でなくても世界中のネット通販で買い物ができてしまう！</strong></li>
 <li>つまり、「鍵と暗証番号が表面にデカデカと刻印された金庫」を持ち歩いているような危うさを持っています。</li>
+</ul>
+</section>
+<section id="黒い磁気テープから金色のicチップへ-スキミング撲滅の歴史" class="slide level3">
+<h3>黒い磁気テープから「金色のICチップ」へ —— スキミング撲滅の歴史</h3>
+<h4 id="かつての恐怖磁気ストライプ裏面の黒い帯">💳 かつての恐怖：磁気ストライプ（裏面の黒い帯）</h4>
+<ul>
+<li>昔のクレジットカードは、裏面の黒い磁気帯にカード番号が平文のまま記録されていた。</li>
+<li>「スキマー」という小型リーダーにカードを一瞬通すだけで<strong>データが丸ごと盗まれ（スキミング）、偽造クローンカードが世界中で大量生産</strong>された！</li>
+<li><strong>救世主：金色の「接触ICチップ」（EMV規格）の誕生</strong>：
+<ul>
+<li>チップの中身は極小のマイクロコンピュータ。</li>
+<li>暗号鍵がチップ内部の超高セキュリティ領域に封印されており、<strong>外部から物理的・電気的に中身をコピーすることは不可能</strong>！</li>
+</ul></li>
+</ul>
+</section>
+<section id="なぜicチップだと偽造できないのか-動的暗号認証" class="slide level3">
+<h3>なぜICチップだと偽造できないのか？ —— 「動的暗号認証」</h3>
+<h4 id="毎回変わる1回限りの暗号署名">🔐 毎回変わる「1回限りの暗号署名」</h4>
+<ul>
+<li><strong>磁気ストライプ（静的データ）</strong>：何度スワイプしても同じデータが出る → コピーされたら一発アウト。</li>
+<li><strong>ICチップ（動的暗号処理 / チャレンジ・レスポンス）</strong>：
+<ul>
+<li>レジ端末に差し込むと、端末から毎回ランダムな暗号問題（乱数）が出題される。</li>
+<li>ICチップが内部の秘密鍵で一瞬で計算し、<strong>「その決済1回だけ有効な暗号署名（トークン）」</strong>を返答！</li>
+<li>暗証番号（PIN）の照合もICチップ内部で安全に実行。</li>
+</ul></li>
+<li><strong>そして犯罪の戦場は「対面」から「ネット」へ</strong>：
+<ul>
+<li>実店舗での偽造が完全に封じられたため、犯罪者たちは<strong>「ICチップの暗号通信が使えず、番号を手入力させるネット通販」</strong>へと標的を一斉にシフトした！</li>
+</ul></li>
 </ul>
 </section>
 <section id="クレカ番号をネットで入力するリスクと現代の対策" class="slide level3">
