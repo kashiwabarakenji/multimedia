@@ -724,6 +724,16 @@ flowchart LR
 
 ---
 
+### 【図解】本物のサイト vs 精巧な偽フィッシングサイト
+
+![](images/phishing_comparison.jpg){fig-align="center" width="75%"}
+
+::: {.callout-warning title="人間には見分けがつかないURLの罠"}
+画面のデザインは100%同じに偽装できます。異なるのは「URL（ドメイン名）」だけ。パスキーなら、人間が騙されても端末が機械的に偽ドメインを遮断します。
+:::
+
+---
+
 ### 【図解】パスキーが偽サイトを完全無効化する仕組み
 
 ```{mermaid}
