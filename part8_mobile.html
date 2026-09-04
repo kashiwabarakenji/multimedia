@@ -123,6 +123,10 @@
       margin-right: 0; 
     }
   </style>
+  <meta name="mermaid-theme" content="neutral">
+  <script src="part8_mobile_files/libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="part8_mobile_files/libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="part8_mobile_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -446,6 +450,35 @@
 <li>5Gと4Gの境界線で接続が混乱し、データが一切流れなくなる現象（各キャリアが基地局調整で対策中）。</li>
 </ul></li>
 </ul>
+</section>
+<section id="図解パケ詰まりが発生するメカニズム" class="slide level3">
+<h3>【図解】「パケ詰まり」が発生するメカニズム</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    Phone["📱 スマホ（駅・繁華街）"]
+    Base4G["📶 強力な4G基地局&lt;br/&gt;（安定・高速）"]
+    Base5G["📡 遠くの微弱な5G基地局&lt;br/&gt;（ギリギリ届く電波）"]
+
+    Phone -.-&gt;|「5G表示を優先」して無理に接続| Base5G
+    Base5G -.-&gt;|電波が弱すぎてパケット損失！| Phone
+    Phone x--x|本来快適な4Gを切り離してしまう| Base4G
+
+    Choke["💥 画面は「5G」なのに&lt;br/&gt;Webや決済画面がくるくる回って開かない！"]
+    Phone ==&gt; Choke
+
+    style Base5G fill:#ffebee,stroke:#c62828
+    style Base4G fill:#e8f5e9,stroke:#2e7d32
+    style Choke fill:#fff3e0,stroke:#e65100,stroke-width:2px
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </section>
 <section id="圏外が地球上から消える-スマホ直結衛星通信" class="slide level3">
 <h3>圏外が地球上から消える？ スマホ直結「衛星通信」</h3>

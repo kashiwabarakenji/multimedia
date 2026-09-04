@@ -275,6 +275,42 @@
 </ul></li>
 </ul>
 </section>
+<section id="図解無料snsを支えるデータと広告マネーの循環" class="slide level3">
+<h3>【図解】「無料SNS」を支えるデータと広告マネーの循環</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    User["👤 ユーザー&lt;br/&gt;（サービスを無料利用）"] --&gt;|行動データ・関心・視聴秒数| Platform["🏢 SNSプラットフォーム&lt;br/&gt;（AIアルゴリズム分析）"]
+    Platform --&gt;|超精密ターゲティング広告| User
+    Sponsor["💼 スポンサー企業"] --&gt;|莫大な広告費| Platform
+    Platform --&gt;|一部還元| Creator["✨ 人気クリエイター&lt;br/&gt;（広告分配・案件）"]
+    style Platform fill:#e1f5fe,stroke:#0288d1,stroke-width:2px
+    style User fill:#fff3e0,stroke:#f57c00
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div title="🪙 「無料」の対価はあなたのアテンション（注意・時間）">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>🪙 「無料」の対価はあなたのアテンション（注意・時間）</strong></p>
+</div>
+<div class="callout-content">
+<p>利用者は金銭を払っていない代わりに、自分自身の行動データと広告を見る「時間（アテンション）」をプラットフォームに差し出しています。</p>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section id="クリエイターの収益化と投げ銭" class="slide level3">
 <h3>クリエイターの収益化と「投げ銭」</h3>
 <h4 id="snsで生活する人々インフルエンサーの仕組み">💰 SNSで生活する人々（インフルエンサー）の仕組み</h4>
@@ -517,6 +553,28 @@
 </ul></li>
 </ul>
 </section>
+<section id="図解インプレゾンビの発生と収益化の仕組み" class="slide level3">
+<h3>【図解】インプレゾンビの発生と収益化の仕組み</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    Buzz["🔥 バズ投稿 / 災害・避難情報&lt;br/&gt;（何万人もの閲覧者が集まる）"] --&gt; Zombie["🧟 インプレゾンビ（Bot集団）&lt;br/&gt;有料バッジ・AI生成コピペを即座にリプライ"]
+    Zombie --&gt; View["👀 大量閲覧（インプレッション水増し）"]
+    View --&gt; Money["💰 広告収益の分配金（数円〜数百円）を獲得"]
+    Zombie -.-&gt;|深刻な弊害| Block["🚫 本当に必要な救助情報・有益な会話が埋没"]
+    style Buzz fill:#ffebee,stroke:#c62828
+    style Zombie fill:#ede7f6,stroke:#512da8
+    style Block fill:#ffcdd2,stroke:#b71c1c,stroke-width:2px
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
 <section id="youtube-動画検索エンジンと過激化の罠" class="slide level3">
 <h3>YouTube —— 「動画検索エンジン」と過激化の罠</h3>
 <h4 id="世界最大の動画プラットフォーム">📺 世界最大の動画プラットフォーム</h4>
@@ -547,6 +605,28 @@
 <li>運営会社が提供する動画編集アプリ<strong>「CapCut」</strong>により、スマホ1台で誰でもプロ級の面白いショート動画を作れるエコシステムを構築。</li>
 </ul></li>
 </ul>
+</section>
+<section id="図解tiktokのai推薦と無限スワイプループ" class="slide level3">
+<h3>【図解】TikTokのAI推薦と「無限スワイプ」ループ</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    Play["🎬 動画再生"] --&gt; Track["⏱️ 行動追跡&lt;br/&gt;（視聴秒数・再視聴・即スキップ）"]
+    Track --&gt; AI["🧠 AIアルゴリズム&lt;br/&gt;（嗜好ベクトル即時更新）"]
+    AI --&gt; Hook["🎯 次の超関心動画を提案"]
+    Hook --&gt; Dopamine["🧠 ドーパミン放出&lt;br/&gt;「もう1本だけ…」"]
+    Dopamine --&gt; Play
+    style AI fill:#e0f2f1,stroke:#00796b,stroke-width:2px
+    style Dopamine fill:#fce4ec,stroke:#c2185b
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </section>
 <section id="metaの2大看板-facebookとinstagram" class="slide level3">
 <h3>Metaの2大看板 —— FacebookとInstagram</h3>
@@ -699,6 +779,50 @@
 <li>❌「書いた内容は事実だから問題ない」 → <strong>事実であっても、社会的評価を低下させれば名誉毀損罪（刑法230条）は成立</strong>します！</li>
 </ul></li>
 </ul>
+</section>
+<section id="図解発信者情報開示請求身元特定と賠償の流れ" class="slide level3">
+<h3>【図解】発信者情報開示請求（身元特定と賠償）の流れ</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">sequenceDiagram
+    autonumber
+    actor V as 被害者 / 弁護士
+    participant SNS as SNS運営（X, LINE等）
+    participant Court as 裁判所
+    participant ISP as 通信事業者（docomo/au等）
+    actor A as 誹謗中傷した加害者
+
+    A-&gt;&gt;SNS: 匿名で誹謗中傷を投稿
+    V-&gt;&gt;Court: 発信者情報開示命令を申し立て
+    Court-&gt;&gt;SNS: IPアドレス・タイムスタンプの開示命令
+    SNS--&gt;&gt;V: 接続ログを開示
+    V-&gt;&gt;ISP: 契約者（氏名・住所・電話番号）の開示請求
+    ISP--&gt;&gt;V: 本名・現住所を開示 ✅
+    V-&gt;&gt;A: 損害賠償請求（慰謝料＋調査費用）・刑事告訴 💥
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div title="⚖️ ネット空間に「完全な匿名」は存在しない">
+<div class="callout callout-caution callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>⚖️ ネット空間に「完全な匿名」は存在しない</strong></p>
+</div>
+<div class="callout-content">
+<p>発信者がいくら捨てアカウントを使っても、通信キャリア（docomo、au、ソフトバンク等）のSIMカード契約者情報と通信ログが直結しているため、裁判所命令により100%特定されます。</p>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="リポストリツイートしただけでも有罪" class="slide level3">
 <h3>リポスト（リツイート）しただけでも有罪！？</h3>

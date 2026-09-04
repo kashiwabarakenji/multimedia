@@ -223,6 +223,31 @@ HDCP非対応の古いモニタや怪しい分配器に繋ぐと、著作権保�
 
 ---
 
+### 【図解】地上波デジタル・衛星放送（BS）・ネット配信の伝送ルート比較
+
+```{mermaid}
+flowchart TD
+    subgraph Broadcast["📡 放送（電波：1対無制限の一括同報配信）"]
+        Tower["🗼 電波塔（スカイツリー等）"] -->|地上UHF電波| Ant["🏠 魚の骨アンテナ（地デジ）"]
+        Sat["🛰️ 静止衛星（東経110度）"] -->|12GHz帯マイクロ波| Para["📡 パラボラアンテナ（BS/CS）"]
+    end
+
+    subgraph Internet["🌐 ネット配信（IPパケット：個別通信）"]
+        Origin["🏢 配信元（Netflix/TVer）"] --> CDN["⚡ CDNエッジサーバー群"]
+        CDN -->|光回線 / 5G| NetTV["🖥️ スマートテレビ / スマホ"]
+    end
+
+    style Tower fill:#e1f5fe,stroke:#0288d1
+    style Sat fill:#fff3e0,stroke:#f57c00
+    style CDN fill:#e8f5e9,stroke:#2e7d32
+```
+
+::: {.callout-note title="💡 放送と通信の決定的な違い"}
+放送は視聴者が1億人になってもサーバーダウンしません（電波を浴びるだけ）。一方、ネット配信はアクセスが集中するとCDNや配信サーバーがパンクするリスクを抱えています。
+:::
+
+---
+
 ### B-CASカードから「ACASチップ」への進化
 
 #### 💳 テレビの横の「赤いカード」が消えた理由
@@ -275,6 +300,33 @@ HDCP非対応の古いモニタや怪しい分配器に繋ぐと、著作権保�
 ::: {.callout-note title="最新トレンド「FAST」の台頭"}
 欧米や日本で、広告付きで24時間番組を流し続ける無料のリニア配信（**FAST: Free Ad-supported Streaming TV**）が注目されています（ABEMAの専門チャンネルなど）。
 :::
+
+---
+
+### 【図解】動画配信サービスのビジネス構造比較
+
+```{mermaid}
+flowchart LR
+    subgraph SVOD["🎬 SVOD（定額サブスク）"]
+        U1[利用者] -->|毎月定額（約1,000円〜）| P1["Netflix / Prime"]
+        P1 -->|高画質・広告なし・オリジナル大作| U1
+    end
+
+    subgraph AVOD["📢 AVOD（広告型無料配信）"]
+        U2[利用者] -->|無料視聴（アテンション提供）| P2["TVer / YouTube"]
+        S2[広告主] -->|広告出稿料| P2
+        P2 -->|CM挿入| U2
+    end
+
+    subgraph PPV["🎟️ TVOD / PPV（都度課金）"]
+        U3[利用者] -->|1作品ごと・試合ごとに購入| P3["U-NEXT / ABEMA"]
+        P3 -->|最新劇場版・格闘技ライブ生中継| U3
+    end
+
+    style SVOD fill:#e1f5fe,stroke:#0288d1
+    style AVOD fill:#fff8e1,stroke:#ffa000
+    style PPV fill:#ede7f6,stroke:#512da8
+```
 
 ---
 

@@ -1278,6 +1278,25 @@
 </div>
 </div>
 </section>
+<section id="イラストパスキー生体認証公開鍵暗号の仕組み" class="slide level3">
+<h3>【イラスト】パスキー（生体認証×公開鍵暗号）の仕組み</h3>
+
+<img data-src="images/passkey_auth.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><div title="安全性の根拠：秘密鍵は端末の外に絶対出ない">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>安全性の根拠：秘密鍵は端末の外に絶対出ない</strong></p>
+</div>
+<div class="callout-content">
+<p>生体認証（顔・指紋）で端末内の「秘密鍵」の封印を解き、暗号署名だけをサーバーへ送るため、通信経路の盗聴やパスワード漏洩が原理的に発生しません。</p>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section id="なぜフィッシング詐欺に100引っかからないのか" class="slide level3">
 <h3>なぜフィッシング詐欺に100%引っかからないのか？</h3>
 <h4 id="スマホによる機械的ドメイン照合オリジンバインド">🤖 スマホによる機械的ドメイン照合（オリジンバインド）</h4>
@@ -5772,6 +5791,42 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <li>この仕組みを、金融（DeFi / 分散型金融）、保険、不動産契約、ゲームなどに応用したのがイーサリアムです。</li>
 </ul>
 </section>
+<section id="図解スマートコントラクトの自律実行メカニズム" class="slide level3">
+<h3>【図解】スマートコントラクトの自律実行メカニズム</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    Buyer["👤 利用者 / 契約者"] --&gt;|1. 暗号資産（ETH等）を送金| SC["🤖 スマートコントラクト&lt;br/&gt;（ブロックチェーン上に配置されたコード）"]
+    SC --&gt;|2. 条件判定（IF / THEN）| Cond{"条件合致？&lt;br/&gt;（代金・期日・条件クリア）"}
+    Cond --&gt;|YES: 100%自動実行| Delivery["📦 所有権 / NFT / デジタル資産を即時移転 ✅"]
+    Cond --&gt;|NO: 自動返金| Refund["🔄 送金元へ暗号資産をロールバック返却"]
+    style SC fill:#ede7f6,stroke:#512da8,stroke-width:2px
+    style Delivery fill:#e8f5e9,stroke:#2e7d32
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div title="🤖 「コードが法律（Code is Law）」の世界">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>🤖 「コードが法律（Code is Law）」の世界</strong></p>
+</div>
+<div class="callout-content">
+<p>仲介者（銀行、弁護士、登記所）を一切介さず、プログラムが条件通りに機械的・不可逆的に実行されるため、中抜き手数料の削減と不正防止が同時に実現します。</p>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section id="リップルxrp-国際送金の常識を覆すブリッジ通貨" class="slide level3">
 <h3>リップル（XRP）—— 国際送金の常識を覆すブリッジ通貨</h3>
 <h4 id="従来の海外送金swiftの課題">✈️ 従来の海外送金（SWIFT）の課題</h4>
@@ -5798,6 +5853,52 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <li><strong>仕組み</strong>：運営企業が同額の米ドル現金を銀行口座に裏付け資産として保管することで1ドルの価値を保証。</li>
 <li><strong>役割</strong>：暗号通貨市場の暴落時の「避難先」や、国境を越えた貿易・送金の基軸デジタル通貨として巨大なシェアを誇る。</li>
 </ul>
+</section>
+<section id="図解法定通貨担保型ステーブルコインの価値連動メカニズム" class="slide level3">
+<h3>【図解】法定通貨担保型ステーブルコインの価値連動メカニズム</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    subgraph RealWorld["🏦 現実世界の銀行"]
+        USD["💵 準備金（米ドル預金・短期国債）&lt;br/&gt;1億ドル保管"]
+    end
+
+    subgraph CryptoWorld["⛓️ ブロックチェーン上"]
+        USDT["🪙 ステーブルコイン（USDC / USDT）&lt;br/&gt;1億トークン発行（1コイン＝1ドル固定）"]
+    end
+
+    USD &lt;==|100%裏付け担保（1:1ペッグ保証）|===&gt; USDT
+    User["👤 ユーザー"] --&gt;|1ドル入金| USD
+    USD --&gt;|1トークン発行（Mint）| User
+    User -.-&gt;|1トークン返却・消却（Burn）| USDT
+    USDT -.-&gt;|1ドル現金を引き出し| User
+
+    style RealWorld fill:#e8f5e9,stroke:#2e7d32
+    style CryptoWorld fill:#e1f5fe,stroke:#0288d1
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div title="⚠️ デペッグ（乖離）のリスク">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>⚠️ デペッグ（乖離）のリスク</strong></p>
+</div>
+<div class="callout-content">
+<p>運営企業が本当に同額の裏付け資産を保有しているかどうかの「透明性（監査報告）」が生命線です。準備金不足が疑われると、1ドルの連動が崩れる「デペッグ騒動」が発生します。</p>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="nftnon-fungible-token-非代替性トークンとは" class="slide level3">
 <h3>NFT（Non-Fungible Token / 非代替性トークン）とは？</h3>
@@ -6243,6 +6344,42 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 </ul></li>
 </ul>
 </section>
+<section id="図解無料snsを支えるデータと広告マネーの循環" class="slide level3">
+<h3>【図解】「無料SNS」を支えるデータと広告マネーの循環</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    User["👤 ユーザー&lt;br/&gt;（サービスを無料利用）"] --&gt;|行動データ・関心・視聴秒数| Platform["🏢 SNSプラットフォーム&lt;br/&gt;（AIアルゴリズム分析）"]
+    Platform --&gt;|超精密ターゲティング広告| User
+    Sponsor["💼 スポンサー企業"] --&gt;|莫大な広告費| Platform
+    Platform --&gt;|一部還元| Creator["✨ 人気クリエイター&lt;br/&gt;（広告分配・案件）"]
+    style Platform fill:#e1f5fe,stroke:#0288d1,stroke-width:2px
+    style User fill:#fff3e0,stroke:#f57c00
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div title="🪙 「無料」の対価はあなたのアテンション（注意・時間）">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>🪙 「無料」の対価はあなたのアテンション（注意・時間）</strong></p>
+</div>
+<div class="callout-content">
+<p>利用者は金銭を払っていない代わりに、自分自身の行動データと広告を見る「時間（アテンション）」をプラットフォームに差し出しています。</p>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section id="クリエイターの収益化と投げ銭" class="slide level3">
 <h3>クリエイターの収益化と「投げ銭」</h3>
 <h4 id="snsで生活する人々インフルエンサーの仕組み">💰 SNSで生活する人々（インフルエンサー）の仕組み</h4>
@@ -6485,6 +6622,28 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 </ul></li>
 </ul>
 </section>
+<section id="図解インプレゾンビの発生と収益化の仕組み" class="slide level3">
+<h3>【図解】インプレゾンビの発生と収益化の仕組み</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    Buzz["🔥 バズ投稿 / 災害・避難情報&lt;br/&gt;（何万人もの閲覧者が集まる）"] --&gt; Zombie["🧟 インプレゾンビ（Bot集団）&lt;br/&gt;有料バッジ・AI生成コピペを即座にリプライ"]
+    Zombie --&gt; View["👀 大量閲覧（インプレッション水増し）"]
+    View --&gt; Money["💰 広告収益の分配金（数円〜数百円）を獲得"]
+    Zombie -.-&gt;|深刻な弊害| Block["🚫 本当に必要な救助情報・有益な会話が埋没"]
+    style Buzz fill:#ffebee,stroke:#c62828
+    style Zombie fill:#ede7f6,stroke:#512da8
+    style Block fill:#ffcdd2,stroke:#b71c1c,stroke-width:2px
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
 <section id="youtube-動画検索エンジンと過激化の罠" class="slide level3">
 <h3>YouTube —— 「動画検索エンジン」と過激化の罠</h3>
 <h4 id="世界最大の動画プラットフォーム">📺 世界最大の動画プラットフォーム</h4>
@@ -6515,6 +6674,28 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <li>運営会社が提供する動画編集アプリ<strong>「CapCut」</strong>により、スマホ1台で誰でもプロ級の面白いショート動画を作れるエコシステムを構築。</li>
 </ul></li>
 </ul>
+</section>
+<section id="図解tiktokのai推薦と無限スワイプループ" class="slide level3">
+<h3>【図解】TikTokのAI推薦と「無限スワイプ」ループ</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    Play["🎬 動画再生"] --&gt; Track["⏱️ 行動追跡&lt;br/&gt;（視聴秒数・再視聴・即スキップ）"]
+    Track --&gt; AI["🧠 AIアルゴリズム&lt;br/&gt;（嗜好ベクトル即時更新）"]
+    AI --&gt; Hook["🎯 次の超関心動画を提案"]
+    Hook --&gt; Dopamine["🧠 ドーパミン放出&lt;br/&gt;「もう1本だけ…」"]
+    Dopamine --&gt; Play
+    style AI fill:#e0f2f1,stroke:#00796b,stroke-width:2px
+    style Dopamine fill:#fce4ec,stroke:#c2185b
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </section>
 <section id="metaの2大看板-facebookとinstagram" class="slide level3">
 <h3>Metaの2大看板 —— FacebookとInstagram</h3>
@@ -6667,6 +6848,50 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <li>❌「書いた内容は事実だから問題ない」 → <strong>事実であっても、社会的評価を低下させれば名誉毀損罪（刑法230条）は成立</strong>します！</li>
 </ul></li>
 </ul>
+</section>
+<section id="図解発信者情報開示請求身元特定と賠償の流れ" class="slide level3">
+<h3>【図解】発信者情報開示請求（身元特定と賠償）の流れ</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">sequenceDiagram
+    autonumber
+    actor V as 被害者 / 弁護士
+    participant SNS as SNS運営（X, LINE等）
+    participant Court as 裁判所
+    participant ISP as 通信事業者（docomo/au等）
+    actor A as 誹謗中傷した加害者
+
+    A-&gt;&gt;SNS: 匿名で誹謗中傷を投稿
+    V-&gt;&gt;Court: 発信者情報開示命令を申し立て
+    Court-&gt;&gt;SNS: IPアドレス・タイムスタンプの開示命令
+    SNS--&gt;&gt;V: 接続ログを開示
+    V-&gt;&gt;ISP: 契約者（氏名・住所・電話番号）の開示請求
+    ISP--&gt;&gt;V: 本名・現住所を開示 ✅
+    V-&gt;&gt;A: 損害賠償請求（慰謝料＋調査費用）・刑事告訴 💥
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div title="⚖️ ネット空間に「完全な匿名」は存在しない">
+<div class="callout callout-caution callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>⚖️ ネット空間に「完全な匿名」は存在しない</strong></p>
+</div>
+<div class="callout-content">
+<p>発信者がいくら捨てアカウントを使っても、通信キャリア（docomo、au、ソフトバンク等）のSIMカード契約者情報と通信ログが直結しているため、裁判所命令により100%特定されます。</p>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="リポストリツイートしただけでも有罪" class="slide level3">
 <h3>リポスト（リツイート）しただけでも有罪！？</h3>
@@ -6964,6 +7189,41 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 </ul></li>
 </ul>
 </section>
+<section id="図解クラウドストレージのマルチデバイス即時同期" class="slide level3">
+<h3>【図解】クラウドストレージのマルチデバイス即時同期</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    Cloud["☁️ クラウドストレージ&lt;br/&gt;（Google Drive / iCloud / OneDrive）"]
+    PC["💻 ノートPC&lt;br/&gt;（レポート作成・保存）"] --&gt;|1. 保存（自動アップロード）| Cloud
+    Cloud --&gt;|2. 即時プッシュ通知| Phone["📱 スマートフォン&lt;br/&gt;（通学電車で閲覧）"]
+    Cloud --&gt;|3. 自動差分同期| Tablet["📱 タブレット&lt;br/&gt;（手書きペンで注釈）"]
+    style Cloud fill:#e1f5fe,stroke:#0288d1,stroke-width:2px
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div title="✨ 差分同期の高速性">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>✨ 差分同期の高速性</strong></p>
+</div>
+<div class="callout-content">
+<p>ファイル全体を再送信するのではなく、「修正・追記された箇所だけ（差分）」を暗号化して高速同期するため、大容量ファイルでも数秒で全端末に反映されます。</p>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section id="写真動画用クラウドとai検索の進化" class="slide level3">
 <h3>写真・動画用クラウドとAI検索の進化</h3>
 <h4 id="探すからaiが見つけてくれる時代へ">📸 「探す」から「AIが見つけてくれる」時代へ</h4>
@@ -7232,6 +7492,35 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <li>全世界が少数のクラウド基盤やセキュリティ基盤に依存しているため、<strong>「1箇所の不具合が世界中の社会インフラを同時にマヒさせる巨大な脆弱性」</strong>が浮き彫りになりました。</li>
 </ul></li>
 </ul>
+</section>
+<section id="図解単一障害点spofの脅威-vs-マルチaz冗長化" class="slide level3">
+<h3>【図解】単一障害点（SPOF）の脅威 vs マルチAZ冗長化</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    subgraph SPOF["❌ 単一障害点（1箇所ダウンで全滅）"]
+        U1[利用者] --&gt; DC1["🏢 クラウドデータセンター A&lt;br/&gt;（⚡ 停電・障害発生！）"]
+        DC1 --&gt; Crash["💥 銀行・病院・空港が全面停止！"]
+    end
+
+    subgraph MultiAZ["✅ マルチAZ・マルチリージョン冗長化（高可用性）"]
+        U2[利用者] --&gt; LB["⚖️ ロードバランサー"]
+        LB -.-&gt;|自動切換| DC2["🏢 データセンター A（ダウン）"]
+        LB ==&gt;|高速フェイルオーバー| DC3["🏢 データセンター B（正常稼働）"]
+        DC3 --&gt; Safe["🛡️ サービス無停止で継続稼働！"]
+    end
+
+    style Crash fill:#ffebee,stroke:#c62828
+    style Safe fill:#e8f5e9,stroke:#2e7d32
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </section>
 <section id="データ主権data-sovereigntyとソブリンクラウド" class="slide level3">
 <h3>データ主権（Data Sovereignty）と「ソブリンクラウド」</h3>
@@ -7646,6 +7935,35 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <li>5Gと4Gの境界線で接続が混乱し、データが一切流れなくなる現象（各キャリアが基地局調整で対策中）。</li>
 </ul></li>
 </ul>
+</section>
+<section id="図解パケ詰まりが発生するメカニズム" class="slide level3">
+<h3>【図解】「パケ詰まり」が発生するメカニズム</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    Phone["📱 スマホ（駅・繁華街）"]
+    Base4G["📶 強力な4G基地局&lt;br/&gt;（安定・高速）"]
+    Base5G["📡 遠くの微弱な5G基地局&lt;br/&gt;（ギリギリ届く電波）"]
+
+    Phone -.-&gt;|「5G表示を優先」して無理に接続| Base5G
+    Base5G -.-&gt;|電波が弱すぎてパケット損失！| Phone
+    Phone x--x|本来快適な4Gを切り離してしまう| Base4G
+
+    Choke["💥 画面は「5G」なのに&lt;br/&gt;Webや決済画面がくるくる回って開かない！"]
+    Phone ==&gt; Choke
+
+    style Base5G fill:#ffebee,stroke:#c62828
+    style Base4G fill:#e8f5e9,stroke:#2e7d32
+    style Choke fill:#fff3e0,stroke:#e65100,stroke-width:2px
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </section>
 <section id="圏外が地球上から消える-スマホ直結衛星通信" class="slide level3">
 <h3>圏外が地球上から消える？ スマホ直結「衛星通信」</h3>
@@ -8340,6 +8658,49 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 </tbody>
 </table>
 </section>
+<section id="図解地上波デジタル衛星放送bsネット配信の伝送ルート比較" class="slide level3">
+<h3>【図解】地上波デジタル・衛星放送（BS）・ネット配信の伝送ルート比較</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    subgraph Broadcast["📡 放送（電波：1対無制限の一括同報配信）"]
+        Tower["🗼 電波塔（スカイツリー等）"] --&gt;|地上UHF電波| Ant["🏠 魚の骨アンテナ（地デジ）"]
+        Sat["🛰️ 静止衛星（東経110度）"] --&gt;|12GHz帯マイクロ波| Para["📡 パラボラアンテナ（BS/CS）"]
+    end
+
+    subgraph Internet["🌐 ネット配信（IPパケット：個別通信）"]
+        Origin["🏢 配信元（Netflix/TVer）"] --&gt; CDN["⚡ CDNエッジサーバー群"]
+        CDN --&gt;|光回線 / 5G| NetTV["🖥️ スマートテレビ / スマホ"]
+    end
+
+    style Tower fill:#e1f5fe,stroke:#0288d1
+    style Sat fill:#fff3e0,stroke:#f57c00
+    style CDN fill:#e8f5e9,stroke:#2e7d32
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div title="💡 放送と通信の決定的な違い">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>💡 放送と通信の決定的な違い</strong></p>
+</div>
+<div class="callout-content">
+<p>放送は視聴者が1億人になってもサーバーダウンしません（電波を浴びるだけ）。一方、ネット配信はアクセスが集中するとCDNや配信サーバーがパンクするリスクを抱えています。</p>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section id="b-casカードからacasチップへの進化" class="slide level3">
 <h3>B-CASカードから「ACASチップ」への進化</h3>
 <h4 id="テレビの横の赤いカードが消えた理由">💳 テレビの横の「赤いカード」が消えた理由</h4>
@@ -8425,6 +8786,40 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <div class="callout-content">
 <p>欧米や日本で、広告付きで24時間番組を流し続ける無料のリニア配信（<strong>FAST: Free Ad-supported Streaming TV</strong>）が注目されています（ABEMAの専門チャンネルなど）。</p>
 </div>
+</div>
+</div>
+</div>
+</section>
+<section id="図解動画配信サービスのビジネス構造比較" class="slide level3">
+<h3>【図解】動画配信サービスのビジネス構造比較</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    subgraph SVOD["🎬 SVOD（定額サブスク）"]
+        U1[利用者] --&gt;|毎月定額（約1,000円〜）| P1["Netflix / Prime"]
+        P1 --&gt;|高画質・広告なし・オリジナル大作| U1
+    end
+
+    subgraph AVOD["📢 AVOD（広告型無料配信）"]
+        U2[利用者] --&gt;|無料視聴（アテンション提供）| P2["TVer / YouTube"]
+        S2[広告主] --&gt;|広告出稿料| P2
+        P2 --&gt;|CM挿入| U2
+    end
+
+    subgraph PPV["🎟️ TVOD / PPV（都度課金）"]
+        U3[利用者] --&gt;|1作品ごと・試合ごとに購入| P3["U-NEXT / ABEMA"]
+        P3 --&gt;|最新劇場版・格闘技ライブ生中継| U3
+    end
+
+    style SVOD fill:#e1f5fe,stroke:#0288d1
+    style AVOD fill:#fff8e1,stroke:#ffa000
+    style PPV fill:#ede7f6,stroke:#512da8
+</pre>
+</div>
+<p></p></figure><p></p>
 </div>
 </div>
 </div>

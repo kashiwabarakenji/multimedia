@@ -182,6 +182,28 @@ Sub-6はビルの陰や屋内へ回り込んで広範囲をカバーします。
 
 ---
 
+### 【図解】「パケ詰まり」が発生するメカニズム
+
+```{mermaid}
+flowchart LR
+    Phone["📱 スマホ（駅・繁華街）"]
+    Base4G["📶 強力な4G基地局<br/>（安定・高速）"]
+    Base5G["📡 遠くの微弱な5G基地局<br/>（ギリギリ届く電波）"]
+
+    Phone -.->|「5G表示を優先」して無理に接続| Base5G
+    Base5G -.->|電波が弱すぎてパケット損失！| Phone
+    Phone x--x|本来快適な4Gを切り離してしまう| Base4G
+
+    Choke["💥 画面は「5G」なのに<br/>Webや決済画面がくるくる回って開かない！"]
+    Phone ==> Choke
+
+    style Base5G fill:#ffebee,stroke:#c62828
+    style Base4G fill:#e8f5e9,stroke:#2e7d32
+    style Choke fill:#fff3e0,stroke:#e65100,stroke-width:2px
+```
+
+---
+
 ### 圏外が地球上から消える？ スマホ直結「衛星通信」
 
 #### 🛰️ 宇宙の人工衛星が「空飛ぶ基地局」になる

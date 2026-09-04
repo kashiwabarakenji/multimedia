@@ -80,6 +80,24 @@
 
 ---
 
+### 【図解】「無料SNS」を支えるデータと広告マネーの循環
+
+```{mermaid}
+flowchart LR
+    User["👤 ユーザー<br/>（サービスを無料利用）"] -->|行動データ・関心・視聴秒数| Platform["🏢 SNSプラットフォーム<br/>（AIアルゴリズム分析）"]
+    Platform -->|超精密ターゲティング広告| User
+    Sponsor["💼 スポンサー企業"] -->|莫大な広告費| Platform
+    Platform -->|一部還元| Creator["✨ 人気クリエイター<br/>（広告分配・案件）"]
+    style Platform fill:#e1f5fe,stroke:#0288d1,stroke-width:2px
+    style User fill:#fff3e0,stroke:#f57c00
+```
+
+::: {.callout-note title="🪙 「無料」の対価はあなたのアテンション（注意・時間）"}
+利用者は金銭を払っていない代わりに、自分自身の行動データと広告を見る「時間（アテンション）」をプラットフォームに差し出しています。
+:::
+
+---
+
 ### クリエイターの収益化と「投げ銭」
 
 #### 💰 SNSで生活する人々（インフルエンサー）の仕組み
@@ -226,6 +244,21 @@
 
 ---
 
+### 【図解】インプレゾンビの発生と収益化の仕組み
+
+```{mermaid}
+flowchart TD
+    Buzz["🔥 バズ投稿 / 災害・避難情報<br/>（何万人もの閲覧者が集まる）"] --> Zombie["🧟 インプレゾンビ（Bot集団）<br/>有料バッジ・AI生成コピペを即座にリプライ"]
+    Zombie --> View["👀 大量閲覧（インプレッション水増し）"]
+    View --> Money["💰 広告収益の分配金（数円〜数百円）を獲得"]
+    Zombie -.->|深刻な弊害| Block["🚫 本当に必要な救助情報・有益な会話が埋没"]
+    style Buzz fill:#ffebee,stroke:#c62828
+    style Zombie fill:#ede7f6,stroke:#512da8
+    style Block fill:#ffcdd2,stroke:#b71c1c,stroke-width:2px
+```
+
+---
+
 ### YouTube —— 「動画検索エンジン」と過激化の罠
 
 #### 📺 世界最大の動画プラットフォーム
@@ -246,6 +279,21 @@
   * 次から次へとあなたの脳がドーパミンを出す動画を無限に供給する！
 * **動画編集の民主化**：
   * 運営会社が提供する動画編集アプリ**「CapCut」**により、スマホ1台で誰でもプロ級の面白いショート動画を作れるエコシステムを構築。
+
+---
+
+### 【図解】TikTokのAI推薦と「無限スワイプ」ループ
+
+```{mermaid}
+flowchart LR
+    Play["🎬 動画再生"] --> Track["⏱️ 行動追跡<br/>（視聴秒数・再視聴・即スキップ）"]
+    Track --> AI["🧠 AIアルゴリズム<br/>（嗜好ベクトル即時更新）"]
+    AI --> Hook["🎯 次の超関心動画を提案"]
+    Hook --> Dopamine["🧠 ドーパミン放出<br/>「もう1本だけ…」"]
+    Dopamine --> Play
+    style AI fill:#e0f2f1,stroke:#00796b,stroke-width:2px
+    style Dopamine fill:#fce4ec,stroke:#c2185b
+```
 
 ---
 
@@ -358,6 +406,32 @@ flowchart TB
 * **よくある勘違い**：
   * ❌「相手が有名人だから批判してもいい」 → 名誉毀損や侮辱罪が成立します。
   * ❌「書いた内容は事実だから問題ない」 → **事実であっても、社会的評価を低下させれば名誉毀損罪（刑法230条）は成立**します！
+
+---
+
+### 【図解】発信者情報開示請求（身元特定と賠償）の流れ
+
+```{mermaid}
+sequenceDiagram
+    autonumber
+    actor V as 被害者 / 弁護士
+    participant SNS as SNS運営（X, LINE等）
+    participant Court as 裁判所
+    participant ISP as 通信事業者（docomo/au等）
+    actor A as 誹謗中傷した加害者
+
+    A->>SNS: 匿名で誹謗中傷を投稿
+    V->>Court: 発信者情報開示命令を申し立て
+    Court->>SNS: IPアドレス・タイムスタンプの開示命令
+    SNS-->>V: 接続ログを開示
+    V->>ISP: 契約者（氏名・住所・電話番号）の開示請求
+    ISP-->>V: 本名・現住所を開示 ✅
+    V->>A: 損害賠償請求（慰謝料＋調査費用）・刑事告訴 💥
+```
+
+::: {.callout-caution title="⚖️ ネット空間に「完全な匿名」は存在しない"}
+発信者がいくら捨てアカウントを使っても、通信キャリア（docomo、au、ソフトバンク等）のSIMカード契約者情報と通信ログが直結しているため、裁判所命令により100%特定されます。
+:::
 
 ---
 

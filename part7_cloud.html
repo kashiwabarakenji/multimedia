@@ -356,6 +356,41 @@
 </ul></li>
 </ul>
 </section>
+<section id="図解クラウドストレージのマルチデバイス即時同期" class="slide level3">
+<h3>【図解】クラウドストレージのマルチデバイス即時同期</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    Cloud["☁️ クラウドストレージ&lt;br/&gt;（Google Drive / iCloud / OneDrive）"]
+    PC["💻 ノートPC&lt;br/&gt;（レポート作成・保存）"] --&gt;|1. 保存（自動アップロード）| Cloud
+    Cloud --&gt;|2. 即時プッシュ通知| Phone["📱 スマートフォン&lt;br/&gt;（通学電車で閲覧）"]
+    Cloud --&gt;|3. 自動差分同期| Tablet["📱 タブレット&lt;br/&gt;（手書きペンで注釈）"]
+    style Cloud fill:#e1f5fe,stroke:#0288d1,stroke-width:2px
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div title="✨ 差分同期の高速性">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>✨ 差分同期の高速性</strong></p>
+</div>
+<div class="callout-content">
+<p>ファイル全体を再送信するのではなく、「修正・追記された箇所だけ（差分）」を暗号化して高速同期するため、大容量ファイルでも数秒で全端末に反映されます。</p>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section id="写真動画用クラウドとai検索の進化" class="slide level3">
 <h3>写真・動画用クラウドとAI検索の進化</h3>
 <h4 id="探すからaiが見つけてくれる時代へ">📸 「探す」から「AIが見つけてくれる」時代へ</h4>
@@ -624,6 +659,35 @@
 <li>全世界が少数のクラウド基盤やセキュリティ基盤に依存しているため、<strong>「1箇所の不具合が世界中の社会インフラを同時にマヒさせる巨大な脆弱性」</strong>が浮き彫りになりました。</li>
 </ul></li>
 </ul>
+</section>
+<section id="図解単一障害点spofの脅威-vs-マルチaz冗長化" class="slide level3">
+<h3>【図解】単一障害点（SPOF）の脅威 vs マルチAZ冗長化</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    subgraph SPOF["❌ 単一障害点（1箇所ダウンで全滅）"]
+        U1[利用者] --&gt; DC1["🏢 クラウドデータセンター A&lt;br/&gt;（⚡ 停電・障害発生！）"]
+        DC1 --&gt; Crash["💥 銀行・病院・空港が全面停止！"]
+    end
+
+    subgraph MultiAZ["✅ マルチAZ・マルチリージョン冗長化（高可用性）"]
+        U2[利用者] --&gt; LB["⚖️ ロードバランサー"]
+        LB -.-&gt;|自動切換| DC2["🏢 データセンター A（ダウン）"]
+        LB ==&gt;|高速フェイルオーバー| DC3["🏢 データセンター B（正常稼働）"]
+        DC3 --&gt; Safe["🛡️ サービス無停止で継続稼働！"]
+    end
+
+    style Crash fill:#ffebee,stroke:#c62828
+    style Safe fill:#e8f5e9,stroke:#2e7d32
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </section>
 <section id="データ主権data-sovereigntyとソブリンクラウド" class="slide level3">
 <h3>データ主権（Data Sovereignty）と「ソブリンクラウド」</h3>
