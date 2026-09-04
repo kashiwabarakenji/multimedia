@@ -200,7 +200,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">現代デジタル社会の歩き方と裏側の仕組み</h1>
-  <p class="subtitle">スマホ・決済・パスワード・個人情報・暗号通貨・SNS・クラウドの「なぜ？」を読み解くデジタル教養（全7回）</p>
+  <p class="subtitle">スマホ・通信・決済・セキュリティ・暗号通貨・SNS・クラウドの「なぜ？」を読み解くデジタル教養（全8回）</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -221,6 +221,7 @@
 <li><a href="#/第5部暗号通貨とブロックチェーン" id="/toc-第5部暗号通貨とブロックチェーン">第5部：暗号通貨とブロックチェーン</a></li>
 <li><a href="#/第6部ソーシャルメディアと情報モラル" id="/toc-第6部ソーシャルメディアと情報モラル">第6部：ソーシャルメディアと情報モラル</a></li>
 <li><a href="#/第7部クラウドコンピューティングと巨大プラットフォーム" id="/toc-第7部クラウドコンピューティングと巨大プラットフォーム">第7部：クラウドコンピューティングと巨大プラットフォーム</a></li>
+<li><a href="#/第8部モバイルデバイスと次世代通信ネットワーク" id="/toc-第8部モバイルデバイスと次世代通信ネットワーク">第8部：モバイルデバイスと次世代通信ネットワーク</a></li>
 </ul>
 </nav>
 </section>
@@ -7157,6 +7158,627 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 </div>
 <div class="callout-content">
 <p>テクノロジーの仕組みを理解したあなたは、もはや「操られる受動的な消費者」ではありません。便利さを最大限に享受しながら、自らの安全と自由を守り抜く<strong>「主権あるデジタル市民」</strong>として、これからの社会を堂々と歩んでください！</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section>
+<section id="第8部モバイルデバイスと次世代通信ネットワーク" class="title-slide slide level1 center">
+<h1>第8部：モバイルデバイスと次世代通信ネットワーク</h1>
+
+</section>
+<section id="本日の講義マップ-アジェンダ-5" class="slide level3">
+<h3>本日の講義マップ —— アジェンダ</h3>
+<ol type="1">
+<li><strong>スマートフォンの進化とOSの二大巨頭</strong>（iOS vs Android・Apple税・オンデバイスAI）</li>
+<li><strong>携帯通信網の仕組みと5Gの真実</strong>（3G停波から5Gへ・ミリ波と「なんちゃって5G」・衛星通信）</li>
+<li><strong>通信キャリアの構図とSIMのテクノロジー</strong>（MNO/MVNO・格安プラン・eSIMとデュアルSIM）</li>
+<li><strong>Wi-Fiと近距離無線のセキュリティ</strong>（周波数帯の使い分け・Wi-Fi 7・公衆Wi-Fiの罠・AirDrop）</li>
+</ol>
+</section>
+<section id="本日の到達目標-いつもポケットにある通信と端末の仕組みを解き明かす" class="slide level3">
+<h3>本日の到達目標 —— いつもポケットにある通信と端末の仕組みを解き明かす</h3>
+<ul>
+<li>iOSとAndroidの設計思想・ビジネスモデルの違いと、オンデバイスAIの仕組みを説明できる</li>
+<li>3G停波（2026年ドコモ終了）の歴史的意義と、5Gの周波数帯（Sub-6/ミリ波/転用5G）を理解する</li>
+<li>MNO（4大キャリア）とMVNO（格安SIM）、格安プランの違いとeSIMの利便性を把握する</li>
+<li>Wi-Fiの周波数（2.4GHz/5GHz/6GHz）と規格進化（Wi-Fi 7）、WPA3暗号化の重要性を理解する</li>
+<li>公衆Wi-Fiの危険性と自衛策、BluetoothやAirDropの安全な設定を実践できる</li>
+</ul>
+</section>
+<section class="slide level3">
+
+</section>
+<section class="slide level3">
+
+</section>
+<section id="スマートフォンの進化とosの二大巨頭" class="title-slide slide level2 center">
+<h2>1. スマートフォンの進化とOSの二大巨頭</h2>
+
+</section>
+<section id="考えてみたい問い-27" class="slide level3">
+<h3>考えてみたい問い</h3>
+<ul>
+<li>なぜ世界中のスマホOSは「iOS」と「Android」の2つに絞られたのか？</li>
+<li>なぜ日本人はこれほどiPhoneが好きなのか？ 円安で買い替えはどう変わった？</li>
+<li>「Apple税」「Google税」って何？ なぜ世界中で法規制が進んでいる？</li>
+<li>最新スマホのAIは、なぜクラウドではなく「端末の中（オンデバイス）」で動かすのか？</li>
+</ul>
+</section>
+<section id="音声通話からデータ端末へ-スマホの多機能化" class="slide level3">
+<h3>音声通話からデータ端末へ —— スマホの多機能化</h3>
+<h4 id="ガラケー時代とスマホ時代の決定的な違い">📱 ガラケー時代とスマホ時代の決定的な違い</h4>
+<ul>
+<li><strong>かつての携帯電話（ガラケー）</strong>：
+<ul>
+<li>主役は「音声通話回線（電話番号での会話）」と「SMS」。データ通信（iモード等）はオマケ。</li>
+</ul></li>
+<li><strong>現代のスマートフォン</strong>：
+<ul>
+<li>高度な小型コンピューターであり、インターネット（TCP/IPパケット通信）が主役。</li>
+<li>カメラ、映画館、ゲーム機、財布（決済）、地図、身分証、2要素認証デバイス。</li>
+<li>電話も専用回線ではなく、データ通信を用いた<strong>「IP電話（VoIP：LINE通話）」</strong>や、パケット網で高品質化した<strong>「VoLTE（Voice over LTE）」</strong>へ完全移行！</li>
+</ul></li>
+</ul>
+</section>
+<section id="スマホosの二大巨頭-ios-vs-android-の設計思想" class="slide level3">
+<h3>スマホOSの二大巨頭 —— iOS vs Android の設計思想</h3>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">比較項目</th>
+<th style="text-align: left;">Apple iOS (iPhone)</th>
+<th style="text-align: left;">Google Android OS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>開発元</strong></td>
+<td style="text-align: left;">Apple社</td>
+<td style="text-align: left;">Google社</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>端末製造</strong></td>
+<td style="text-align: left;"><strong>Apple社のみ（垂直統合）</strong></td>
+<td style="text-align: left;"><strong>世界中の多種多様なメーカー</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>アプリ入手</strong></td>
+<td style="text-align: left;">App Storeのみ（Appleの厳格審査）</td>
+<td style="text-align: left;">Google Play ＋ <strong>外部からの自由インストール</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>端末の選択肢</strong></td>
+<td style="text-align: left;">高級機中心（選択肢は少数精鋭）</td>
+<td style="text-align: left;"><strong>2万円の格安機から20万円の超高級機まで</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>世界シェア</strong></td>
+<td style="text-align: left;">約30%（日本は約60%と突出！）</td>
+<td style="text-align: left;"><strong>世界シェア約70%（グローバル標準）</strong></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="iphoneと日本市場-円安と買い替えサイクルの長期化" class="slide level3">
+<h3>iPhoneと日本市場 —— 円安と買い替えサイクルの長期化</h3>
+<h4 id="なぜ日本でこれほどiphoneが強いのか">🍏 なぜ日本でこれほどiPhoneが強いのか？</h4>
+<ul>
+<li><strong>高いシェアの歴史的背景</strong>：
+<ul>
+<li>ソフトバンクによる2008年の早期導入とキャリア各社による大規模な端末代金値引き合戦。</li>
+<li>「みんなが使っていて操作を教え合える」「ケースやアクセサリーが豊富」という安心感。</li>
+</ul></li>
+<li><strong>近年の変化と課題</strong>：
+<ul>
+<li>歴史的な<strong>円安</strong>により、最新のProモデルが20万円を超えるなど価格が高騰。</li>
+<li>「毎年買い替える」から<strong>「バッテリーを交換して4〜5年長く使う」</strong>スタイルへシフト。</li>
+<li>イオシスやゲオなどを中心に<strong>「中古iPhone市場（リファービッシュ品）」</strong>が急拡大！</li>
+</ul></li>
+</ul>
+</section>
+<section id="androidのビジネスモデルと自由のリスク" class="slide level3">
+<h3>Androidのビジネスモデルと「自由」のリスク</h3>
+<h4 id="googleはなぜosを無料配布するのか">🤖 GoogleはなぜOSを無料配布するのか？</h4>
+<ul>
+<li><strong>Googleの狙い</strong>：
+<ul>
+<li>Android OSを世界中の電機メーカーに無償提供することで、世界中に「Google検索・YouTube・Googleマップ」の利用者を爆発的に増やす！</li>
+<li>端末代ではなく<strong>「検索広告とサービス利用」で巨額の利益を回収</strong>するビジネスモデル。</li>
+</ul></li>
+<li><strong>自由とセキュリティのトレードオフ</strong>：
+<ul>
+<li>Androidはブラウザ等から直接アプリ（野良APK）をインストールできる自由度がある。</li>
+<li>その反面、<strong>不正なマルウェア（遠隔操作ウイルス、偽バンキングアプリ）が紛れ込むリスク</strong>が常に付きまといます。</li>
+</ul></li>
+</ul>
+</section>
+<section id="プラットフォームの覇権とapple税google税" class="slide level3">
+<h3>プラットフォームの覇権と「Apple税・Google税」</h3>
+<h4 id="アプリ内課金30の手数料を巡る国際的攻防">💸 アプリ内課金30%の手数料を巡る国際的攻防</h4>
+<ul>
+<li><strong>アプリ内課金のルール</strong>：
+<ul>
+<li>ゲームのガチャやサブスクの支払いは、Apple/Googleの決済システムを通す義務があり、<strong>売上の15%〜30%が手数料としてプラットフォーム側に徴収</strong>される。</li>
+</ul></li>
+<li><strong>世界的な独占禁止法・法規制の波</strong>：
+<ul>
+<li>欧州（DMA：デジタル市場法）や日本（スマホソフトウェア競争促進法）により、<strong>「外部決済の禁止」や「他社アプリストアの排除」を是正させる法規制</strong>が成立。</li>
+<li>寡占された巨大プラットフォームのあり方が世界中で見直されています。</li>
+</ul></li>
+</ul>
+</section>
+<section id="パーソナライズされたオンデバイスaiの時代" class="slide level3">
+<h3>パーソナライズされた「オンデバイスAI」の時代</h3>
+<h4 id="個人情報をクラウドに送らないプライバシー保護">🧠 個人情報をクラウドに送らないプライバシー保護</h4>
+<ul>
+<li>スマホの中には、写真、チャット履歴、現在地、ヘルスケアなど「究極のプライバシー」が詰まっている。</li>
+<li><strong>従来のAI</strong>：音声を録音してクラウドサーバーに送り、雲の上で計算して結果を返す（情報漏洩の懸念）。</li>
+<li><strong>オンデバイスAI（Apple Intelligence / Gemini Nano）</strong>：
+<ul>
+<li>スマホに内蔵された超高速AIプロセッサ（NPU / Neural Engine）を使い、<strong>「ネットにデータを一切送らず、スマホの内部だけで瞬時に要約・画像生成・文脈理解」</strong>を実行！</li>
+<li>プライバシーを守りながら、高度にパーソナライズされたアシスタント機能を実現。</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level3">
+
+</section>
+<section class="slide level3">
+
+</section>
+
+<section id="携帯通信網の仕組みと5gの真実" class="title-slide slide level2 center">
+<h2>2. 携帯通信網の仕組みと5Gの真実</h2>
+
+</section>
+<section id="考えてみたい問い-28" class="slide level3">
+<h3>考えてみたい問い</h3>
+<ul>
+<li>2026年3月末でドコモの「3G」が終了すると、社会で何が起きる？</li>
+<li>アンテナピクトに「5G」と出ているのに、なぜか通信が遅い「パケ詰まり」の正体は？</li>
+<li>日本で売られているiPhoneは、アメリカのiPhoneより電波が飛ばないって本当？</li>
+<li>「空が見えればどこでも圏外ゼロ」になるスマホ直結衛星通信とは？</li>
+</ul>
+</section>
+<section id="移動体通信の世代交代-1gから5gそして3g停波へ" class="slide level3">
+<h3>移動体通信の世代交代 —— 1Gから5G、そして3G停波へ</h3>
+<h4 id="年ごとに訪れる通信速度のパラダイムシフト">📶 10年ごとに訪れる通信速度のパラダイムシフト</h4>
+<ul>
+<li><strong>1G（1980年代）</strong>：アナログ音声通話（ショルダーホン）。</li>
+<li><strong>2G（1990年代）</strong>：デジタル化、メール（iモード）、文字中心。</li>
+<li><strong>3G（2000年代）</strong>：写メ、着うた、世界共通規格。パケット定額制の始まり。</li>
+<li><strong>4G / LTE（2010年代）</strong>：スマホ全盛期。YouTubeやSNS動画が止まらず見られる時代へ。</li>
+<li><strong>5G（2020年代〜）</strong>：超高速・超低遅延・多数同時接続。</li>
+</ul>
+<div title="🚨 3Gの完全停波（ガラケー時代の終焉）">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>🚨 3Gの完全停波（ガラケー時代の終焉）</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><strong>au（KDDI）</strong>：2022年3月末に停波完了</li>
+<li><strong>SoftBank</strong>：2024年4月中旬に停波完了</li>
+<li><strong>NTTドコモ</strong>：<strong>2026年3月末に停波！</strong> 3G専用のガラケーや古いGPS機器、見守り端末は通信が完全に遮断されるため、4G/5G端末への移行が必須です。</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="gの3大特徴と周波数帯" class="slide level3">
+<h3>5Gの3大特徴と周波数帯</h3>
+<h4 id="単に動画が速くなるだけではない">🚀 単に「動画が速くなる」だけではない</h4>
+<ol type="1">
+<li><strong>高速大容量</strong>：4Gの最大10〜100倍（2時間映画を数秒でダウンロード）。</li>
+<li><strong>超低遅延</strong>：通信のタイムラグがわずか1ミリ秒（自動運転や遠隔手術に必須）。</li>
+<li><strong>多数同時接続</strong>：1平方kmあたり100万台のIoTデバイスを同時収容。</li>
+</ol>
+<h4 id="周波数のルール高い電波-vs-低い電波">🌊 周波数のルール：高い電波 vs 低い電波</h4>
+<ul>
+<li><strong>周波数が高い（ミリ波）</strong>：一度に大量のデータを運べるが、<strong>直進性が強すぎて障害物や雨に弱く、遠くまで届かない</strong>。</li>
+<li><strong>周波数が低い（プラチナバンド等）</strong>：運べるデータ量は少ないが、<strong>ビルを回り込み、屋内や地下までしっかり届く</strong>。</li>
+</ul>
+</section>
+<section id="gの周波数帯-sub-6-と-ミリ波" class="slide level3">
+<h3>5Gの周波数帯 —— Sub-6 と ミリ波</h3>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">区分</th>
+<th style="text-align: left;">周波数帯</th>
+<th style="text-align: left;">メリット</th>
+<th style="text-align: left;">デメリット・特徴</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Sub-6（サブシックス）</strong></td>
+<td style="text-align: left;"><strong>3.7GHz帯<br>4.5GHz帯</strong></td>
+<td style="text-align: left;">・4Gよりかなり高速<br>・ある程度電波が届く</td>
+<td style="text-align: left;">・現在の「本物の5Gエリア」の主力。<br>・都市部を中心に整備中。</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>ミリ波（mmWave）</strong></td>
+<td style="text-align: left;"><strong>28GHz帯</strong></td>
+<td style="text-align: left;">・<strong>ギガビット超の超爆速</strong><br>・スタジアムや駅前で威力を発揮</td>
+<td style="text-align: left;">・<strong>壁や人の体ですら電波が遮断</strong>。<br>・<strong>日本版iPhoneはミリ波非対応</strong>！</td>
+</tr>
+</tbody>
+</table>
+<div title="📱 日本版iPhoneとミリ波">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>📱 日本版iPhoneとミリ波</strong></p>
+</div>
+<div class="callout-content">
+<p>米国版のiPhoneには側面に「ミリ波専用アンテナ窓」がありますが、日本版iPhoneは基地局整備の遅れやコスト削減のためミリ波アンテナが省かれています。</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="図解なんちゃって5gとパケ詰まり問題の真相" class="slide level3">
+<h3>【図解】「なんちゃって5G」と「パケ詰まり」問題の真相</h3>
+<h4 id="なぜアンテナは5gなのにネットが繋がらないのか">⚠️ なぜアンテナは5Gなのにネットが繋がらないのか？</h4>
+<ul>
+<li><strong>4G周波数転用（なんちゃって5G）</strong>：
+<ul>
+<li>基地局をゼロから建てるのは莫大な費用がかかるため、<strong>既存の4G電波（700MHz〜2GHz）をそのまま5G方式に転用（NR化）</strong>！</li>
+<li>画面には「5G」と表示されるが、<strong>電波の幅は4Gと同じなので通信速度は全く速くならない</strong>！</li>
+</ul></li>
+<li><strong>パケ詰まりの構造</strong>：
+<ul>
+<li>スマホが微弱な5G電波を無理に掴もうとし、快適な4G電波を離してしまう。</li>
+<li>5Gと4Gの境界線で接続が混乱し、データが一切流れなくなる現象（各キャリアが基地局調整で対策中）。</li>
+</ul></li>
+</ul>
+</section>
+<section id="圏外が地球上から消える-スマホ直結衛星通信" class="slide level3">
+<h3>圏外が地球上から消える？ スマホ直結「衛星通信」</h3>
+<h4 id="宇宙の人工衛星が空飛ぶ基地局になる">🛰️ 宇宙の人工衛星が「空飛ぶ基地局」になる</h4>
+<ul>
+<li><strong>iPhoneの「衛星経由の緊急SOS」（日本でも2024年開始）</strong>：
+<ul>
+<li>携帯電波が一切届かない山奥や海の上でも、iPhoneを空に向けることで上空の低軌道衛星と直接通信！</li>
+<li>警察や海上保安庁へ位置情報と遭難状況を送信可能。</li>
+</ul></li>
+<li><strong>Starlink（スペースX）× au（KDDI）</strong>：
+<ul>
+<li>地上に専用アンテナを置くことなく、<strong>手持ちの普通のスマートフォンがそのままスターリンク衛星と直接電波を送受信する「Direct to Cell」</strong>実証。</li>
+<li>災害で地上の基地局や光ファイバーが寸断されても、日本中どこでも通信が途切れない未来へ！</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level3">
+
+</section>
+<section class="slide level3">
+
+</section>
+
+<section id="通信キャリアの構図とsimのテクノロジー" class="title-slide slide level2 center">
+<h2>3. 通信キャリアの構図とSIMのテクノロジー</h2>
+
+</section>
+<section id="考えてみたい問い-29" class="slide level3">
+<h3>考えてみたい問い</h3>
+<ul>
+<li>「ドコモ・au・ソフトバンク・楽天」と「格安SIM」は何が違う？</li>
+<li>ahamoやpovoなどの「格安プラン」が安いのにはどんな理由がある？</li>
+<li>プラスチックカードのない「eSIM」って何が便利なの？</li>
+<li>「デュアルSIM」にしておくと、なぜ通信障害のときに助かる？</li>
+</ul>
+</section>
+<section id="日本の携帯キャリア4大mno" class="slide level3">
+<h3>日本の携帯キャリア（4大MNO）</h3>
+<h4 id="自前で電波と基地局網を持つインフラ事業者">🗼 自前で電波と基地局網を持つインフラ事業者</h4>
+<ul>
+<li><strong>MNO（Mobile Network Operator：移動体通信事業者）</strong>：
+<ul>
+<li><strong>NTTドコモ</strong>：最大手。基地局数が多く地方や山間部に強い。</li>
+<li><strong>KDDI（au）</strong>：高品質なネットワーク。Starlink提携やpovoで先行。</li>
+<li><strong>ソフトバンク</strong>：都市部に強くPayPay経済圏との強力な連携。</li>
+<li><strong>楽天モバイル</strong>：2020年に第4のキャリアとして参入。2024年に悲願の<strong>「プラチナバンド（700MHz帯）」</strong>の運用を開始し、屋内・地下のつながりやすさを改善中。</li>
+</ul></li>
+</ul>
+</section>
+<section id="キャリアの3層構造-メインサブ格安プラン" class="slide level3">
+<h3>キャリアの3層構造 —— メイン・サブ・格安プラン</h3>
+<table class="caption-top">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 29%">
+<col style="width: 23%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">区分</th>
+<th style="text-align: left;">代表サービス</th>
+<th style="text-align: center;">月額料金の目安</th>
+<th style="text-align: left;">特徴・メリット・デメリット</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>メインブランド</strong></td>
+<td style="text-align: left;">ドコモ, au, SoftBank</td>
+<td style="text-align: center;">高い（6,000〜8,000円）</td>
+<td style="text-align: left;">・全国のショップで対面サポート<br>・家族割、光回線セット割で大容量使い放題</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>サブブランド</strong></td>
+<td style="text-align: left;"><strong>UQ mobile, Y!mobile</strong></td>
+<td style="text-align: center;">中程度（2,000〜4,000円）</td>
+<td style="text-align: left;">・ショップ窓口あり<br>・余ったギガの繰越可能、安定した通信速度</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>オンライン専用プラン</strong></td>
+<td style="text-align: left;"><strong>ahamo, povo 2.0, LINEMO</strong></td>
+<td style="text-align: center;"><strong>安い（0円〜3,000円程度）</strong></td>
+<td style="text-align: left;">・<strong>ショップ窓口なし・キャリアメールなし</strong><br>・手続きはすべてアプリ・Web完結</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="mvno仮想移動体通信事業者-格安simの仕組み" class="slide level3">
+<h3>MVNO（仮想移動体通信事業者 / 格安SIM）の仕組み</h3>
+<h4 id="基地局を持たずに回線を卸売りで借りる">🏢 基地局を持たずに回線を「卸売り」で借りる</h4>
+<ul>
+<li><strong>MVNOの代表例</strong>：IIJmio, mineo, NUROモバイル, 日本通信</li>
+<li><strong>なぜ安いのか？</strong>：
+<ul>
+<li>巨大な基地局の建設費やメンテナンス費、全国の店舗網を持たないため、月額1,000円前後〜で提供可能。</li>
+</ul></li>
+<li><strong>利用時の注意点（混雑時の速度低下）</strong>：
+<ul>
+<li>MNOから借りている「通信のパイプ（帯域）」が限られているため、<strong>全ユーザーが一斉にスマホを使う「平日のお昼休み（12:00〜13:00）」や夕方ラッシュ時に通信速度が極端に低下</strong>しやすい！</li>
+</ul></li>
+</ul>
+</section>
+<section id="simカードの進化とesimの革命" class="slide level3">
+<h3>SIMカードの進化と「eSIM」の革命</h3>
+<h4 id="物理カードの抜き差しからネットで即日開通へ">💳 物理カードの抜き差しから「ネットで即日開通」へ</h4>
+<ul>
+<li><strong>SIMカード（Subscriber Identity Module）</strong>：
+<ul>
+<li>あなたの契約者電話番号やIDが記録された極小のICカード。</li>
+</ul></li>
+<li><strong>eSIM（Embedded SIM）の登場</strong>：
+<ul>
+<li>スマホ本体にあらかじめ電子的なSIMチップが内蔵されている。</li>
+<li>郵送を待つ必要がなく、<strong>Webで申し込んでQRコードを読み取るだけで、わずか数分で回線が開通</strong>！</li>
+</ul></li>
+<li><strong>SIMフリーの義務化（2021年〜）</strong>：
+<ul>
+<li>総務省によりキャリアの「SIMロック」が原則禁止に。どのキャリアで買った端末でも、自由に他社のSIMを挿して使える時代になりました。</li>
+</ul></li>
+</ul>
+</section>
+<section id="最強の防災自衛策-デュアルsim運用" class="slide level3">
+<h3>最強の防災・自衛策 —— 「デュアルSIM」運用</h3>
+<h4 id="台のスマホに2本の回線を常備する知恵">📲 1台のスマホに「2本の回線」を常備する知恵</h4>
+<ul>
+<li>現代のiPhoneや多くのAndroidは、<strong>「物理SIM ＋ eSIM」</strong>または<strong>「eSIM ＋ eSIM」</strong>で2つの携帯会社を同時に待ち受け可能。</li>
+<li><strong>通信障害への究極の備え</strong>：
+<ul>
+<li><strong>主回線</strong>：ドコモ（日常のギガ利用や通話）</li>
+<li><strong>副回線</strong>：<strong>povo 2.0（au回線 / 基本料0円！）</strong></li>
+</ul></li>
+<li>万が一、ドコモで大規模な全国通信障害が発生しても、設定画面でモバイル通信を「povo」に切り替えるだけで、その瞬間から何事もなくネットや電話が使えます！</li>
+</ul>
+</section>
+<section class="slide level3">
+
+</section>
+<section class="slide level3">
+
+</section>
+
+<section id="wi-fiと近距離無線のセキュリティ" class="title-slide slide level2 center">
+<h2>4. Wi-Fiと近距離無線のセキュリティ</h2>
+
+</section>
+<section id="考えてみたい問い-30" class="slide level3">
+<h3>考えてみたい問い</h3>
+<ul>
+<li>Wi-Fiルーターの裏にある「2.4GHz」と「5GHz」は何が違う？</li>
+<li>最新規格「Wi-Fi 7」は何がすごいの？</li>
+<li>カフェの「鍵マークなしの無料Wi-Fi」に繋ぐと、なぜ危険なの？</li>
+<li>知らない人から不快な画像が送りつけられる「AirDrop痴漢」はどう防ぐ？</li>
+</ul>
+</section>
+<section id="携帯電話網-vs-wi-fi-似ているようで全く違う通信" class="slide level3">
+<h3>携帯電話網 vs Wi-Fi —— 似ているようで全く違う通信</h3>
+<h4 id="外では携帯網建物の中ではwi-fi">🔄 外では携帯網、建物の中ではWi-Fi</h4>
+<ul>
+<li><strong>携帯電話網（4G/5G）</strong>：
+<ul>
+<li>何キロも先の巨大な基地局アンテナと通信。移動しながら使えるが、月々の「ギガ消費」や通信制限がある。</li>
+</ul></li>
+<li><strong>Wi-Fi（無線LAN）</strong>：
+<ul>
+<li>自宅やカフェの光回線ルーター（数十メートル以内）と電波で接続。</li>
+<li><strong>データ通信量は完全無制限</strong>！ 速度も家庭用光回線（1Gbps〜10Gbps）と同等。</li>
+<li>アプリの大型アップデートや高画質動画視聴はWi-Fiで行うのが鉄則。</li>
+</ul></li>
+</ul>
+</section>
+<section id="wi-fiの周波数帯-2.4ghz-vs-5ghz-vs-6ghz" class="slide level3">
+<h3>Wi-Fiの周波数帯 —— 2.4GHz vs 5GHz vs 6GHz</h3>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">周波数帯</th>
+<th style="text-align: left;">電波の特徴</th>
+<th style="text-align: left;">メリット</th>
+<th style="text-align: left;">デメリット・注意点</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>2.4GHz帯</strong></td>
+<td style="text-align: left;">波長が長く遠くまで届く</td>
+<td style="text-align: left;"><strong>壁や床などの障害物に強い</strong></td>
+<td style="text-align: left;">・<strong>電子レンジやBluetoothと電波干渉</strong>して途切れやすい。<br>・通信速度は遅め。</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>5GHz帯</strong></td>
+<td style="text-align: left;">高速通信が可能</td>
+<td style="text-align: left;"><strong>電波干渉が少なく高速・安定</strong></td>
+<td style="text-align: left;"><strong>壁やドアなどの障害物に弱く</strong>、隣の部屋に行くと電波が急減。</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>6GHz帯</strong></td>
+<td style="text-align: left;"><strong>Wi-Fi 6E / Wi-Fi 7対応</strong></td>
+<td style="text-align: left;">まったく混雑していない超クリアな帯域</td>
+<td style="text-align: left;">最新の対応ルーターと対応スマホが必要。</td>
+</tr>
+</tbody>
+</table>
+<div title="🏠 自宅ルーターの使い分け">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>🏠 自宅ルーターの使い分け</strong></p>
+</div>
+<div class="callout-content">
+<p>ルーターと同じ部屋にいるときは「5GHz（SSIDの末尾が -A や -5G）」、壁を隔てた別の部屋やお風呂場では「2.4GHz（末尾が -G や -2G）」に接続するのが賢い選び方です。</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="wi-fiの規格進化-wi-fi-6から次世代wi-fi-7へ" class="slide level3">
+<h3>Wi-Fiの規格進化 —— Wi-Fi 6から次世代「Wi-Fi 7」へ</h3>
+<h4 id="有線lanを超える超高速超低遅延へ">🏎️ 有線LANを超える超高速・超低遅延へ</h4>
+<ul>
+<li><strong>Wi-Fi 5（11ac / 2013年）</strong>：最大6.9Gbps。5GHz専用。</li>
+<li><strong>Wi-Fi 6 / 6E（11ax / 2019年〜）</strong>：最大9.6Gbps。スマホや家電が何十台同時に繋がっても遅くならない（OFDMA技術）。6GHz帯を開放。</li>
+<li><strong>Wi-Fi 7（11be / 2024年〜本格普及）</strong>：
+<ul>
+<li><strong>最大46Gbps（Wi-Fi 6の約4.8倍！）</strong></li>
+<li><strong>MLO（Multi-Link Operation）</strong>：2.4GHz、5GHz、6GHzの異なる周波数を<strong>「同時に束ねて通信」</strong>！ 電波の途切れや遅延が事実上ゼロになり、VRやオンラインゲームの常識を変える。</li>
+</ul></li>
+</ul>
+</section>
+<section id="公衆wi-fiフリーwi-fiの罠と暗号化の歴史" class="slide level3">
+<h3>公衆Wi-Fi（フリーWi-Fi）の罠と暗号化の歴史</h3>
+<h4 id="鍵マークのないwi-fiは空中に大声で叫んでいるのと同じ">🚨 鍵マークのないWi-Fiは「空中に大声で叫んでいる」のと同じ！</h4>
+<ul>
+<li><strong>暗号化規格の世代交代</strong>：
+<ul>
+<li><strong>WEP</strong>：大昔の規格。ツールを使えば数秒でパスワードが解読されるため完全廃止。</li>
+<li><strong>WPA2</strong>：現在のデファクトスタンダード。</li>
+<li><strong>WPA3</strong>：最新規格。総当たり攻撃を防ぎ、公衆Wi-Fiでも盗聴を防ぐ強固な暗号化。</li>
+</ul></li>
+<li><strong>「野良Wi-Fi（悪意あるなりすましAP）」の危険</strong>：
+<ul>
+<li>ハッカーが有名カフェと同じSSID（例：<code>Free_Cafe_WiFi</code>）を名乗る偽ルーターを設置。</li>
+<li>接続してしまうと、<strong>あなたの閲覧履歴、送信データ、未暗号化通信がすべてハッカーのPCに筒抜け</strong>に！</li>
+</ul></li>
+</ul>
+</section>
+<section id="bluetooth-と-airdrop-quick-share-の安全性" class="slide level3">
+<h3>Bluetooth と AirDrop / Quick Share の安全性</h3>
+<h4 id="メートルの超近距離通信を使いこなす">📡 10メートルの超近距離通信を使いこなす</h4>
+<ul>
+<li><strong>Bluetooth</strong>：
+<ul>
+<li>イヤホン、スマートウォッチ、キーボードなどと機器同士を「ペアリング（認証紐付け）」して通信。省電力。</li>
+</ul></li>
+<li><strong>AirDrop（Apple）と Quick Share（Android）の賢い仕組み</strong>：
+<ul>
+<li>まず省電力なBluetoothで近くの端末を探し出し、実際のファイル転送は<strong>「Wi-Fi Direct（高速な直接無線通信）」</strong>に切り替えて秒速で大容量写真を送受信！</li>
+</ul></li>
+<li><strong>「AirDrop痴漢」を防ぐ設定</strong>：
+<ul>
+<li>見知らぬ人から不快な画像を受け取らないよう、設定は原則<strong>「連絡先のみ」</strong>にしておく（「すべての人」は10分後に自動で戻る仕様）。</li>
+</ul></li>
+</ul>
+</section>
+<section id="実践チェック-17" class="slide level3">
+<h3>📱 実践チェック</h3>
+<h4 id="自分のスマホの通信環境を確認してみよう">🔍 自分のスマホの通信環境を確認してみよう</h4>
+<ol type="1">
+<li><strong>Wi-Fi設定</strong>：
+<ul>
+<li>自宅のWi-Fiで、今繋がっているのは「2.4GHz」か「5GHz」か確認してみよう。</li>
+</ul></li>
+<li><strong>AirDrop / Quick Share設定</strong>：
+<ul>
+<li>受信設定が「すべての人」のまま放置されていないか確認しよう。</li>
+</ul></li>
+<li><strong>モバイル通信</strong>：
+<ul>
+<li>今月何ギガ使ったか、契約しているプランの残量を確認してみよう。</li>
+</ul></li>
+</ol>
+</section>
+<section id="考えてみよう講義の振り返り-3" class="slide level3">
+<h3>🤔 考えてみよう（講義の振り返り）</h3>
+<h4 id="問いかけ-3">💭 問いかけ</h4>
+<ol type="1">
+<li>3Gが停波し、携帯電話が「100%パケットデータ通信（VoLTE・IP電話）」となった現代において、従来の「電話番号」という仕組みは今後も残り続けるだろうか？ それともLINEやSNSアカウントに完全に置き換わるだろうか？</li>
+<li>衛星通信が普及して「地球上から圏外が完全になくなる」と、私たちの生活や働き方、観光、防災はどう変わるだろうか？</li>
+</ol>
+</section>
+<section id="全8部作の完全総括-デジタル市民のためのマスターマップ" class="slide level3">
+<h3>全8部作の完全総括 —— デジタル市民のためのマスターマップ</h3>
+<h4 id="ブラックボックスを開けたあなたが手に入れた8つの知力">🏛️ ブラックボックスを開けたあなたが手に入れた「8つの知力」</h4>
+<ol type="1">
+<li><strong>認証（Part 1）</strong>：パスキーとMFAでアイデンティティを守る。</li>
+<li><strong>通信（Part 2）</strong>：暗号化と人の心の隙を突く攻撃を警戒する。</li>
+<li><strong>データ（Part 3）</strong>：検索技術とDBの構造で正しい情報を見極める。</li>
+<li><strong>決済（Part 4）</strong>：FeliCa・NFC・QRの裏側を知り、カード情報を守る。</li>
+<li><strong>暗号通貨（Part 5）</strong>：中央のないブロックチェーンの革新と自己責任を知る。</li>
+<li><strong>SNS（Part 6）</strong>：アルゴリズムに操られず、情報発信の責任を持つ。</li>
+<li><strong>クラウド（Part 7）</strong>：巨大ITの利便性を享受しつつ、データ主権を保つ。</li>
+<li><strong>モバイル（Part 8）</strong>：ポケットの中の電波と端末を自らコントロールする。</li>
+</ol>
+<div title="🎓 デジタル社会を堂々と歩むあなたへ">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>🎓 デジタル社会を堂々と歩むあなたへ</strong></p>
+</div>
+<div class="callout-content">
+<p>テクノロジーは魔法ではありません。すべて人間が作り出した「論理とルール」の積み重ねです。仕組みを知ったあなたなら、どんな新しい技術が現れても騙されず、恐れず、自らの武器として使いこなせます。素晴らしいデジタル未来を楽しんでください！</p>
 </div>
 </div>
 </div>
