@@ -166,6 +166,16 @@ flowchart LR
 
 ---
 
+### 【イメージ】共通のキー（鍵）で表を結びつける「JOIN」
+
+![](images/rdb_join.jpg){fig-align="center" width="75%"}
+
+::: {.callout-note title="🔑 主キーと外部キーで表を結合"}
+「生徒名簿」と「試験結果」を別々の表で管理し、共通のキー（Student ID）を鍵のように差し込んで結合（JOIN）することで、データの重複を防ぎながら自由自在に情報を引き出せます。
+:::
+
+---
+
 ### 【図解】テーブル分割と外部キー連携
 ```{mermaid}
 erDiagram

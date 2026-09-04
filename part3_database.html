@@ -432,6 +432,25 @@
 <h4 id="良い設計正規化されたrdb">⭕ 良い設計（正規化されたRDB）</h4>
 <p>用途ごとに表を分割し、<strong>「ID番号」</strong>だけで結びつける（JOIN）。プロフィールの住所を1箇所直すだけで全注文が連動！</p>
 </section>
+<section id="イメージ共通のキー鍵で表を結びつけるjoin" class="slide level3">
+<h3>【イメージ】共通のキー（鍵）で表を結びつける「JOIN」</h3>
+
+<img data-src="images/rdb_join.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><div title="🔑 主キーと外部キーで表を結合">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>🔑 主キーと外部キーで表を結合</strong></p>
+</div>
+<div class="callout-content">
+<p>「生徒名簿」と「試験結果」を別々の表で管理し、共通のキー（Student ID）を鍵のように差し込んで結合（JOIN）することで、データの重複を防ぎながら自由自在に情報を引き出せます。</p>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section id="図解テーブル分割と外部キー連携" class="slide level3">
 <h3>【図解】テーブル分割と外部キー連携</h3>
 <div class="cell" data-reveal="true" data-layout-align="default">

@@ -1878,6 +1878,25 @@
 </div>
 </div>
 </section>
+<section id="図解カフェでの中間者攻撃mitmとvpn防御" class="slide level3">
+<h3>【図解】カフェでの中間者攻撃（MitM）とVPN防御</h3>
+
+<img data-src="images/mitm_attack.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><div title="暗号化のトンネルが命綱">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>暗号化のトンネルが命綱</strong></p>
+</div>
+<div class="callout-content">
+<p>暗号化されていない公衆Wi-Fiでは、隣の席の悪意ある人物に通信を盗聴・改ざんされます。HTTPS接続の確認やVPNによるトンネリングが必須の自衛策です。</p>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section id="無料wi-fiの罠②-通信の覗き見と命綱https" class="slide level3">
 <h3>無料Wi-Fiの罠② —— 通信の覗き見と命綱「HTTPS」</h3>
 <h4 id="暗号化されていない通信は丸見え">👁️ 暗号化されていない通信は丸見え</h4>
@@ -3330,6 +3349,25 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <h4 id="良い設計正規化されたrdb">⭕ 良い設計（正規化されたRDB）</h4>
 <p>用途ごとに表を分割し、<strong>「ID番号」</strong>だけで結びつける（JOIN）。プロフィールの住所を1箇所直すだけで全注文が連動！</p>
 </section>
+<section id="イメージ共通のキー鍵で表を結びつけるjoin" class="slide level3">
+<h3>【イメージ】共通のキー（鍵）で表を結びつける「JOIN」</h3>
+
+<img data-src="images/rdb_join.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><div title="🔑 主キーと外部キーで表を結合">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>🔑 主キーと外部キーで表を結合</strong></p>
+</div>
+<div class="callout-content">
+<p>「生徒名簿」と「試験結果」を別々の表で管理し、共通のキー（Student ID）を鍵のように差し込んで結合（JOIN）することで、データの重複を防ぎながら自由自在に情報を引き出せます。</p>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section id="図解テーブル分割と外部キー連携" class="slide level3">
 <h3>【図解】テーブル分割と外部キー連携</h3>
 <div class="cell" data-reveal="true" data-layout-align="default">
@@ -3981,6 +4019,25 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 </div>
 <div class="callout-content">
 <p>もしSuicaがユニクロと同じように数メートル飛んだら、<strong>「改札の3m手前で隣の人の残高から勝手に引かれる」「満員電車の中で乗客全員のカードから運賃が引かれる」</strong>という大惨事になります！</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="現場カゴを置くだけで一瞬計算-ユニクロのrfidレジ" class="slide level3">
+<h3>【現場】カゴを置くだけで一瞬計算！ ユニクロのRFIDレジ</h3>
+
+<img data-src="images/uniqlo_rfid.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><div title="UHF帯RFIDの一括認識パワー">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>UHF帯RFIDの一括認識パワー</strong></p>
+</div>
+<div class="callout-content">
+<p>バーコードを1つずつスキャンすることなく、窪みにカゴを置くだけで電波（UHF帯）がタグのIDを一斉に受信。数秒で全アイテムを特定して合計金額を算出します。</p>
 </div>
 </div>
 </div>
@@ -5570,6 +5627,25 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 </pre>
 </div>
 <p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="イメージ改ざんを数学的に無効化するハッシュチェーン" class="slide level3">
+<h3>【イメージ】改ざんを数学的に無効化するハッシュチェーン</h3>
+
+<img data-src="images/blockchain_tamper.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><div title="過去を書き換えると鎖が断裂する">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>過去を書き換えると鎖が断裂する</strong></p>
+</div>
+<div class="callout-content">
+<p>途中のブロックを改ざんするとハッシュ値が変わり、後続の全ブロックとの連結が切断されます。ネットワーク全体から即座に不正が拒絶されるため、データの改ざんは不可能です。</p>
+</div>
 </div>
 </div>
 </div>
@@ -7536,6 +7612,25 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 </div>
 </div>
 </section>
+<section id="比較5g-sub-6広域回り込み-vs-ミリ波超高速直進" class="slide level3">
+<h3>【比較】5G Sub-6（広域回り込み） vs ミリ波（超高速直進）</h3>
+
+<img data-src="images/fiveg_sub6_vs_mmwave.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><div title="周波数による電波の飛び方の違い">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>周波数による電波の飛び方の違い</strong></p>
+</div>
+<div class="callout-content">
+<p>Sub-6はビルの陰や屋内へ回り込んで広範囲をカバーします。一方、ミリ波はギガビット級の爆速ですが直進性が高く、ガラスや壁で反射・遮断されやすい特徴があります。</p>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section id="図解なんちゃって5gとパケ詰まり問題の真相" class="slide level3">
 <h3>【図解】「なんちゃって5G」と「パケ詰まり」問題の真相</h3>
 <h4 id="なぜアンテナは5gなのにネットが繋がらないのか">⚠️ なぜアンテナは5Gなのにネットが繋がらないのか？</h4>
@@ -8389,6 +8484,25 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 </ol></li>
 </ul></li>
 </ul>
+</section>
+<section id="生活風景アンテナ線不要-コネクテッドtvのある暮らし" class="slide level3">
+<h3>【生活風景】アンテナ線不要！ コネクテッドTVのある暮らし</h3>
+
+<img data-src="images/connected_tv.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><div title="放送波からネット配信へシフトしたリビング">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>放送波からネット配信へシフトしたリビング</strong></p>
+</div>
+<div class="callout-content">
+<p>壁のアンテナ端子にケーブルを繋ぐことなく、Wi-Fiを通じてYouTubeやNetflix、TVerなどの動画配信サービスをリビングの4K大画面で楽しむスタイルが定着しています。</p>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="ミラーリング技術-手元のスマホを居間の大画面へ" class="slide level3">
 <h3>ミラーリング技術 —— 手元のスマホを居間の大画面へ</h3>

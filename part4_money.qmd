@@ -91,6 +91,16 @@ flowchart LR
 
 ---
 
+### 【現場】カゴを置くだけで一瞬計算！ ユニクロのRFIDレジ
+
+![](images/uniqlo_rfid.jpg){fig-align="center" width="75%"}
+
+::: {.callout-note title="UHF帯RFIDの一括認識パワー"}
+バーコードを1つずつスキャンすることなく、窪みにカゴを置くだけで電波（UHF帯）がタグのIDを一斉に受信。数秒で全アイテムを特定して合計金額を算出します。
+:::
+
+---
+
 ### 【図解】電波でモノを認識する「RFID」と決済を守る「NFC」
 
 ```{mermaid}

@@ -202,6 +202,16 @@ sequenceDiagram
 
 ---
 
+### 【図解】カフェでの中間者攻撃（MitM）とVPN防御
+
+![](images/mitm_attack.jpg){fig-align="center" width="75%"}
+
+::: {.callout-note title="暗号化のトンネルが命綱"}
+暗号化されていない公衆Wi-Fiでは、隣の席の悪意ある人物に通信を盗聴・改ざんされます。HTTPS接続の確認やVPNによるトンネリングが必須の自衛策です。
+:::
+
+---
+
 ### 無料Wi-Fiの罠② —— 通信の覗き見と命綱「HTTPS」
 
 #### 👁️ 暗号化されていない通信は丸見え
