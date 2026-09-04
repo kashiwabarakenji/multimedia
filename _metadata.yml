@@ -1,0 +1,14 @@
+format:
+  revealjs:
+    theme: default
+    slide-level: 3
+    slide-number: true
+    transition: slide
+    toc: true
+    toc-depth: 1
+    chalkboard: true
+    scrollable: false
+    smaller: false
+    preview-links: auto
+    mermaid:
+      theme: neutral

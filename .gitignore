@@ -1,0 +1,4 @@
+.quarto/
+test_mermaid_files/
+test_slide_files/
+.DS_Store

@@ -1,0 +1,1629 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="part4_money_files/libs/clipboard/clipboard.min.js"></script>
+<script src="part4_money_files/libs/quarto-html/tabby.min.js"></script>
+<script src="part4_money_files/libs/quarto-html/popper.min.js"></script>
+<script src="part4_money_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="part4_money_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="part4_money_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="part4_money_files/libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.6.40">
+
+  <title>part4_money</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="part4_money_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="part4_money_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="part4_money_files/libs/revealjs/dist/theme/quarto-bbe7401fe57d4b791b917637bb662036.css">
+  <link rel="stylesheet" href="custom.css">
+  <link href="part4_money_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="part4_money_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="part4_money_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="part4_money_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="part4_money_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="part4_money_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <meta name="mermaid-theme" content="neutral">
+  <script src="part4_money_files/libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="part4_money_files/libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="part4_money_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="TOC">
+<nav role="doc-toc"> 
+<h2 id="toc-title">Table of contents</h2>
+<ul>
+<li><a href="#/第4部電子マネーとデジタル身分証" id="/toc-第4部電子マネーとデジタル身分証">第4部：電子マネーとデジタル身分証</a></li>
+</ul>
+</nav>
+</section>
+<section>
+<section id="第4部電子マネーとデジタル身分証" class="title-slide slide level1 center">
+<h1>第4部：電子マネーとデジタル身分証</h1>
+
+</section>
+<section id="本日の講義マップ-アジェンダ" class="slide level3">
+<h3>本日の講義マップ —— アジェンダ</h3>
+<ol type="1">
+<li><strong>かざす決済とQRコードの裏側</strong></li>
+<li><strong>ネットショッピングで不正利用されないために</strong></li>
+<li><strong>マイナンバーカードと身分証の一体化</strong></li>
+</ol>
+</section>
+<section id="本日の到達目標-キャッシュレスと身分証の未来" class="slide level3">
+<h3>本日の到達目標 —— キャッシュレスと身分証の未来</h3>
+<ul>
+<li>FeliCa・非接触通信とコード決済の裏側を説明できる</li>
+<li>Apple Payのトークン化技術とリボ払い・BNPLのリスクを理解する</li>
+<li>マイナンバーカードのICチップ構造と分散管理の安全性を把握する</li>
+<li>全4回の学びを総合した「デジタル身だしなみ」を身につける</li>
+</ul>
+</section>
+<section class="slide level3">
+
+</section>
+<section class="slide level3">
+
+</section>
+<section id="かざす決済とqrコードの裏側" class="title-slide slide level2 center">
+<h2>1. かざす決済とQRコードの裏側</h2>
+
+</section>
+<section id="考えてみたい問い" class="slide level3">
+<h3>考えてみたい問い</h3>
+<ul>
+<li>電池が入っていないプラスチックカードが無線通信できるのはなぜ？</li>
+<li>Suicaはなぜ改札機を「0.1秒」という超スピードで通過できる？</li>
+<li>クレジットカードを改札にかざすだけで電車に乗れる路線が急増しているのはなぜ？</li>
+<li>QRコードはなぜ日本の自動車工場で生まれ、世界標準になった？</li>
+<li>なぜQRコードは一部が破れたり汚れても正しく読み取れる？</li>
+<li>メルカリなどの「匿名配送」は、なぜ住所を知られずに荷物が届く？</li>
+</ul>
+</section>
+<section id="そもそもかざす決済とコード決済は何が違う①-かざす決済" class="slide level3">
+<h3>そもそも「かざす決済」と「コード決済」は何が違う？① —— かざす決済</h3>
+<h4 id="かざす決済suicaタッチ決済felica-nfc">⚡ かざす決済（Suica・タッチ決済・FeliCa / NFC）</h4>
+<ul>
+<li>スマホやプラスチックカードを端末に「ピピッ」とかざすだけ。</li>
+<li><strong>電波（電磁誘導）</strong>を利用して、わずか<strong>0.1〜0.2秒</strong>で瞬時に無線通信！</li>
+<li>スマホが圏外（地下や通信障害時）でも、電池が切れていても（一定時間）使える。</li>
+<li><strong>最大の強み</strong>：駅の改札やコンビニレジなど、<strong>「スピードと快適さ」が最優先される場所</strong>で圧倒的に強い。</li>
+</ul>
+</section>
+<section id="そもそもかざす決済とコード決済は何が違う②-コード決済" class="slide level3">
+<h3>そもそも「かざす決済」と「コード決済」は何が違う？② —— コード決済</h3>
+<h4 id="コード決済paypayd払い楽天ペイ">📱 コード決済（PayPay・d払い・楽天ペイ）</h4>
+<ul>
+<li>スマホ画面に白黒のQRコードやバーコードを表示し、カメラで読み取る。</li>
+<li>端末から<strong>インターネット通信（4G/5G/Wi-Fi）</strong>を経由して決済サーバーにリアルタイム問い合わせ。</li>
+<li><strong>最大の強み</strong>：お店側が高価な専用端末を買わなくても、<strong>「紙に印刷したQRコードを置くだけ（ユーザースキャン方式）」</strong>で導入できるため、個人商店・屋台・キッチンカー等に爆発的普及！</li>
+</ul>
+</section>
+<section id="電池が入っていないのになぜカードが動くのか" class="slide level3">
+<h3>電池が入っていないのになぜカードが動くのか？</h3>
+<h4 id="ファラデーの電磁誘導の法則">🧲 ファラデーの電磁誘導の法則</h4>
+<ul>
+<li>プラスチックの交通系ICカードには電池が入っていません。</li>
+<li>カード外周に張り巡らされたコイルが、改札機からの微弱電波（磁界）を横切ることで<strong>瞬間的に電気が発生（発電）</strong>します。</li>
+<li>その電力を使って、中の極小ICチップが一瞬だけ目覚めて暗号通信を行います！</li>
+</ul>
+<div title="⚡ 身近な電磁誘導の例">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>⚡ 身近な電磁誘導の例</strong></p>
+</div>
+<div class="callout-content">
+<p>スマホの<strong>「置くだけ充電（Qi規格）」</strong>やキッチンの<strong>「IHクッキングヒーター」</strong>と同じ原理です。磁界の変化を利用して電気を生み出しています！</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="図解電磁誘導による非接触icカード起動フロー" class="slide level3">
+<h3>【図解】電磁誘導による非接触ICカード起動フロー</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    A["📶 改札機リーダー&lt;br/&gt;（微弱電波・磁界を常時放射）"] --&gt;|磁界を照射| B["🌀 カード外周のアンテナコイル&lt;br/&gt;（電磁誘導で瞬間発電！）"]
+    B --&gt;|微小電力を供給| C["⚡ 極小ICチップ（マイコン）&lt;br/&gt;（一瞬で起動し暗号通信を実行）"]
+    style A fill:#e1f5fe,stroke:#0288d1
+    style B fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    style C fill:#e8f5e9,stroke:#2e7d32
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="suicaはなぜピピッと一瞬で通れるのか" class="slide level3">
+<h3>Suicaはなぜ「ピピッ」と一瞬で通れるのか？</h3>
+<h4 id="驚異の0.1秒処理">⚡ 驚異の0.1秒処理</h4>
+<ul>
+<li><strong>東京の通勤ラッシュ要件</strong>：1台の自動改札を1分間に60人が通過する。</li>
+<li>人が立ち止まらずに歩き抜けるため、許される通信時間は<strong>0.2秒以下（実際は約0.1秒）</strong>！</li>
+<li><strong>0.1秒の超高速フロー</strong>： カード検出 → 相互暗号認証 → 定期券有効判定 / 残高照会 → 運賃計算 → IC内残高書換 → 改札扉開放！</li>
+</ul>
+</section>
+<section id="図解suica改札通過0.1秒の高速認証シーケンス" class="slide level3">
+<h3>【図解】Suica改札通過0.1秒の高速認証シーケンス</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">sequenceDiagram
+    autonumber
+    participant U as "📱 Suica (カード / スマホ)"
+    participant G as "改札機リーダー (FeliCa)"
+    U-&gt;&gt;G: かざす（電磁誘導で瞬間給電 &amp; 検出）
+    G-&gt;&gt;U: 相互暗号認証 ＆ 残高・定期情報の照会
+    Note over G: 定期区間判定・運賃計算・新残高算出
+    G-&gt;&gt;U: IC内の残高書換データを送信
+    Note over G: 改札扉開放 ＆ ディスプレイ表示！&lt;br/&gt;（ここまで合計約0.1秒）
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="急増中クレジットカードで改札を通れるタッチ決済乗車" class="slide level3">
+<h3>急増中！クレジットカードで改札を通れる「タッチ決済乗車」</h3>
+<h4 id="東急江ノ電南海地下鉄などで続々導入">💳 東急・江ノ電・南海・地下鉄などで続々導入</h4>
+<ul>
+<li>Visa / JCB / Mastercard / Amex 等の<strong>「タッチ決済対応クレカ」</strong>や<strong>スマホ（Apple Pay / Google Pay）</strong>を自動改札にかざすだけで、切符もSuicaも買わずに乗車可能！</li>
+<li>専門用語では<strong>「オープンループ（Open Loop）」</strong>と呼ばれ、首都圏・関西・九州など日本全国の鉄道・バスに急速拡大中。</li>
+</ul>
+<div title="💡 チャージ不要でそのまま乗れる！">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>💡 チャージ不要でそのまま乗れる！</strong></p>
+</div>
+<div class="callout-content">
+<p>「残高不足で改札に引っかかる」「わざわざ券売機でチャージする」手間がゼロ。翌月のクレカ請求に合算され、カードのポイントも貯まります。</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="なぜsuica大国の日本でクレカ乗車が急増しているのか" class="slide level3">
+<h3>なぜSuica大国の日本で「クレカ乗車」が急増しているのか？</h3>
+<h4 id="インバウンド訪日外国人対応とsuica買えない問題">1. 🌏 インバウンド（訪日外国人）対応と「Suica買えない問題」</h4>
+<ul>
+<li>外国人旅行者が駅の窓口に並んで専用ICカードを買い、日本円の現金でチャージするのは大きな負担。手持ちのクレカで乗れるのが世界標準（ロンドン、NY等）。</li>
+<li>世界的な半導体不足による「無記名Suica/PASMOの販売停止」も導入を後押し！</li>
+</ul>
+<h4 id="鉄道バス会社の莫大な改札機コスト削減">2. 📉 鉄道・バス会社の「莫大な改札機コスト削減」</h4>
+<ul>
+<li>Suica改札機は超高速処理（0.1秒）のため<strong>1台数百万円〜1000万円以上</strong>と極めて高額。</li>
+<li>地方鉄道やバス会社にとって高額なSuica維持は困難。クレカ決済なら<strong>汎用端末とクラウドを活用して数分の一の低コスト</strong>で導入可能！</li>
+</ul>
+</section>
+<section id="なぜ通信が遅いクレカで改札を通れるのかabt方式" class="slide level3">
+<h3>なぜ「通信が遅いクレカ」で改札を通れるのか？（ABT方式）</h3>
+<h4 id="アカウントベースドチケッティングabt方式">☁️ アカウントベースドチケッティング（ABT方式）</h4>
+<ul>
+<li><strong>従来のSuica（カード書き込み型）</strong>：
+<ul>
+<li>改札機の中で「カード内のICチップに残高を書き込む」。通信障害でも止まらないが、改札機が超高機能＆高価格。</li>
+</ul></li>
+<li><strong>クレカ乗車（ABT：クラウド集計型）</strong>：
+<ul>
+<li>改札機ではカードのID番号だけを読み取り、瞬時にゲートを開放。</li>
+<li><strong>「運賃の計算や引き落とし」はクラウドサーバーが後からまとめて処理</strong>（深夜バッチ等）。</li>
+<li>改札機は「利用停止カードでないか」の簡易判定だけを行うため、待ち時間を短縮できる！</li>
+</ul></li>
+</ul>
+</section>
+<section id="図解suica方式カード書き込み-vs-クレカ乗車abtクラウド" class="slide level3">
+<h3>【図解】Suica方式（カード書き込み） vs クレカ乗車（ABTクラウド）</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    subgraph S["🚄 Suica方式（カード内書き込み・超高速0.1秒）"]
+        S1["📱 カード / スマホ"] &lt;--&gt;|"IC内残高を直接照会・書換"| S2["🚪 改札機（高機能コンピュータ内蔵）"]
+        S2 -.-&gt;|"深夜に実績データを送信"| S3["🏢 鉄道会社サーバー"]
+    end
+
+    subgraph C["💳 クレカ乗車（ABT方式・クラウド後処理）"]
+        C1["💳 タッチ決済クレカ / スマホ"] --&gt;|"カードIDのみ読取"| C2["🚪 改札機（簡易判定のみ）"]
+        C2 --&gt;|"通過即ゲート開放 ✅"| C1
+        C2 --&gt;|"乗降ログをクラウドへ送信"| C3["☁️ クラウド決済サーバー"]
+        C3 --&gt;|"深夜に運賃を一括計算 &amp; 請求"| C4["🏦 カード会社"]
+    end
+
+    style S fill:#e8f5e9,stroke:#2e7d32
+    style C fill:#e1f5fe,stroke:#0288d1
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="suicaとクレカ乗車のこれから-共存と使い分け" class="slide level3">
+<h3>Suicaとクレカ乗車のこれから —— 「共存と使い分け」</h3>
+<h4 id="suicaはもう不要になるのか-いいえ使い分けが進みます">❓「Suicaはもう不要になる」のか？ → いいえ、使い分けが進みます！</h4>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">項目</th>
+<th style="text-align: left;">🚄 交通系IC（Suica / PASMO）</th>
+<th style="text-align: left;">💳 クレカのタッチ決済</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>処理速度</strong></td>
+<td style="text-align: left;"><strong>約0.1秒（世界最速水準）</strong></td>
+<td style="text-align: left;">約0.3〜0.5秒（少し待つ）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>得意な場面</strong></td>
+<td style="text-align: left;"><strong>朝の通勤ラッシュ・満員電車</strong></td>
+<td style="text-align: left;"><strong>旅行・インバウンド・たまに乗る路線</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>定期券機能</strong></td>
+<td style="text-align: left;"><strong>複雑な乗換・連絡定期に完全対応</strong></td>
+<td style="text-align: left;">限定的（徐々に実証中）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>支払い方法</strong></td>
+<td style="text-align: left;">事前チャージ（プリペイド）</td>
+<td style="text-align: left;">後払い（ポストペイ・チャージ不要）</td>
+</tr>
+</tbody>
+</table>
+<div title="📌 今後の結論">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>📌 今後の結論</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>「毎日の通勤・通学＝Suica/PASMO」</strong>、<strong>「旅行・休日の遠出・地方路線＝クレジットカード」</strong>というハイブリッドな棲み分けがこれからの日常になります！</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="日本の現場から世界標準へ-qrコードの誕生秘話" class="slide level3">
+<h3>日本の現場から世界標準へ —— QRコードの誕生秘話</h3>
+<h4 id="トヨタの自動車工場かんばん方式の限界から生まれた">🏭 トヨタの自動車工場「かんばん方式」の限界から生まれた</h4>
+<ul>
+<li>1994年、自動車部品メーカーの<strong>デンソー（現デンソーウェーブ）の原昌宏氏</strong>ら開発チームが発明。</li>
+<li><strong>開発のきっかけ</strong>：
+<ul>
+<li>当時の1次元バーコードは数字20文字程度しか入らない。</li>
+<li>自動車部品の管理のため、1つの箱に<strong>10個以上のバーコード</strong>が貼られ、作業員が1日に何千回もスキャンして「腱鞘炎になる」「作業が遅れる」と悲鳴を上げていた！</li>
+</ul></li>
+<li><strong>囲碁からのひらめき</strong>：
+<ul>
+<li>昼休みに打っていた<strong>「囲碁の白黒の碁石の並び」</strong>から着想を得て、「情報を縦と横の2次元（マトリックス）に並べれば膨大な情報を記録できる！」と開発がスタート。</li>
+</ul></li>
+</ul>
+</section>
+<section id="世界中に爆発普及した理由-特許の無償開放" class="slide level3">
+<h3>世界中に爆発普及した理由 —— 「特許の無償開放」</h3>
+<h4 id="囲い込みをせず人類の共有財産へ">🌐 囲い込みをせず、人類の共有財産へ</h4>
+<ul>
+<li>デンソーはQRコードの特許を取得したものの、<strong>「特許権を行使しない（誰でも自由に使ってよい）」</strong>と世界に向けて宣言。</li>
+<li>ライセンス料（利用料）を一切取らずに仕様をオープンにしたため、世界中のエンジニアや企業が自由にアプリや機器を開発できた！</li>
+<li><strong>国際標準規格（ISO/IEC）</strong>に認定され、現在では世界中で毎日何百億回もスキャンされる<strong>地球規模のインフラ</strong>へ成長しました。</li>
+</ul>
+</section>
+<section id="なぜqrコードはこんなに凄いのか-4大技術的メリット" class="slide level3">
+<h3>なぜQRコードはこんなに凄いのか？ —— 4大技術的メリット</h3>
+<h4 id="圧倒的な情報量バーコードの約200倍">1. 📚 圧倒的な情報量（バーコードの約200倍）</h4>
+<ul>
+<li>英数字で最大4,296文字、数字なら7,089文字、漢字なら1,817文字を小さな四角に格納可能。 #### 2. ⚡ 360度どこからでも一瞬で読める（QR＝Quick Response）</li>
+<li>四隅の3箇所にある<strong>「切り出しシンボル（回の字マーク）」</strong>。</li>
+<li>白黒の比率が<strong>「1:1:3:1:1」</strong>という印刷物の中で最も出現しにくい黄金比率になっており、斜め・逆さま・遠くからでも瞬時に向きを検出！ #### 3. 🩹 汚れても破れても読める「誤り訂正機能（リード・ソロモン符号）」</li>
+<li>コードの一部が最大約30%汚損・欠損しても、数学的に元データを復元可能！ #### 4. 🈩 日本語（漢字・かな）にネイティブ対応</li>
+<li>日本発祥のため、世界で初めて2バイト文字を高効率にエンコード可能。</li>
+</ul>
+</section>
+<section id="図解一次元バーコード-vs-二次元qrコードの構造比較" class="slide level3">
+<h3>【図解】一次元バーコード vs 二次元QRコードの構造比較</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    subgraph B["📊 一次元バーコード（横方向のみ）"]
+        B1["横の太さ・間隔だけで表現&lt;br/&gt;情報量：数字20文字程度（URLすら入らない）&lt;br/&gt;読取方向：水平レーザーのみ"]
+    end
+
+    subgraph Q["🔲 二次元QRコード（縦 ✕ 横）"]
+        Q1["『切り出しシンボル（3か所の四角）』で向きを検知&lt;br/&gt;『誤り訂正コード』で汚れ・破損を自己修復（最大30%）&lt;br/&gt;情報量：数千文字（日本語・URLも余裕で格納）"]
+    end
+
+    style B fill:#fff3e0,stroke:#f57c00
+    style Q fill:#e1f5fe,stroke:#0288d1,stroke-width:2px
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="社会のあらゆる場所で動くqrコード-現代の多様な活用法" class="slide level3">
+<h3>社会のあらゆる場所で動くQRコード —— 現代の多様な活用法</h3>
+<h4 id="キャッシュレス決済コード決済">📱 1. キャッシュレス決済（コード決済）</h4>
+<ul>
+<li>PayPay、WeChat Pay等。お店は<strong>「紙に印刷して貼るだけ（MPM）」</strong>で専用機械不要！ #### 🚚 2. 物流・在庫管理（元祖の使い道）</li>
+<li>Amazonの自動倉庫ロボット、宅配便の仕分け、メルカリの匿名配送。 #### ✈️ 3. デジタルチケット・入退場管理</li>
+<li>飛行機のモバイル搭乗券、新幹線のQR乗車、映画館・音楽ライブの入場認証。 #### 🏥 4. 医療・トレーサビリティ・行政</li>
+<li>処方箋・お薬手帳、食品の産地履歴（牛肉のトレーサビリティ）、Wi-Fi簡単接続。</li>
+</ul>
+</section>
+<section id="メルカリ等の匿名配送はなぜ住所を知られずに届くのか" class="slide level3">
+<h3>メルカリ等の「匿名配送」はなぜ住所を知られずに届くのか？</h3>
+<h4 id="出品者も購入者も互いの個人情報を一切知らない">🔒 出品者も購入者も互いの個人情報を一切知らない</h4>
+<ul>
+<li>フリマアプリでは、相手の本名・自宅住所・電話番号を一切明かさずに取引が完結する。</li>
+<li>ストーカーや嫌がらせ、個人情報売買のリスクを根本から遮断！</li>
+</ul>
+<h4 id="裏側の仕組み中継マスキング">🏷️ 裏側の仕組み：中継マスキング</h4>
+<ol type="1">
+<li><strong>暗号化コード生成</strong>：フリマアプリが注文ごとに一意の暗号化QRコードを発行。</li>
+<li><strong>中継ラベル印字</strong>：コンビニや営業所で印字される伝票には、暗号化バーコードと中継所情報のみ表示。</li>
+<li><strong>配送網での自動変換</strong>：ヤマト運輸や日本郵便の内部仕分けシステムだけがコードを復号し、最終配達員にのみ届く！</li>
+</ol>
+</section>
+<section id="図解匿名配送における二次元コード中継マスキングフロー" class="slide level3">
+<h3>【図解】匿名配送における二次元コード中継マスキングフロー</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    A["👤 出品者&lt;br/&gt;（購入者の住所は不明）"] --&gt;|荷物持込 ＆ QRコード提示| B["🏪 コンビニ / 営業所&lt;br/&gt;（中継用コード伝票を印刷）"]
+    B --&gt;|伝票表面は個人情報非表示| C["🚚 配送会社仕分けセンター&lt;br/&gt;（社内DB照合で真の宛先を読取）"]
+    C --&gt;|ラストワンマイル配送| D["🏠 購入者宅&lt;br/&gt;（出品者の住所も不明のまま到着 ✅）"]
+    style A fill:#fff3e0,stroke:#f57c00
+    style B fill:#e1f5fe,stroke:#0288d1
+    style C fill:#e8f5e9,stroke:#2e7d32
+    style D fill:#ede7f6,stroke:#512da8
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="paypay等個人間送金の落とし穴マネーとマネーライト" class="slide level3">
+<h3>PayPay等「個人間送金」の落とし穴：マネーとマネーライト</h3>
+<h4 id="友達から送られた残高が出金できない">💸 友達から送られた残高が出金できない？</h4>
+<ul>
+<li><strong>PayPayマネー（出金可能）</strong>：銀行口座からチャージ。出金・送金可能。</li>
+<li><strong>PayPayマネーライト（出金不可）</strong>：クレカやポイント等からチャージ。送金はできるが<strong>法律上二度と現金化できない</strong>！</li>
+</ul>
+</section>
+<section id="個人間送金を悪用した送金詐欺の手口と自衛策" class="slide level3">
+<h3>個人間送金を悪用した「送金詐欺」の手口と自衛策</h3>
+<div title="⚠️ 送金詐欺の手口">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>⚠️ 送金詐欺の手口</strong></p>
+</div>
+<div class="callout-content">
+<p>メルカリ等で「返金します。リンクを押して」と送金リンクを送られ、逆に残高を送金させられる詐欺が多発しています。</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="非接触決済の規格比較" class="slide level3">
+<h3>非接触決済の規格比較</h3>
+<table class="caption-top">
+<colgroup>
+<col style="width: 22%">
+<col style="width: 27%">
+<col style="width: 22%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">規格</th>
+<th style="text-align: center;">処理速度</th>
+<th style="text-align: left;">主な用途</th>
+<th style="text-align: center;">店舗・事業者の導入コスト</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>FeliCa (Type-F)</strong></td>
+<td style="text-align: center;"><strong>約0.1秒</strong></td>
+<td style="text-align: left;">Suica, PASMO, iD, QUICPay</td>
+<td style="text-align: center;">高い（専用端末・高額改札機）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>NFC Type-A/B</strong></td>
+<td style="text-align: center;">0.3〜1秒</td>
+<td style="text-align: left;">クレカのタッチ決済（店舗・改札乗車）</td>
+<td style="text-align: center;">中程度（世界標準・低コスト導入）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>QRコード決済</strong></td>
+<td style="text-align: center;">2〜4秒</td>
+<td style="text-align: left;">PayPay, 楽天ペイ</td>
+<td style="text-align: center;"><strong>極めて低い（紙1枚で開始可）</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>通常の店舗レジではカード会社との通信で1〜2秒かかりますが、<strong>改札のタッチ決済乗車では「ABT方式（後からまとめて請求）」を採用することで約0.3〜0.5秒まで高速化</strong>されています。</p>
+</div>
+</div>
+</div>
+</section>
+<section id="キャッシュレスの3類型前払い即時後払い-その1" class="slide level3">
+<h3>キャッシュレスの3類型（前払い・即時・後払い） —— その1</h3>
+<h4 id="前払いプリペイド">前払い（プリペイド）</h4>
+<ul>
+<li><strong>代表例</strong>：Suica, nanaco</li>
+<li>事前にお金をチャージ。</li>
+<li>審査なし、使いすぎリスクゼロ、子供でも持てる。</li>
+</ul>
+</section>
+<section id="キャッシュレスの3類型前払い即時後払い-その2" class="slide level3">
+<h3>キャッシュレスの3類型（前払い・即時・後払い） —— その2</h3>
+<h4 id="即時払いデビット">即時払い（デビット）</h4>
+<ul>
+<li><strong>代表例</strong>：銀行デビットカード</li>
+<li>使った瞬間に口座から即時引き落とし。</li>
+<li>残高以上は使えず高校生から持てる。</li>
+</ul>
+</section>
+<section id="キャッシュレスの3類型前払い即時後払い-その3" class="slide level3">
+<h3>キャッシュレスの3類型（前払い・即時・後払い） —— その3</h3>
+<h4 id="後払いポストペイ">後払い（ポストペイ）</h4>
+<ul>
+<li><strong>代表例</strong>：クレジットカード, BNPL</li>
+<li>翌月まとめて支払い。</li>
+<li><strong>個人の「信用（与信）」</strong>に基づく大人の仕組み。使いすぎ注意。</li>
+</ul>
+</section>
+<section id="実践チェック" class="slide level3">
+<h3>📱 実践チェック</h3>
+<h4 id="paypay残高チェック">💳 PayPay残高チェック</h4>
+<ul>
+<li>PayPayの「アカウント」→「残高」を開く。</li>
+<li>「PayPayマネー（出金可）」と「PayPayマネーライト（出金不可）」がそれぞれいくらあるか確認してみよう。</li>
+</ul>
+</section>
+<section id="考えてみよう振り返り" class="slide level3">
+<h3>🤔 考えてみよう（振り返り）</h3>
+<h4 id="考えてみよう">🤔 考えてみよう</h4>
+<ul>
+<li>個人商店や屋台では、なぜSuicaよりもPayPayなどのQRコード決済が急速に普及したのか？店舗側の目線で考えよう。</li>
+</ul>
+</section>
+<section class="slide level3">
+
+</section>
+
+<section id="ネットショッピングで不正利用されないために" class="title-slide slide level2 center">
+<h2>2. ネットショッピングで不正利用されないために</h2>
+
+</section>
+<section id="考えてみたい問い-1" class="slide level3">
+<h3>考えてみたい問い</h3>
+<ul>
+<li>Apple Payで支払うと、なぜカード番号がお店に盗まれない？</li>
+<li>iPhoneの充電が切れても、なぜSuicaで改札を出られる？</li>
+<li>無料トライアルに釣られたサブスク、解約ボタンが見つからないのはなぜ？</li>
+<li>クレカの「リボ払い」を安易に使うと、なぜ借金地獄に陥る？</li>
+</ul>
+</section>
+<section id="そもそもクレジットカードはなぜネットで危険なのか" class="slide level3">
+<h3>そもそもクレジットカードは「なぜネットで危険」なのか？</h3>
+<h4 id="年前に作られた性善説の仕組み">🏛️ 60年前に作られた「性善説」の仕組み</h4>
+<ul>
+<li>クレジットカードは、もともと「対面店舗で店員にカードを渡し、サイン（署名）して使う紙伝票時代」に作られた古い仕組み。</li>
+<li>券面に印刷されている<strong>「16桁の番号・有効期限・裏の3桁（セキュリティコード）」</strong>の3つさえ知っていれば、<strong>持ち主本人でなくても世界中のネット通販で買い物ができてしまう！</strong></li>
+<li>つまり、「鍵と暗証番号が表面にデカデカと刻印された金庫」を持ち歩いているような危うさを持っています。</li>
+</ul>
+</section>
+<section id="クレカ番号をネットで入力するリスクと現代の対策" class="slide level3">
+<h3>クレカ番号をネットで入力するリスクと現代の対策</h3>
+<h4 id="番号を直接サイトに渡す危険性">🚨 番号を直接サイトに渡す危険性</h4>
+<ul>
+<li>怪しい通販サイトやフィッシング詐欺に一度でもカード番号を入力すると、その瞬間に情報が抜き取られる。</li>
+<li>信頼できる大手通販サイトであっても、そのサイトがハッキングされれば<strong>数百万人分のカード番号が一斉流出</strong>して世界中で不正利用される！</li>
+</ul>
+<div title="この弱点を克服する現代のテクノロジー">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>この弱点を克服する現代のテクノロジー</strong></p>
+</div>
+<div class="callout-content">
+<p>「本物のカード番号を相手に渡さずに決済する」ために発明されたのが、次に学ぶ<strong>Apple Payの「トークナイゼーション」</strong>や、SMS認証を挟む<strong>「3Dセキュア」</strong>です！</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="そもそもapple-payとは何か-電子マネーではない" class="slide level3">
+<h3>そもそもApple Payとは何か？ —— 「電子マネー」ではない！</h3>
+<h4 id="paypay等とは根本的に違うデジタル財布">👛 PayPay等とは根本的に違う「デジタル財布」</h4>
+<ul>
+<li><strong>よくある誤解</strong>：「Apple Payという電子マネーに残高をチャージして使う」</li>
+<li><strong>実際の仕組み</strong>：Apple Payは手持ちのクレジットカードやSuica/PASMOをiPhoneの中に収納する<strong>「デジタルな財布（ウォレット）」</strong>。</li>
+<li><strong>お店での伝え方</strong>：「Apple Payで」ではなく、iPhoneに入れたカードに合わせて<strong>「Suicaで」「iDで」「QUICPayで」「Visaのタッチで」</strong>と伝えて支払う！</li>
+</ul>
+</section>
+<section id="apple-pay-google-pay-の神機能トークナイゼーション" class="slide level3">
+<h3>Apple Pay / Google Pay の神機能「トークナイゼーション」</h3>
+<ul>
+<li><strong>本物の番号を隠す技術</strong>
+<ul>
+<li>本物の16桁カード番号（PAN）は隔離保管。</li>
+<li>代わりに使い捨て代理番号（トークン / DPAN）で決済。</li>
+<li>お店からトークンが盗まれても、<strong>スマホの生体認証の署名がないと使えない</strong>ため犯人は悪用不可！</li>
+</ul></li>
+</ul>
+</section>
+<section id="たとえ話-ゲームセンターのメダルでたとえると" class="slide level3">
+<h3>【たとえ話】🪙 ゲームセンターのメダルでたとえると？</h3>
+<div title="🪙 ゲームセンターのメダルでたとえると？">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>🪙 ゲームセンターのメダルでたとえると？</strong></p>
+</div>
+<div class="callout-content">
+<p>本物の1万円札をお店に渡すのではなく、<strong>「その場所だけで使える使い捨てメダル」</strong>に変えて遊ぶようなものです。メダルを落としても本物の財布（1万円札）は安全！</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="図解apple-payのトークン決済シーケンス" class="slide level3">
+<h3>【図解】Apple Payのトークン決済シーケンス</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">sequenceDiagram
+    autonumber
+    participant U as "ユーザー (iPhone)"
+    participant S as "ネットショップ"
+    participant N as "カード会社"
+    U-&gt;&gt;S: Apple Payで支払い (メダル/トークン送信)
+    Note over S: 本物のカード番号は&lt;br/&gt;ショップに一切伝わらない！
+    S-&gt;&gt;N: トークンを照会
+    N--&gt;&gt;S: 決済承認 ✅
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div title="💡 ネット通販での安心">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>💡 ネット通販での安心</strong></p>
+</div>
+<div class="callout-content">
+<p>カード番号を直接入力させられるサイトより、Apple Pay / Google Pay対応サイトで支払う方が圧倒的に安全です。</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="iphoneの安全性を支える心臓部secure-element金庫チップ" class="slide level3">
+<h3>iPhoneの安全性を支える心臓部「Secure Element（金庫チップ）」</h3>
+<h4 id="iosやアプリから物理的に隔離された超安全地帯">🛡️ iOSやアプリから物理的に隔離された超安全地帯</h4>
+<ul>
+<li>iPhoneの中には、通常のアプリやiOSメインシステムから<strong>物理的にアクセスできないセキュリティ専用チップ「Secure Element」</strong>が搭載されている。</li>
+<li>カードの代理番号（トークン）や秘密鍵はここに隔離保管され、iPhoneがウイルス感染しても絶対に盗まれない！</li>
+<li>サイドボタンのダブルクリック＋Face ID/Touch ID認証が成功した瞬間だけ、1回限りの使い捨て暗号署名を発行。</li>
+</ul>
+</section>
+<section id="図解iphone内のsecure-element隔離金庫と生体認証" class="slide level3">
+<h3>【図解】iPhone内のSecure Element（隔離金庫）と生体認証</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    subgraph iPhone["📱 iPhone本体"]
+        iOS["iOS システム &amp; 各種アプリ"] -.-&gt;|"物理的にアクセス不可 🚫"| SE
+        subgraph SE["🔐 Secure Element (隔離された金庫チップ)"]
+            DAN["代理カード番号 (トークン)"]
+            Key["秘密暗号鍵"]
+        end
+        Bio["👁️ Face ID / Touch ID (生体認証)"] --&gt;|"本人確認成功で扉開放 ✅"| SE
+    end
+    SE --&gt;|"使い捨て暗号署名のみ送信"| Terminal["🏪 店舗レジ / ネット決済"]
+    
+    style SE fill:#ede7f6,stroke:#512da8,stroke-width:2px
+    style iPhone fill:#f5f5f5,stroke:#9e9e9e
+    style Terminal fill:#e1f5fe,stroke:#0288d1
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="なぜsuicaだけはface-idなしで改札を通れるのか" class="slide level3">
+<h3>なぜSuicaだけはFace IDなしで改札を通れるのか？</h3>
+<h4 id="改札0.1秒通過のためのエクスプレスカード設定">⚡ 改札0.1秒通過のための「エクスプレスカード」設定</h4>
+<ul>
+<li>通常のApple Pay決済は、不正利用を防ぐため<strong>「ダブルクリック＋Face ID」</strong>の生体認証が必須。</li>
+<li>しかし、朝の満員電車の改札で全員が立ち止まってFace IDをしていたら大渋滞になってしまう！</li>
+<li>そこでiPhoneには、指定した1枚（SuicaやPASMO）だけ認証をスキップし、<strong>画面を点灯させずにかざすだけで0.1秒で改札が開く「エクスプレスカード」機能</strong>が備わっています。</li>
+</ul>
+</section>
+<section id="充電が切れても改札を通れる予備電力機能の秘密" class="slide level3">
+<h3>充電が切れても改札を通れる！「予備電力機能」の秘密</h3>
+<h4 id="電源オフでも最長5時間は改札を通過可能">🔋 電源オフでも最長5時間は改札を通過可能</h4>
+<ul>
+<li>「スマホの充電が切れて画面が真っ暗になったら、改札を出られないのでは？」という最大の不安を技術で解決。</li>
+<li>iPhoneには<strong>「予備電力機能付きエクスプレスカード」</strong>が搭載されており、バッテリー残量ゼロで自動シャットダウンした後も、<strong>IC通信専用の微小電力が最長5時間キープ</strong>される！</li>
+<li>改札機の電磁誘導と連動して、画面がつかなくてもSuica/PASMOで改札を出場できます。</li>
+</ul>
+</section>
+<section id="財布を落とすよりiphoneを落とす方が安全な理由" class="slide level3">
+<h3>「財布を落とす」より「iPhoneを落とす」方が安全な理由</h3>
+<h4 id="紛失時のリスク比較">🚨 紛失時のリスク比較</h4>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">紛失したもの</th>
+<th style="text-align: left;">不正利用のリスク</th>
+<th style="text-align: left;">紛失時の対処法</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>プラスチックの財布</strong></td>
+<td style="text-align: left;">サインやタッチ決済で<strong>すぐに不正利用される危険</strong>大</td>
+<td style="text-align: left;">全てのカード会社に1社ずつ電話して利用停止（大変！）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>iPhone (Apple Pay)</strong></td>
+<td style="text-align: left;">他人はFace ID/パスコードを解錠できず<strong>1円も使えない</strong></td>
+<td style="text-align: left;">PC等の<strong>「探す」アプリで一瞬でカード全停止＆初期化</strong>！</td>
+</tr>
+</tbody>
+</table>
+<div title="💡 物理カード以上の安全性">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>💡 物理カード以上の安全性</strong></p>
+</div>
+<div class="callout-content">
+<p>iPhoneを落としても、本物のカード番号は本体に保存されておらず、生体認証なしでは決済できないため、物理的な財布を持ち歩くよりはるかに安全です。</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="サブスクの解約忘れと悪質なダークパターン" class="slide level3">
+<h3>サブスクの解約忘れと悪質な「ダークパターン」</h3>
+<h4 id="一度入ると抜け出せない罠迷宮型ui">🪤 一度入ると抜け出せない罠（迷宮型UI）</h4>
+<ul>
+<li>専門用語で「ローチ・モーテル（抜け出せない宿）」とも呼ばれる悪質なUI設計。</li>
+<li>入るのは簡単（1クリックで無料登録）、出るのは極めて困難（解約させない）にする手口。</li>
+<li>解約ボタンを階層の奥深くに隠す、引き止め画面を何重にも出す、文字を背景と同色にする。</li>
+</ul>
+</section>
+<section id="実践対策-アプリを開かずに一発解約する裏技" class="slide level3">
+<h3>【実践・対策】🛡️ アプリを開かずに一発解約する裏技</h3>
+<div title="🛡️ アプリを開かずに一発解約する裏技">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>🛡️ アプリを開かずに一発解約する裏技</strong></p>
+</div>
+<div class="callout-content">
+<p>アプリ内の迷路を探す必要はありません！ * <strong>iPhone</strong>：「設定」→「自分の名前」→<strong>「サブスクリプション」</strong>から一覧確認＆一発解約！ * <strong>Android</strong>：「Google Play」→「アイコン」→<strong>「お支払いと定期購入」</strong>から解約！</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="クレカの悪魔の囁きリボ払いの複利地獄" class="slide level3">
+<h3>クレカの悪魔の囁き「リボ払い」の複利地獄</h3>
+<h4 id="毎月1万円だけの支払いでokの甘い罠">💸 「毎月1万円だけの支払いでOK！」の甘い罠</h4>
+<ul>
+<li>実質年率は<strong>年利約15.0%</strong>（消費者金融のキャッシング並みの高金利）。</li>
+<li><strong>残高30万円を毎月1万円ずつ返済する場合の現実</strong>：
+<ul>
+<li>毎月払う10,000円のうち、<strong>約3,750円が利息・手数料として消滅</strong>！</li>
+<li>元本はわずか6,250円しか減らないため、完済まで3年以上かかり利息総額は数万円に膨れ上がる。</li>
+</ul></li>
+</ul>
+<div class="callout-danger" title="🚨 クレジットカードの鉄則">
+<p>支払い方法は原則<strong>「一括払い（1回払い）」</strong>を死守！Web明細の初期設定が「自動リボ（リボ払い専用カード）」になっていないか必ず確認しましょう。</p>
+</div>
+</section>
+<section id="図解リボ払いにおける毎月の返済額内訳" class="slide level3">
+<h3>【図解】リボ払いにおける毎月の返済額内訳</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">pie title リボ払い返済額（1万円）の内訳イメージ（年利15%）
+    "元本の返済（借金が減る分）" : 62.5
+    "消える金利・手数料（カード会社の利益）" : 37.5
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="bnplあと払いの仕組みと便利さ" class="slide level3">
+<h3>BNPL（あと払い）の仕組みと便利さ</h3>
+<ul>
+<li><strong>BNPL（Paidyなど）</strong>：クレカ不要で翌月払える人気サービス。</li>
+<li><strong>数千円の滞納で人生が狂う</strong>：滞納を放置すると個人信用情報機関（CIC等）に「異動（事故情報）」が登録される！</li>
+</ul>
+</section>
+<section id="信用情報cicのブラックリスト登録ペナルティ" class="slide level3">
+<h3>💥 信用情報（CIC）のブラックリスト登録ペナルティ</h3>
+<h4 id="事故情報のペナルティ5年間">💥 事故情報のペナルティ（5年間）</h4>
+<ul>
+<li>クレジットカード新規作成不可＆強制解約</li>
+<li>スマホ本体の分割払いが審査落ち</li>
+<li><strong>将来、住宅ローンやマイカーローンが組めなくなる</strong></li>
+</ul>
+</section>
+<section id="dセキュア-2.0-買い物の最後に飛んでくる画面" class="slide level3">
+<h3>3Dセキュア 2.0 —— 買い物の最後に飛んでくる画面</h3>
+<h4 id="aiによるリスクベース認証">🛡️ AIによる「リスクベース認証」</h4>
+<ul>
+<li><strong>低リスク判定（いつものスマホ、いつもの配送先、通常時間帯）</strong>： 追加のパスワード入力なしで一瞬で決済完了（フリクションレス・フロー）。全体の9割以上はこれ！</li>
+<li><strong>高リスク判定（深夜の初見高額品、海外IP、不審な端末環境）</strong>： 怪しいとAIが判断した時だけ、ワンタイムパスワードやスマホの生体認証（チャレンジ・フロー）を発動！</li>
+</ul>
+</section>
+<section id="図解3dセキュア2.0-リスクベース認証フロー" class="slide level3">
+<h3>【図解】3Dセキュア2.0 リスクベース認証フロー</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    Pay["💳 ネットショップでクレカ決済ボタン押下"] --&gt; Check{"🤖 カード会社のAIリスク判定エンジン&lt;br/&gt;（端末情報・IP・購入金額・行動履歴を総合分析）"}
+    Check --&gt;|低リスク（通常の安全な決済）| Pass["✅ 即座に決済承認（パスワード入力不要！）"]
+    Check --&gt;|高リスク（不正利用の疑いあり）| Challenge["⚠️ 追加認証（チャレンジ）を発動"]
+    Challenge --&gt; OTP["📱 SMSワンタイムコード / 銀行アプリ生体認証"]
+    OTP --&gt;|認証成功| Pass
+    OTP --&gt;|認証失敗 / 放置| Reject["❌ 決済遮断（不正利用を未然防止）"]
+    style Pass fill:#e8f5e9,stroke:#2e7d32
+    style Challenge fill:#fff3e0,stroke:#f57c00
+    style Reject fill:#ffebee,stroke:#c62828
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="実践チェック-1" class="slide level3">
+<h3>📱 実践チェック</h3>
+<h4 id="サブスク一覧チェック">📱 サブスク一覧チェック</h4>
+<ul>
+<li>iPhoneの「設定」→「名前」→「サブスクリプション」、またはGoogle Playの「定期購入」を開く。</li>
+<li><strong>使っていない幽霊サブスクはありませんか？</strong></li>
+</ul>
+</section>
+<section id="考えてみよう振り返り-1" class="slide level3">
+<h3>🤔 考えてみよう（振り返り）</h3>
+<h4 id="考えてみよう-1">🤔 考えてみよう</h4>
+<ul>
+<li>「欲しい服があるが手元にお金がない時、後払い（BNPL）を使うべきか給料日まで我慢すべきか？」信用情報の観点から考えよう。</li>
+</ul>
+</section>
+<section class="slide level3">
+
+</section>
+
+<section id="マイナンバーカードと身分証の一体化" class="title-slide slide level2 center">
+<h2>3. マイナンバーカードと身分証の一体化</h2>
+
+</section>
+<section id="考えてみたい問い-2" class="slide level3">
+<h3>考えてみたい問い</h3>
+<ul>
+<li>「マイナンバーを知られたら全財産が抜かれる」は本当？</li>
+<li>券面に印刷された番号とICチップの中身は何が違う？</li>
+<li>お酒を買う時、なぜ年齢だけでなく本名や住所まで店員に見せてしまう？</li>
+</ul>
+</section>
+<section id="マイナンバーカードの誤解-一元管理で漏れるの嘘" class="slide level3">
+<h3>マイナンバーカードの誤解 —— 「一元管理で漏れる」の嘘</h3>
+<h4 id="よくある都市伝説">❌ よくある都市伝説</h4>
+<p>「国が一箇所のスパコンで全国民の病歴・年金・預金を一元監視している」</p>
+</section>
+<section id="実際の仕組み-安全な分散管理ネットワーク" class="slide level3">
+<h3>⭕ 実際の仕組み —— 安全な「分散管理」ネットワーク</h3>
+<h4 id="実際の仕組み分散管理">⭕ 実際の仕組み：分散管理</h4>
+<ul>
+<li>税務署は税金、病院はカルテ、市役所は住民票と、<strong>データは別々のサーバーでバラバラに管理</strong>。</li>
+<li>暗号化された別々の「符号」で照会するため、1箇所が漏れても芋づる式に盗まれない！</li>
+</ul>
+</section>
+<section id="図解省庁自治体の分散管理ネットワーク" class="slide level3">
+<h3>【図解】省庁・自治体の分散管理ネットワーク</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    subgraph Isolated["分散管理システム"]
+        Tax[("国税庁: 税務データ")] 
+        Pension[("年金機構: 年金データ")]
+        City[("自治体: 住民票データ")]
+    end
+    Bridge["情報連携ネットワーク&lt;br/&gt;(暗号化符号で中継)"]
+    Tax &lt;--&gt; Bridge
+    Pension &lt;--&gt; Bridge
+    City &lt;--&gt; Bridge
+    style Bridge fill:#e0f2f1,stroke:#00796b
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="表面の番号とicチップの決定的な違い" class="slide level3">
+<h3>表面の番号と、ICチップの決定的な違い</h3>
+<ul>
+<li><strong>券面の12桁の番号</strong>
+<ul>
+<li>法律で定められた手続きでのみ使う単なる「整理番号」。番号を知られただけで預金は下ろせない。</li>
+</ul></li>
+<li><strong>本体はICチップ内の「電子証明書」</strong>
+<ul>
+<li>署名用電子証明書（英数字6〜16桁）：デジタル実印。</li>
+<li>利用者証明用電子証明書（数字4桁）：印鑑証明。</li>
+</ul></li>
+</ul>
+</section>
+<section id="たとえ話-社員証と実印でたとえると" class="slide level3">
+<h3>【たとえ話】🪪 社員証と実印でたとえると？</h3>
+<div title="🪪 社員証と実印でたとえると？">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>🪪 社員証と実印でたとえると？</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><strong>券面の番号</strong>：社員証に印刷された「社員番号」。見られても悪用はできない。</li>
+<li><strong>ICチップ</strong>：金庫に入った「実印」。暗証番号という鍵を開けない限り、誰も押すことができない！</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div title="🚨 暗証番号ロック">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>🚨 暗証番号ロック</strong></p>
+</div>
+<div class="callout-content">
+<p>数字4桁は3回、英数字は5回間違えると自動ロックされます。</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="運転免許証保険証の一体化で何が変わるメリット" class="slide level3">
+<h3>運転免許証・保険証の一体化で何が変わる？（メリット）</h3>
+<h4 id="メリット">🟢 メリット</h4>
+<ul>
+<li>引っ越し時の手続き一括化（住所変更が一度で連動）。</li>
+<li>医療機関での投薬履歴共有（重複投与・副作用防止）。</li>
+<li>免許更新講習のオンライン化。</li>
+</ul>
+</section>
+<section id="免許証保険証一体化のメリットと紛失時のリスク管理" class="slide level3">
+<h3>免許証・保険証一体化のメリットと紛失時のリスク管理</h3>
+<h4 id="紛失時のリスク管理">⚠️ 紛失時のリスク管理</h4>
+<ul>
+<li>身分証・保険証・免許証を一度に失うため影響大。</li>
+<li><strong>一時利用停止窓口（0120-95-0178）は24時間365日受付中</strong>であることを知っておく。</li>
+</ul>
+</section>
+<section id="年齢確認で住所まで晒していませんかゼロ知識証明" class="slide level3">
+<h3>年齢確認で住所まで晒していませんか？（ゼロ知識証明）</h3>
+<h4 id="免許証提示の過剰開示問題">🪪 免許証提示の「過剰開示問題」</h4>
+<ul>
+<li>コンビニでお酒や煙草を買う際、運転免許証を見せると「20歳以上か」だけでなく、<strong>本名・生年月日・自宅住所・顔写真まで店員に丸見え</strong>になる。</li>
+<li>本来必要な情報は「20歳以上か否か（True / False）」の1点だけ！</li>
+</ul>
+<h4 id="ゼロ知識証明zkp-zero-knowledge-proofの革命">🔐 ゼロ知識証明（ZKP: Zero-Knowledge Proof）の革命</h4>
+<ul>
+<li>「生年月日」や「住所」の生データを1文字も相手に渡すことなく、<strong>「私は20歳以上の条件を満たしている」という数学的暗号証明だけを送信</strong>する先端暗号技術。</li>
+<li>デジタル身分証時代の究極のプライバシー保護。</li>
+</ul>
+</section>
+<section id="図解ゼロ知識証明zkpによるプライバシー保護年齢確認フロー" class="slide level3">
+<h3>【図解】ゼロ知識証明（ZKP）によるプライバシー保護年齢確認フロー</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    A["📱 あなたのスマホ&lt;br/&gt;（マイナンバーカード内蔵）"] --&gt;|「20歳以上である」という&lt;br/&gt;暗号ハッシュ証明のみ送信| B["📟 店舗リーダー端末&lt;br/&gt;（生年月日・住所・本名は非表示！）"]
+    B --&gt;|証明の正当性を数学的に検証| C["✅ 年齢確認クリア（販売許可）"]
+    style A fill:#ede7f6,stroke:#512da8,stroke-width:2px
+    style B fill:#e1f5fe,stroke:#0288d1
+    style C fill:#e8f5e9,stroke:#2e7d32
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="マイナポータルでできること役所に行かないデジタル行政" class="slide level3">
+<h3>マイナポータルで「できること」（役所に行かないデジタル行政）</h3>
+<h4 id="窓口に並ばずスマホで完結する行政手続き">🏛️ 窓口に並ばずスマホで完結する行政手続き</h4>
+<ul>
+<li><strong>確定申告（e-Tax）連携</strong>：医療費控除やふるさと納税、年金データを自動連携して一括入力。</li>
+<li><strong>パスポートの更新申請</strong>：写真撮影から申請までオンライン化（窓口へ行くのは受取時の1回だけ）。</li>
+<li><strong>引越しワンストップサービス</strong>：転出届を役所窓口に行かずにオンライン提出。</li>
+<li><strong>医療・健康データの確認</strong>：処方された薬の履歴や健診結果を自分でいつでも一元確認可能。</li>
+</ul>
+<div title="💡 「こういうことができる」と知っておく">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>💡 「こういうことができる」と知っておく</strong></p>
+</div>
+<div class="callout-content">
+<p>「すべて役所の窓口や書類で手続きするもの」という固定観念をなくし、「スマホで安全に完結できる手続きが増えている」と知っておくことがデジタル教養の第一歩です。</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="進化するマイナポータル-アプリ刷新とスマホ搭載" class="slide level3">
+<h3>進化するマイナポータル —— アプリ刷新と「スマホ搭載」</h3>
+<h4 id="uiuxの大幅リニューアル">🔄 UI/UXの大幅リニューアル</h4>
+<ul>
+<li><strong>使いづらさの改善</strong>：デジタル庁主導で画面デザイン・導線が大幅にリニューアルされ、目的の手続きを探しやすい「手続きナビ」やシンプルなUIへと進化。</li>
+</ul>
+<h4 id="カードを毎回かざすから生体認証へ">📱 「カードを毎回かざす」から「生体認証」へ</h4>
+<ul>
+<li>これまでは手続きのたびに物理カードをスマホ裏面にかざし、暗証番号を入力する必要があった。</li>
+<li><strong>Androidに続き、iPhoneへの「スマホ用電子証明書」搭載</strong>が順次進展。</li>
+<li>物理カードを取り出さなくても、<strong>スマホのFace ID / Touch ID（生体認証）だけで安全・瞬時にログインできる時代</strong>へ移行しています！</li>
+</ul>
+</section>
+<section id="考えてみよう振り返り-2" class="slide level3">
+<h3>🤔 考えてみよう（振り返り）</h3>
+<h4 id="考えてみよう-2">🤔 考えてみよう</h4>
+<ul>
+<li>「デジタル身分証の普及」で手続きが便利になる一方、スマホを持たない人が取り残されないために社会はどう対応すべき？</li>
+</ul>
+</section>
+<section id="総括ブラックボックスを開ける知性" class="slide level3">
+<h3>総括：ブラックボックスを開ける知性</h3>
+<h4 id="ブラックボックスを開ける知性">🔍 ブラックボックスを開ける知性</h4>
+<ul>
+<li>スマホの薄いガラスの向こう側では、暗号理論、分散システム、通信規約、法律がミリ秒単位で動いています。</li>
+<li>単に流される受動的な消費者から、仕組みを理解するデジタル市民へ。</li>
+</ul>
+</section>
+<section id="デジタル社会を生き抜く3原則" class="slide level3">
+<h3>🏛️ デジタル社会を生き抜く3原則</h3>
+<h4 id="デジタル社会を生きる3原則">🏛️ デジタル社会を生きる3原則</h4>
+<ol type="1">
+<li><strong>仕組みを知る</strong>：裏側でどんなデータが動いているか想像する。</li>
+<li><strong>過信しない</strong>：便利さの裏には必ず落とし穴がある。</li>
+<li><strong>自衛を行動に移す</strong>：パスキー、MFA、アップデートを自らコントロールする。</li>
+</ol>
+</section>
+<section id="修了チェックあなたのデジタル身だしなみテスト" class="slide level3">
+<h3>【修了チェック】あなたのデジタル身だしなみテスト</h3>
+<h4 id="点満点で何点取れる">📝 10点満点で何点取れる？</h4>
+<ul class="task-list">
+<li><label><input type="checkbox">1. 主要アカウントのパスワードを使い回していない</label></li>
+<li><label><input type="checkbox">2. 重要なサービスで2要素認証を有効にし、バックアップコードを控えている</label></li>
+<li><label><input type="checkbox">3. スマホの「盗難デバイスの保護」やOSアップデートを怠っていない</label></li>
+<li><label><input type="checkbox">4. 公衆Wi-Fiで暗号化されていないサイトに個人情報を入れない</label></li>
+<li><label><input type="checkbox">5. 怪しい警告画面の電話番号に連絡せず、ブラウザのタブを閉じる</label></li>
+<li><label><input type="checkbox">6. SNSの甘い儲け話（闇バイト・名義貸し・投資勧誘）を100%無視できる</label></li>
+<li><label><input type="checkbox">7. クレカの明細を確認し、「リボ払い」や不要なサブスクがないか把握している</label></li>
+<li><label><input type="checkbox">8. アプリの位置情報・写真権限を絞り、写真のExif流出に配慮している</label></li>
+<li><label><input type="checkbox">9. 無料マンガサイトやトレントなどの違法配信に手を出さない</label></li>
+<li><label><input type="checkbox">10. 生成AIに機密情報や他人の個人情報を入力しない</label></li>
+</ul>
+
+</section>
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="part4_money_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="part4_money_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="part4_money_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="part4_money_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="part4_money_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="part4_money_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="part4_money_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="part4_money_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="part4_money_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="part4_money_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="part4_money_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': true,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>

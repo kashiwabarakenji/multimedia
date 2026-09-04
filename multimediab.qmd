@@ -1,0 +1,29 @@
+---
+title: "現代デジタル社会の歩き方と裏側の仕組み"
+subtitle: "スマホ・決済・パスワード・個人情報の「なぜ？」を読み解くデジタル教養（全4回）"
+author: "デジタルリテラシー講義資料"
+format:
+  revealjs:
+    theme: default
+    slide-level: 3
+    slide-number: true
+    transition: slide
+    toc: true
+    toc-depth: 1
+    chalkboard: true
+    scrollable: false
+    smaller: false
+    preview-links: auto
+    css: custom.css
+    mermaid:
+      theme: neutral
+
+---
+
+{{< include part1_auth.qmd >}}
+
+{{< include part2_security.qmd >}}
+
+{{< include part3_database.qmd >}}
+
+{{< include part4_money.qmd >}}

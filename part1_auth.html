@@ -1,0 +1,1865 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="part1_auth_files/libs/clipboard/clipboard.min.js"></script>
+<script src="part1_auth_files/libs/quarto-html/tabby.min.js"></script>
+<script src="part1_auth_files/libs/quarto-html/popper.min.js"></script>
+<script src="part1_auth_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="part1_auth_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="part1_auth_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="part1_auth_files/libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.6.40">
+
+  <title>part1_auth</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="part1_auth_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="part1_auth_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="part1_auth_files/libs/revealjs/dist/theme/quarto-bbe7401fe57d4b791b917637bb662036.css">
+  <link rel="stylesheet" href="custom.css">
+  <link href="part1_auth_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="part1_auth_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="part1_auth_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="part1_auth_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="part1_auth_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="part1_auth_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <meta name="mermaid-theme" content="neutral">
+  <script src="part1_auth_files/libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="part1_auth_files/libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="part1_auth_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="TOC">
+<nav role="doc-toc"> 
+<h2 id="toc-title">Table of contents</h2>
+<ul>
+<li><a href="#/第1部認証と個人のセキュリティー" id="/toc-第1部認証と個人のセキュリティー">第1部：認証と個人のセキュリティー</a></li>
+</ul>
+</nav>
+</section>
+<section>
+<section id="第1部認証と個人のセキュリティー" class="title-slide slide level1 center">
+<h1>第1部：認証と個人のセキュリティー</h1>
+
+</section>
+<section id="本日の講義アジェンダ-アカウントとスマホを守る" class="slide level3">
+<h3>本日の講義アジェンダ —— アカウントとスマホを守る</h3>
+<h4 id="本日のアジェンダ全4テーマ">🗺️ 本日のアジェンダ（全4テーマ）</h4>
+<ol type="1">
+<li><strong>パスワードはなぜ破られるのか？</strong>（脆弱な合言葉と最新の攻撃手法）</li>
+<li><strong>二重の鍵をかける —— 多要素認証と生体認証</strong>（OTP・生体情報の真実）</li>
+<li><strong>パスワードが消える？ —— パスキーの登場</strong>（フィッシング完全防御の公開鍵暗号）</li>
+<li><strong>ソーシャルログインの落とし穴</strong>（OAuthの仕組みと連鎖凍結リスク）</li>
+</ol>
+</section>
+<section id="本日の到達目標" class="slide level3">
+<h3>本日の到達目標</h3>
+<h4 id="本日の講義で身につく力">🎯 本日の講義で身につく力</h4>
+<ul>
+<li>パスワード解読手口（ブルートフォース・スプレイ・漏洩リスト）と最新の防御策を説明できる</li>
+<li>2要素認証（SMS/TOTP）と生体認証の仕組み・弱点・自衛策を実践できる</li>
+<li>パスキーが「なぜ偽サイトを100%無効化できるのか」を理解できる</li>
+<li>アプリ連携（ソーシャルログイン）時の権限リスクを適切に見直せる</li>
+</ul>
+</section>
+<section class="slide level3">
+
+</section>
+<section class="slide level3">
+
+</section>
+<section id="パスワードはなぜ破られるのか" class="title-slide slide level2 center">
+<h2>1. パスワードはなぜ破られるのか？</h2>
+
+</section>
+<section id="考えてみたい問い" class="slide level3">
+<h3>考えてみたい問い</h3>
+<ul>
+<li>なぜ「定期変更」は推奨されなくなった？</li>
+<li>「パスワードを忘れた」を押した時、なぜ今のパスワードを教えてくれない？</li>
+<li>スマホの画面ロックを覗かれると何が起きる？</li>
+<li>過去のパスワード漏洩を調べる方法はある？</li>
+</ul>
+</section>
+<section id="カギを開ける人と部屋を使う人-認証と認可" class="slide level3">
+<h3>カギを開ける人と部屋を使う人 —— 認証と認可</h3>
+<h4 id="つの言葉の違い">🔑 2つの言葉の違い</h4>
+<ul>
+<li><strong>認証（あなた誰？）</strong>
+<ul>
+<li>本人確認。「私は山田太郎です」と証明する。</li>
+<li>例：ID・パスワード入力、顔認証。</li>
+</ul></li>
+<li><strong>認可（何していい？）</strong>
+<ul>
+<li>権限の付与。「何ができるか」のルール。</li>
+<li>例：山田さんは「自分の成績」は見られるが「他人の成績」は見られない。</li>
+</ul></li>
+</ul>
+</section>
+<section id="たとえ話-ホテルの宿泊でたとえると" class="slide level3">
+<h3>【たとえ話】🏨 ホテルの宿泊でたとえると？</h3>
+<div title="🏨 ホテルの宿泊でたとえると？">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>🏨 ホテルの宿泊でたとえると？</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><strong>認証</strong>：フロントで身分証を見せて「予約した山田です」と名乗り、<strong>カードキーをもらうこと</strong>。</li>
+<li><strong>認可</strong>：そのカードキーで<strong>「301号室は開くが、隣の部屋や従業員室は開かない」</strong>という鍵の権限設定のこと！</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="図解認証と認可の連携シーケンス" class="slide level3">
+<h3>【図解】認証と認可の連携シーケンス</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">sequenceDiagram
+    autonumber
+    participant U as "ユーザー (山田さん)"
+    participant S as "認証サーバー (フロント)"
+    participant R as "成績管理DB (客室エリア)"
+    U-&gt;&gt;S: ID/パスワード送信 (認証：チェックイン)
+    S--&gt;&gt;U: ログイン成功 (301号室カードキー発行)
+    U-&gt;&gt;R: 成績閲覧リクエスト (ドアにかざす)
+    Note over R: 権限チェック&lt;br/&gt;(山田さんの部屋のみ解錠：認可)
+    R--&gt;&gt;U: 成績データを返却
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div title="📱 利用者の自衛ポイント">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>📱 利用者の自衛ポイント</strong></p>
+</div>
+<div class="callout-content">
+<p>アプリ連携時に「プロフィールの取得」だけでなく「勝手な投稿」「友達リストの取得」など、過剰な権限（認可）を要求されていないか必ず確認しましょう。</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="攻撃者はどうやってパスワードを当てるか" class="slide level3">
+<h3>攻撃者はどうやってパスワードを当てるか？</h3>
+<h4 id="主な攻撃手法">🔨 主な攻撃手法</h4>
+<ul>
+<li><strong>総当たり（ブルートフォース）</strong>
+<ul>
+<li>あらゆる文字列を片っ端から試す。</li>
+</ul></li>
+<li><strong>辞書攻撃</strong>
+<ul>
+<li>誕生日、人名、<code>password</code> などの頻出リストを優先照合。</li>
+</ul></li>
+<li><strong>リスト型攻撃（最凶の脅威）</strong>
+<ul>
+<li>他所で流出したID・パスワードを使い、Amazonやメルカリへ自動ログインを試行。</li>
+</ul></li>
+</ul>
+</section>
+<section id="パスワード使い回しの危険性-すべての部屋を同じ合鍵にする恐怖" class="slide level3">
+<h3>パスワード使い回しの危険性 —— 「すべての部屋を同じ合鍵にする」恐怖</h3>
+<div class="callout-danger" title="🚨 パスワード使い回しの本質">
+<p>パスワードの使い回しは、<strong>「自宅の玄関、実家、ロッカーの鍵をすべて同じ合鍵にして持ち歩く」</strong>のと同じです。<br>
+どこか1箇所の通販サイトから漏れた瞬間、すべての部屋が一斉に開けられます。</p>
+</div>
+</section>
+<section id="図解リスト型攻撃の拡散メカニズム" class="slide level3">
+<h3>【図解】リスト型攻撃の拡散メカニズム</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    A["中小ECサイト漏洩事故"] --&gt;|ID/Pass流出| B[("ダークウェブ流通")]
+    B --&gt; C["攻撃者の自動スクリプト"]
+    C --&gt;|同じID/Passで試行| D["メルカリ"]
+    C --&gt;|同じID/Passで試行| E["Amazon"]
+    C --&gt;|同じID/Passで試行| F["Apple ID"]
+    D --&gt;|ログイン成功| G["💥 不正購入・乗っ取り被害"]
+    style G fill:#ffcdd2,stroke:#d32f2f
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="最新の脅威画面ロックpin覗き見からの全乗っ取り" class="slide level3">
+<h3>最新の脅威：画面ロックPIN覗き見からの「全乗っ取り」</h3>
+<h4 id="カフェやバーで多発する手口">📱 カフェやバーで多発する手口</h4>
+<ol type="1">
+<li>背後からスマホのロック解除PIN（4〜6桁）を盗み見る。</li>
+<li>スマホ本体をスリ盗る。</li>
+<li>ロック解除後、<strong>「設定」からApple ID等のパスワードを変更！</strong></li>
+<li>復旧キーを再生成し、被害者を自分のアカウントから永久に締め出す。</li>
+<li>銀行アプリやApple Payから預金を全額引き出す。</li>
+</ol>
+</section>
+<section id="図解pin覗き見からの全口座乗っ取りフロー" class="slide level3">
+<h3>【図解】PIN覗き見からの全口座乗っ取りフロー</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    A["① カフェ等でPINコード覗き見"] --&gt; B["② スマホ本体のスリ・盗難"]
+    B --&gt; C["③ 画面ロック解除後に設定からPass変更"]
+    C --&gt; D["④ 復旧キーを勝手に再作成&lt;br/&gt;(被害者をアカウントから永久追放)"]
+    D --&gt; E["💥 銀行・Apple Payから預金全額送金被害"]
+    style A fill:#fff3e0,stroke:#f57c00
+    style E fill:#ffebee,stroke:#c62828,stroke-width:2px
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="対策iphone盗難デバイスの保護設定" class="slide level3">
+<h3>【対策】iPhone「盗難デバイスの保護」設定</h3>
+<h4 id="救世主機能の仕組み">🛡️ 救世主機能の仕組み</h4>
+<ul>
+<li>自宅や職場以外の見知らぬ場所では：
+<ul>
+<li><strong>パスコードによる回避を禁止</strong>（Face ID / Touch IDが必須）。</li>
+<li>パスワードや復旧キー変更に<strong>1時間の遅延</strong>を強制。</li>
+</ul></li>
+<li>盗まれた直後に犯人がパスワードを変更しようとしても、時間稼ぎの間に遠隔ロック（探す）が可能！</li>
+</ul>
+</section>
+<section id="実践対策-今すぐできる設定手順" class="slide level3">
+<h3>【実践・対策】📱 今すぐできる設定手順</h3>
+<div title="📱 今すぐできる設定手順">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>📱 今すぐできる設定手順</strong></p>
+</div>
+<div class="callout-content">
+<ol type="1">
+<li>iPhoneの「設定」を開く</li>
+<li>「Face IDとパスコード」を選択</li>
+<li><strong>「盗難デバイスの保護」をオンにする</strong></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="昔の常識-なぜ定期変更が危険になったのか" class="slide level3">
+<h3>昔の常識 —— なぜ「定期変更」が危険になったのか？</h3>
+<h4 id="昔の常識今は非推奨">❌ 昔の常識（今は非推奨）</h4>
+<ul>
+<li>「3ヶ月に1回、必ず変更する」</li>
+<li>「記号を混ぜて8文字以上」</li>
+<li><strong>結果どうなったか？</strong>
+<ul>
+<li><code>Tokyo1!</code> $ o$ <code>Tokyo2!</code> の安易な連番化</li>
+<li>付箋メモをPCに貼る本末転倒</li>
+</ul></li>
+</ul>
+</section>
+<section id="今の新常識-定期変更は不要長くして放置が正解" class="slide level3">
+<h3>今の新常識 —— 「定期変更」は不要！長くして放置が正解</h3>
+<h4 id="今の新常識米nist-総務省">⭕ 今の新常識（米NIST / 総務省）</h4>
+<ul>
+<li><strong>流出の兆候がない限り定期変更は不要</strong></li>
+<li>記号を無理に混ぜた短い文字より、<strong>無関係な単語を繋いだ「長いパスフレーズ」</strong>が安全！</li>
+<li>例：<code>ringo-tabeta-densha-blue</code></li>
+</ul>
+</section>
+<section id="解読時間比較文字種より長さが命" class="slide level3">
+<h3>解読時間比較：文字種より「長さ」が命</h3>
+<table class="caption-top">
+<colgroup>
+<col style="width: 22%">
+<col style="width: 22%">
+<col style="width: 27%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">方式</th>
+<th style="text-align: left;">例</th>
+<th style="text-align: center;">推定解読時間（家庭用GPU）</th>
+<th style="text-align: center;">記憶しやすさ</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">短い複雑（8文字）</td>
+<td style="text-align: left;"><code>p@$W0rd</code></td>
+<td style="text-align: center;"><strong>数秒〜数分</strong></td>
+<td style="text-align: center;">覚えにくい</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">英数混在（10文字）</td>
+<td style="text-align: left;"><code>aB3dE5gH7j</code></td>
+<td style="text-align: center;">数時間〜数日</td>
+<td style="text-align: center;">覚えにくい</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>長いパスフレーズ（20文字以上）</strong></td>
+<td style="text-align: left;"><code>neko-ga-kousaten-wo-watatta</code></td>
+<td style="text-align: center;"><strong>数億年以上</strong></td>
+<td style="text-align: center;"><strong>覚えやすい</strong></td>
+</tr>
+</tbody>
+</table>
+<div title="💡 パスフレーズの作り方">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>💡 パスフレーズの作り方</strong></p>
+</div>
+<div class="callout-content">
+<p>「自分が情景を思い浮かべられるフレーズ」にするのがコツです。<br>
+例：<code>densha-de-banana-wo-tabeta-77</code>（電車でバナナを食べた）</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level3">
+
+</section>
+<section id="サーバーはあなたのパスワードを知らない-ハッシュ化の魔法" class="slide level3">
+<h3>サーバーはあなたのパスワードを知らない？ —— 「ハッシュ化」の魔法</h3>
+<h4 id="管理者は私のパスワードを見られる">❓ 管理者は私のパスワードを見られる？</h4>
+<ul>
+<li>「Twitterや大学のシステム管理者は、裏で私のパスワードを覗き見できるの？」</li>
+<li><strong>答え：まともなWebサービスなら絶対に見られません！</strong></li>
+<li>サーバーは入力された生のパスワード（平文）を<strong>即座に破棄</strong>。</li>
+<li>復元不可能な一方向暗号文字列（<strong>ハッシュ値</strong>）に不可逆変換してデータベースに保存しています。</li>
+</ul>
+</section>
+<section id="たとえ話-ひき肉ミンチでたとえると" class="slide level3">
+<h3>【たとえ話】🥩 「ひき肉（ミンチ）」でたとえると？</h3>
+<div title="🥩 ひき肉から元の牛には戻せない！">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>🥩 ひき肉から元の牛には戻せない！</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><strong>ハッシュ化の仕組み</strong>： 牛肉をミンチ機にかけると「ひき肉」になる（一方向の不可逆計算）。</li>
+<li><strong>復元は絶対に不可能</strong>： どんな天才科学者でも、<strong>ひき肉から元の牛の姿を復元することは不可能</strong>です！</li>
+<li><strong>どうやってログイン確認するのか？</strong>： ログイン時、入力された文字をその場でミンチ機にかけ、保存されている「ひき肉」と形が完全に一致するかだけを照合しています。</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="パスワードをお知らせしますメールが届いたら即逃げろ" class="slide level3">
+<h3>「パスワードをお知らせします」メールが届いたら即逃げろ！</h3>
+<h4 id="危険なwebサイトの見分け方">🚨 危険なWebサイトの見分け方</h4>
+<ul>
+<li>パスワードを忘れた時：
+<ul>
+<li>⭕ <strong>安全なサイト</strong>：「再設定用のURLを送ります（元のパスワードは誰も知らないため教えられない）」</li>
+<li>❌ <strong>極めて危険なサイト</strong>：「あなたのパスワードは <code>abc1234</code> です」とメール本文に書いて送ってくる！</li>
+</ul></li>
+</ul>
+<div class="callout-danger" title="🚨 平文（そのまま）保存の恐怖">
+<p>パスワードを生データのまま保存しているサイトは、ハッキングされた瞬間に全利用者のパスワードがそのまま流出します。<br>
+もしそんなサイトがあれば、<strong>二度と使わず、同じパスワードを他で使っていたら即座に変更</strong>してください！</p>
+</div>
+</section>
+<section id="google-xパスワードを忘れた方を押したとき何が起きている" class="slide level3">
+<h3>【Google / X】「パスワードを忘れた方」を押したとき何が起きている？</h3>
+<h4 id="なぜ今のパスワードを教えてくれないのか">🔒 なぜ「今のパスワード」を教えてくれないのか？</h4>
+<ul>
+<li>Google、Yahoo!、X（Twitter）などのサポートに「パスワードを教えて！」と問い合わせても、<strong>社長やエンジニアですら絶対に教えてくれません</strong>。</li>
+<li>前のスライドで学んだ通り、パスワードは不可逆な「ひき肉（ハッシュ値）」になっているため、<strong>世界中の誰も元の文字列を知らない</strong>からです！</li>
+<li>そのため、現代のWebサービスは<strong>「古いパスワードを思い出す」のではなく、「新しいパスワードで上書きする」</strong>というアプローチを取ります。</li>
+</ul>
+</section>
+<section id="なぜ他人に乗っ取られない-使い捨て暗号トークンの秘密" class="slide level3">
+<h3>なぜ他人に乗っ取られない？ —— 「使い捨て暗号トークン」の秘密</h3>
+<h4 id="メールで届く長いリンクの正体">⏱️ メールで届く長いリンクの正体</h4>
+<ul>
+<li>メールで送られてくるURL：<br>
+<code>https://service.com/reset?token=a8f9b2c3d4e5...</code></li>
+<li>末尾のランダムな英数字が<strong>「使い捨て暗号トークン（合鍵）」</strong>。</li>
+<li><strong>強力な3大防衛ルール</strong>：
+<ol type="1">
+<li><strong>超高難度のランダム生成</strong>：暗号学的に安全な乱数で、第三者が推測・総当たりするのは不可能。</li>
+<li><strong>短い有効期限（TTL）</strong>：発行から「30分」や「1時間」で自動消滅（期限切れ）。</li>
+<li><strong>1回限りの使い捨て（自己破壊）</strong>：一度新しいパスワードを登録した瞬間に、DB内のトークンは即座に無効化！</li>
+</ol></li>
+</ul>
+</section>
+<section id="図解パスワード再設定リセットトークンの安全シーケンス" class="slide level3">
+<h3>【図解】パスワード再設定（リセットトークン）の安全シーケンス</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">sequenceDiagram
+    autonumber
+    participant U as "ユーザー (ブラウザ)"
+    participant S as "Webサーバー"
+    participant M as "メールサーバー"
+    participant D as "データベース"
+
+    U-&gt;&gt;S: 「パスワードを忘れた」と申請 (メアド送信)
+    Note over S: ランダムな使い捨てトークン生成&lt;br/&gt;(有効期限: 30分)
+    S-&gt;&gt;D: トークンと有効期限を一時保存
+    S-&gt;&gt;M: 再設定リンク付きメールを送信
+    M-&gt;&gt;U: メール受信 (リンクをクリック)
+    U-&gt;&gt;S: 新しいパスワードを入力して送信
+    Note over S: トークンの有効性と期限を検証
+    S-&gt;&gt;D: 新パスワードをハッシュ化して上書き&lt;br/&gt;＆トークンを即時破棄！
+    S--&gt;&gt;U: パスワード再設定完了！ ✅
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="ブラウザの自動入力の落とし穴" class="slide level3">
+<h3>ブラウザの自動入力の落とし穴</h3>
+<h4 id="自動保存の利便性とリスク">⚠️ 自動保存の利便性とリスク</h4>
+<ul>
+<li>ChromeやSafariがパスワードやクレジットカード番号を自動記憶・補完してくれる便利な機能。</li>
+<li><strong>潜む落とし穴</strong>：
+<ul>
+<li>友人に「ちょっと貸して」とPCやスマホを渡した際、設定画面や入力欄から平文で覗き見されるリスク。</li>
+<li>マルウェア（インフォスティーラー）に感染すると、ブラウザ内の保存データが一網打尽に盗まれる！</li>
+</ul></li>
+<li><strong>必須の対策</strong>：PC・スマホ起動時の画面ロック設定を徹底する。</li>
+</ul>
+</section>
+<section id="自分のメアドが流出していないか調べるhave-i-been-pwned" class="slide level3">
+<h3>自分のメアドが流出していないか調べる「Have I Been Pwned」</h3>
+<h4 id="世界標準の漏洩チェッカーhibp">🔍 世界標準の漏洩チェッカー：HIBP</h4>
+<ul>
+<li>サイト：<code>haveibeenpwned.com</code>（無料・世界標準）</li>
+<li>世界中で発生した過去の大規模情報漏洩データベースと照合し、自分のメールアドレスやパスワードが漏洩リストに含まれていないか確認できる。</li>
+<li><strong>流出が見つかった場合の対処</strong>：
+<ul>
+<li>直ちにそのメールアドレスで登録している主要サービス、特に<strong>同じパスワードを使い回しているすべてのアカウント</strong>でパスワードを変更する！</li>
+</ul></li>
+</ul>
+</section>
+<section id="人間には無理パスワード管理ツールの導入" class="slide level3">
+<h3>人間には無理！パスワード管理ツールの導入</h3>
+<h4 id="脳の限界を素直に認める">🧠 脳の限界を素直に認める</h4>
+<ul>
+<li>平均100個以上のアカウントで、別々の長いパスワードを記憶するのは人間の脳には不可能。</li>
+<li><strong>パスワードマネージャーに任せる</strong>
+<ul>
+<li>20文字以上のランダム文字列を自動生成・暗号化保存。</li>
+<li>生体認証（顔・指紋）で自動入力。</li>
+<li><strong>スマホの画面ロックさえ守ればOK！</strong></li>
+</ul></li>
+</ul>
+</section>
+<section id="おすすめツール" class="slide level3">
+<h3>📱 おすすめツール</h3>
+<div title="📱 おすすめツール">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>📱 おすすめツール</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><strong>Apple</strong>：iCloudキーチェーン（標準）</li>
+<li><strong>Google</strong>：Googleパスワードマネージャー（標準）</li>
+<li><strong>サードパーティ</strong>：Bitwarden / 1Password</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="実践チェック" class="slide level3">
+<h3>📱 実践チェック</h3>
+<h4 id="分でできるスマホ診断">📱 1分でできるスマホ診断</h4>
+<ol type="1">
+<li>iPhone：「設定」$ o<span class="math inline">\(「パスワード」\)</span> o$「セキュリティに関する勧告」を開く。</li>
+<li>Android：「設定」$ o<span class="math inline">\(「Google」\)</span> o<span class="math inline">\(「パスワードマネージャー」\)</span> o$「診断」を開く。</li>
+<li><strong>漏洩や使い回しの警告は何件ありましたか？</strong></li>
+</ol>
+</section>
+<section id="考えてみよう振り返り" class="slide level3">
+<h3>🤔 考えてみよう（振り返り）</h3>
+<h4 id="考えてみよう">🤔 考えてみよう</h4>
+<ul>
+<li>家族や友人に「パスワード教えて」と言われたらどう断る？</li>
+<li>「紙の手帳にパスワードを書いて家に置く」のはアリかナシか？</li>
+</ul>
+</section>
+<section class="slide level3">
+
+</section>
+
+<section id="二重の鍵をかける-多要素認証と怪しい通知" class="title-slide slide level2 center">
+<h2>2. 二重の鍵をかける —— 多要素認証と怪しい通知</h2>
+
+</section>
+<section id="考えてみたい問い-1" class="slide level3">
+<h3>考えてみたい問い</h3>
+<ul>
+<li>「2要素認証」って何？なぜ2回もやるの？</li>
+<li>SMSで届く確認コードは本当に安全？</li>
+<li>スマホを水没・紛失した時にアカウントから締め出されない方法は？</li>
+</ul>
+</section>
+<section id="要素認証って何-銀行のatmと同じ仕組み" class="slide level3">
+<h3>2要素認証って何？ —— 「銀行のATM」と同じ仕組み！</h3>
+<h4 id="パスワードだけ1要素">❌ パスワードだけ（1要素）</h4>
+<ul>
+<li><strong>「秘密の合言葉」だけで入れる部屋</strong></li>
+<li>合言葉を盗み聞きされたり偽サイトに入力したら誰でも侵入可能。</li>
+</ul>
+</section>
+<section id="要素認証って何-銀行のatmと同じ仕組みポイント" class="slide level3">
+<h3>2要素認証って何？ —— 「銀行のATM」と同じ仕組み！（ポイント）</h3>
+<h4 id="要素認証mfa">⭕ 2要素認証（MFA）</h4>
+<ul>
+<li><strong>「銀行のATM」と全く同じ！</strong>
+<ol type="1">
+<li>💳 <strong>持っている物</strong>：キャッシュカード</li>
+<li>🔢 <strong>知っている合言葉</strong>：4桁の暗証番号</li>
+</ol></li>
+<li>カードを拾われても暗証番号がなければ下ろせず、暗証番号がバレてもカードがなければ下ろせない！</li>
+</ul>
+</section>
+<section id="認証の3大要素知識所持生体" class="slide level3">
+<h3>認証の3大要素（知識・所持・生体）</h3>
+<h4 id="異なる2種類を組み合わせることが必須">🧩 異なる「2種類」を組み合わせることが必須</h4>
+<ol type="1">
+<li>🧠 <strong>知識情報</strong>：パスワード、暗証番号、秘密の質問</li>
+<li>📱 <strong>所持情報</strong>：スマホ（SMS・通知）、認証アプリ（TOTP）、ICカード、物理キー</li>
+<li>👤 <strong>生体情報</strong>：指紋、顔、虹彩</li>
+</ol>
+<div title="⚠️ 注意：よくある間違い">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>⚠️ 注意：よくある間違い</strong></p>
+</div>
+<div class="callout-content">
+<p>「パスワード」＋「秘密の合言葉」は両方とも「知識情報」なので、2つ設定しても<strong>2段階認証であって2要素認証ではありません</strong>。</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="図解2要素認証mfaの組み合わせ構造" class="slide level3">
+<h3>【図解】2要素認証（MFA）の組み合わせ構造</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    subgraph MFA ["2要素認証（MFA）：異なる2種類の要素が必須！"]
+        A["① 知識情報&lt;br/&gt;（パスワード / 暗証番号）"] 
+        B["② 所持情報&lt;br/&gt;（スマホ / 認証アプリ / ICカード）"]
+        C["③ 生体情報&lt;br/&gt;（指紋認証 / 顔認証）"]
+    end
+    A --&gt;|"知識 ＋ 所持"| D{"強固な認証成功 ✅"}
+    B --&gt;|"知識 ＋ 所持"| D
+    C --&gt;|"生体を所持と併用"| D
+
+    style MFA fill:#f1f8e9,stroke:#558b2f,stroke-width:2px
+    style D fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="生体認証のウソとホント-指紋データは流出する" class="slide level3">
+<h3>生体認証のウソとホント —— 指紋データは流出する？</h3>
+<h4 id="よくある都市伝説">❌ よくある都市伝説</h4>
+<p>「AppleやGoogleに自分の顔写真や指紋データが送信されていて、ハッキングされたら流出するのでは？」</p>
+</section>
+<section id="生体認証のウソとホント-指紋データは流出するポイント" class="slide level3">
+<h3>生体認証のウソとホント —— 指紋データは流出する？（ポイント）</h3>
+<h4 id="技術的真実ローカル照合">⭕ 技術的真実：ローカル照合</h4>
+<ul>
+<li>生体データは、スマホ内部の隔離金庫チップ（Secure Enclave / Titan M）から<strong>1ミリも外に出ない</strong>。</li>
+<li>外部サーバーに送られるのは「指紋照合が成功した」という暗号署名（合否結果）のみ！</li>
+</ul>
+</section>
+<section id="図解secure-enclave内のローカル照合" class="slide level3">
+<h3>【図解】Secure Enclave内のローカル照合</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    subgraph Smartphone["スマートフォン内部"]
+        A["カメラ / 指紋センサー"] --&gt; B["Secure Enclave&lt;br/&gt;(隔離された金庫チップ)"]
+        B --&gt;|内部一致判定| C["秘密鍵で電子署名作成"]
+    end
+    C --&gt;|暗号署名のみ送信| D["Webサービスサーバー"]
+    style B fill:#fff3e0,stroke:#f57c00
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>万が一Webサービス側のサーバーがハッキングされても、サーバーには「公開鍵」しか置いていないため、パスキーでは何も悪用できません。</p>
+</div>
+</div>
+</div>
+</section>
+<section id="写真や寝顔で破られない-生体検知の進化" class="slide level3">
+<h3>写真や寝顔で破られない？ —— 「生体検知」の進化</h3>
+<h4 id="写真や3dマスクを欺けるか">🎭 写真や3Dマスクを欺けるか？</h4>
+<ul>
+<li>昔の簡易な顔認証は「プリントした写真」でも突破されることがあった。</li>
+<li>現代の認証は<strong>3D赤外線ドット（数万点）</strong>を照射し、顔の立体的な凹凸や奥行きを測定。</li>
+<li>そのため、平面の写真や画面越し動画では騙せない。</li>
+</ul>
+</section>
+<section id="認証の黄金ルール" class="slide level3">
+<h3>💡 認証の黄金ルール</h3>
+<h4 id="生きている人間の判定生体検知">💓 生きている人間の判定（生体検知）</h4>
+<ul>
+<li>まばたきや瞳孔の動き、血流の変化などを検知（<strong>Liveness Detection</strong>）。</li>
+<li>生成AI（ディープフェイク）や精巧なシリコン指紋による不正を最前線で防ぐ。</li>
+</ul>
+<div title="💡 認証の黄金ルール">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>💡 認証の黄金ルール</strong></p>
+</div>
+<div class="callout-content">
+<p>生体認証は「便利さのためのカギ」。<strong>最も強固なマスターキーは依然として「長くて複雑なパスコード」</strong>です！</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="生体認証は最強か-抱える3つの弱点" class="slide level3">
+<h3>生体認証は最強か？ —— 抱える3つの弱点</h3>
+<h4 id="一生リセット変更できない">⚠️ 1. 一生リセット（変更）できない</h4>
+<ul>
+<li>パスワードは漏れたら変更できるが、<strong>指や顔は一生交換できない</strong>。</li>
+<li>生体データが一度流出・偽造されると取り返しがつかない。</li>
+</ul>
+<h4 id="環境や体調で使えなくなる">⚠️ 2. 環境や体調で使えなくなる</h4>
+<ul>
+<li>手荒れ・乾燥・汗・怪我で指紋が通らない。</li>
+<li>マスク・サングラス・濃いメイクで顔認証が拒否される。</li>
+</ul>
+</section>
+<section id="法的リスク" class="slide level3">
+<h3>⚖️ 法的リスク</h3>
+<h4 id="寝ている間や物理的強制のリスク">⚠️ 3. 寝ている間や物理的強制のリスク</h4>
+<ul>
+<li>パスワードは言わなければ奪えない（頭の中の秘密）。</li>
+<li>生体情報は<strong>「寝ている間に指を当てられる」「脅されて顔を向けられる」</strong>など、物理的に無理やり解除される弱点がある。</li>
+</ul>
+<div title="⚖️ 法的リスク">
+<div class="callout callout-caution callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>⚖️ 法的リスク</strong></p>
+</div>
+<div class="callout-content">
+<p>海外では、パスコード開示は黙秘権で拒否できても、指紋や顔の照合は令状で強制執行できる場合があります。</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="生体認証の安全設定-注視機能と緊急ロック" class="slide level3">
+<h3>生体認証の安全設定 —— 「注視機能」と「緊急ロック」</h3>
+<h4 id="注視機能目を開けていないとng">👁️ 注視機能（目を開けていないとNG）</h4>
+<ul>
+<li>スマホのFace ID等には「画面を見つめているか」を赤外線で確認する機能がある。</li>
+<li><strong>寝顔で勝手にロック解除されない</strong>よう、設定で「注視を必要とする」を必ずONにしておく！</li>
+</ul>
+<h4 id="写真のピースサインに注意">📷 写真のピースサインに注意</h4>
+<ul>
+<li>スマホカメラの超高画質化で、<strong>写真から指紋紋様が復元される</strong>リスクが指摘されている。</li>
+</ul>
+</section>
+<section id="生体認証の安全設定-注視機能と緊急ロックポイント" class="slide level3">
+<h3>生体認証の安全設定 —— 「注視機能」と「緊急ロック」（ポイント）</h3>
+<h4 id="危険を感じた時の緊急ロック">🚨 危険を感じた時の「緊急ロック」</h4>
+<ul>
+<li>生体認証を<strong>一瞬で無効化してパスコード必須</strong>にする裏技！</li>
+<li><strong>iPhone</strong>: サイドボタン＋音量ボタン長押し（電源OFF画面を出す）</li>
+<li><strong>Android</strong>: 電源メニューから「ロックダウン」を選択</li>
+<li>これで一時的に生体認証がオフになり、パスコードを知らない人は解除不能！</li>
+</ul>
+</section>
+<section id="sms認証に潜むワナ-simスワップ詐欺" class="slide level3">
+<h3>SMS認証に潜むワナ —— SIMスワップ詐欺</h3>
+<h4 id="手軽だが危険なsmsコード">📱 手軽だが危険なSMSコード</h4>
+<ul>
+<li>電話番号宛てに届く6桁コードは広く普及しているが、安全レベルは低め。</li>
+<li><strong>SIMスワップの手口</strong>
+<ul>
+<li>犯人が偽造身分証で携帯ショップに行き、あなたの番号のSIMを勝手に再発行。</li>
+<li>あなたのスマホが「圏外」になり、犯人に認証コードが届く！</li>
+</ul></li>
+</ul>
+</section>
+<section id="図解simスワップ詐欺の手口フロー" class="slide level3">
+<h3>【図解】SIMスワップ詐欺の手口フロー</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">sequenceDiagram
+    autonumber
+    participant A as 😈 犯人
+    participant S as 🏢 携帯ショップ
+    participant V as 👤 被害者
+    participant B as 🏦 ネット銀行
+
+    A-&gt;&gt;S: 偽造身分証でSIM再発行を申請
+    S-&gt;&gt;A: 犯人に新しいSIMカードを交付
+    S--x V: 被害者の旧SIMが強制無効化（突然の圏外）
+    Note over V: 通話・ネットが完全不通に！😱
+    A-&gt;&gt;B: 被害者のIDで銀行ログイン試行
+    B-&gt;&gt;A: 犯人のスマホにSMS認証コードが着信！
+    A-&gt;&gt;B: 認証コードを入力して認証突破
+    Note over A, B: 💥 預金全額を別口座へ不正送金（被害完了）
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="sms認証の弱点と認証アプリtotpへの移行" class="slide level3">
+<h3>SMS認証の弱点と「認証アプリ（TOTP）」への移行</h3>
+<div title="🛡️ 認証アプリ（TOTP）への移行">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>🛡️ 認証アプリ（TOTP）への移行</strong></p>
+</div>
+<div class="callout-content">
+<p>「Google Authenticator」などの認証アプリは、端末内で30秒ごとに使い捨てコードを作るため、SIMを乗っ取られても安全です。</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="そもそもワンタイムパスワードotpって何" class="slide level3">
+<h3>そもそも「ワンタイムパスワード（OTP）」って何？</h3>
+<h4 id="秒数分で消滅する使い捨ての合鍵">🎫 30秒〜数分で消滅する「使い捨ての合鍵」</h4>
+<ul>
+<li>通常のパスワード（固定の合言葉）は、一度盗まれたら変えるまで悪用され続ける。</li>
+<li><strong>ワンタイムパスワード（One-Time Password）</strong>は、<strong>「1回使うか、制限時間を過ぎると無効になる使い捨てコード」</strong>。</li>
+<li>たとえ通信を覗き見されて犯人に番号を知られても、数秒後にはゴミクズになるため再利用できない！</li>
+</ul>
+</section>
+<section id="ワンタイムパスワードの代表的な2つの届き方" class="slide level3">
+<h3>ワンタイムパスワードの代表的な2つの届き方</h3>
+<h4 id="sms型-vs-認証アプリ型totp">📱 SMS型 vs 認証アプリ型（TOTP）</h4>
+<ol type="1">
+<li><strong>SMS / メール通知型</strong>
+<ul>
+<li>サーバーから都度届く使い捨てコード。</li>
+<li><strong>メリット</strong>：アプリ導入不要で手軽。</li>
+<li><strong>デメリット</strong>：SIMスワップ詐欺やフィッシングに弱い。</li>
+</ul></li>
+<li><strong>認証アプリ型（TOTP）</strong>
+<ul>
+<li>Google Authenticatorなど、端末内で30秒ごとに自動生成されるコード。</li>
+<li><strong>メリット</strong>：電波不要、SIMを乗っ取られても安全！</li>
+</ul></li>
+</ol>
+</section>
+<section id="不思議機内モード電波ゼロでもなぜ認証コードが一致するのか" class="slide level3">
+<h3>不思議！機内モード（電波ゼロ）でもなぜ認証コードが一致するのか？</h3>
+<h4 id="秘密はスマホの正確な時計totp">⏰ 秘密は「スマホの正確な時計（TOTP）」</h4>
+<ul>
+<li>認証アプリ（Google Authenticator等）は、<strong>機内モードや圏外・地下でも正確に30秒ごとに新しい数字</strong>を表示できる。</li>
+<li><strong>素朴な疑問</strong>：<br>
+「サーバーと電波で通信していないのに、なぜサーバー側と手元のスマホで全く同じ6桁の数字になるの？」</li>
+</ul>
+</section>
+<section id="通信不要で一致する数学のカラクリtime-based-otp" class="slide level3">
+<h3>通信不要で一致する数学のカラクリ（Time-based OTP）</h3>
+<h4 id="共通の秘密鍵-正確な時刻">🧮 共通の秘密鍵 ＋ 正確な時刻</h4>
+<ul>
+<li><strong>登録時（QRコード読み取り）</strong>：<br>
+スマホとサーバーの間だけで、<strong>「共通の秘密鍵（計算のタネ）」</strong>を最初に1回だけ安全に共有する。</li>
+<li><strong>コード生成の瞬間</strong>：<br>
+<code>共通の秘密鍵 ＋ 現在の正確な時刻（30秒刻み）</code> をハッシュ関数に投入！</li>
+<li><strong>結果</strong>：<br>
+通信しなくても、<strong>「同じタネ」と「同じ時刻」から数学的に全く同じ6桁の数字が導き出される</strong>仕組み！</li>
+</ul>
+</section>
+<section id="夜中に届くログイン承認しますかの恐怖-mfa疲労攻撃" class="slide level3">
+<h3>夜中に届く「ログイン承認しますか？」の恐怖 —— MFA疲労攻撃</h3>
+<h4 id="mfa疲労攻撃mfa-fatigueの手口">🥱 MFA疲労攻撃（MFA Fatigue）の手口</h4>
+<ul>
+<li>攻撃者がパスワードを入手後、深夜の就寝時などを狙って「ログイン承認しますか？」のPush通知を数十回連続で送りつける。</li>
+<li>鳴り止まない通知への苛立ち、眠気、通知を消したい一心で、誤って<strong>［承認］を押した瞬間にアカウント侵入が完了</strong>する！</li>
+</ul>
+<div title="🚨 鉄則">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>🚨 鉄則</strong></p>
+</div>
+<div class="callout-content">
+<p>自分でログイン操作をしていない時に届いた承認通知は、<strong>絶対に［拒否］を押し、直ちにパスワードを変更してください！</strong></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="図解mfa疲労攻撃の心理トラップ" class="slide level3">
+<h3>【図解】MFA疲労攻撃の心理トラップ</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    A["😈 攻撃者が深夜にログイン試行連打"] --&gt; B["📱 被害者のスマホにPush通知が鳴り止まない！"]
+    B --&gt; C{"ユーザーの心理的反応"}
+    C --&gt;|冷静に「拒否」を押す| D["🛡️ 防衛成功 ✅&lt;br/&gt;直ちにパスワード変更！"]
+    C --&gt;|眠気・苛立ちで「承認」を押してしまう| E["💥 アカウント乗っ取り完了！"]
+
+    style D fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style E fill:#ffebee,stroke:#c62828,stroke-width:2px
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="スマホ紛失で詰むのを防ぐバックアップコード" class="slide level3">
+<h3>スマホ紛失で詰むのを防ぐ「バックアップコード」</h3>
+<h4 id="mfaユーザー最大の悲劇">💥 MFAユーザー最大の悲劇</h4>
+<ul>
+<li>「スマホを海に落とした・故障した・盗まれた」。</li>
+<li>新しいPCからログインしようとしても、<strong>「スマホに届く認証コード」が受け取れないため永久にログイン不能になる！</strong></li>
+</ul>
+</section>
+<section id="スマホ紛失で詰むのを防ぐバックアップコードポイント" class="slide level3">
+<h3>スマホ紛失で詰むのを防ぐ「バックアップコード」（ポイント）</h3>
+<h4 id="命綱バックアップコード">📄 命綱：バックアップコード</h4>
+<ul>
+<li>2段階認証設定時に発行される使い捨てコード（8〜10桁×10個）。</li>
+<li><strong>紙に印刷するか手帳に手書きし、自宅の金庫やパスポートと一緒に保管する</strong>のがデジタル社会の鉄則！</li>
+</ul>
+</section>
+<section id="物理キーyubikeyなどという究極の盾" class="slide level3">
+<h3>物理キー（YubiKeyなど）という究極の盾</h3>
+<ul>
+<li><strong>USBポートに挿し、指で触れる鍵</strong>
+<ul>
+<li>親指サイズの物理セキュリティキー。</li>
+</ul></li>
+<li><strong>なぜ100%防げるのか？</strong>
+<ul>
+<li>認証時に「人間が金属部に指で触れる」必要がある。</li>
+<li>どんな凄腕ハッカーでも、<strong>「目の前で人間が指で触れる」という物理現象をネット越しに偽造することは絶対に不可能！</strong></li>
+</ul></li>
+</ul>
+</section>
+<section id="比較一覧物理キーyubikeyなどという究極の盾" class="slide level3">
+<h3>【比較一覧】物理キー（YubiKeyなど）という究極の盾</h3>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">認証方式</th>
+<th style="text-align: center;">利便性</th>
+<th style="text-align: center;">安全性</th>
+<th style="text-align: center;">フィッシング耐性</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">パスワードのみ</td>
+<td style="text-align: center;">△</td>
+<td style="text-align: center;">✕</td>
+<td style="text-align: center;">✕（騙される）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SMSコード</td>
+<td style="text-align: center;">◯</td>
+<td style="text-align: center;">△</td>
+<td style="text-align: center;">△（横取り可）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">認証アプリ</td>
+<td style="text-align: center;">◯</td>
+<td style="text-align: center;">◯</td>
+<td style="text-align: center;">△（偽画面で流出）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>パスキー / 物理キー</strong></td>
+<td style="text-align: center;"><strong>◎</strong></td>
+<td style="text-align: center;"><strong>◎</strong></td>
+<td style="text-align: center;"><strong>◎（100%遮断）</strong></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="実践チェック-1" class="slide level3">
+<h3>📱 実践チェック</h3>
+<h4 id="チェックワーク">📱 チェックワーク</h4>
+<ul>
+<li>Googleや大学アカウントの「2段階認証」設定を開く。</li>
+<li>認証方法として何が登録されているか？</li>
+<li>「バックアップコード」をメモ・印刷してあるか確認。</li>
+</ul>
+</section>
+<section id="考えてみよう振り返り-1" class="slide level3">
+<h3>🤔 考えてみよう（振り返り）</h3>
+<h4 id="ケーススタディ">🤔 ケーススタディ</h4>
+<ul>
+<li>「友達からLINEで『投票してほしいから、今そっちに届いた4桁の番号を教えて！』と言われた。」<br>
+教えると何が起きる？なぜ危険？</li>
+</ul>
+</section>
+<section class="slide level3">
+
+</section>
+
+<section id="パスワードが消える-パスキーの登場" class="title-slide slide level2 center">
+<h2>3. パスワードが消える？ —— パスキーの登場</h2>
+
+</section>
+<section id="考えてみたい問い-2" class="slide level3">
+<h3>考えてみたい問い</h3>
+<ul>
+<li>指紋や顔を向けるだけでログインできる「パスキー」とは？</li>
+<li>なぜ偽サイト（フィッシング）に100%引っかからないのか？</li>
+<li>生体データはネットやクラウドに流出しないの？</li>
+</ul>
+</section>
+<section id="画面に顔を向けるだけでログインできる魔法" class="slide level3">
+<h3>画面に顔を向けるだけでログインできる魔法</h3>
+<h4 id="パスキーpasskeyとは">✨ パスキー（Passkey）とは</h4>
+<ul>
+<li>Google、Apple、任天堂、メルカリ、Amazonで導入急加速。</li>
+<li>パスワード入力自体が存在しない。</li>
+<li>スマホの生体認証（Face ID / 指紋）を通すだけで1秒でログイン完了！</li>
+</ul>
+</section>
+<section id="たとえ話-マンションのオートロックでたとえると" class="slide level3">
+<h3>【たとえ話】🏢 マンションのオートロックでたとえると？</h3>
+<div title="🏢 マンションのオートロックでたとえると？">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>🏢 マンションのオートロックでたとえると？</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><strong>パスワード</strong>：「暗証番号式のオートロック」。住人全員が番号を知っており、誰かが漏らしたら終わり。</li>
+<li><strong>パスキー</strong>：「<strong>顔認証オートロック</strong>」。暗証番号自体が存在しない。顔や指紋だけで開き、番号盗難の心配がゼロ！</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="図解パスキーのログインフロー" class="slide level3">
+<h3>【図解】パスキーのログインフロー</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    A[ユーザー] --&gt;|Face ID / 指紋| B[手元のスマホ]
+    B --&gt;|暗号署名| C[Webサービス]
+    C --&gt;|認証成功| D[ログイン完了 ✅]
+    style B fill:#e1f5fe,stroke:#0288d1
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div title="💡 パスワードとの決定的な違い">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>💡 パスワードとの決定的な違い</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><strong>パスワード</strong>：「合言葉をサーバーに送って照合する」方式（盗まれるリスク大）。</li>
+<li><strong>パスキー</strong>：<strong>「合言葉をサーバーに一切送らない」</strong>方式（秘密鍵は手元のスマホから出ない）。</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="なぜフィッシング詐欺に100引っかからないのか" class="slide level3">
+<h3>なぜフィッシング詐欺に100%引っかからないのか？</h3>
+<h4 id="スマホによる機械的ドメイン照合オリジンバインド">🤖 スマホによる機械的ドメイン照合（オリジンバインド）</h4>
+<ul>
+<li><strong>公開鍵暗号のペア</strong>
+<ul>
+<li>スマホ内に「秘密鍵（門外不出）」、本物のサーバーに「公開鍵」を保管。</li>
+</ul></li>
+<li><strong>オリジンバインド（URL厳密照合）</strong>
+<ul>
+<li>ブラウザがアクセス先WebサイトのドメインURLを機械的・厳密に検証。</li>
+<li>たとえ人間が見分けられない超精巧な偽サイト（<code>amaz0n.co.jp</code> 等）であっても、スマホ側が「契約相手ではない偽物」と瞬時に判定し、<strong>秘密鍵による署名処理を完全拒否</strong>する！</li>
+</ul></li>
+</ul>
+</section>
+<section id="図解パスキーが偽サイトを完全無効化する仕組み" class="slide level3">
+<h3>【図解】パスキーが偽サイトを完全無効化する仕組み</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">sequenceDiagram
+    autonumber
+    participant U as "ユーザー"
+    participant B as "スマホ端末 (ブラウザ)"
+    participant F as "偽フィッシングサイト"
+    U-&gt;&gt;F: 巧妙な偽サイトにアクセス
+    F-&gt;&gt;B: ログイン要求（認証チャレンジ）
+    Note over B: ドメイン厳密照合！&lt;br/&gt;「正規の登録URLと不一致」
+    B--&gt;&gt;F: エラー（秘密鍵の署名を完全拒否！）
+    Note over F: パスワードが存在しないため&lt;br/&gt;何も盗めない！
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="スマホを壊したり紛失したらどうなる" class="slide level3">
+<h3>スマホを壊したり紛失したらどうなる？</h3>
+<h4 id="同期型パスキーのバックアップ">☁️ 同期型パスキーのバックアップ</h4>
+<ul>
+<li>パスキーの鍵は、iCloudキーチェーンやGoogleアカウントを通じて<strong>エンドツーエンド暗号化（E2EE）</strong>で同期される。</li>
+<li>新しいスマホに買い替えても、同じアカウントでサインインすれば自動復元！</li>
+</ul>
+</section>
+<section id="パスキーの始め方" class="slide level3">
+<h3>📱 パスキーの始め方</h3>
+<div title="📱 パスキーの始め方">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>📱 パスキーの始め方</strong></p>
+</div>
+<div class="callout-content">
+<ol type="1">
+<li>Google、Amazon、メルカリの設定を開く</li>
+<li>「セキュリティ」$ o$「パスキーの作成」を選択</li>
+<li>スマホのFace ID / 指紋をかざすだけで完了！</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="実践チェック-2" class="slide level3">
+<h3>📱 実践チェック</h3>
+<h4 id="実践ワーク">🛠️ 実践ワーク</h4>
+<ul>
+<li>自分のGoogleアカウントやAmazonでパスキーを作成してみよう。</li>
+<li>次回以降、パスワードを打たずにログインできる快適さを体験してみる。</li>
+</ul>
+</section>
+<section id="考えてみよう振り返り-2" class="slide level3">
+<h3>🤔 考えてみよう（振り返り）</h3>
+<h4 id="考えてみよう-1">🤔 考えてみよう</h4>
+<ul>
+<li>「パスワードが不要になる社会」で、高齢者やITが苦手な人が直面しそうな課題は何だろう？</li>
+</ul>
+</section>
+<section class="slide level3">
+
+</section>
+
+<section id="ソーシャルログインの落とし穴" class="title-slide slide level2 center">
+<h2>4. ソーシャルログインの落とし穴</h2>
+
+</section>
+<section id="考えてみたい問い-3" class="slide level3">
+<h3>考えてみたい問い</h3>
+<ul>
+<li>「Googleでログイン」を押すと、相手にパスワードが知られる？</li>
+<li>大元のGoogleアカウントがBANされたら何が起きる？</li>
+<li>もし自分が事故で倒れたら、自分のアカウントはどうなる？</li>
+</ul>
+</section>
+<section id="そもそもソーシャルログインって何" class="slide level3">
+<h3>そもそも「ソーシャルログイン」って何？</h3>
+<h4 id="よく見るあのボタンの正体">📱 よく見るあのボタンの正体</h4>
+<ul>
+<li>新しいWebサイトやアプリを使う時、メールアドレスやパスワードを毎回新規入力するのは大変。</li>
+<li>画面にある<strong>「Googleでサインイン」「LINEでログイン」「Appleでサインイン」</strong>を押すだけで、一瞬で安全に会員登録・ログインできる仕組み！</li>
+</ul>
+</section>
+<section id="相手のアプリにgoogleのパスワードはバレる" class="slide level3">
+<h3>相手のアプリにGoogleのパスワードはバレる？</h3>
+<h4 id="最も多い素朴な疑問と真実">❓ 最も多い素朴な疑問と真実</h4>
+<ul>
+<li><strong>生徒の疑問</strong>：<br>
+「相手の見知らぬゲームアプリに、自分の大事なGoogleのパスワードが見られちゃうんじゃないの？」</li>
+<li><strong>結論：相手にあなたのパスワードは1文字も渡っていません！</strong></li>
+<li>相手アプリが見ているのは、Googleから発行された「認証済みの安全な暗号化記号（トークン）」だけです。</li>
+</ul>
+</section>
+<section id="パスワードを渡さずにログインできるカラクリ" class="slide level3">
+<h3>パスワードを渡さずにログインできるカラクリ</h3>
+<h4 id="身元保証人になってもらう仕組みoauth-oidc">🤝 「身元保証人」になってもらう仕組み（OAuth / OIDC）</h4>
+<ul>
+<li>初めて行くお店の会員登録で、店長に自分のパスワード（自宅の鍵）を直接教えるのは極めて危険。</li>
+<li>代わりに、<strong>誰もが知る超有名人（GoogleやApple）が「この人は間違いなく本人です」と身元保証人として太鼓判を押してくれる</strong>仕組み（<strong>OAuth / OpenID Connect</strong>）。</li>
+</ul>
+</section>
+<section id="ソーシャルログインが選ばれる理由" class="slide level3">
+<h3>ソーシャルログインが選ばれる理由</h3>
+<h4 id="利用者とサービス双方のメリット">🛡️ 利用者とサービス双方のメリット</h4>
+<ul>
+<li><strong>利用者側の安心</strong>：<br>
+パスワードを新しく覚える必要がなく、相手サイトがハッキングされてもパスワードが流出する心配がゼロ！</li>
+<li><strong>サービス側の安心</strong>：<br>
+パスワードを預かる巨大な漏洩リスクを抱えずに済み、世界最強クラスのセキュリティ基盤をそのまま活用できる。</li>
+</ul>
+</section>
+<section id="たとえ話-共通の知人でたとえると" class="slide level3">
+<h3>【たとえ話】🤝 共通の知人でたとえると？</h3>
+<div title="🤝 共通の知人でたとえると？">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>🤝 共通の知人でたとえると？</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><strong>パスワード入力</strong>：初めて行く怪しいバーに入るため、<strong>自宅の合鍵をバーの店長に預けるようなもの</strong>。</li>
+<li><strong>ソーシャルログイン</strong>：<strong>「誰もが知る有名人の友人（Googleさん）に店まで来てもらい、『この人は私の友人の田中さんで間違いありません』と保証人になってもらう」</strong>こと！</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="図解openid-connectの身元保証フロー" class="slide level3">
+<h3>【図解】OpenID Connectの身元保証フロー</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">sequenceDiagram
+    autonumber
+    participant U as "ユーザー (田中さん)"
+    participant S as "外部サイト (会員制バー)"
+    participant G as "Google (身元保証人)"
+    U-&gt;&gt;S: 「Googleでログイン」をクリック
+    S-&gt;&gt;G: 認証リクエスト転送 (「田中さんって本物？」)
+    U-&gt;&gt;G: Googleでログイン承認 (「うん、私だよ」)
+    G--&gt;&gt;S: 暗号化されたIDトークン発行 (「身元保証します」)
+    Note over S: トークンを検証し&lt;br/&gt;ログイン許可 ✅
+    S--&gt;&gt;U: ログイン完了！
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="アプリ連携の許可画面ちゃんと読んでる" class="slide level3">
+<h3>アプリ連携の許可画面、ちゃんと読んでる？</h3>
+<h4 id="要求される権限スコープの確認">⚠️ 要求される権限（スコープ）の確認</h4>
+<ul>
+<li>連携時に表示される確認画面。「許可」を押すと、その操作権限をアプリに与えることになる。</li>
+<li><strong>危険なスコープの例</strong>
+<ul>
+<li>「あなたに代わって投稿する」</li>
+<li>「友達リスト・連絡先を読み取る」</li>
+<li>「クラウドの全ファイルを閲覧・削除する」</li>
+</ul></li>
+</ul>
+</section>
+<section id="sns連携相性診断占いアプリに潜む個人情報搾取の罠" class="slide level3">
+<h3>SNS連携「相性診断・占いアプリ」に潜む個人情報搾取の罠</h3>
+<div title="⚠️ 診断アプリの罠">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>⚠️ 診断アプリの罠</strong></p>
+</div>
+<div class="callout-content">
+<p>「あなたを動物に例えると？」のような一見無害なSNS診断アプリが、裏で「友達リストの取得」や「スパム自動投稿」の権限を要求し、アカウントを乗っ取る手口が多発しています。</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="つのアカウントが消えると全てが消える連鎖凍結" class="slide level3">
+<h3>1つのアカウントが消えると全てが消える（連鎖凍結）</h3>
+<h4 id="単一障害点spof-single-point-of-failureの恐怖">💥 単一障害点（SPOF: Single Point of Failure）の恐怖</h4>
+<ul>
+<li>全てを「Googleでログイン」や「Appleでサインイン」にまとめていた場合、大元の親アカウントが規約違反や乗っ取り、AI誤判定で停止（BAN）されるとどうなるか？</li>
+<li><strong>ドミノ倒しの連鎖被害</strong>
+<ul>
+<li>紐づいていたゲーム、通販、フリマ、サブスクから<strong>一斉に永久締め出し</strong>！</li>
+<li>大元のアカウントが死んでいるため、パスワードの再発行・復旧すら不可能。</li>
+</ul></li>
+</ul>
+</section>
+<section id="図解ソーシャルログインのドミノ倒し単一障害点" class="slide level3">
+<h3>【図解】ソーシャルログインのドミノ倒し（単一障害点）</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    A["大元 Google / Apple ID"] --&gt;|BAN・凍結・乗っ取り| B["💥 全連携サービスから一斉遮断！"]
+    B --&gt; C["🎮 ゲームの課金データ・セーブデータ消失"]
+    B --&gt; D["🛍️ メルカリ・通販サイトが利用不能"]
+    B --&gt; E["💳 サブスクの解約手続きすらできない"]
+
+    style A fill:#fff3e0,stroke:#f57c00
+    style B fill:#ffebee,stroke:#c62828,stroke-width:2px
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="もし自分が死んだら倒れたら-デジタル遺産" class="slide level3">
+<h3>もし自分が死んだら・倒れたら？ —— デジタル遺産</h3>
+<h4 id="現代の終活トラブル">🪦 現代の終活トラブル</h4>
+<ul>
+<li>契約者が急逝した際、スマホのロックが解けず、銀行口座や写真に家族がアクセスできない。</li>
+<li>サブスクの課金が毎月引き落とされ続ける。</li>
+</ul>
+</section>
+<section id="もし自分が死んだら倒れたら-デジタル遺産ポイント" class="slide level3">
+<h3>もし自分が死んだら・倒れたら？ —— デジタル遺産（ポイント）</h3>
+<h4 id="公式の継承機能">📱 公式の継承機能</h4>
+<ul>
+<li><strong>Apple「故人アカウント管理連絡先」</strong>：事前に指定した家族（最大5名）がアクセスキーと死亡証明書でデータ取得可能。</li>
+<li><strong>Google「アカウント無効化管理ツール」</strong>：数ヶ月ログインがない場合、家族にデータDLリンクを送付。</li>
+</ul>
+</section>
+<section id="実践チェック-3" class="slide level3">
+<h3>📱 実践チェック</h3>
+<h4 id="連携アプリの棚卸しワーク">📱 連携アプリの棚卸しワーク</h4>
+<ol type="1">
+<li>LINE：「設定」$ o<span class="math inline">\(「アカウント」\)</span> o$「連動アプリ」を開く。</li>
+<li>Google：「アカウント管理」$ o<span class="math inline">\(「データとプライバシー」\)</span> o$「サードパーティアプリ」を開く。</li>
+<li><strong>何年も使っていない怪しいアプリを連携解除しよう！</strong></li>
+</ol>
+</section>
+<section id="考えてみよう振り返り-3" class="slide level3">
+<h3>🤔 考えてみよう（振り返り）</h3>
+<h4 id="考えてみよう-2">🤔 考えてみよう</h4>
+<ul>
+<li>銀行や証券口座は、ソーシャルログインを使うべきか、独立した固有ID/パスワードにすべきか？その理由は？</li>
+</ul>
+</section>
+<section class="slide level3">
+
+
+</section>
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="part1_auth_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="part1_auth_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="part1_auth_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="part1_auth_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="part1_auth_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="part1_auth_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="part1_auth_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="part1_auth_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="part1_auth_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="part1_auth_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="part1_auth_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': true,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>

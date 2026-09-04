@@ -1,0 +1,96 @@
+/* ==========================================================================
+   custom.css - Enhanced Readability for Multimedia Presentation
+   ========================================================================== */
+
+/* Overall slide typography adjustments */
+.reveal {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+}
+
+/* ==========================================================================
+   Mermaid Diagram Enhancements (Larger figures, bold and legible text)
+   ========================================================================== */
+.reveal .mermaid {
+  font-size: 24px !important;
+  text-align: center;
+  margin: 10px auto;
+  display: block;
+  width: 100%;
+}
+
+.reveal .mermaid svg {
+  /* Expand diagram to fill available slide space without collapsing width */
+  max-height: 540px !important;
+  max-width: 95% !important;
+  display: block;
+  margin: 0 auto;
+}
+
+/* SVG Text elements inside Mermaid diagrams */
+.reveal .mermaid text,
+.reveal .mermaid .node text,
+.reveal .mermaid .nodeLabel,
+.reveal .mermaid .label,
+.reveal .mermaid .label text,
+.reveal .mermaid text.actor,
+.reveal .mermaid text.messageText,
+.reveal .mermaid .noteText,
+.reveal .mermaid .labelText,
+.reveal .mermaid .edgeLabel,
+.reveal .mermaid .edgeLabel span {
+  font-size: 21px !important;
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
+}
+
+/* Specific sequence diagram text styling */
+.reveal .mermaid text.actor {
+  font-size: 22px !important;
+  font-weight: bold !important;
+}
+.reveal .mermaid text.messageText {
+  font-size: 20px !important;
+  font-weight: 600 !important;
+}
+.reveal .mermaid .noteText > tspan,
+.reveal .mermaid .noteText {
+  font-size: 20px !important;
+  font-weight: 600 !important;
+}
+
+/* Subgraph / Cluster Titles */
+.reveal .mermaid .cluster text,
+.reveal .mermaid .cluster span {
+  font-size: 22px !important;
+  font-weight: bold !important;
+}
+
+/* Edge Labels (arrows) */
+.reveal .mermaid .edgeLabel {
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  padding: 3px 8px !important;
+  border-radius: 4px !important;
+}
+
+/* Pie charts */
+.reveal .mermaid .pieTitleText {
+  font-size: 24px !important;
+  font-weight: bold !important;
+}
+.reveal .mermaid .slice {
+  font-size: 18px !important;
+}
+.reveal .mermaid .legend text {
+  font-size: 19px !important;
+}
+
+/* ER diagrams */
+.reveal .mermaid .entityBox {
+  font-size: 19px !important;
+}
+.reveal .mermaid .entityLabel {
+  font-size: 21px !important;
+  font-weight: bold !important;
+}
