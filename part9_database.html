@@ -201,44 +201,45 @@
 <nav role="doc-toc"> 
 <h2 id="toc-title">Table of contents</h2>
 <ul>
-<li><a href="#/経済学とビジネスのための現代データベース入門" id="/toc-経済学とビジネスのための現代データベース入門">経済学とビジネスのための現代データベース入門</a></li>
+<li><a href="#/データベースと通信の裏側-経済ビジネスと情報インフラの基盤" id="/toc-データベースと通信の裏側-経済ビジネスと情報インフラの基盤">データベースと通信の裏側 —— 経済・ビジネスと情報インフラの基盤</a></li>
 </ul>
 </nav>
 </section>
 <section>
-<section id="経済学とビジネスのための現代データベース入門" class="title-slide slide level1 center">
-<h1>経済学とビジネスのための現代データベース入門</h1>
+<section id="データベースと通信の裏側-経済ビジネスと情報インフラの基盤" class="title-slide slide level1 center">
+<h1>データベースと通信の裏側 —— 経済・ビジネスと情報インフラの基盤</h1>
 
 </section>
 <section id="本日の講義マップ-全6章のアジェンダ" class="slide level3">
 <h3>本日の講義マップ —— 全6章のアジェンダ</h3>
 <ol type="1">
-<li><strong>Excelの限界と「関係モデル」の誕生</strong>（更新時アノマリーと取引コスト）</li>
-<li><strong>ビジネスをモデル化する（ER図とREAモデリング）</strong>（会計学とリソース・イベント）</li>
-<li><strong>データの整合性を守る「正規化」の技法</strong>（1NF〜3NFと価格スナップショット）</li>
+<li><strong>身近なデータの正体とExcelの限界</strong>（キャッシュ・同期・更新時アノマリー・B+ツリー）</li>
+<li><strong>ビジネスをモデル化する（ER図とREAモデリング）</strong>（会計学とリソース・イベント・注文明細）</li>
+<li><strong>データの整合性を守る「正規化」の技法</strong>（1NF〜3NFと購入時単価の経済的例外）</li>
 <li><strong>ビジネスデータを操るSQL</strong>（集合の宣言、集約、JOIN結合）</li>
-<li><strong>金融・取引を支える「トランザクション」とACID特性</strong>（銀行送金と分離性の破壊）</li>
-<li><strong>分散システムと社会インフラ（CAP定理と決済システム）</strong>（CP vs AP、Google Spanner）</li>
+<li><strong>金融・取引を支える「トランザクション」とACID特性</strong>（送金・ロストアップデート・座席ロック）</li>
+<li><strong>アプリとクラウドをつなぐ分散インフラと通信の真実</strong>（API・JSON・CAP定理・Ping値・動画圧縮）</li>
 </ol>
 </section>
-<section id="本日の到達目標-データの裏側にある制度設計を掴む" class="slide level3">
-<h3>本日の到達目標 —— データの裏側にある「制度設計」を掴む</h3>
+<section id="本日の到達目標-データの裏側にある技術と制度を掴む" class="slide level3">
+<h3>本日の到達目標 —— データの裏側にある「技術と制度」を掴む</h3>
 <h4 id="本日の講義で身につく力">🎯 本日の講義で身につく力</h4>
 <ul>
-<li>企業がなぜExcelではなくデータベース（RDB）を基幹に据えるのかを「アノマリー」から説明できる</li>
+<li>スマホのキャッシュや「同期 vs バックアップ」の罠を理解し、安全に端末を管理できる</li>
+<li>企業がExcelではなくデータベース（RDB）を基幹にする理由（アノマリー・取引コスト）を説明できる</li>
 <li>複式簿記に基づく「REAモデリング」で、ビジネスルールを破綻なくモデル化できる</li>
-<li>第1正規形〜第3正規形の本質と、あえて非正規化する「経済的例外（価格保持）」を理解できる</li>
-<li>金融取引を担保する「ACID特性」と、並行処理で起きる経済的被害（ロストアップデート等）を防ぐ仕組みを把握する</li>
-<li>分散インフラの物理限界である「CAP定理」と、Google Spannerが原子時計でねじ伏せた外部一貫性を論理的に説明できる</li>
+<li>第1〜第3正規形の本質と、過去の合意価格（単価）をあえて重複保存する経済的理由を説明できる</li>
+<li>金融取引を守る「ACID特性」と、ダブルブッキングやロストアップデートを防ぐ仕組みを把握する</li>
+<li>APIとJSONによるアプリ間通信、CAP定理、そしてGoogle Spannerが原子時計で拓いた世界分散DBの原理を論理的に理解できる</li>
 </ul>
 </section>
-<section id="はじめになぜ経済学部でデータベースを学ぶのか" class="slide level3">
-<h3>はじめに：なぜ経済学部でデータベースを学ぶのか？</h3>
-<h4 id="現代経済金融企業組織の背後にあるdbms">🏛️ 現代経済・金融・企業組織の背後にあるDBMS</h4>
+<section id="はじめになぜ経済学部現代社会でデータベースを学ぶのか" class="slide level3">
+<h3>はじめに：なぜ経済学部・現代社会でデータベースを学ぶのか？</h3>
+<h4 id="現代の経済活動金融市場企業組織の背後にあるdbms">🏛️ 現代の経済活動・金融市場・企業組織の背後にあるDBMS</h4>
 <ul>
 <li><strong>銀行口座間の資金移動</strong>：
 <ul>
-<li>Aさんの口座から引き落とされた瞬間、Bさんの口座に同額が加算されなければならない（途中で通信が切れたら？）。</li>
+<li>送金側から引き落とされた瞬間、受取側に同額が加算されなければならない（途中で通信が切れたら？）。</li>
 </ul></li>
 <li><strong>フリマアプリやチケット販売</strong>：
 <ul>
@@ -268,17 +269,106 @@
 <section class="slide level3">
 
 </section>
-<section id="excelの限界と関係モデルの誕生" class="title-slide slide level2 center">
-<h2>1. Excelの限界と「関係モデル」の誕生</h2>
+<section id="身近なデータの正体とexcelの限界" class="title-slide slide level2 center">
+<h2>1. 身近なデータの正体とExcelの限界</h2>
 
 </section>
 <section id="考えてみたい問い" class="slide level3">
 <h3>考えてみたい問い</h3>
 <ul>
-<li>なぜ多くの企業が「Excelでの顧客・売上管理」で重大なトラブルを起こすのか？</li>
-<li>1枚の大きな表にすべてを記録しようとすると、どんな矛盾（アノマリー）が起きる？</li>
-<li>1970年に提唱された「リレーショナルモデル（関係モデル）」は何を解決したのか？</li>
+<li>写真や動画を消したのに「容量がいっぱいです」と出るのはなぜ？</li>
+<li>「クラウドの写真を消したら本体からも消えた！？」なぜ？</li>
+<li>1枚の巨大なExcelシートで売上を管理すると、どんな経済的事故が起きる？</li>
+<li>1億件のデータから、なぜデータベースは0.001秒で目的の行を見つけられる？</li>
 </ul>
+</section>
+<section id="スマホ容量を食い潰すその他キャッシュの正体" class="slide level3">
+<h3>スマホ容量を食い潰す「その他・キャッシュ」の正体</h3>
+<h4 id="キャッシュcacheとは">🗑️ キャッシュ（Cache）とは？</h4>
+<ul>
+<li>一度開いた画像やWebページを「次回素早く表示するため」に端末内に一時保存したデータ。</li>
+<li><strong>最大の犯人</strong>：LINEのトークルーム画像、Instagram/TikTokの視聴履歴、SafariのWebキャッシュ。</li>
+</ul>
+<div title="📚 机の上の本でたとえると？">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>📚 机の上の本でたとえると？</strong></p>
+</div>
+<div class="callout-content">
+<p>よく使う教科書を、毎回遠くの本棚（ネット）まで取りに行くのが面倒だから、<strong>「机の上に一時的に出しっぱなしにしておく」</strong>のがキャッシュです。机の上が本で埋まったら（容量不足）、一度机を片付ける（キャッシュ削除）必要があります！</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="実践lineのキャッシュを安全に削除して容量を空ける" class="slide level3">
+<h3>【実践】LINEのキャッシュを安全に削除して容量を空ける</h3>
+<h4 id="分でできる容量復活テクニック">📱 1分でできる容量復活テクニック</h4>
+<ol type="1">
+<li>LINEの「設定（歯車アイコン）」を開く</li>
+<li>「トーク」を選択</li>
+<li>「データの削除」をタップ</li>
+<li><strong>「キャッシュ」のみにチェックを入れて削除！</strong></li>
+</ol>
+<div title="✨ メッセージや写真は消えない！">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>✨ メッセージや写真は消えない！</strong></p>
+</div>
+<div class="callout-content">
+<p>写真やテキストメッセージ自体はサーバーや端末本体に残り、一時保存のゴミデータだけが消えるため、安全に数GB〜十数GBの空き容量が復活します！</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="同期とバックアップの致命的な勘違い" class="slide level3">
+<h3>「同期」と「バックアップ」の致命的な勘違い</h3>
+<h4 id="同期sync-icloud-googleフォトの標準動作">🔄 同期（Sync: iCloud / Googleフォトの標準動作）</h4>
+<ul>
+<li><strong>「手元とクラウドを常にまったく同じ状態に保つ」仕組み（双方向連動・鏡の関係）</strong>。</li>
+</ul>
+<div class="callout-danger" title="⚠️ よくある大悲劇：写真の全滅！">
+<p>スマホの容量を空けようとして端末の写真アプリから写真を削除すると、<strong>「鏡」であるクラウド側の写真も連動して即座に完全消去</strong>されます！<br>
+「クラウドにあるから本体を消しても大丈夫」という思い込みが一番危険です。</p>
+</div>
+</section>
+<section id="バックアップは独立した別金庫への退避" class="slide level3">
+<h3>バックアップは「独立した別金庫への退避」</h3>
+<h4 id="バックアップbackup-一方向の独立退避">📦 バックアップ（Backup: 一方向の独立退避）</h4>
+<ul>
+<li><strong>「ある時点のデータの完全な複製を、独立した別金庫に保存する」仕組み</strong>。</li>
+<li>手元の端末から切り離された別の場所（外付けHDDや独立ストレージ）に保管。</li>
+<li>スマホ本体の写真を削除しても、別金庫にあるバックアップデータには何の影響もありません！</li>
+</ul>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    subgraph Sync["🔄 同期（双方向連動: 鏡の関係）"]
+        A["📱 スマホ本体"] &lt;--&gt;|削除も変更も即座に連動| B["☁️ クラウドストレージ"]
+    end
+    subgraph Backup["📦 バックアップ（一方向退避: 金庫の関係）"]
+        C["📱 スマホ本体"] --&gt;|定期的に複製を退避保管| D[("🗄️ 独立した別金庫")]
+    end
+    style Sync fill:#fff3e0,stroke:#f57c00
+    style Backup fill:#e8f5e9,stroke:#2e7d32
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </section>
 <section id="表計算シートが引き起こす3つの経済的損失" class="slide level3">
 <h3>表計算シートが引き起こす3つの経済的損失</h3>
@@ -340,42 +430,25 @@
 </tbody>
 </table>
 <ul>
-<li>一見シンプルで分かりやすい表に見えます。</li>
-<li>しかし、ここにはデータベース工学で<strong>「更新時アノマリー（Update Anomaly）」</strong>と呼ばれる3大リスクが潜んでいます！</li>
+<li>一見分かりやすい表ですが、ここには<strong>「更新時アノマリー（Update Anomaly）」</strong>と呼ばれる3大リスクが潜んでいます！</li>
 </ul>
 </section>
-<section id="修正更新アノマリー表記揺れと情報の非対称性" class="slide level3">
-<h3>① 修正（更新）アノマリー：表記揺れと情報の非対称性</h3>
-<h4 id="箇所の変更で生じるデータの矛盾">✍️ 1箇所の変更で生じるデータの矛盾</h4>
+<section id="excelが引き起こす3大更新時アノマリー" class="slide level3">
+<h3>Excelが引き起こす3大更新時アノマリー</h3>
+<ol type="1">
+<li><strong>修正（更新）アノマリー</strong>：
 <ul>
-<li>もし「田中 太郎」氏が電話番号を変更した場合：
-<ul>
-<li>田中氏の過去の全レコードを探し出して、手動で更新しなければならない。</li>
-<li>1箇所でも修正漏れがあると、<strong>「同じ顧客なのに注文履歴によって電話番号が異なる」</strong>という深刻な不整合が発生！</li>
+<li>田中氏が電話番号を変えた時、過去の全レコードを探して手動更新しなければならず、1箇所でも漏れると<strong>同じ顧客で電話番号が食い違う矛盾</strong>が発生。</li>
 </ul></li>
-<li>レコードが数十万件に達したとき、手作業での同期は完全に破綻します。</li>
-</ul>
-</section>
-<section id="挿入アノマリー存在しない取引の記録不能" class="slide level3">
-<h3>② 挿入アノマリー：存在しない取引の記録不能</h3>
-<h4 id="取引とマスタの同居が生む歪み">🚫 取引とマスタの同居が生む歪み</h4>
+<li><strong>挿入アノマリー</strong>：
 <ul>
-<li><strong>新規見込み客を登録したい場合</strong>：
-<ul>
-<li>「まだ一度も買い物をしたことがない顧客」の連絡先をこの表に登録しようとする。</li>
-<li>すると、「注文番号」や「商品名」「金額」が存在しないため、<strong>空欄（NULL）だらけの歪な行</strong>を作らざるを得ない！</li>
+<li>「まだ買い物をしていない新規見込み客」を登録しようとすると、注文番号や商品名が空欄（<strong>NULL</strong>）の歪な行を作らざるを得ない。</li>
 </ul></li>
-<li>商品マスタや顧客情報を「取引の記録」と同一の表に同居させているために生じる本質的な欠陥です。</li>
-</ul>
-</section>
-<section id="削除アノマリー意図せぬ情報の連鎖消滅" class="slide level3">
-<h3>③ 削除アノマリー：意図せぬ情報の連鎖消滅</h3>
-<h4 id="注文のキャンセルで商品情報が消滅する悲劇">🗑️ 注文のキャンセルで商品情報が消滅する悲劇</h4>
+<li><strong>削除アノマリー</strong>：
 <ul>
-<li>佐藤花子氏の注文（1002）がキャンセルになり、この行をシートから削除したとします。</li>
-<li>すると、<strong>「統計分析基礎という商品が単価3,200円である」という商品マスタ情報そのものが社内から完全に消滅</strong>してしまいます！</li>
-<li>取引の取り消しが、企業の保有財産情報の消滅を招いてしまうのです。</li>
-</ul>
+<li>佐藤氏の注文（1002）をキャンセルして行を削除すると、<strong>「統計分析基礎という商品が単価3,200円である」という商品情報そのものが社内から消滅</strong>する！</li>
+</ul></li>
+</ol>
 </section>
 <section id="経済学的洞察取引コストと情報の冗長性" class="slide level3">
 <h3>💡 経済学的洞察：取引コストと情報の冗長性</h3>
@@ -389,7 +462,7 @@
 <p><strong>💡 ロナルド・コースの「取引コスト」と冗長性</strong></p>
 </div>
 <div class="callout-content">
-<p>同じデータを複数箇所に二重・三重に記録する状態（<strong>冗長性</strong>）は、単にPCのストレージを浪費するだけではありません。</p>
+<p>同じデータを複数箇所に二重・三重に記録する状態（<strong>冗長性</strong>）は、単にストレージを浪費するだけではありません。</p>
 <ul>
 <li>「どれが最新の正しい情報なのか？」を確認するコスト</li>
 <li>社内での情報の同期・突き合わせコスト</li>
@@ -403,12 +476,9 @@
 </section>
 <section id="コッドの関係モデルテーブルを独立した集合に切り離す" class="slide level3">
 <h3>コッドの関係モデル：テーブルを「独立した集合」に切り離す</h3>
-<h4 id="年e.-f.-コッドが提唱した革命">🧩 1970年、E. F. コッドが提唱した革命</h4>
-<ul>
-<li>数学者エドガー・F・コッド（E. F. Codd）の着想：
+<h4 id="年e.-f.-コッドが提唱したリレーショナルモデル">🧩 1970年、E. F. コッドが提唱したリレーショナルモデル</h4>
 <ul>
 <li><strong>「現実世界の事象を、意味のある独立した名詞（テーブル）ごとに分解し、共通の識別番号（ID）だけで結びつける」</strong>。</li>
-</ul></li>
 </ul>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -463,41 +533,60 @@
 </tbody>
 </table>
 </div></div>
+<ul>
+<li>電話番号が変わっても顧客テーブルの1行を修正するだけで全注文に反映！</li>
+<li>注文のない見込み客も単独登録でき、注文を消しても顧客情報は無傷で残ります。</li>
+</ul>
 </section>
-<section id="関係モデルによってアノマリーはどう解消されたか" class="slide level3">
-<h3>関係モデルによってアノマリーはどう解消されたか？</h3>
-<h4 id="大問題の完全な克服">✅ 3大問題の完全な克服</h4>
-<ol type="1">
-<li><strong>修正アノマリーの解消</strong>：
+<section id="億件の検索全表走査full-table-scanの限界" class="slide level3">
+<h3>1億件の検索：全表走査（Full Table Scan）の限界</h3>
+<h4 id="件ずつ先頭から探すナイーブな探索">🐌 1件ずつ先頭から探すナイーブな探索</h4>
 <ul>
-<li>田中氏の電話番号が変わっても、顧客テーブルの「1行」を書き換えるだけで完了。過去の全注文も自動的に新番号を参照！</li>
-</ul></li>
-<li><strong>挿入アノマリーの解消</strong>：
+<li>1億件のデータを、1行目から順に1件ずつ探していく方法。</li>
+<li>件数が増えるほど時間が比例して激増し、数秒〜数分待たされる計算量（<span class="math inline">\(O(N)\)</span>）。</li>
+<li>巨大なデータベースでこれを行うと、サーバーのCPUが100%に張り付きシステムが停止します。</li>
+</ul>
+</section>
+<section id="億件から一瞬で探す技術bツリーインデックス" class="slide level3">
+<h3>1億件から一瞬で探す技術：B+ツリーインデックス</h3>
+<h4 id="索引目次による対数時間探索">⚡ 索引（目次）による対数時間探索</h4>
 <ul>
-<li>買い物をしたことがない新規顧客も、顧客テーブルに単独で登録可能（注文列のNULLは発生しない）。</li>
-</ul></li>
-<li><strong>削除アノマリーの解消</strong>：
-<ul>
-<li>注文がキャンセルされて注文レコードを削除しても、顧客マスタや商品マスタは無傷のまま残る！</li>
-</ul></li>
-</ol>
+<li>あらかじめID順や五十音順に整理して作られた木構造の「目次・辞書」。</li>
+<li>データを分岐しながら絞り込むため、<strong>1億件あってもわずか20数回の比較（<span class="math inline">\(O(\log N)\)</span>）</strong>で目的の行へ数ミリ秒で直行！</li>
+<li>書籍の巻末索引と同じ原理で、目的のデータへ直接ジャンプします。</li>
+</ul>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">graph TD
+    Root["📚 目次（ルートノード）"] --&gt; Left["A 〜 M のグループ"]
+    Root --&gt; Right["N 〜 Z のグループ"]
+    Right --&gt; R1["N 〜 S のグループ"]
+    Right --&gt; R2["T 〜 Z のグループ"]
+    R1 --&gt; Data["🎯 「S: 佐藤さん」のデータへ直行！&lt;br/&gt;（1億件でもわずか3〜4手で到達）"]
+    style Root fill:#e1f5fe,stroke:#0288d1
+    style Data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </section>
 <section id="実践チェック" class="slide level3">
 <h3>📱 実践チェック</h3>
-<h4 id="関係モデルの基本原則を確認">📊 関係モデルの基本原則を確認</h4>
+<h4 id="身近なデータ管理の確認">🗄️ 身近なデータ管理の確認</h4>
 <ul>
-<li>主キー（PK: Primary Key）と外部キー（FK: Foreign Key）の違いは何か？
-<ul>
-<li><strong>主キー（PK）</strong>：そのテーブル内でレコードを唯一無二に特定する背番号（例：顧客ID）。</li>
-<li><strong>外部キー（FK）</strong>：別のテーブルの主キーを参照し、関係性を結ぶための番号（例：注文テーブル内の顧客ID）。</li>
-</ul></li>
+<li>スマホの「ストレージを最適化」機能と「ローカル完全保存」の違いを説明できるか？</li>
+<li>なぜ企業の基幹システムでは、Excelファイルを共有フォルダに置くのではなくRDBを使うのか？</li>
 </ul>
 </section>
 <section id="考えてみよう振り返り" class="slide level3">
 <h3>🤔 考えてみよう（振り返り）</h3>
 <ul>
-<li>大学の教務システムを1枚のExcelシートで作った場合、どんなアノマリーが起きるだろうか？</li>
-<li>「休学中の学生」「まだ履修者が0人の新設科目」を登録する場合を想像してみよう。</li>
+<li>大学の教務システムを1枚のExcelシートで作った場合、「休学中の学生」や「履修者ゼロの新設科目」を登録しようとするとどんなアノマリーが起きるだろうか？</li>
 </ul>
 </section>
 <section class="slide level3">
@@ -707,7 +796,7 @@
 <li><strong>リソース</strong>：講義（開講科目）、教室</li>
 <li><strong>エージェント</strong>：学生、担当教員</li>
 <li><strong>イベント</strong>：履修登録（いつ、どの学生が、どの科目を登録したか）</li>
-<li>学生と科目の多対多を解消する連関エンティティは「履修データ」！</li>
+<li>学生と科目の多対多を解消する連関エンティティは「履修実績データ」！</li>
 </ul></li>
 </ul>
 </section>
@@ -1268,8 +1357,8 @@
 <li>以下の集計を行いたい場合、どの構文を使うか？
 <ul>
 <li>「各支店の売上平均を求め、平均売上が500万円以上の支店を表示する」</li>
-<li>支店ごとにまとめる $ o$ <code>GROUP BY 支店名</code></li>
-<li>平均売上が500万以上 $ o$ <code>HAVING AVG(売上) &gt;= 5000000</code></li>
+<li>支店ごとにまとめる <span class="math inline">\(\to\)</span> <code>GROUP BY 支店名</code></li>
+<li>平均売上が500万以上 <span class="math inline">\(\to\)</span> <code>HAVING AVG(売上) &gt;= 5000000</code></li>
 </ul></li>
 </ul>
 </section>
@@ -1292,7 +1381,7 @@
 <ul>
 <li>銀行の預金送金中にサーバーの電源コードが抜けたら、お金はどうなる？</li>
 <li>残高1万円の口座から、ATMと口座振替が同時に5千円引き落としたらなぜ銀行が大損する？</li>
-<li>データベースが守り抜く「ACID特性」の4つの約束とは？</li>
+<li>映画館や新幹線の最後の1席に2人が同時にタッチした時、なぜダブルブッキングが起きない？</li>
 </ul>
 </section>
 <section id="経済学における契約決済とトランザクション" class="slide level3">
@@ -1356,18 +1445,9 @@
 </table>
 </section>
 <section id="分離性isolationが破綻すると起きる経済的被害" class="slide level3">
-<h3>5.2 分離性（Isolation）が破綻すると起きる経済的被害</h3>
-<h4 id="複数のユーザーが同時に同じデータを触る恐怖">💥 複数のユーザーが同時に同じデータを触る恐怖</h4>
-<p>複数の取引が同時に並行実行されるとき、分離レベルが低いと以下のような致命的な経済的事故（アノマリー）が発生します。</p>
-<ol type="1">
-<li><strong>ロストアップデート（更新の喪失）</strong>：他人の更新を上書きして消してしまう。</li>
-<li><strong>ダーティリード（汚れた読み取り）</strong>：確定していない未完了のデータを読んでしまう。</li>
-<li><strong>ファントムリード（幻影の出現）</strong>：集計中に他人がデータを挿入し、集計が合わなくなる。</li>
-</ol>
-</section>
-<section id="ロストアップデート更新の喪失銀行が大損するシナリオ" class="slide level3">
-<h3>① ロストアップデート（更新の喪失）：銀行が大損するシナリオ</h3>
-<h4 id="残高10000円の口座から同時に5000円ずつ引き落とされた場合">💸 残高10,000円の口座から、同時に5,000円ずつ引き落とされた場合</h4>
+<h3>分離性（Isolation）が破綻すると起きる経済的被害</h3>
+<h4 id="ロストアップデート更新の喪失銀行が大損するシナリオ">💸 ① ロストアップデート（更新の喪失）：銀行が大損するシナリオ</h4>
+<p>残高10,000円の口座から、ATMとクレカ自動振替が同時に5,000円引き落とした場合：</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode numberSource mermaid number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href=""></a>sequenceDiagram</span>
 <span id="cb5-2"><a href=""></a>    autonumber</span>
 <span id="cb5-3"><a href=""></a>    participant A as "🏧 ATM引き出し (処理1)"</span>
@@ -1398,34 +1478,82 @@
 </ol></li>
 </ul>
 </section>
-<section id="データベースはどうやって分離性を守るのか" class="slide level3">
-<h3>データベースはどうやって分離性を守るのか？</h3>
-<h4 id="大防衛テクノロジー行ロックとmvcc">🔒 2大防衛テクノロジー：行ロックとMVCC</h4>
-<div class="columns">
-<div class="column" style="width:50%;">
-<h5 id="行ロックpessimistic-lock">1. 行ロック（Pessimistic Lock）</h5>
+<section id="ダブルブッキングを防ぐ行ロック排他制御" class="slide level3">
+<h3>ダブルブッキングを防ぐ「行ロック（排他制御）」</h3>
+<h4 id="映画館や新幹線チケットの最後の1席争奪戦">🔒 映画館や新幹線チケットの最後の1席争奪戦</h4>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource mermaid number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a href=""></a>sequenceDiagram</span>
+<span id="cb6-2"><a href=""></a>    autonumber</span>
+<span id="cb6-3"><a href=""></a>    participant A as "ユーザーA"</span>
+<span id="cb6-4"><a href=""></a>    participant S as "予約DBサーバー"</span>
+<span id="cb6-5"><a href=""></a>    participant B as "ユーザーB (タッチ差)"</span>
+<span id="cb6-6"><a href=""></a>    A-&gt;&gt;S: 最後の1席の予約を要求</span>
+<span id="cb6-7"><a href=""></a>    Note over S: 🔒 対象座席データに行ロックをかける！</span>
+<span id="cb6-8"><a href=""></a>    B-&gt;&gt;S: 同じ座席の予約を要求</span>
+<span id="cb6-9"><a href=""></a>    Note over S: ⚠️ ロック中のためBの処理を待機 / 拒絶</span>
+<span id="cb6-10"><a href=""></a>    S--&gt;&gt;A: 座席確保・予約完了通知 ✅</span>
+<span id="cb6-11"><a href=""></a>    Note over S: 🔓 ロック解除（残席0確定）</span>
+<span id="cb6-12"><a href=""></a>    S--&gt;&gt;B: 「満席のため予約できませんでした」❌</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li><strong>「触っている間は鍵をかける」</strong></li>
-<li>処理1が口座データを読んだ瞬間にロックを掛け、処理2を待たせる。</li>
-<li>確実だが、並行アクセスが多いと待ち行列ができて遅くなる。</li>
+<li>Aさんが座席を選択した瞬間に<strong>「行ロック（Locking）」</strong>をかけ、Bさんの割り込みを確実に遮断します。</li>
 </ul>
-</div><div class="column" style="width:50%;">
-<h5 id="mvcc多版同時実行制御">2. MVCC（多版同時実行制御）</h5>
+</section>
+<section id="高速化の救世主mvcc多版同時実行制御" class="slide level3">
+<h3>高速化の救世主：MVCC（多版同時実行制御）</h3>
+<h4 id="過去のスナップショットを見せる技術">📸 「過去のスナップショット」を見せる技術</h4>
 <ul>
-<li><strong>「過去のスナップショットを見せる」</strong></li>
-<li>更新中であっても、読み取りトランザクションには「処理開始時点の過去バージョン」を見せる。</li>
-<li>「読み取りは書き込みをブロックせず、書き込みは読み取りをブロックしない」超高速処理を実現！</li>
+<li>行ロックは確実ですが、何万人もが同時にアクセスすると待ち行列ができてシステムが激重になります。</li>
+<li><strong>MVCC（Multi-Version Concurrency Control）</strong>：
+<ul>
+<li>データを更新する際、古いデータを上書きせず「新しい版（バージョン）」として追記。</li>
+<li>読み取り中のユーザーには、<strong>「トランザクションが始まった瞬間のスナップショット」</strong>を見せ続ける！</li>
+</ul></li>
+<li><strong>「読み取りは書き込みをブロックせず、書き込みは読み取りをブロックしない」</strong>超高速並行処理の標準技術です。</li>
 </ul>
-</div></div>
+</section>
+<section id="銀行の強整合性-vs-snsの結果整合性" class="slide level3">
+<h3>銀行の強整合性 vs SNSの結果整合性</h3>
+<table class="caption-top">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 29%">
+<col style="width: 23%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">方式</th>
+<th style="text-align: left;">特徴</th>
+<th style="text-align: center;">許容される遅延</th>
+<th style="text-align: left;">代表例</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>強整合性<br>(Strong Consistency)</strong></td>
+<td style="text-align: left;">世界中で常に1ミリのズレも許さない。<br>すべてのノードで同期が完了するまで処理を待たせる。</td>
+<td style="text-align: center;"><strong>ゼロ</strong><br>（絶対にズレてはならない）</td>
+<td style="text-align: left;">銀行残高、決済、座席予約、暗号資産</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>結果整合性<br>(Eventual Consistency)</strong></td>
+<td style="text-align: left;">「今この瞬間」はズレていても構わない。<br><strong>数秒〜数分後に最終的に一致すればOK</strong>として軽快さを最優先。</td>
+<td style="text-align: center;">数秒〜数分<br>（一時的ズレを許容）</td>
+<td style="text-align: left;">SNSの「いいね」数、YouTube再生数、閲覧履歴</td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="実践チェック-4" class="slide level3">
 <h3>📱 実践チェック</h3>
-<h4 id="トランザクションの確認">🏦 トランザクションの確認</h4>
+<h4 id="身近なトランザクション">💡 身近なトランザクション</h4>
+<p>「All or Nothing」でなければ困るものはどれ？</p>
+<ol type="1">
+<li>メルカリでの購入と売上金ポイント支払い</li>
+<li>LINEメッセージ送信と既読</li>
+<li>ゲームのガチャと課金石の消費</li>
+</ol>
 <ul>
-<li>チケット予約サイトで「残り1枚の座席」を2人が同時に購入しようとした場合：
-<ul>
-<li>トランザクションと行ロックが正しく機能していれば、0.001秒早く確定した1人だけが購入でき、もう1人には「すでに売り切れました」と安全にロールバックされる！</li>
-</ul></li>
+<li><span class="math inline">\(\to\)</span> <strong>1 と 3</strong>（お金や貴重な資産が動く取引は絶対に中途半端が許されない！）</li>
 </ul>
 </section>
 <section id="考えてみよう振り返り-4" class="slide level3">
@@ -1438,38 +1566,94 @@
 
 </section>
 
-<section id="分散システムと社会インフラcap定理と決済システム" class="title-slide slide level2 center">
-<h2>6. 分散システムと社会インフラ（CAP定理と決済システム）</h2>
+<section id="アプリとクラウドをつなぐ分散インフラと通信の真実" class="title-slide slide level2 center">
+<h2>6. アプリとクラウドをつなぐ分散インフラと通信の真実</h2>
 
 </section>
 <section id="考えてみたい問い-5" class="slide level3">
 <h3>考えてみたい問い</h3>
 <ul>
-<li>巨大なWebサービスは、なぜ1台のスーパーコンピュータではなく世界中に分散したサーバー群で動くのか？</li>
-<li>分散システムにおける「究極のトレードオフ」を証明したCAP定理とは？</li>
-<li>Googleはなぜ「原子時計」をデータセンターに配備して世界規模のデータベースを作ったのか？</li>
+<li>スマホアプリはどうやって遠く離れたクラウドサーバーと会話しているのか？</li>
+<li>世界中のコンピュータが話す共通語「JSON」とは？</li>
+<li>分散インフラの物理限界である「CAP定理」とは？</li>
+<li>なぜ回線は高速（1Gbps）なのに、対戦ゲームで「ラグい」と感じるのか？</li>
 </ul>
 </section>
-<section id="単一サーバーの限界と分散システムの必然性" class="slide level3">
-<h3>単一サーバーの限界と分散システムの必然性</h3>
-<h4 id="地震火災アクセス集中に耐えるためのインフラ">🌍 地震・火災・アクセス集中に耐えるためのインフラ</h4>
+<section id="そもそもapiって何-アプリとサーバーの公式窓口" class="slide level3">
+<h3>そもそも「API」って何？ —— アプリとサーバーの公式窓口</h3>
+<h4 id="ソフトウェア同士をつなぐ注文窓口接続ルール">🔌 ソフトウェア同士をつなぐ「注文窓口・接続ルール」</h4>
 <ul>
-<li><strong>スケールアップ（1台を巨大化）の限界</strong>：
+<li><strong>API（Application Programming Interface）</strong>の略称。</li>
+<li>スマホアプリが、遠く離れたクラウドサーバーに向かって<strong>「データをください！」「これを登録して！」と注文するための公式窓口・共通ルール</strong>。</li>
+<li>人間向けのデザイン（UI）ではなく、プログラム同士がデータを受け渡すための専用規格です。</li>
+</ul>
+</section>
+<section id="スマホアプリの中身は空っぽの器" class="slide level3">
+<h3>スマホアプリの中身は「空っぽの器」</h3>
 <ul>
-<li>どんなに高価なサーバーでも、CPUやメモリの物理的上限がある。</li>
-<li>その1台が雷や火災で壊れたら、全世界のサービスが全滅する（単一障害点）。</li>
+<li><strong>アプリ本体の正体</strong>
+<ul>
+<li>Instagramやメルカリのアプリ内には、タイムラインの写真や投稿は1文字も入っていない。</li>
+<li>入っているのは「枠組み」と「通信プログラム」だけ。</li>
+<li>起動するたびにお手紙（HTTPリクエスト）を送って最新データを取得している。</li>
 </ul></li>
-<li><strong>スケールアウト（安価な多数のサーバーに分散）</strong>：
+</ul>
+<div title="🍽️ レストランでたとえると？">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>🍽️ レストランでたとえると？</strong></p>
+</div>
+<div class="callout-content">
 <ul>
-<li>世界中のデータセンターに何千台ものサーバーを配置し、ネットワークで繋いで1つの巨大なデータベースとして協調動作させる。</li>
-</ul></li>
-<li>しかし、ここには<strong>物理法則に起因する絶対的な壁</strong>が存在します！</li>
+<li><strong>お客さん（アプリ）</strong>：「オムライス1つ」と伝票（リクエスト）を書く。</li>
+<li><strong>ウェイター（API）</strong>：伝票を厨房（サーバー）に届ける。</li>
+<li><strong>タッパー（JSON）</strong>：素材をシンプルな箱に詰めて渡す。</li>
+<li><strong>お皿（UI）</strong>：アプリが綺麗に盛り付けて表示！</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="図解クライアントとサーバーの通信とjson" class="slide level3">
+<h3>【図解】クライアントとサーバーの通信とJSON</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    A["📱 スマホアプリ&lt;br/&gt;(空っぽの器)"] --&gt;|「最新の投稿をちょうだい」&lt;br/&gt;HTTP Request| B["☁️ クラウドサーバー"]
+    B --&gt;|「データはこちらです」&lt;br/&gt;JSON Response| A
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb7-1"><a href=""></a><span class="fu">{</span></span>
+<span id="cb7-2"><a href=""></a>  <span class="dt">"status"</span><span class="fu">:</span> <span class="st">"success"</span><span class="fu">,</span></span>
+<span id="cb7-3"><a href=""></a>  <span class="dt">"user"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb7-4"><a href=""></a>    <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"山田太郎"</span><span class="fu">,</span></span>
+<span id="cb7-5"><a href=""></a>    <span class="dt">"is_student"</span><span class="fu">:</span> <span class="kw">true</span></span>
+<span id="cb7-6"><a href=""></a>  <span class="fu">},</span></span>
+<span id="cb7-7"><a href=""></a>  <span class="dt">"items"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb7-8"><a href=""></a>    <span class="fu">{</span> <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"経済学入門"</span><span class="fu">,</span> <span class="dt">"price"</span><span class="fu">:</span> <span class="dv">2800</span> <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb7-9"><a href=""></a>    <span class="fu">{</span> <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"統計分析基礎"</span><span class="fu">,</span> <span class="dt">"price"</span><span class="fu">:</span> <span class="dv">3200</span> <span class="fu">}</span></span>
+<span id="cb7-10"><a href=""></a>  <span class="ot">]</span></span>
+<span id="cb7-11"><a href=""></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>人間も機械も直感的に読める軽量テキスト形式。キーと値のペアで世界中のデータがやり取りされています。</li>
 </ul>
 </section>
 <section id="cap定理完璧な分散システムは存在しない" class="slide level3">
 <h3>6.1 CAP定理：完璧な分散システムは存在しない</h3>
 <h4 id="エリックブリュワーが証明した不可能な三位一体">⛰️ エリック・ブリュワーが証明した「不可能な三位一体」</h4>
-<p>カリフォルニア大学バークレー校のエリック・ブリュワー（E. Brewer）が提唱した定理。分散データストアにおいて、<strong>以下の3つの特性のうち3つすべてを同時に満たすことは数学的に不可能</strong>である！</p>
+<p>カリフォルニア大学バークレー校のエリック・ブリュワー（E. Brewer）が提唱。世界中に分散したサーバー群において、<strong>以下の3つの特性のうち3つすべてを同時に満たすことは数学的に不可能</strong>である！</p>
 <div class="cell" data-reveal="true" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -1493,70 +1677,9 @@
 </div>
 </div>
 </section>
-<section id="cap定理の3大要素と現実の制約" class="slide level3">
-<h3>CAP定理の3大要素と現実の制約</h3>
-<ol type="1">
-<li><strong>一貫性（Consistency）</strong>：
-<ul>
-<li>どのサーバーに問い合わせても、必ず最新の同一データが返る（データの不整合がゼロ）。</li>
-</ul></li>
-<li><strong>可用性（Availability）</strong>：
-<ul>
-<li>一部のサーバーが故障しても、システム全体はエラーを返さず必ず即答し続ける。</li>
-</ul></li>
-<li><strong>分断耐性（Partition Tolerance）</strong>：
-<ul>
-<li>サーバー間の通信回線が切断（ネットワーク分断）されてもシステムが破綻しない。</li>
-</ul></li>
-</ol>
-<div title="現実の物理法則による制約">
-<div class="callout callout-important callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>現実の物理法則による制約</strong></p>
-</div>
-<div class="callout-content">
-<p>現実に存在する地球規模のネットワークである以上、海底ケーブルの切断やルータ故障などの<strong>「ネットワーク分断（P）」をゼロにすることは絶対に不可能</strong>です。 したがって、現代のシステム設計は実質的に<strong>「CP」か「AP」かの二者択一</strong>を迫られます！</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="cpを選択するシステム銀行口座証券取引所" class="slide level3">
-<h3>CPを選択するシステム：銀行口座・証券取引所</h3>
-<h4 id="止めてでも誤りを防ぐconsistency-partition-tolerance">🏦 「止めてでも誤りを防ぐ」（Consistency &amp; Partition Tolerance）</h4>
-<ul>
-<li><strong>設計思想</strong>：
-<ul>
-<li><strong>「誤った残高を表示したり二重送金が起きるくらいなら、一時的にシステムを止めて利用者を待たせた方が100万倍マシである」</strong>。</li>
-</ul></li>
-<li><strong>分断時の挙動</strong>：
-<ul>
-<li>東京とニューヨークの間の海底ケーブルが切断された場合、データの整合性を守るために、両拠点で同期が取れない処理は意図的にエラーを返して停止する。</li>
-<li>経済的・法的な正確性を最優先するシステム。</li>
-</ul></li>
-</ul>
-</section>
-<section id="apを選択するシステムsns動画配信ec閲覧履歴" class="slide level3">
-<h3>APを選択するシステム：SNS・動画配信・EC閲覧履歴</h3>
-<h4 id="古くても即答するavailability-partition-tolerance">📱 「古くても即答する」（Availability &amp; Partition Tolerance）</h4>
-<ul>
-<li><strong>設計思想</strong>：
-<ul>
-<li><strong>「いいねの数が1秒遅れて反映されたところで誰も破産しない。画面が真っ白になって使えなくなる方がユーザー体験として最悪である」</strong>。</li>
-</ul></li>
-<li><strong>分断時の挙動</strong>：
-<ul>
-<li>通信が途切れていても、各サーバーは手元にある「少し古いかもしれないデータ」をひとまず即座に画面に表示する（結果整合性 / Eventual Consistency）。</li>
-</ul></li>
-<li>サービス停止によるユーザー離脱を最優先で防ぐシステム。</li>
-</ul>
-</section>
-<section id="cp-vs-ap-の比較まとめ" class="slide level3">
-<h3>CP vs AP の比較まとめ</h3>
+<section id="cp-vs-ap-の究極の二者択一" class="slide level3">
+<h3>CP vs AP の究極の二者択一</h3>
+<p>現実のネットワークである以上、海底ケーブル切断などの「分断（P）」はゼロにできません。したがってシステムは実質的に2択を迫られます。</p>
 <table class="caption-top">
 <colgroup>
 <col style="width: 29%">
@@ -1575,7 +1698,7 @@
 <tbody>
 <tr class="odd">
 <td style="text-align: center;"><strong>CP</strong></td>
-<td style="text-align: left;"><strong>データの一貫性・正確性</strong><br>（嘘のデータは絶対悪）</td>
+<td style="text-align: left;"><strong>データの一貫性・正確性</strong><br>（誤ったデータは絶対悪）</td>
 <td style="text-align: left;">整合性が取れない場合は<strong>処理を停止・エラー返却</strong></td>
 <td style="text-align: left;">銀行送金、暗号資産、証券取引、航空券予約</td>
 </tr>
@@ -1587,6 +1710,9 @@
 </tr>
 </tbody>
 </table>
+<ul>
+<li>銀行は「止めてでも二重送金を防ぐ（CP）」、SNSは「1秒遅れても画面を止めない（AP）」。</li>
+</ul>
 </section>
 <section id="究極の技術google-spannerと原子時計" class="slide level3">
 <h3>6.2 究極の技術：Google Spannerと原子時計</h3>
@@ -1596,7 +1722,7 @@
 <li><strong>2012年、Googleが発表した驚愕のシステム「Google Spanner」</strong>：
 <ul>
 <li>世界中のGoogleデータセンターに<strong>GPS受信機とルビジウム原子時計</strong>を物理的に配備！</li>
-<li>サーバー間の時計のズレ（不確実性区間 $arepsilon$）を<strong>わずか数ミリ秒以下</strong>に抑え込む技術「TrueTime API」を開発。</li>
+<li>サーバー間の時計のズレ（不確実性区間 <span class="math inline">\(\varepsilon\)</span>）を<strong>わずか数ミリ秒以下</strong>に抑え込む技術「TrueTime API」を開発。</li>
 </ul></li>
 </ul>
 </section>
@@ -1612,21 +1738,103 @@
 <li>これにより、<strong>全世界で分散稼働しながら、実時間の因果関係と完全に一致した厳密な一貫性（外部一貫性）</strong>を達成しました。</li>
 </ul>
 </section>
+<section id="ネットの通信速度mbps-vs-応答速度ping値" class="slide level3">
+<h3>ネットの通信速度（Mbps） vs 応答速度（Ping値）</h3>
+<h4 id="なぜ回線が速いのにラグいのか">🏎️ なぜ回線が速いのに「ラグい」のか？</h4>
+<table class="caption-top">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 35%">
+<col style="width: 35%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">項目</th>
+<th style="text-align: center;">通信速度 (Mbps / 帯域幅)</th>
+<th style="text-align: center;">応答速度 (Ping値 / レイテンシ)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>意味</strong></td>
+<td style="text-align: center;">1秒間に運べる<strong>データの総量</strong></td>
+<td style="text-align: center;">信号が往復する<strong>タイムラグ（時間）</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>たとえ</strong></td>
+<td style="text-align: center;"><strong>トラックの荷台の広さ・車線数</strong></td>
+<td style="text-align: center;"><strong>レーサーの反射神経・最高速度</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>影響</strong></td>
+<td style="text-align: center;">YouTube動画再生、アプリのDL速度</td>
+<td style="text-align: center;"><strong>オンライン対戦ゲーム、通話の遅延</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>理想値</strong></td>
+<td style="text-align: center;">大きいほど良い（100Mbps以上）</td>
+<td style="text-align: center;"><strong>小さいほど良い（15ms以下）</strong></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>どんなに1Gbpsの超高速回線でも、Ping値が100msを超えていると対戦ゲームで「撃ち負け」たり操作遅延が発生します。</li>
+</ul>
+</section>
+<section id="月末にギガが消える正体-動画圧縮とビットレート" class="slide level3">
+<h3>月末に「ギガ」が消える正体 —— 動画圧縮とビットレート</h3>
+<h4 id="ビットレート1秒あたりのデータ量の差">📊 ビットレート（1秒あたりのデータ量）の差</h4>
+<ul>
+<li><strong>音楽ストリーミング（Spotify等）</strong>：約320 kbps <span class="math inline">\(\to\)</span> 1時間で約140 MB</li>
+<li><strong>動画（1080p フルHD）</strong>：約4,000 kbps <span class="math inline">\(\to\)</span> 1時間で約1.8 GB（音楽の13倍！）</li>
+<li><strong>動画（4K 超高画質）</strong>：約20,000 kbps <span class="math inline">\(\to\)</span> 1時間で約9 GB！</li>
+</ul>
+<div title="🎬 動画圧縮の奇跡">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>🎬 動画圧縮の奇跡</strong></p>
+</div>
+<div class="callout-content">
+<p>非圧縮の生動画は1分で数百GB。現代の圧縮技術（H.264, AV1）は「人間の目に見えない微小な色の差を間引く」「動いていない背景は送らない」ことで1/100以下に縮めてパケットを節約しています。</p>
+</div>
+</div>
+</div>
+</div>
+<div title="⚠️ Wi-Fiアシストの罠">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>⚠️ Wi-Fiアシストの罠</strong></p>
+</div>
+<div class="callout-content">
+<p>iPhoneの「Wi-Fiアシスト」は、Wi-Fi電波が弱いと勝手にギガを消費する機能。「設定」<span class="math inline">\(\to\)</span>「モバイル通信」の一番下でオフにしておくのが自衛策！</p>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section id="実践チェック-5" class="slide level3">
 <h3>📱 実践チェック</h3>
-<h4 id="インフラ設計の確認">🌐 インフラ設計の確認</h4>
+<h4 id="ネットワークとインフラの確認">🌐 ネットワークとインフラの確認</h4>
 <ul>
-<li>あなたがフリマアプリを設計する場合：
+<li>ブラウザで <code>fast.com</code> を開いてみよう。
 <ul>
-<li>「商品の閲覧数」は CP と AP のどちらで設計すべきか？ $ o$ <strong>AP</strong>（誤差があっても即表示）</li>
-<li>「売上金の出金申請」は CP と AP のどちらで設計すべきか？ $ o$ <strong>CP</strong>（二重出金を絶対に防ぐ）</li>
+<li>「ダウンロード速度（Mbps）」と、「詳細を表示」を押した時の「レイテンシ（Ping値: ms）」を計測してみよう。</li>
+<li>自分の回線が「動画向き（高Mbps）」か「ゲーム向き（低Ping）」かが一目で分かります！</li>
 </ul></li>
 </ul>
 </section>
 <section id="考えてみよう振り返り-5" class="slide level3">
 <h3>🤔 考えてみよう（振り返り）</h3>
 <ul>
-<li>自然災害で大規模な通信障害が起きたとき、銀行のATMが「停止する」のはなぜ技術的に正しい設計判断だと言えるだろうか？</li>
+<li>自然災害で大規模な通信障害が起きたとき、銀行のATMが「停止する（CP）」のはなぜ技術的・経済的に正しい判断だと言えるだろうか？</li>
 </ul>
 </section>
 <section class="slide level3">
@@ -1649,20 +1857,23 @@
 </section>
 <section id="混沌とした現実を見通す思考のレンズ" class="slide level3">
 <h3>混沌とした現実を見通す「思考のレンズ」</h3>
-<h4 id="本講義を終えたあなたへ">🎓 本講義を終えたあなたへ</h4>
+<h4 id="データの裏側を知る知性">🎓 データの裏側を知る知性</h4>
 <ul>
 <li>関係モデルとデータベース工学の基礎を学ぶことは、単なるITスキルやプログラミング技能の習得ではありません。</li>
 <li>混沌とした現実世界の経済活動・企業活動を、<strong>「整然としたロジックとルールの体系」として見通す強力な思考のレンズ</strong>を手に入れることです。</li>
-<li>あなたがビジネスの現場に出たとき、この「データの裏側を見る知性」は、組織の制度を正しく設計し、不正や破綻を防ぐ最強の武器となるはずです！</li>
+<li>あなたがビジネスの現場に出たとき、この知性は、組織の制度を正しく設計し、不正や破綻を防ぐ最強の武器となるはずです！</li>
 </ul>
 </section>
-<section id="全講義の修了にあたって" class="slide level3">
-<h3>🏛️ 全講義の修了にあたって</h3>
+<section id="全9回の修了にあたって-グランドフィナーレ" class="slide level3">
+<h3>🏛️ 全9回の修了にあたって —— グランドフィナーレ</h3>
 <h4 id="デジタル社会の見えない基盤を理解した誇りを胸に">🌟 デジタル社会の「見えない基盤」を理解した誇りを胸に</h4>
 <ul>
-<li>スマホをタップした瞬間に起きる電磁誘導から、暗号資産の数学、クラウドの分散インフラ、そして社会の信用を支えるデータベースまで。</li>
+<li><strong>第1回〜第2回</strong>：身近な認証・パスキーとサイバー防犯</li>
+<li><strong>第3回〜第4回</strong>：FeliCa・QRコード決済、暗号資産・Web3の経済革命</li>
+<li><strong>第5回〜第8回</strong>：SNSアルゴリズム、メガクラウド、5G通信、テレビ放送と配信</li>
+<li><strong>そして第9回</strong>：すべてを裏側で支える「データベース（ACID）」と「通信プロトコル」</li>
 <li>あなたはもう、テクノロジーを「得体の知れないブラックボックス」として恐れる必要はありません。</li>
-<li><strong>仕組みを知る知性を持って、自信を持って現代デジタル社会を歩んでいってください！</strong></li>
+<li><strong>仕組みを知る知性を羅針盤にして、自信を持って現代デジタル社会を歩んでいってください！</strong></li>
 </ul>
 
 </section>
