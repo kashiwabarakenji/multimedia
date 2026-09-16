@@ -9593,7 +9593,12 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <span id="cb4-6"><a href=""></a>   <span class="kw">UPDATE</span> accounts <span class="kw">SET</span> balance <span class="op">=</span> balance <span class="op">+</span> <span class="dv">10000</span> <span class="kw">WHERE</span> <span class="kw">id</span> <span class="op">=</span> <span class="st">'B'</span>;</span>
 <span id="cb4-7"><a href=""></a>[ トランザクション確定: <span class="kw">COMMIT</span> ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li>もしステップ1の直後に大停電が起きたら？ Aさんのお金が虚空に消滅してしまう！</li>
+<li><p>もしステップ1の直後に大停電が起きたら？ Aさんのお金が虚空に消滅してしまう！</p></li>
+<li><p><strong>ACID特性の前提（単一ノードの世界）</strong>：</p>
+<ul>
+<li>ACIDは本来、<strong>「1台のサーバー（単一ノード）」の内部</strong>で、複数の取引が同時に行われても絶対にデータを壊さず、停電でも消さないために完成された工学技術です。</li>
+<li>1台のマシンの中であれば、メモリ・CPU・ディスク・内部時計を共有・統制できるため、厳密なACIDが100%達成できます。</li>
+</ul></li>
 </ul>
 </section>
 <section id="トランザクションの4大保証acid特性" class="slide level3">
@@ -9817,39 +9822,6 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <li><strong>「読み取りは書き込みをブロックせず、書き込みは読み取りをブロックしない」</strong>高並行処理の標準技術です。</li>
 </ul>
 </section>
-<section id="銀行の強整合性-vs-snsの結果整合性" class="slide level3">
-<h3>銀行の強整合性 vs SNSの結果整合性</h3>
-<table class="caption-top">
-<colgroup>
-<col style="width: 23%">
-<col style="width: 23%">
-<col style="width: 29%">
-<col style="width: 23%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">方式</th>
-<th style="text-align: left;">特徴</th>
-<th style="text-align: center;">許容される遅延</th>
-<th style="text-align: left;">代表例</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>強整合性<br>(Strong Consistency)</strong></td>
-<td style="text-align: left;">世界中で常に1ミリのズレも許さない。<br>すべてのノードで同期が完了するまで処理を待たせる。</td>
-<td style="text-align: center;"><strong>ゼロ</strong><br>（絶対にズレてはならない）</td>
-<td style="text-align: left;">銀行残高、決済、座席予約、証券取引</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>結果整合性<br>(Eventual Consistency)</strong></td>
-<td style="text-align: left;">「今この瞬間」はズレていても構わない。<br><strong>数秒〜数分後に最終的に一致すればOK</strong>として軽快さを最優先。</td>
-<td style="text-align: center;">数秒〜数分<br>（一時的ズレを許容）</td>
-<td style="text-align: left;">SNSの「いいね」数、動画視聴回数、閲覧履歴</td>
-</tr>
-</tbody>
-</table>
-</section>
 <section class="slide level3">
 
 </section>
@@ -9861,10 +9833,47 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <section id="考えてみたい問い-38" class="slide level3">
 <h3>考えてみたい問い</h3>
 <ul>
-<li>なぜ地球規模の分散システムでは「完全な一貫性と可用性」を両立できないのか？</li>
+<li>なぜ1台のサーバーで完璧だったACIDが、世界中に広げた途端に維持できなくなるのか？</li>
 <li>分散インフラの物理限界である「CAP定理」とは？</li>
 <li>銀行（CP型）とSNS（AP型）で、システム設計思想はどう根本的に異なるのか？</li>
 <li>なぜGoogleは「原子時計」を世界中のデータセンターに配備したのか？</li>
+</ul>
+</section>
+<section id="台のコンピュータacidから地球規模の分散システムへ" class="slide level3">
+<h3>「1台のコンピュータ（ACID）」から「地球規模の分散システム」へ</h3>
+<h4 id="なぜ世界中のサーバーにデータを分散せざるを得ないのか">🌐 なぜ世界中のサーバーにデータを分散せざるを得ないのか？</h4>
+<ul>
+<li><strong>単一サーバー（集中型）の限界</strong>：
+<ul>
+<li><strong>スケーラビリティの限界</strong>：世界中から毎秒何十万件ものアクセスが殺到すると、どんな巨大マシンでもCPUやメモリがパンクする。</li>
+<li><strong>単一障害点（SPOF）のリスク</strong>：その1台が火災・震災・停電で倒れたら、全世界のサービスが完全停止してしまう。</li>
+</ul></li>
+<li><strong>分散システム（Decentralized Nodes）の必然性</strong>：
+<ul>
+<li>東京、ニューヨーク、ロンドンなど、世界各地のデータセンターにサーバーを分散配置し、データをコピー（複製）して保持する。</li>
+</ul></li>
+</ul>
+</section>
+<section id="分散した瞬間に立ちはだかる3つの物理限界" class="slide level3">
+<h3>分散した瞬間に立ちはだかる「3つの物理限界」</h3>
+<h4 id="台の中では起きなかった宇宙の物理法則との衝突">⛰️ 1台の中では起きなかった「宇宙の物理法則」との衝突</h4>
+<p>1台のマシンの中なら、1つのCPUが時間もメモリも完全に支配できました。しかし、ネットワークで繋いだ瞬間、<strong>ACIDを破壊する3つの物理的障害</strong>が襲いかかります。</p>
+<ol type="1">
+<li><strong>光の速度の限界（通信遅延）</strong>：
+<ul>
+<li>東京〜ニューヨーク間の光ファイバー通信は、物理的に往復約150ミリ秒かかる。全員の同期を待っていたら決済が激遅になる！</li>
+</ul></li>
+<li><strong>ネットワークの分断（パケット喪失・回線切断）</strong>：
+<ul>
+<li>地震や海底ケーブル切断、ルータ故障で、サーバー間の連絡が突然途絶える。</li>
+</ul></li>
+<li><strong>独立した時計のズレ（相対性理論と物理時計の狂い）</strong>：
+<ul>
+<li>サーバーごとに時計の進み方が微妙に狂い、「AとBのどちらが先に起きた取引か」を絶対的に判定できなくなる！</li>
+</ul></li>
+</ol>
+<ul>
+<li><span class="math inline">\(\to\)</span> <strong>「1台なら当たり前だったACID」を地球規模で維持することは、物理的に不可能なのか？</strong></li>
 </ul>
 </section>
 <section id="cap定理完璧な分散システムは存在しない" class="slide level3">
@@ -9949,9 +9958,44 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <li><strong>APの思想</strong>：「いいねの数が1秒遅れて反映されたところで誰も破産しない。画面が真っ白になって使えなくなる方がユーザー体験として最悪である」。</li>
 </ul>
 </section>
+<section id="強整合性cp型-vs-結果整合性ap型" class="slide level3">
+<h3>強整合性（CP型） vs 結果整合性（AP型）</h3>
+<h4 id="分散システムが選んだ妥協base特性という知恵">⚖️ 分散システムが選んだ「妥協（BASE特性）」という知恵</h4>
+<p>1台の中なら「常に最新（強整合性）」は当たり前でした。しかし分散システムでは、用途に応じて整合性の厳しさを使い分ける設計思想が定着しました。</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 29%">
+<col style="width: 23%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">方式</th>
+<th style="text-align: left;">特徴</th>
+<th style="text-align: center;">許容される遅延</th>
+<th style="text-align: left;">代表例</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>強整合性<br>(Strong Consistency)</strong></td>
+<td style="text-align: left;">世界中で常に1ミリのズレも許さない。<br>すべてのノードで同期が完了するまで処理を待たせる。</td>
+<td style="text-align: center;"><strong>ゼロ</strong><br>（絶対にズレてはならない）</td>
+<td style="text-align: left;">銀行残高、決済、座席予約、証券取引</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>結果整合性<br>(Eventual Consistency)</strong></td>
+<td style="text-align: left;">「今この瞬間」はズレていても構わない。<br><strong>数秒〜数分後に最終的に一致すればOK</strong>として軽快さを最優先。</td>
+<td style="text-align: center;">数秒〜数分<br>（一時的ズレを許容）</td>
+<td style="text-align: left;">SNSの「いいね」数、動画視聴回数、閲覧履歴</td>
+</tr>
+</tbody>
+</table>
+</section>
 <section id="究極の技術google-spannerと原子時計" class="slide level3">
 <h3>6.2 究極の技術：Google Spannerと原子時計</h3>
-<h4 id="全世界で分散稼働しながら厳密な一貫性cpを実現できないか">⏱️ 「全世界で分散稼働しながら、厳密な一貫性（CP）を実現できないか？」</h4>
+<h4 id="全世界で分散稼働しながら厳密なacidを両立できないか">⏱️ 「全世界で分散稼働しながら、厳密なACIDを両立できないか？」</h4>
 <ul>
 <li>従来の常識：地球規模でサーバーを分散させると、光の速度の限界により通信遅延が生じ、厳密な一貫性（CP）を保つと極めて低速になってしまう。</li>
 <li><strong>2012年、Googleが発表した分散データベース「Google Spanner」</strong>：
@@ -9970,8 +10014,27 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <li>地球上のサーバー同士は、光速の限界や相対性理論（重力や移動速度による時間の進み方の差）により、完全に同じ「現在時刻」を共有できない。</li>
 <li>Googleは「時間のズレの最大幅（数ミリ秒）」を数学的に保証し、<strong>そのズレの時間だけ意図的にコミットを待機する（Wait-out-the-uncertainty）</strong>アルゴリズムを構築！</li>
 </ul></li>
-<li>これにより、<strong>全世界で分散稼働しながら、実時間の因果関係と完全に一致した厳密な一貫性（外部一貫性）</strong>を達成しました。</li>
-<li>現代のグローバル金融や巨大プラットフォームを支える究極の分散インフラ基盤となっています。</li>
+<li>これにより、<strong>全世界で分散稼働しながら、実時間の因果関係と完全に一致した厳密な一貫性（外部一貫性：External Consistency）</strong>を達成しました。</li>
+<li><strong>分散システムでありながら、地球規模でACIDを力技で復活させた現代工学の金字塔</strong>です。</li>
+</ul>
+</section>
+<section id="制度設計と物理限界の結晶としてのデータベース" class="slide level3">
+<h3>制度設計と物理限界の結晶としてのデータベース</h3>
+<h4 id="枚の表計算シートから光の速度と原子時計まで">🏛️ 1枚の表計算シートから、光の速度と原子時計まで</h4>
+<ul>
+<li><strong>第1章〜第3章（空間の整理）</strong>：
+<ul>
+<li>混沌とした現実のビジネスを「名詞（リソース）」と「動詞（イベント）」に切り分け、アノマリーを防ぐ（関係モデル・正規化）。</li>
+</ul></li>
+<li><strong>第4章〜第5章（時間の制御：単一ノード）</strong>：
+<ul>
+<li>1台のサーバーの中で、何万件もの同時取引が衝突しないよう「時間を制御」し、大停電でも契約を守る（SQL・ACID・行ロック・WAL）。</li>
+</ul></li>
+<li><strong>第6章（物理限界とのせめぎ合い：分散システム）</strong>：
+<ul>
+<li>地球規模に広がった分散世界で、光速や相対性理論の壁を「数学アルゴリズムと原子時計」でねじ伏せる（CAP定理・Google Spanner）。</li>
+</ul></li>
+<li>データベースを学ぶことの本質は、<strong>「人間が作った社会制度（契約・会計）」と「宇宙の物理法則」のせめぎ合いを論理的に見通す知性を手に入れること</strong>です。</li>
 </ul>
 
 </section>
