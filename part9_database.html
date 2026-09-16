@@ -1,0 +1,2074 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="part9_database_files/libs/clipboard/clipboard.min.js"></script>
+<script src="part9_database_files/libs/quarto-html/tabby.min.js"></script>
+<script src="part9_database_files/libs/quarto-html/popper.min.js"></script>
+<script src="part9_database_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="part9_database_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="part9_database_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="part9_database_files/libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.6.40">
+
+  <title>part9_database</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="part9_database_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="part9_database_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="part9_database_files/libs/revealjs/dist/theme/quarto-bbe7401fe57d4b791b917637bb662036.css">
+  <link rel="stylesheet" href="custom.css">
+  <link href="part9_database_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="part9_database_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="part9_database_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="part9_database_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="part9_database_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="part9_database_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <meta name="mermaid-theme" content="neutral">
+  <script src="part9_database_files/libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="part9_database_files/libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="part9_database_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="TOC">
+<nav role="doc-toc"> 
+<h2 id="toc-title">Table of contents</h2>
+<ul>
+<li><a href="#/経済学とビジネスのための現代データベース入門" id="/toc-経済学とビジネスのための現代データベース入門">経済学とビジネスのための現代データベース入門</a></li>
+</ul>
+</nav>
+</section>
+<section>
+<section id="経済学とビジネスのための現代データベース入門" class="title-slide slide level1 center">
+<h1>経済学とビジネスのための現代データベース入門</h1>
+
+</section>
+<section id="本日の講義マップ-全6章のアジェンダ" class="slide level3">
+<h3>本日の講義マップ —— 全6章のアジェンダ</h3>
+<ol type="1">
+<li><strong>Excelの限界と「関係モデル」の誕生</strong>（更新時アノマリーと取引コスト）</li>
+<li><strong>ビジネスをモデル化する（ER図とREAモデリング）</strong>（会計学とリソース・イベント）</li>
+<li><strong>データの整合性を守る「正規化」の技法</strong>（1NF〜3NFと価格スナップショット）</li>
+<li><strong>ビジネスデータを操るSQL</strong>（集合の宣言、集約、JOIN結合）</li>
+<li><strong>金融・取引を支える「トランザクション」とACID特性</strong>（銀行送金と分離性の破壊）</li>
+<li><strong>分散システムと社会インフラ（CAP定理と決済システム）</strong>（CP vs AP、Google Spanner）</li>
+</ol>
+</section>
+<section id="本日の到達目標-データの裏側にある制度設計を掴む" class="slide level3">
+<h3>本日の到達目標 —— データの裏側にある「制度設計」を掴む</h3>
+<h4 id="本日の講義で身につく力">🎯 本日の講義で身につく力</h4>
+<ul>
+<li>企業がなぜExcelではなくデータベース（RDB）を基幹に据えるのかを「アノマリー」から説明できる</li>
+<li>複式簿記に基づく「REAモデリング」で、ビジネスルールを破綻なくモデル化できる</li>
+<li>第1正規形〜第3正規形の本質と、あえて非正規化する「経済的例外（価格保持）」を理解できる</li>
+<li>金融取引を担保する「ACID特性」と、並行処理で起きる経済的被害（ロストアップデート等）を防ぐ仕組みを把握する</li>
+<li>分散インフラの物理限界である「CAP定理」と、Google Spannerが原子時計でねじ伏せた外部一貫性を論理的に説明できる</li>
+</ul>
+</section>
+<section id="はじめになぜ経済学部でデータベースを学ぶのか" class="slide level3">
+<h3>はじめに：なぜ経済学部でデータベースを学ぶのか？</h3>
+<h4 id="現代経済金融企業組織の背後にあるdbms">🏛️ 現代経済・金融・企業組織の背後にあるDBMS</h4>
+<ul>
+<li><strong>銀行口座間の資金移動</strong>：
+<ul>
+<li>Aさんの口座から引き落とされた瞬間、Bさんの口座に同額が加算されなければならない（途中で通信が切れたら？）。</li>
+</ul></li>
+<li><strong>フリマアプリやチケット販売</strong>：
+<ul>
+<li>残り1点の限定商品に、同時に2人の買い手が購入ボタンを押したらどうなるか？</li>
+</ul></li>
+<li><strong>企業会計とサプライチェーン</strong>：
+<ul>
+<li>過去の販売単価を改定したとき、過去の決算書や売上明細の数字まで勝手に書き換わってしまわないか？</li>
+</ul></li>
+</ul>
+</section>
+<section id="単なるプログラミングではない-制度論的アプローチ" class="slide level3">
+<h3>単なる「プログラミング」ではない —— 制度論的アプローチ</h3>
+<h4 id="データモデルの設計企業の制度設計">📜 「データモデルの設計」＝「企業の制度設計」</h4>
+<ul>
+<li><strong>データモデルの設計（制度設計）</strong>：
+<ul>
+<li>ビジネスのルールや契約をいかに矛盾なくデータ構造に落とし込むか（モデリング・正規化）。</li>
+</ul></li>
+<li><strong>取引（トランザクション）の整合性保証</strong>：
+<ul>
+<li>市場や企業の取引をいかに安全・確実に成立させるか（ACID特性・分散システム）。</li>
+</ul></li>
+<li>データベースを学ぶことは、<strong>経済活動と取引のルールを数理的・論理的に見通す思考のレンズを手に入れること</strong>です！</li>
+</ul>
+</section>
+<section class="slide level3">
+
+</section>
+<section id="excelの限界と関係モデルの誕生" class="title-slide slide level2 center">
+<h2>1. Excelの限界と「関係モデル」の誕生</h2>
+
+</section>
+<section id="考えてみたい問い" class="slide level3">
+<h3>考えてみたい問い</h3>
+<ul>
+<li>なぜ多くの企業が「Excelでの顧客・売上管理」で重大なトラブルを起こすのか？</li>
+<li>1枚の大きな表にすべてを記録しようとすると、どんな矛盾（アノマリー）が起きる？</li>
+<li>1970年に提唱された「リレーショナルモデル（関係モデル）」は何を解決したのか？</li>
+</ul>
+</section>
+<section id="表計算シートが引き起こす3つの経済的損失" class="slide level3">
+<h3>表計算シートが引き起こす3つの経済的損失</h3>
+<h4 id="枚の巨大なexcelシートで売上を管理する小売店の例">📊 1枚の巨大なExcelシートで売上を管理する小売店の例</h4>
+<table class="caption-top">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">注文番号</th>
+<th style="text-align: center;">注文日</th>
+<th style="text-align: center;">顧客名</th>
+<th style="text-align: center;">顧客電話番号</th>
+<th style="text-align: center;">商品名</th>
+<th style="text-align: center;">単価</th>
+<th style="text-align: center;">数量</th>
+<th style="text-align: center;">金額</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1001</td>
+<td style="text-align: center;">2026-04-01</td>
+<td style="text-align: center;">田中 太郎</td>
+<td style="text-align: center;">090-1111-XXXX</td>
+<td style="text-align: center;">経済学入門</td>
+<td style="text-align: center;">2,800</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2,800</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1002</td>
+<td style="text-align: center;">2026-04-02</td>
+<td style="text-align: center;">佐藤 花子</td>
+<td style="text-align: center;">080-2222-XXXX</td>
+<td style="text-align: center;">統計分析基礎</td>
+<td style="text-align: center;">3,200</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">6,400</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">1003</td>
+<td style="text-align: center;">2026-04-03</td>
+<td style="text-align: center;">田中 太郎</td>
+<td style="text-align: center;">090-1111-XXXX</td>
+<td style="text-align: center;">統計分析基礎</td>
+<td style="text-align: center;">3,200</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">3,200</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>一見シンプルで分かりやすい表に見えます。</li>
+<li>しかし、ここにはデータベース工学で<strong>「更新時アノマリー（Update Anomaly）」</strong>と呼ばれる3大リスクが潜んでいます！</li>
+</ul>
+</section>
+<section id="修正更新アノマリー表記揺れと情報の非対称性" class="slide level3">
+<h3>① 修正（更新）アノマリー：表記揺れと情報の非対称性</h3>
+<h4 id="箇所の変更で生じるデータの矛盾">✍️ 1箇所の変更で生じるデータの矛盾</h4>
+<ul>
+<li>もし「田中 太郎」氏が電話番号を変更した場合：
+<ul>
+<li>田中氏の過去の全レコードを探し出して、手動で更新しなければならない。</li>
+<li>1箇所でも修正漏れがあると、<strong>「同じ顧客なのに注文履歴によって電話番号が異なる」</strong>という深刻な不整合が発生！</li>
+</ul></li>
+<li>レコードが数十万件に達したとき、手作業での同期は完全に破綻します。</li>
+</ul>
+</section>
+<section id="挿入アノマリー存在しない取引の記録不能" class="slide level3">
+<h3>② 挿入アノマリー：存在しない取引の記録不能</h3>
+<h4 id="取引とマスタの同居が生む歪み">🚫 取引とマスタの同居が生む歪み</h4>
+<ul>
+<li><strong>新規見込み客を登録したい場合</strong>：
+<ul>
+<li>「まだ一度も買い物をしたことがない顧客」の連絡先をこの表に登録しようとする。</li>
+<li>すると、「注文番号」や「商品名」「金額」が存在しないため、<strong>空欄（NULL）だらけの歪な行</strong>を作らざるを得ない！</li>
+</ul></li>
+<li>商品マスタや顧客情報を「取引の記録」と同一の表に同居させているために生じる本質的な欠陥です。</li>
+</ul>
+</section>
+<section id="削除アノマリー意図せぬ情報の連鎖消滅" class="slide level3">
+<h3>③ 削除アノマリー：意図せぬ情報の連鎖消滅</h3>
+<h4 id="注文のキャンセルで商品情報が消滅する悲劇">🗑️ 注文のキャンセルで商品情報が消滅する悲劇</h4>
+<ul>
+<li>佐藤花子氏の注文（1002）がキャンセルになり、この行をシートから削除したとします。</li>
+<li>すると、<strong>「統計分析基礎という商品が単価3,200円である」という商品マスタ情報そのものが社内から完全に消滅</strong>してしまいます！</li>
+<li>取引の取り消しが、企業の保有財産情報の消滅を招いてしまうのです。</li>
+</ul>
+</section>
+<section id="経済学的洞察取引コストと情報の冗長性" class="slide level3">
+<h3>💡 経済学的洞察：取引コストと情報の冗長性</h3>
+<div title="💡 ロナルド・コースの「取引コスト」と冗長性">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>💡 ロナルド・コースの「取引コスト」と冗長性</strong></p>
+</div>
+<div class="callout-content">
+<p>同じデータを複数箇所に二重・三重に記録する状態（<strong>冗長性</strong>）は、単にPCのストレージを浪費するだけではありません。</p>
+<ul>
+<li>「どれが最新の正しい情報なのか？」を確認するコスト</li>
+<li>社内での情報の同期・突き合わせコスト</li>
+<li>誤ったデータに基づいて誤発注や誤請求を起こす損失コスト</li>
+</ul>
+<p>ノーベル経済学賞を受賞したロナルド・コースの言う<strong>「取引コスト（Transaction Cost）」を組織内で爆発的に増大</strong>させます。</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="コッドの関係モデルテーブルを独立した集合に切り離す" class="slide level3">
+<h3>コッドの関係モデル：テーブルを「独立した集合」に切り離す</h3>
+<h4 id="年e.-f.-コッドが提唱した革命">🧩 1970年、E. F. コッドが提唱した革命</h4>
+<ul>
+<li>数学者エドガー・F・コッド（E. F. Codd）の着想：
+<ul>
+<li><strong>「現実世界の事象を、意味のある独立した名詞（テーブル）ごとに分解し、共通の識別番号（ID）だけで結びつける」</strong>。</li>
+</ul></li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h5 id="顧客テーブル-customer">【顧客テーブル (CUSTOMER)】</h5>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">顧客ID (PK)</th>
+<th style="text-align: left;">氏名</th>
+<th style="text-align: left;">電話番号</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: left;">田中 太郎</td>
+<td style="text-align: left;">090-1111-XXXX</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>2</strong></td>
+<td style="text-align: left;">佐藤 花子</td>
+<td style="text-align: left;">080-2222-XXXX</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:50%;">
+<h5 id="注文テーブル-order">【注文テーブル (ORDER)】</h5>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">注文番号 (PK)</th>
+<th style="text-align: center;">顧客ID (FK)</th>
+<th style="text-align: center;">注文日</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1001</td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;">2026-04-01</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1002</td>
+<td style="text-align: center;"><strong>2</strong></td>
+<td style="text-align: center;">2026-04-02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">1003</td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;">2026-04-03</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</section>
+<section id="関係モデルによってアノマリーはどう解消されたか" class="slide level3">
+<h3>関係モデルによってアノマリーはどう解消されたか？</h3>
+<h4 id="大問題の完全な克服">✅ 3大問題の完全な克服</h4>
+<ol type="1">
+<li><strong>修正アノマリーの解消</strong>：
+<ul>
+<li>田中氏の電話番号が変わっても、顧客テーブルの「1行」を書き換えるだけで完了。過去の全注文も自動的に新番号を参照！</li>
+</ul></li>
+<li><strong>挿入アノマリーの解消</strong>：
+<ul>
+<li>買い物をしたことがない新規顧客も、顧客テーブルに単独で登録可能（注文列のNULLは発生しない）。</li>
+</ul></li>
+<li><strong>削除アノマリーの解消</strong>：
+<ul>
+<li>注文がキャンセルされて注文レコードを削除しても、顧客マスタや商品マスタは無傷のまま残る！</li>
+</ul></li>
+</ol>
+</section>
+<section id="実践チェック" class="slide level3">
+<h3>📱 実践チェック</h3>
+<h4 id="関係モデルの基本原則を確認">📊 関係モデルの基本原則を確認</h4>
+<ul>
+<li>主キー（PK: Primary Key）と外部キー（FK: Foreign Key）の違いは何か？
+<ul>
+<li><strong>主キー（PK）</strong>：そのテーブル内でレコードを唯一無二に特定する背番号（例：顧客ID）。</li>
+<li><strong>外部キー（FK）</strong>：別のテーブルの主キーを参照し、関係性を結ぶための番号（例：注文テーブル内の顧客ID）。</li>
+</ul></li>
+</ul>
+</section>
+<section id="考えてみよう振り返り" class="slide level3">
+<h3>🤔 考えてみよう（振り返り）</h3>
+<ul>
+<li>大学の教務システムを1枚のExcelシートで作った場合、どんなアノマリーが起きるだろうか？</li>
+<li>「休学中の学生」「まだ履修者が0人の新設科目」を登録する場合を想像してみよう。</li>
+</ul>
+</section>
+<section class="slide level3">
+
+</section>
+
+<section id="ビジネスをモデル化するer図とreaモデリング" class="title-slide slide level2 center">
+<h2>2. ビジネスをモデル化する（ER図とREAモデリング）</h2>
+
+</section>
+<section id="考えてみたい問い-1" class="slide level3">
+<h3>考えてみたい問い</h3>
+<ul>
+<li>現実の複雑なビジネスを、どうやって整然としたデータベースの設計図に落とし込むのか？</li>
+<li>会計学の「複式簿記」の考え方が、なぜ現代のデータ設計の強力な指針になるのか？</li>
+<li>「注文」と「商品」を直接つないではいけない理由とは？</li>
+</ul>
+</section>
+<section id="会計学から生まれたreaモデリング" class="slide level3">
+<h3>会計学から生まれた「REAモデリング」</h3>
+<h4 id="ウィリアムマッカーシー教授の洞察">🏛️ ウィリアム・マッカーシー教授の洞察</h4>
+<ul>
+<li>ミシガン州立大学のウィリアム・マッカーシー（W. E. McCarthy）教授が提唱。</li>
+<li>複式簿記の「原因と結果」「富のストックとフロー」の構造をデータベース設計に応用した理論。</li>
+<li>ビジネスのデータは、必ず以下の<strong>3要素（リソース・イベント・エージェント）</strong>に大別されます。</li>
+</ul>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    R["📦 リソース (Resource)&lt;br/&gt;企業の富・ストック&lt;br/&gt;[商品] [預金口座]"]
+    E["⚡ イベント (Event)&lt;br/&gt;富の移転・フロー&lt;br/&gt;[注文] [出荷] [振込決済]"]
+    A["👤 エージェント (Agent)&lt;br/&gt;取引の当事者&lt;br/&gt;[顧客] [従業員] [取引先]"]
+
+    A --&gt;|取引を実行| E
+    E --&gt;|資源を増減| R
+    style R fill:#e3f2fd,stroke:#1565c0
+    style E fill:#fff3e0,stroke:#e65100
+    style A fill:#e8f5e9,stroke:#2e7d32
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="reaモデリングの3大構成要素" class="slide level3">
+<h3>REAモデリングの3大構成要素</h3>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">要素</th>
+<th style="text-align: left;">概念</th>
+<th style="text-align: left;">ビジネス上の具体例</th>
+<th style="text-align: left;">テーブルの性質</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>リソース<br>(Resource)</strong></td>
+<td style="text-align: left;">企業が保有する富・ストック。<br>時間の経過で急変しない資源。</td>
+<td style="text-align: left;">商品、預金口座、倉庫、設備</td>
+<td style="text-align: left;"><strong>マスタテーブル</strong><br>（状態を保持）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>イベント<br>(Event)</strong></td>
+<td style="text-align: left;">資源を増減させる経済的事象。<br>不可逆な富の移転（フロー）。</td>
+<td style="text-align: left;">受注、出荷、入金、契約、振込</td>
+<td style="text-align: left;"><strong>トランザクションテーブル</strong><br>（履歴・ログを保持）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>エージェント<br>(Agent)</strong></td>
+<td style="text-align: left;">取引に関与する経済的主体。<br>取引の当事者。</td>
+<td style="text-align: left;">顧客、従業員、取引先銀行</td>
+<td style="text-align: left;"><strong>マスタテーブル</strong><br>（属性を保持）</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="設計の黄金律イベントは追記のみで運用する" class="slide level3">
+<h3>📌 設計の黄金律：イベントは「追記のみ」で運用する</h3>
+<div title="📌 内部統制と監査証跡の基本原則">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>📌 内部統制と監査証跡の基本原則</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>「イベント（動詞）」は一度発生したら過去の確定した事実である。</strong></p>
+<ul>
+<li>したがって、イベント系テーブル（注文、出荷、決済ログなど）のレコードは、原則として<strong>書き換え（UPDATE）や削除（DELETE）を行ってはならない</strong>！</li>
+<li>修正が必要な場合は、「マイナスの赤伝票（取消イベント）」を新しく<strong>追記（INSERT）</strong>することで相殺する。</li>
+<li>これが近代的な会計監査・内部統制・監査証跡（Audit Trail）の鉄則です。</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="カラスの足ie記法で取引の関係性を定義する" class="slide level3">
+<h3>カラスの足（IE記法）で取引の「関係性」を定義する</h3>
+<h4 id="実務で広く使われるer図の視覚記法">🐦 実務で広く使われるER図の視覚記法</h4>
+<p>エンティティ同士が「何対何の対応関係にあるか（多重度 / カーディナリティ）」を直感的な線で表現します。</p>
+<ul>
+<li><code>┼──┼</code> ： <strong>1対1（必須）</strong>（例：国と首都）</li>
+<li><code>┼──&lt;</code> ： <strong>1対多（必須）</strong>（例：1つの注文と、それに含まれる1つ以上の注文明細）</li>
+<li><code>○──&lt;</code> ： <strong>1対多（任意）</strong>（例：顧客と注文。一度も注文したことがない顧客も許容）</li>
+</ul>
+</section>
+<section id="er図小売ビジネスの全体データモデル" class="slide level3">
+<h3>【ER図】小売ビジネスの全体データモデル</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">erDiagram
+    CUSTOMER ||--o{ ORDER : "注文する (1対多/任意)"
+    ORDER ||--|{ ORDER_ITEM : "含む (1対多/必須)"
+    PRODUCT ||--o{ ORDER_ITEM : "含まれる (1対多/任意)"
+
+    CUSTOMER {
+        int id PK "顧客ID"
+        string name "氏名"
+        string phone "電話番号"
+    }
+    ORDER {
+        int id PK "注文番号"
+        int customer_id FK "顧客ID"
+        date order_date "注文日"
+    }
+    ORDER_ITEM {
+        int order_id PK_FK "注文番号"
+        int product_id PK_FK "商品ID"
+        int quantity "数量"
+        int purchase_price "購入時単価"
+    }
+    PRODUCT {
+        int id PK "商品ID"
+        string name "商品名"
+        int list_price "定価"
+    }
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="多対多の解消なぜ注文明細が必要なのか" class="slide level3">
+<h3>多対多の解消：なぜ「注文明細」が必要なのか？</h3>
+<h4 id="注文と商品を直接結んではいけない理由">⚠️ 「注文」と「商品」を直接結んではいけない理由</h4>
+<ul>
+<li>現実世界の商取引を観察してみましょう：
+<ul>
+<li>1回の「注文」には、<strong>複数の「商品」</strong>が含まれます。</li>
+<li>1つの「商品」は、世界中の<strong>複数の「注文」</strong>に選ばれます。</li>
+</ul></li>
+<li>これは<strong>多対多（N:M）</strong>の関係です。</li>
+<li>しかし、関係データベースではテーブル同士を「多対多」の線で直接つなぐことができません！
+<ul>
+<li>なぜなら、<strong>「どの注文に、どの商品が何個（数量）、いくらで含まれるか」を記録する場所がなくなってしまう</strong>からです。</li>
+</ul></li>
+</ul>
+</section>
+<section id="連関エンティティ中間テーブルの魔法" class="slide level3">
+<h3>連関エンティティ（中間テーブル）の魔法</h3>
+<h4 id="多対多を2つの1対多に分解する">🔗 「多対多」を「2つの1対多」に分解する</h4>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    O["📦 注文 (ORDER)"] --&gt;|1対多| OI["📝 注文明細 (ORDER_ITEM)&lt;br/&gt;【連関エンティティ】&lt;br/&gt;注文ID + 商品ID + 数量 + 単価"]
+    P["🏷️ 商品 (PRODUCT)"] --&gt;|1対多| OI
+
+    style OI fill:#fff9c4,stroke:#fbc02d,stroke-width:2px
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<ul>
+<li>両者の間に<strong>連関エンティティ（中間テーブル）「注文明細（ORDER_ITEM）」</strong>を挟む。</li>
+<li>これにより、多対多の複雑な関係が「整然とした2つの1対多」に分解され、数量や購入時単価を正確に管理できるようになります。</li>
+</ul>
+</section>
+<section id="実践チェック-1" class="slide level3">
+<h3>📱 実践チェック</h3>
+<h4 id="reaモデリングの確認">📐 REAモデリングの確認</h4>
+<ul>
+<li>大学の履修登録システムをREAでモデル化すると：
+<ul>
+<li><strong>リソース</strong>：講義（開講科目）、教室</li>
+<li><strong>エージェント</strong>：学生、担当教員</li>
+<li><strong>イベント</strong>：履修登録（いつ、どの学生が、どの科目を登録したか）</li>
+<li>学生と科目の多対多を解消する連関エンティティは「履修データ」！</li>
+</ul></li>
+</ul>
+</section>
+<section id="考えてみよう振り返り-1" class="slide level3">
+<h3>🤔 考えてみよう（振り返り）</h3>
+<ul>
+<li>Uber Eatsのような配達サービスをREAモデリングする場合：
+<ul>
+<li>「レストラン」「配達員」「注文者」「料理」「配達イベント」はそれぞれリソース・イベント・エージェントのどれに分類されるだろうか？</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level3">
+
+</section>
+
+<section id="データの整合性を守る正規化の技法" class="title-slide slide level2 center">
+<h2>3. データの整合性を守る「正規化」の技法</h2>
+
+</section>
+<section id="考えてみたい問い-2" class="slide level3">
+<h3>考えてみたい問い</h3>
+<ul>
+<li>テーブルを分ける基準は何？ どこまで細かく分ければいいの？</li>
+<li>「第1正規形」「第2正規形」「第3正規形」は何を排除しているのか？</li>
+<li>「商品の単価」を注文明細テーブルにあえて重複して保存するのは、なぜ経済的に不可欠なのか？</li>
+</ul>
+</section>
+<section id="正規化normalization理論とは" class="slide level3">
+<h3>正規化（Normalization）理論とは？</h3>
+<h4 id="テーブルをどう分ければ安全かへの数学的回答">📐 「テーブルをどう分ければ安全か？」への数学的回答</h4>
+<ul>
+<li>直感や思いつきでテーブルを設計すると、後から必ずデータの破綻やアノマリーが発生します。</li>
+<li><strong>正規化</strong>とは、データの重複や不整合を防ぐために、<strong>数学的な従属関係に基づいてテーブルを段階的に無駄のない形へ分解する手続き</strong>です。</li>
+<li>ビジネス実務においては、<strong>第3正規形（3NF）</strong>までを正しく理解し適用できれば十分です！</li>
+</ul>
+</section>
+<section id="第1正規形1nf繰り返し項目の排除" class="slide level3">
+<h3>3.1 第1正規形（1NF）：繰り返し項目の排除</h3>
+<h4 id="ルール1つのセルに複数の値配列カンマ区切りを入れてはならない">🚫 ルール：1つのセルに複数の値（配列・カンマ区切り）を入れてはならない！</h4>
+<h5 id="非正規形違反例1セルに複数の値が存在">【非正規形（違反例：1セルに複数の値が存在）】</h5>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">学生番号</th>
+<th style="text-align: center;">氏名</th>
+<th style="text-align: left;">履修科目</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">S01</td>
+<td style="text-align: center;">田中</td>
+<td style="text-align: left;">マクロ経済学, 計量経済学, 財政学</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">S02</td>
+<td style="text-align: center;">佐藤</td>
+<td style="text-align: left;">ミクロ経済学</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Excelではよく見かける形式ですが、データベースでは大惨事になります：
+<ul>
+<li>「計量経済学を履修している学生」を高速に検索できない（部分一致検索になり激重）。</li>
+<li>履修科目ごとの学生数を集約（COUNT）できない。</li>
+</ul></li>
+</ul>
+</section>
+<section id="第1正規形1nfへの変換" class="slide level3">
+<h3>第1正規形（1NF）への変換</h3>
+<h4 id="すべてのセルを単一のスカラー値に展開する">📏 すべてのセルを「単一のスカラー値」に展開する</h4>
+<h5 id="第1正規形1nf化達成">【第1正規形（1NF化達成）】</h5>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">学生番号 (PK)</th>
+<th style="text-align: left;">履修科目 (PK)</th>
+<th style="text-align: center;">氏名</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><strong>S01</strong></td>
+<td style="text-align: left;"><strong>マクロ経済学</strong></td>
+<td style="text-align: center;">田中</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>S01</strong></td>
+<td style="text-align: left;"><strong>計量経済学</strong></td>
+<td style="text-align: center;">田中</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>S01</strong></td>
+<td style="text-align: left;"><strong>財政学</strong></td>
+<td style="text-align: center;">田中</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>S02</strong></td>
+<td style="text-align: left;"><strong>ミクロ経済学</strong></td>
+<td style="text-align: center;">佐藤</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>主キーは <code>(学生番号, 履修科目)</code> の<strong>複合主キー</strong>になります。</li>
+<li>これでSQLによる検索や集計が可能になりましたが、田中氏の「氏名」が3行も重複して出現する新たな問題が生じます。</li>
+</ul>
+</section>
+<section id="第2正規形2nf部分関数従属の排除" class="slide level3">
+<h3>3.2 第2正規形（2NF）：部分関数従属の排除</h3>
+<h4 id="ルール複合主キーの一部分だけで決まる列を別テーブルに分離する">🚫 ルール：複合主キーの「一部分」だけで決まる列を別テーブルに分離する！</h4>
+<p>上記の表に各科目の「担当教員」が加わった場合を考えます。</p>
+<h5 id="第2正規形違反部分関数従属が存在">【第2正規形違反（部分関数従属が存在）】</h5>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">学生番号 (PK)</th>
+<th style="text-align: left;">履修科目 (PK)</th>
+<th style="text-align: center;">氏名</th>
+<th style="text-align: center;">担当教員</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">S01</td>
+<td style="text-align: left;">マクロ経済学</td>
+<td style="text-align: center;">田中</td>
+<td style="text-align: center;">齊藤教授</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">S01</td>
+<td style="text-align: left;">計量経済学</td>
+<td style="text-align: center;">田中</td>
+<td style="text-align: center;">神取教授</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">S02</td>
+<td style="text-align: left;">ミクロ経済学</td>
+<td style="text-align: center;">佐藤</td>
+<td style="text-align: center;">神取教授</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>各列が「何によって一意に決まるか（関数従属）」を観察します：
+<ul>
+<li><strong>氏名</strong>は、複合キーの片割れである「<strong>学生番号</strong>」さえ分かれば決まる（科目は関係ない）。</li>
+<li><strong>担当教員</strong>は、複合キーの片割れである「<strong>履修科目</strong>」さえ分かれば決まる（学生は関係ない）。</li>
+</ul></li>
+</ul>
+</section>
+<section id="第2正規形2nfへの分解" class="slide level3">
+<h3>第2正規形（2NF）への分解</h3>
+<h4 id="キーの一部に甘えている列を独立させる">✂️ キーの一部に甘えている列を独立させる</h4>
+<p>主キー全体 <code>(学生番号, 履修科目)</code> に依存していない列を独立したテーブルに分離します。</p>
+<div class="columns">
+<div class="column" style="width:33%;">
+<h5 id="学生マスタ">【学生マスタ】</h5>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">学生番号(PK)</th>
+<th style="text-align: left;">氏名</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">S01</td>
+<td style="text-align: left;">田中</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">S02</td>
+<td style="text-align: left;">佐藤</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:33%;">
+<h5 id="科目マスタ">【科目マスタ】</h5>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">科目名(PK)</th>
+<th style="text-align: left;">担当教員</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">マクロ経済学</td>
+<td style="text-align: left;">齊藤教授</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">計量経済学</td>
+<td style="text-align: left;">神取教授</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ミクロ経済学</td>
+<td style="text-align: left;">神取教授</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:34%;">
+<h5 id="履修実績">【履修実績】</h5>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">学生番号(FK)</th>
+<th style="text-align: left;">科目名(FK)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">S01</td>
+<td style="text-align: left;">マクロ経済学</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">S01</td>
+<td style="text-align: left;">計量経済学</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">S02</td>
+<td style="text-align: left;">ミクロ経済学</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+<ul>
+<li>これで第2正規形が達成され、氏名や担当教員の重複更新漏れが消滅します！</li>
+</ul>
+</section>
+<section id="第3正規形3nf推移的関数従属の排除" class="slide level3">
+<h3>3.3 第3正規形（3NF）：推移的関数従属の排除</h3>
+<h4 id="ルール主キー以外の列によって決まる別の列芋づる式の従属を分離する">🚫 ルール：主キー以外の列によって決まる別の列（芋づる式の従属）を分離する！</h4>
+<p>主キーが単一の「社員番号」である社員テーブルを考えます。</p>
+<h5 id="第3正規形違反推移的関数従属を含むテーブル">【第3正規形違反（推移的関数従属を含むテーブル）】</h5>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">社員番号 (PK)</th>
+<th style="text-align: center;">社員名</th>
+<th style="text-align: center;">部署コード</th>
+<th style="text-align: center;">部署名</th>
+<th style="text-align: center;">部署フロア</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">E101</td>
+<td style="text-align: center;">田中</td>
+<td style="text-align: center;">D01</td>
+<td style="text-align: center;">経済調査部</td>
+<td style="text-align: center;">7階</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">E102</td>
+<td style="text-align: center;">佐藤</td>
+<td style="text-align: center;">D01</td>
+<td style="text-align: center;">経済調査部</td>
+<td style="text-align: center;">7階</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">E103</td>
+<td style="text-align: center;">鈴木</td>
+<td style="text-align: center;">D02</td>
+<td style="text-align: center;">資金運用部</td>
+<td style="text-align: center;">8階</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>従属の流れを追うと：
+<ul>
+<li><strong>社員番号 $ o$ 部署コード $ o$ 部署名, 部署フロア</strong></li>
+</ul></li>
+<li>主キーが決まると部署コードが決まり、その部署コードによって部署名とフロアが決まる（<strong>A $ o$ B $ o$ C の「また貸し」関係</strong>）。</li>
+</ul>
+</section>
+<section id="第3正規形3nfへの分解" class="slide level3">
+<h3>第3正規形（3NF）への分解</h3>
+<h4 id="部署が移転した時の全社員一括更新リスクを排除する">🏢 部署が移転した時の全社員一括更新リスクを排除する</h4>
+<p>もし「経済調査部」が8階に移転した場合、社員テーブル全員のフロアを更新しなければならないリスクを解消します。</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h5 id="社員テーブル">【社員テーブル】</h5>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">社員番号 (PK)</th>
+<th style="text-align: center;">社員名</th>
+<th style="text-align: center;">部署コード (FK)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">E101</td>
+<td style="text-align: center;">田中</td>
+<td style="text-align: center;">D01</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">E102</td>
+<td style="text-align: center;">佐藤</td>
+<td style="text-align: center;">D01</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">E103</td>
+<td style="text-align: center;">鈴木</td>
+<td style="text-align: center;">D02</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:50%;">
+<h5 id="部署マスタ">【部署マスタ】</h5>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">部署コード (PK)</th>
+<th style="text-align: center;">部署名</th>
+<th style="text-align: center;">部署フロア</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">D01</td>
+<td style="text-align: center;">経済調査部</td>
+<td style="text-align: center;">7階</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">D02</td>
+<td style="text-align: center;">資金運用部</td>
+<td style="text-align: center;">8階</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+<ul>
+<li>これで部署情報が独立マスタとして管理され、更新アノマリーは完全に消滅します！</li>
+</ul>
+</section>
+<section id="経済的例外なぜ購入時単価はあえて重複させるのか" class="slide level3">
+<h3>3.4 経済的例外：なぜ「購入時単価」はあえて重複させるのか？</h3>
+<h4 id="理論とビジネス実務の決定的な対立">❓ 理論とビジネス実務の決定的な対立</h4>
+<ul>
+<li><strong>純粋な理論派の疑問</strong>：
+<ul>
+<li>「商品単価は商品マスタにあるのだから、注文明細テーブルに単価を持たせるのは正規化違反（重複）ではないか？」</li>
+</ul></li>
+<li><strong>ビジネス実務の現実</strong>：
+<ul>
+<li><strong>いいえ、注文明細には絶対に「購入時単価」を重複して持たせなければなりません！</strong></li>
+</ul></li>
+</ul>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    P["🏷️ 商品マスタ&lt;br/&gt;商品ID: P001&lt;br/&gt;定価: 2,800円"] --&gt;|物価高騰で価格改定| P_NEW["🏷️ 商品マスタ&lt;br/&gt;商品ID: P001&lt;br/&gt;定価: 3,500円 🔺"]
+    OI["📝 注文明細（過去の確定注文）&lt;br/&gt;注文ID: 101, 商品: P001&lt;br/&gt;購入時単価: 2,800円（固定保存）"]
+
+    style OI fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="もし注文明細に単価を残さなかったら何が起きるか" class="slide level3">
+<h3>もし注文明細に単価を残さなかったら何が起きるか？</h3>
+<h4 id="過去の決算書まで勝手に書き換わる粉飾事故">💥 過去の決算書まで勝手に書き換わる粉飾事故！</h4>
+<ul>
+<li>もし注文明細に単価を持たせず、常に商品マスタの定価を参照していたら：
+<ul>
+<li>将来、商品の定価が値上げされた瞬間に、<strong>「過去の会計年度の売上実績データまで勝手に値上がりしてしまう」</strong>！</li>
+<li>すでに税務署に提出した確定申告や決算書の売上金額と、システムの売上集計が一致しなくなる大事故を引き起こします。</li>
+</ul></li>
+</ul>
+<div title="📝 理論と実務の調和">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>📝 理論と実務の調和</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><strong>マスタデータ（現在の値）</strong>：徹底して第3正規形まで分離する。</li>
+<li><strong>トランザクションデータ（過去の合意価格）</strong>：契約が締結された瞬間の<strong>スナップショット</strong>として、あえて値を固定・重複保存する。</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="実践チェック-2" class="slide level3">
+<h3>📱 実践チェック</h3>
+<h4 id="正規化のまとめ">📐 正規化のまとめ</h4>
+<ul>
+<li><strong>第1正規形 (1NF)</strong>：1つのマスに複数の値を入れない（スカラ値化）。</li>
+<li><strong>第2正規形 (2NF)</strong>：複合キーの一部だけで決まる列を切り離す。</li>
+<li><strong>第3正規形 (3NF)</strong>：主キー以外の列に芋づる式に従属する列を切り離す。</li>
+<li><strong>意図的な非正規化</strong>：過去の取引スナップショット（購入時単価など）は固定保持する！</li>
+</ul>
+</section>
+<section id="考えてみよう振り返り-2" class="slide level3">
+<h3>🤔 考えてみよう（振り返り）</h3>
+<ul>
+<li>ネット通販で「届け先住所」を注文テーブルに記録せず、常に顧客マスタの現住所を参照するように設計した場合、どんなトラブルが起きるだろうか？</li>
+</ul>
+</section>
+<section class="slide level3">
+
+</section>
+
+<section id="ビジネスデータを操るsql" class="title-slide slide level2 center">
+<h2>4. ビジネスデータを操るSQL</h2>
+
+</section>
+<section id="考えてみたい問い-3" class="slide level3">
+<h3>考えてみたい問い</h3>
+<ul>
+<li>Pythonなどの一般的なプログラミング言語とSQLは何が根本的に違うのか？</li>
+<li>売上分析で最も使われる「GROUP BY」と「HAVING」の役割は？</li>
+<li>バラバラに分けた正規化テーブルを、どうやって元の1つの表に復元するのか？</li>
+</ul>
+</section>
+<section id="sqlstructured-query-languageの特徴" class="slide level3">
+<h3>SQL（Structured Query Language）の特徴</h3>
+<h4 id="手続きhowではなく集合の条件whatを宣言する">📢 「手続き（How）」ではなく「集合の条件（What）」を宣言する</h4>
+<ul>
+<li><strong>一般的な言語（Python, C, Javaなど）</strong>：
+<ul>
+<li>「データを1行ずつループで回し、もし条件に合致したらリストに追加する」（手続き的命令）。</li>
+</ul></li>
+<li><strong>SQL</strong>：
+<ul>
+<li>「東京都に住んでいて、年間購買額が10万円以上の顧客の集合を出せ！」と<strong>望むデータの条件だけを宣言</strong>する（宣言型言語）。</li>
+<li>どのようにインデックスを使い、どう効率的に探索するかは、DBMS内部の<strong>オプティマイザ（最適化エンジン）</strong>が全自動で計算して実行する！</li>
+</ul></li>
+</ul>
+</section>
+<section id="基本構文select-from-where" class="slide level3">
+<h3>4.1 基本構文：SELECT-FROM-WHERE</h3>
+<h4 id="欲しい列を選び射影対象の行を絞り込む選択">🔍 欲しい列を選び（射影）、対象の行を絞り込む（選択）</h4>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href=""></a><span class="co">-- 年間購買総額が10万円を超える東京都在住の顧客を抽出する</span></span>
+<span id="cb1-2"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb1-3"><a href=""></a>    customer_id,</span>
+<span id="cb1-4"><a href=""></a>    name,</span>
+<span id="cb1-5"><a href=""></a>    total_spend</span>
+<span id="cb1-6"><a href=""></a><span class="kw">FROM</span></span>
+<span id="cb1-7"><a href=""></a>    customers</span>
+<span id="cb1-8"><a href=""></a><span class="kw">WHERE</span></span>
+<span id="cb1-9"><a href=""></a>    prefecture <span class="op">=</span> <span class="st">'東京都'</span></span>
+<span id="cb1-10"><a href=""></a>    <span class="kw">AND</span> total_spend <span class="op">&gt;=</span> <span class="dv">100000</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><strong>SELECT</strong> ：取得したい属性（列）を指定（関係代数の「<strong>射影 <span class="math inline">\(\pi\)</span></strong>」）</li>
+<li><strong>FROM</strong> ：検索対象のテーブルを指定</li>
+<li><strong>WHERE</strong> ：抽出するレコードの条件を指定（関係代数の「<strong>選択 <span class="math inline">\(\sigma\)</span></strong>」）</li>
+</ul>
+</section>
+<section id="データの集約とグループ化group-by-と-having" class="slide level3">
+<h3>4.2 データの集約とグループ化：GROUP BY と HAVING</h3>
+<h4 id="売上分析やマクロ集計における最重要構文">📈 売上分析やマクロ集計における最重要構文</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href=""></a><span class="co">-- 2026年の月別売上合計を算出し、売上が100万円を超えた月だけを抽出</span></span>
+<span id="cb2-2"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb2-3"><a href=""></a>    DATE_TRUNC(<span class="st">'month'</span>, order_date) <span class="kw">AS</span> order_month,</span>
+<span id="cb2-4"><a href=""></a>    <span class="fu">COUNT</span>(order_id)                  <span class="kw">AS</span> total_orders,</span>
+<span id="cb2-5"><a href=""></a>    <span class="fu">SUM</span>(total_amount)               <span class="kw">AS</span> monthly_revenue</span>
+<span id="cb2-6"><a href=""></a><span class="kw">FROM</span></span>
+<span id="cb2-7"><a href=""></a>    orders</span>
+<span id="cb2-8"><a href=""></a><span class="kw">WHERE</span></span>
+<span id="cb2-9"><a href=""></a>    order_date <span class="kw">BETWEEN</span> <span class="st">'2026-01-01'</span> <span class="kw">AND</span> <span class="st">'2026-12-31'</span></span>
+<span id="cb2-10"><a href=""></a><span class="kw">GROUP</span> <span class="kw">BY</span></span>
+<span id="cb2-11"><a href=""></a>    DATE_TRUNC(<span class="st">'month'</span>, order_date)</span>
+<span id="cb2-12"><a href=""></a><span class="kw">HAVING</span></span>
+<span id="cb2-13"><a href=""></a>    <span class="fu">SUM</span>(total_amount) <span class="op">&gt;=</span> <span class="dv">1000000</span></span>
+<span id="cb2-14"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span></span>
+<span id="cb2-15"><a href=""></a>    order_month <span class="kw">ASC</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="where-と-having-の決定的な違い" class="slide level3">
+<h3>⚠️ WHERE と HAVING の決定的な違い</h3>
+<div title="⚠️ 初心者が最も混同しやすいポイント">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>⚠️ 初心者が最も混同しやすいポイント</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><strong>WHERE</strong>：
+<ul>
+<li><strong>集約（GROUP BY）する前</strong>の個々のレコードに対する絞り込み。</li>
+<li>例：<code>WHERE order_date &gt;= '2026-01-01'</code>（2026年の注文レコードだけを対象にする）。</li>
+</ul></li>
+<li><strong>HAVING</strong>：
+<ul>
+<li><strong>集約（GROUP BY）でまとめた後</strong>の集計結果に対する絞り込み。</li>
+<li>例：<code>HAVING SUM(total_amount) &gt;= 1000000</code>（月売上合計が100万円以上のグループだけを残す）。</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="テーブル同士の結合join" class="slide level3">
+<h3>4.3 テーブル同士の結合：JOIN</h3>
+<h4 id="正規化でバラバラにした表を必要な瞬間に1つに復元する">🧩 正規化でバラバラにした表を、必要な瞬間に1つに復元する</h4>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href=""></a><span class="co">-- 顧客ごとの購入履歴を一覧化する（内部結合）</span></span>
+<span id="cb3-2"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb3-3"><a href=""></a>    c.name             <span class="kw">AS</span> customer_name,</span>
+<span id="cb3-4"><a href=""></a>    o.order_id,</span>
+<span id="cb3-5"><a href=""></a>    o.order_date,</span>
+<span id="cb3-6"><a href=""></a>    p.name             <span class="kw">AS</span> product_name,</span>
+<span id="cb3-7"><a href=""></a>    oi.quantity,</span>
+<span id="cb3-8"><a href=""></a>    oi.purchase_price</span>
+<span id="cb3-9"><a href=""></a><span class="kw">FROM</span> customers c</span>
+<span id="cb3-10"><a href=""></a><span class="kw">INNER</span> <span class="kw">JOIN</span> orders o       <span class="kw">ON</span> c.<span class="kw">id</span> <span class="op">=</span> o.customer_id</span>
+<span id="cb3-11"><a href=""></a><span class="kw">INNER</span> <span class="kw">JOIN</span> order_items oi <span class="kw">ON</span> o.<span class="kw">id</span> <span class="op">=</span> oi.order_id</span>
+<span id="cb3-12"><a href=""></a><span class="kw">INNER</span> <span class="kw">JOIN</span> products p     <span class="kw">ON</span> oi.product_id <span class="op">=</span> p.<span class="kw">id</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>顧客、注文、注文明細、商品の4つの正規化テーブルが、IDをキーにして一瞬で1つの明細表として復元されます。</li>
+</ul>
+</section>
+<section id="内部結合inner-join-vs-外部結合left-outer-join" class="slide level3">
+<h3>内部結合（INNER JOIN） vs 外部結合（LEFT OUTER JOIN）</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h4 id="内部結合-inner-join">🔵 内部結合 (INNER JOIN)</h4>
+<ul>
+<li><strong>両方に共通するデータのみ結合</strong></li>
+<li>注文実績が1件でもある顧客だけが表示される。</li>
+<li>「一度も注文したことがない新規顧客」は結果から除外される。</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h4 id="外部結合-left-outer-join">🟡 外部結合 (LEFT OUTER JOIN)</h4>
+<ul>
+<li><strong>左側のテーブルを全件残す</strong></li>
+<li>「一度も注文したことがない顧客」も含めて全顧客を表示したい場合に使用。</li>
+<li>注文がない部分の列は自動的に<strong>NULL</strong>で埋められる。</li>
+</ul>
+</div></div>
+<ul>
+<li>「休眠顧客リストの作成」や「未購入者への販促メール配信」には LEFT OUTER JOIN が不可欠です。</li>
+</ul>
+</section>
+<section id="実践チェック-3" class="slide level3">
+<h3>📱 実践チェック</h3>
+<h4 id="sqlの基本動作を確認">💻 SQLの基本動作を確認</h4>
+<ul>
+<li>以下の集計を行いたい場合、どの構文を使うか？
+<ul>
+<li>「各支店の売上平均を求め、平均売上が500万円以上の支店を表示する」</li>
+<li>支店ごとにまとめる $ o$ <code>GROUP BY 支店名</code></li>
+<li>平均売上が500万以上 $ o$ <code>HAVING AVG(売上) &gt;= 5000000</code></li>
+</ul></li>
+</ul>
+</section>
+<section id="考えてみよう振り返り-3" class="slide level3">
+<h3>🤔 考えてみよう（振り返り）</h3>
+<ul>
+<li>全顧客に対してアンケートを送りたいとき、INNER JOIN と LEFT OUTER JOIN のどちらを使って顧客リストを作成すべきだろうか？</li>
+</ul>
+</section>
+<section class="slide level3">
+
+</section>
+
+<section id="金融取引を支えるトランザクションとacid特性" class="title-slide slide level2 center">
+<h2>5. 金融・取引を支える「トランザクション」とACID特性</h2>
+
+</section>
+<section id="考えてみたい問い-4" class="slide level3">
+<h3>考えてみたい問い</h3>
+<ul>
+<li>銀行の預金送金中にサーバーの電源コードが抜けたら、お金はどうなる？</li>
+<li>残高1万円の口座から、ATMと口座振替が同時に5千円引き落としたらなぜ銀行が大損する？</li>
+<li>データベースが守り抜く「ACID特性」の4つの約束とは？</li>
+</ul>
+</section>
+<section id="経済学における契約決済とトランザクション" class="slide level3">
+<h3>経済学における「契約・決済」とトランザクション</h3>
+<h4 id="中途半端な状態で終わることは絶対に許されない">🤝 中途半端な状態で終わることは絶対に許されない</h4>
+<ul>
+<li>経済活動における「契約」や「決済」は、完了するか、破棄されるかの二者択一です。</li>
+<li><strong>トランザクション（Transaction）</strong>：
+<ul>
+<li><strong>「複数の関連する処理をひとまとめにし、すべて成功するか、すべて失敗するかのどちらかしか許さない不可分の処理単位」</strong>。</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href=""></a><span class="co">-- 銀行口座間の送金トランザクション例</span></span>
+<span id="cb4-2"><a href=""></a>[ トランザクション開始: <span class="cf">BEGIN</span> ]</span>
+<span id="cb4-3"><a href=""></a><span class="fl">1.</span> Aさんの残高を <span class="dv">10</span>,<span class="dv">000</span>円減らす</span>
+<span id="cb4-4"><a href=""></a>   <span class="kw">UPDATE</span> accounts <span class="kw">SET</span> balance <span class="op">=</span> balance <span class="op">-</span> <span class="dv">10000</span> <span class="kw">WHERE</span> <span class="kw">id</span> <span class="op">=</span> <span class="st">'A'</span>;</span>
+<span id="cb4-5"><a href=""></a><span class="fl">2.</span> Bさんの残高を <span class="dv">10</span>,<span class="dv">000</span>円増やす</span>
+<span id="cb4-6"><a href=""></a>   <span class="kw">UPDATE</span> accounts <span class="kw">SET</span> balance <span class="op">=</span> balance <span class="op">+</span> <span class="dv">10000</span> <span class="kw">WHERE</span> <span class="kw">id</span> <span class="op">=</span> <span class="st">'B'</span>;</span>
+<span id="cb4-7"><a href=""></a>[ トランザクション確定: <span class="kw">COMMIT</span> ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>もしステップ1の直後に大停電が起きたら？ Aさんのお金が虚空に消滅してしまう！</li>
+</ul>
+</section>
+<section id="トランザクションの4大保証acid特性" class="slide level3">
+<h3>トランザクションの4大保証：ACID特性</h3>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">特性</th>
+<th style="text-align: left;">英語名称</th>
+<th style="text-align: left;">経済的・ビジネス的意味</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>原子性</strong></td>
+<td style="text-align: left;"><strong>Atomicity</strong></td>
+<td style="text-align: left;"><strong>「全か無か（All or Nothing）」</strong>。<br>処理が途中で失敗したら、最初から何も起きなかった状態へ完全に巻き戻す（<strong>ROLLBACK</strong>）。中途半端な蒸発を許さない。</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>一貫性</strong></td>
+<td style="text-align: left;"><strong>Consistency</strong></td>
+<td style="text-align: left;"><strong>「ルールの厳守」</strong>。<br>残高マイナス禁止などの整合性制約や、二重振込の禁止といった事前定義ルールを破る更新を絶対に拒絶する。</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>分離性</strong></td>
+<td style="text-align: left;"><strong>Isolation</strong></td>
+<td style="text-align: left;"><strong>「並行処理の独立性」</strong>。<br>同時に1万人が取引していても、お互いの途中経過は見えず、あたかも自分1人だけが順番に処理しているかのように見せる。</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>耐久性</strong></td>
+<td style="text-align: left;"><strong>Durability</strong></td>
+<td style="text-align: left;"><strong>「確定した契約の永続性」</strong>。<br>一度コミットされたデータは、直後に大停電やOSクラッシュが起きても、ログ（WAL）から確実に復元される。</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="分離性isolationが破綻すると起きる経済的被害" class="slide level3">
+<h3>5.2 分離性（Isolation）が破綻すると起きる経済的被害</h3>
+<h4 id="複数のユーザーが同時に同じデータを触る恐怖">💥 複数のユーザーが同時に同じデータを触る恐怖</h4>
+<p>複数の取引が同時に並行実行されるとき、分離レベルが低いと以下のような致命的な経済的事故（アノマリー）が発生します。</p>
+<ol type="1">
+<li><strong>ロストアップデート（更新の喪失）</strong>：他人の更新を上書きして消してしまう。</li>
+<li><strong>ダーティリード（汚れた読み取り）</strong>：確定していない未完了のデータを読んでしまう。</li>
+<li><strong>ファントムリード（幻影の出現）</strong>：集計中に他人がデータを挿入し、集計が合わなくなる。</li>
+</ol>
+</section>
+<section id="ロストアップデート更新の喪失銀行が大損するシナリオ" class="slide level3">
+<h3>① ロストアップデート（更新の喪失）：銀行が大損するシナリオ</h3>
+<h4 id="残高10000円の口座から同時に5000円ずつ引き落とされた場合">💸 残高10,000円の口座から、同時に5,000円ずつ引き落とされた場合</h4>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource mermaid number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href=""></a>sequenceDiagram</span>
+<span id="cb5-2"><a href=""></a>    autonumber</span>
+<span id="cb5-3"><a href=""></a>    participant A as "🏧 ATM引き出し (処理1)"</span>
+<span id="cb5-4"><a href=""></a>    participant DB as "🏦 銀行口座残高 (初期値: 10,000円)"</span>
+<span id="cb5-5"><a href=""></a>    participant B as "📱 クレカ自動振替 (処理2)"</span>
+<span id="cb5-6"><a href=""></a></span>
+<span id="cb5-7"><a href=""></a>    A-&gt;&gt;DB: 1. 残高を読み取る (10,000円)</span>
+<span id="cb5-8"><a href=""></a>    B-&gt;&gt;DB: 2. 残高を読み取る (10,000円)</span>
+<span id="cb5-9"><a href=""></a>    Note over A: 3. 手元で計算: 10,000 - 5,000 = 5,000円</span>
+<span id="cb5-10"><a href=""></a>    Note over B: 4. 手元で計算: 10,000 - 5,000 = 5,000円</span>
+<span id="cb5-11"><a href=""></a>    A-&gt;&gt;DB: 5. 新残高 5,000円 を書き込む！</span>
+<span id="cb5-12"><a href=""></a>    B-&gt;&gt;DB: 6. 新残高 5,000円 を上書き保存！💥</span>
+<span id="cb5-13"><a href=""></a>    Note over DB: 【結果】合計10,000円引き出されたのに、&lt;br/&gt;残高にはなぜか5,000円残ってしまう！</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>処理1の引き落とし結果が、処理2によって上書きされて消滅（喪失）。銀行は5,000円の丸損になります！</li>
+</ul>
+</section>
+<section id="ファントムリード幻影の出現経理の集計が狂う" class="slide level3">
+<h3>② ファントムリード（幻影の出現）：経理の集計が狂う</h3>
+<h4 id="集計中に新しい取引が割り込んでコミットされる">👻 集計中に新しい取引が割り込んでコミットされる</h4>
+<ul>
+<li><strong>経理担当者の集計作業</strong>：
+<ol type="1">
+<li>「今月の売上レコードの合計金額」を集計クエリで計算する（例：合計5,000万円）。</li>
+<li>その直後、明細の個別チェックを行う。</li>
+<li>そのわずか数秒の間に、別の営業担当者が「新しく300万円の売上レコード」を追加してコミット！</li>
+<li>経理担当者がもう一度合計を出すと、<strong>さっきと数字が合わず、幽霊のような明細が出現している</strong>！</li>
+</ol></li>
+</ul>
+</section>
+<section id="データベースはどうやって分離性を守るのか" class="slide level3">
+<h3>データベースはどうやって分離性を守るのか？</h3>
+<h4 id="大防衛テクノロジー行ロックとmvcc">🔒 2大防衛テクノロジー：行ロックとMVCC</h4>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h5 id="行ロックpessimistic-lock">1. 行ロック（Pessimistic Lock）</h5>
+<ul>
+<li><strong>「触っている間は鍵をかける」</strong></li>
+<li>処理1が口座データを読んだ瞬間にロックを掛け、処理2を待たせる。</li>
+<li>確実だが、並行アクセスが多いと待ち行列ができて遅くなる。</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h5 id="mvcc多版同時実行制御">2. MVCC（多版同時実行制御）</h5>
+<ul>
+<li><strong>「過去のスナップショットを見せる」</strong></li>
+<li>更新中であっても、読み取りトランザクションには「処理開始時点の過去バージョン」を見せる。</li>
+<li>「読み取りは書き込みをブロックせず、書き込みは読み取りをブロックしない」超高速処理を実現！</li>
+</ul>
+</div></div>
+</section>
+<section id="実践チェック-4" class="slide level3">
+<h3>📱 実践チェック</h3>
+<h4 id="トランザクションの確認">🏦 トランザクションの確認</h4>
+<ul>
+<li>チケット予約サイトで「残り1枚の座席」を2人が同時に購入しようとした場合：
+<ul>
+<li>トランザクションと行ロックが正しく機能していれば、0.001秒早く確定した1人だけが購入でき、もう1人には「すでに売り切れました」と安全にロールバックされる！</li>
+</ul></li>
+</ul>
+</section>
+<section id="考えてみよう振り返り-4" class="slide level3">
+<h3>🤔 考えてみよう（振り返り）</h3>
+<ul>
+<li>証券取引所の株式売買システムで「分離性（Isolation）」が破綻した場合、どんな不公正取引や市場混乱が起きるだろうか？</li>
+</ul>
+</section>
+<section class="slide level3">
+
+</section>
+
+<section id="分散システムと社会インフラcap定理と決済システム" class="title-slide slide level2 center">
+<h2>6. 分散システムと社会インフラ（CAP定理と決済システム）</h2>
+
+</section>
+<section id="考えてみたい問い-5" class="slide level3">
+<h3>考えてみたい問い</h3>
+<ul>
+<li>巨大なWebサービスは、なぜ1台のスーパーコンピュータではなく世界中に分散したサーバー群で動くのか？</li>
+<li>分散システムにおける「究極のトレードオフ」を証明したCAP定理とは？</li>
+<li>Googleはなぜ「原子時計」をデータセンターに配備して世界規模のデータベースを作ったのか？</li>
+</ul>
+</section>
+<section id="単一サーバーの限界と分散システムの必然性" class="slide level3">
+<h3>単一サーバーの限界と分散システムの必然性</h3>
+<h4 id="地震火災アクセス集中に耐えるためのインフラ">🌍 地震・火災・アクセス集中に耐えるためのインフラ</h4>
+<ul>
+<li><strong>スケールアップ（1台を巨大化）の限界</strong>：
+<ul>
+<li>どんなに高価なサーバーでも、CPUやメモリの物理的上限がある。</li>
+<li>その1台が雷や火災で壊れたら、全世界のサービスが全滅する（単一障害点）。</li>
+</ul></li>
+<li><strong>スケールアウト（安価な多数のサーバーに分散）</strong>：
+<ul>
+<li>世界中のデータセンターに何千台ものサーバーを配置し、ネットワークで繋いで1つの巨大なデータベースとして協調動作させる。</li>
+</ul></li>
+<li>しかし、ここには<strong>物理法則に起因する絶対的な壁</strong>が存在します！</li>
+</ul>
+</section>
+<section id="cap定理完璧な分散システムは存在しない" class="slide level3">
+<h3>6.1 CAP定理：完璧な分散システムは存在しない</h3>
+<h4 id="エリックブリュワーが証明した不可能な三位一体">⛰️ エリック・ブリュワーが証明した「不可能な三位一体」</h4>
+<p>カリフォルニア大学バークレー校のエリック・ブリュワー（E. Brewer）が提唱した定理。分散データストアにおいて、<strong>以下の3つの特性のうち3つすべてを同時に満たすことは数学的に不可能</strong>である！</p>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    C["一貫性 (Consistency)&lt;br/&gt;全員が常に最新の同一データを見る"]
+    A["可用性 (Availability)&lt;br/&gt;障害時も必ず即座に正常応答を返す"]
+    P["分断耐性 (Partition Tolerance)&lt;br/&gt;ネットワーク回線が切断されても稼働する"]
+
+    C --- A
+    A --- P
+    P --- C
+    style C fill:#ffcdd2,stroke:#d32f2f
+    style A fill:#c8e6c9,stroke:#388e3c
+    style P fill:#bbdefb,stroke:#1976d2
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="cap定理の3大要素と現実の制約" class="slide level3">
+<h3>CAP定理の3大要素と現実の制約</h3>
+<ol type="1">
+<li><strong>一貫性（Consistency）</strong>：
+<ul>
+<li>どのサーバーに問い合わせても、必ず最新の同一データが返る（データの不整合がゼロ）。</li>
+</ul></li>
+<li><strong>可用性（Availability）</strong>：
+<ul>
+<li>一部のサーバーが故障しても、システム全体はエラーを返さず必ず即答し続ける。</li>
+</ul></li>
+<li><strong>分断耐性（Partition Tolerance）</strong>：
+<ul>
+<li>サーバー間の通信回線が切断（ネットワーク分断）されてもシステムが破綻しない。</li>
+</ul></li>
+</ol>
+<div title="現実の物理法則による制約">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>現実の物理法則による制約</strong></p>
+</div>
+<div class="callout-content">
+<p>現実に存在する地球規模のネットワークである以上、海底ケーブルの切断やルータ故障などの<strong>「ネットワーク分断（P）」をゼロにすることは絶対に不可能</strong>です。 したがって、現代のシステム設計は実質的に<strong>「CP」か「AP」かの二者択一</strong>を迫られます！</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="cpを選択するシステム銀行口座証券取引所" class="slide level3">
+<h3>CPを選択するシステム：銀行口座・証券取引所</h3>
+<h4 id="止めてでも誤りを防ぐconsistency-partition-tolerance">🏦 「止めてでも誤りを防ぐ」（Consistency &amp; Partition Tolerance）</h4>
+<ul>
+<li><strong>設計思想</strong>：
+<ul>
+<li><strong>「誤った残高を表示したり二重送金が起きるくらいなら、一時的にシステムを止めて利用者を待たせた方が100万倍マシである」</strong>。</li>
+</ul></li>
+<li><strong>分断時の挙動</strong>：
+<ul>
+<li>東京とニューヨークの間の海底ケーブルが切断された場合、データの整合性を守るために、両拠点で同期が取れない処理は意図的にエラーを返して停止する。</li>
+<li>経済的・法的な正確性を最優先するシステム。</li>
+</ul></li>
+</ul>
+</section>
+<section id="apを選択するシステムsns動画配信ec閲覧履歴" class="slide level3">
+<h3>APを選択するシステム：SNS・動画配信・EC閲覧履歴</h3>
+<h4 id="古くても即答するavailability-partition-tolerance">📱 「古くても即答する」（Availability &amp; Partition Tolerance）</h4>
+<ul>
+<li><strong>設計思想</strong>：
+<ul>
+<li><strong>「いいねの数が1秒遅れて反映されたところで誰も破産しない。画面が真っ白になって使えなくなる方がユーザー体験として最悪である」</strong>。</li>
+</ul></li>
+<li><strong>分断時の挙動</strong>：
+<ul>
+<li>通信が途切れていても、各サーバーは手元にある「少し古いかもしれないデータ」をひとまず即座に画面に表示する（結果整合性 / Eventual Consistency）。</li>
+</ul></li>
+<li>サービス停止によるユーザー離脱を最優先で防ぐシステム。</li>
+</ul>
+</section>
+<section id="cp-vs-ap-の比較まとめ" class="slide level3">
+<h3>CP vs AP の比較まとめ</h3>
+<table class="caption-top">
+<colgroup>
+<col style="width: 29%">
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 23%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">選択</th>
+<th style="text-align: left;">最優先事項</th>
+<th style="text-align: left;">ネットワーク分断時の挙動</th>
+<th style="text-align: left;">代表的な適用システム</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><strong>CP</strong></td>
+<td style="text-align: left;"><strong>データの一貫性・正確性</strong><br>（嘘のデータは絶対悪）</td>
+<td style="text-align: left;">整合性が取れない場合は<strong>処理を停止・エラー返却</strong></td>
+<td style="text-align: left;">銀行送金、暗号資産、証券取引、航空券予約</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>AP</strong></td>
+<td style="text-align: left;"><strong>システムの無停止・高可用性</strong><br>（画面停止は絶対悪）</td>
+<td style="text-align: left;">古いかもしれないデータを<strong>ひとまず即答・後で同期</strong></td>
+<td style="text-align: left;">X (Twitter) のいいね、YouTube再生回数、閲覧履歴</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="究極の技術google-spannerと原子時計" class="slide level3">
+<h3>6.2 究極の技術：Google Spannerと原子時計</h3>
+<h4 id="全世界で分散しながら厳密な一貫性cpを実現できないか">⏱️ 「全世界で分散しながら、厳密な一貫性（CP）を実現できないか？」</h4>
+<ul>
+<li>従来の常識：地球規模でサーバーを分散させると、光の速度の限界により通信遅延が生じ、厳密な一貫性（CP）を保つと激遅になってしまう。</li>
+<li><strong>2012年、Googleが発表した驚愕のシステム「Google Spanner」</strong>：
+<ul>
+<li>世界中のGoogleデータセンターに<strong>GPS受信機とルビジウム原子時計</strong>を物理的に配備！</li>
+<li>サーバー間の時計のズレ（不確実性区間 $arepsilon$）を<strong>わずか数ミリ秒以下</strong>に抑え込む技術「TrueTime API」を開発。</li>
+</ul></li>
+</ul>
+</section>
+<section id="アインシュタインの相対性理論をねじ伏せた分散db" class="slide level3">
+<h3>アインシュタインの相対性理論をねじ伏せた分散DB</h3>
+<h4 id="物理学の限界をハードウェアの物量とアルゴリズムで克服">🛰️ 物理学の限界をハードウェアの物量とアルゴリズムで克服</h4>
+<ul>
+<li><strong>なぜ原子時計が必要だったのか？</strong>：
+<ul>
+<li>地球上のサーバー同士は、光速の限界や相対性理論（重力や速度による時間の進み方の差）により、完全に同じ「現在時刻」を共有できない。</li>
+<li>Googleは「時間のズレの最大幅（数ミリ秒）」を数学的に保証し、<strong>そのズレの時間だけ意図的にコミットを待機する（Wait-out-the-uncertainty）</strong>アルゴリズムを構築！</li>
+</ul></li>
+<li>これにより、<strong>全世界で分散稼働しながら、実時間の因果関係と完全に一致した厳密な一貫性（外部一貫性）</strong>を達成しました。</li>
+</ul>
+</section>
+<section id="実践チェック-5" class="slide level3">
+<h3>📱 実践チェック</h3>
+<h4 id="インフラ設計の確認">🌐 インフラ設計の確認</h4>
+<ul>
+<li>あなたがフリマアプリを設計する場合：
+<ul>
+<li>「商品の閲覧数」は CP と AP のどちらで設計すべきか？ $ o$ <strong>AP</strong>（誤差があっても即表示）</li>
+<li>「売上金の出金申請」は CP と AP のどちらで設計すべきか？ $ o$ <strong>CP</strong>（二重出金を絶対に防ぐ）</li>
+</ul></li>
+</ul>
+</section>
+<section id="考えてみよう振り返り-5" class="slide level3">
+<h3>🤔 考えてみよう（振り返り）</h3>
+<ul>
+<li>自然災害で大規模な通信障害が起きたとき、銀行のATMが「停止する」のはなぜ技術的に正しい設計判断だと言えるだろうか？</li>
+</ul>
+</section>
+<section class="slide level3">
+
+</section>
+
+<section id="おわりにデータモデリングは世界の切り取り方である" class="title-slide slide level2 center">
+<h2>おわりに：データモデリングは「世界の切り取り方」である</h2>
+
+</section>
+<section id="データベース設計に唯一絶対の正解はない" class="slide level3">
+<h3>データベース設計に「唯一絶対の正解」はない</h3>
+<h4 id="すべてはビジネスと経済の意思決定である">🧭 すべてはビジネスと経済の意思決定である</h4>
+<ul>
+<li><strong>取引をどのように定義するか？</strong></li>
+<li><strong>何を「不変の事実（イベント）」として残し、何を「現在の状態（リソース）」とするか？</strong></li>
+<li><strong>厳密な一貫性（CP）を追求するか、それともスピードと可用性（AP）を優先するか？</strong></li>
+<li>これらはすべて、企業がどのようなインセンティブ構造を持ち、どのようなリスクを許容・回避するかという<strong>ビジネス・経済的意思決定そのもの</strong>です。</li>
+</ul>
+</section>
+<section id="混沌とした現実を見通す思考のレンズ" class="slide level3">
+<h3>混沌とした現実を見通す「思考のレンズ」</h3>
+<h4 id="本講義を終えたあなたへ">🎓 本講義を終えたあなたへ</h4>
+<ul>
+<li>関係モデルとデータベース工学の基礎を学ぶことは、単なるITスキルやプログラミング技能の習得ではありません。</li>
+<li>混沌とした現実世界の経済活動・企業活動を、<strong>「整然としたロジックとルールの体系」として見通す強力な思考のレンズ</strong>を手に入れることです。</li>
+<li>あなたがビジネスの現場に出たとき、この「データの裏側を見る知性」は、組織の制度を正しく設計し、不正や破綻を防ぐ最強の武器となるはずです！</li>
+</ul>
+</section>
+<section id="全講義の修了にあたって" class="slide level3">
+<h3>🏛️ 全講義の修了にあたって</h3>
+<h4 id="デジタル社会の見えない基盤を理解した誇りを胸に">🌟 デジタル社会の「見えない基盤」を理解した誇りを胸に</h4>
+<ul>
+<li>スマホをタップした瞬間に起きる電磁誘導から、暗号資産の数学、クラウドの分散インフラ、そして社会の信用を支えるデータベースまで。</li>
+<li>あなたはもう、テクノロジーを「得体の知れないブラックボックス」として恐れる必要はありません。</li>
+<li><strong>仕組みを知る知性を持って、自信を持って現代デジタル社会を歩んでいってください！</strong></li>
+</ul>
+
+</section>
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="part9_database_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="part9_database_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="part9_database_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="part9_database_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="part9_database_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="part9_database_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="part9_database_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="part9_database_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="part9_database_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="part9_database_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="part9_database_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': true,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>

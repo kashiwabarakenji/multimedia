@@ -11,13 +11,13 @@ quarto render multimedia.qmd
 PARTS=(
   "part1_auth.qmd"
   "part2_security.qmd"
-  "part3_database.qmd"
-  "part4_money.qmd"
-  "part5_crypto.qmd"
-  "part6_sns.qmd"
-  "part7_cloud.qmd"
-  "part8_mobile.qmd"
-  "part9_broadcast.qmd"
+  "part3_money.qmd"
+  "part4_crypto.qmd"
+  "part5_sns.qmd"
+  "part6_cloud.qmd"
+  "part7_mobile.qmd"
+  "part8_broadcast.qmd"
+  "part9_database.qmd"
 )
 
 for file in "${PARTS[@]}"; do

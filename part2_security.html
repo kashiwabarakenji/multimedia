@@ -153,7 +153,7 @@
 <li><strong>あなたを狙う詐欺の心理学 —— 標的型攻撃とマルウェア</strong>（ランサムウェア・感情トリガー）</li>
 <li><strong>会社や大学のPCを守る新しい考え方 —— ゼロトラスト</strong>（境界防御の崩壊・EDR）</li>
 <li><strong>あなたの行動は筒抜け？ —— スマホとCookieの追跡</strong>（サードパーティCookie・Exif）</li>
-<li><strong>学生が巻き込まれやすい法的トラブルとAI倫理</strong>（デジタルタトゥー・トレント・開示請求）</li>
+<li><strong>身近なサイバー犯罪と法律</strong>（不正アクセス禁止法の3大処罰・悪ふざけの代償）</li>
 </ol>
 </section>
 <section id="本日の到達目標" class="slide level3">
@@ -163,8 +163,9 @@
 <li>サポート詐欺・偽Wi-Fi・悪質プロファイルの罠を見抜き、適切に対処できる</li>
 <li>巧妙化するSNS乗っ取り・フィッシング・闇バイトの罠を確実に回避できる</li>
 <li>巨大組織を揺るがすランサムウェアの手口と「踏み台」の恐怖を理解する</li>
-<li>写真の位置情報（Exif）やCookie追跡から私生活のプライバシーを自衛できる</li>
-<li>不正アクセス禁止法や著作権法、生成AI利用時の法的リスクを正しく把握できる</li>
+<li>ゼロトラストとEDRの基本思想、3-2-1バックアップを実践できる</li>
+<li>写真の位置情報（Exif）やCookie追跡の仕組みを知り、プライバシーを守れる</li>
+<li>不正アクセス禁止法が禁じる行為を正しく把握し、犯罪被害・加害を予防できる</li>
 </ul>
 </section>
 <section id="そもそも情報セキュリティとは何か-3大要素cia" class="slide level3">
@@ -310,30 +311,24 @@
 </section>
 <section id="非公式modアプリと構成プロファイルの罠" class="slide level3">
 <h3>「非公式MODアプリ」と「構成プロファイル」の罠</h3>
-<h4 id="甘い誘い非公式アプリ">⚠️ 甘い誘い：非公式アプリ</h4>
+<h4 id="甘い誘いとiphone最凶の罠">⚠️ 甘い誘いとiPhone最凶の罠</h4>
 <ul>
-<li>「YouTubeの広告が全消しできる裏技アプリ」「ゲームの石が無限になるMOD」。</li>
-<li>公式ストアを通さない野良アプリには、高確率で情報窃盗マルウェアが混入。</li>
+<li><strong>非公式MODアプリの危険</strong>：
+<ul>
+<li>「広告全消しアプリ」「ゲームの石が無限になるMOD」など、公式ストアを通さない野良アプリは情報窃盗マルウェアの温床。</li>
+</ul></li>
+<li><strong>構成プロファイルの悪用（iPhone最大の危機）</strong>：
+<ul>
+<li>「プロファイルをインストール」を許可すると、<strong>全通信が犯人のサーバーへ中継</strong>され、暗号化通信すら解読されて認証情報が丸ごと盗まれます！</li>
+</ul></li>
 </ul>
 </section>
-<section id="非公式modアプリと構成プロファイルの罠ポイント" class="slide level3">
-<h3>「非公式MODアプリ」と「構成プロファイル」の罠（ポイント）</h3>
-<h4 id="iphone最凶の罠プロファイル追加">🚨 iPhone最凶の罠：プロファイル追加</h4>
+<section id="カレンダー乗っ取りの手口と消し方" class="slide level3">
+<h3>カレンダー乗っ取りの手口と消し方</h3>
+<h4 id="朝から晩までウイルス検出の通知">📅 朝から晩まで「ウイルス検出！」の通知</h4>
 <ul>
-<li>「プロファイルをインストールしてください」と促される手口。</li>
-<li>悪意あるプロファイルを入れると、<strong>全通信が犯人のサーバーへ中継</strong>され、暗号通信すら解読されてパスワードが盗まれる！</li>
+<li><strong>仕組み</strong>：怪しいサイトで「カレンダーを照会しますか？」に誤って［OK］を押したのが原因。共有・購読機能を悪用されただけで、スマホ本体は侵入されていません。</li>
 </ul>
-</section>
-<section id="カレンダーに勝手に予定が入るカレンダー乗っ取り" class="slide level3">
-<h3>カレンダーに勝手に予定が入る「カレンダー乗っ取り」</h3>
-<h4 id="朝から晩までウイルス検出の予定">📅 朝から晩まで「ウイルス検出！」の予定</h4>
-<ul>
-<li>怪しいサイト閲覧中に「カレンダーを照会しますか？」に誤って［OK］を押したのが原因。</li>
-<li>カレンダーの「共有・購読機能」を悪用されただけで、スマホはハッキングされていません。</li>
-</ul>
-</section>
-<section id="カレンダー乗っ取りの簡単な消し方照会カレンダーの削除手順" class="slide level3">
-<h3>カレンダー乗っ取りの簡単な消し方（照会カレンダーの削除手順）</h3>
 <div title="🛡️ 簡単な消し方">
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -344,10 +339,7 @@
 <p><strong>🛡️ 簡単な消し方</strong></p>
 </div>
 <div class="callout-content">
-<ol type="1">
-<li>iPhone：「設定」$ o<span class="math inline">\(「カレンダー」\)</span> o<span class="math inline">\(「アカウント」\)</span> o$「照会カレンダー」</li>
-<li>見覚えのない不審なカレンダーを選択し、<strong>［アカウントを削除］</strong>を押すだけで全消去！</li>
-</ol>
+<p>iPhone：「設定」→「カレンダー」→「アカウント」→「照会カレンダー」から、不審なカレンダーを選んで<strong>［アカウントを削除］</strong>を押すだけで即座に全消去できます！</p>
 </div>
 </div>
 </div>
@@ -465,26 +457,19 @@
 </div>
 </div>
 </section>
-<section id="無料wi-fiの罠②-通信の覗き見と命綱https" class="slide level3">
-<h3>無料Wi-Fiの罠② —— 通信の覗き見と命綱「HTTPS」</h3>
-<h4 id="暗号化されていない通信は丸見え">👁️ 暗号化されていない通信は丸見え</h4>
+<section id="無料wi-fiの罠②-通信の覗き見と外出先の自衛鉄則" class="slide level3">
+<h3>無料Wi-Fiの罠② —— 通信の覗き見と外出先の自衛鉄則</h3>
+<h4 id="覗き見のリスクとhttpsの命綱">👁️ 覗き見のリスクと「HTTPS」の命綱</h4>
 <ul>
-<li>パスワードなしのWi-Fiや偽Wi-Fiでは、<strong>同じ電波を受信している人全員に通信内容が丸見え</strong>になる。</li>
-<li>どのサイトを見ているか、HTTP接続なら検索語や入力内容まで筒抜け。</li>
+<li>暗号化されていないWi-Fiでは、<strong>同じ電波を受信している人全員に通信内容が筒抜け</strong>になる。</li>
+<li><strong>命綱は「HTTPS（鍵マーク）」</strong>：アドレスバーに鍵マークがあれば通信は暗号化され、設置者にも解読不能。</li>
 </ul>
-<h4 id="命綱となるhttps鍵マーク">🔒 命綱となる「HTTPS（鍵マーク）」</h4>
-<ul>
-<li>アドレスバーに鍵マークがあれば、スマホとサーバー間が暗号化され、偽Wi-Fi設置者にも中身は読めない。</li>
-</ul>
-</section>
-<section id="無料wi-fiの罠②-通信の覗き見と命綱httpsポイント" class="slide level3">
-<h3>無料Wi-Fiの罠② —— 通信の覗き見と命綱「HTTPS」（ポイント）</h3>
-<h4 id="外出先での鉄則ガード術">🛡️ 外出先での鉄則ガード術</h4>
+<h4 id="外出先での4大ガード術">🛡️ 外出先での4大ガード術</h4>
 <ol type="1">
-<li><strong>「Wi-Fi自動接続」をOFFにする</strong>（見知らぬ偽Wi-Fiに勝手に吸い寄せられるのを防ぐ）。</li>
-<li><strong>店内の掲示板で正規のSSID・パスワードを確認</strong>。</li>
-<li><strong>重要手続きは「4G/5G回線」で行う</strong>（ギガを少し使うだけで圧倒的に安全！）。</li>
-<li><strong>公共の場では「VPN」を活用</strong>する。</li>
+<li><strong>「Wi-Fi自動接続」をOFF</strong>（見知らぬ偽電波に勝手に吸い寄せられない）。</li>
+<li><strong>店内の掲示板で正規のSSIDを確認</strong>。</li>
+<li><strong>銀行や決済は「4G/5G回線」で行う</strong>（ギガを少し使うだけで圧倒的に安全！）。</li>
+<li><strong>公衆Wi-Fiでは「VPN」を常時オン</strong>にする。</li>
 </ol>
 </section>
 <section id="通信暗号化の究極形-e2eeエンドツーエンド暗号化" class="slide level3">
@@ -582,15 +567,12 @@
 </section>
 <section id="マッチングアプリから始まる投資詐欺豚の屠殺詐欺" class="slide level3">
 <h3>マッチングアプリから始まる「投資詐欺（豚の屠殺詐欺）」</h3>
-<h4 id="pig-butchering-scamの手口">🐖 Pig Butchering Scamの手口</h4>
+<h4 id="恋愛感情を利用して全財産を奪う手口">🐖 恋愛感情を利用して全財産を奪う手口</h4>
 <ol type="1">
-<li>美男・美女からアプローチ。数ヶ月かけて恋愛感情や信頼を築く（「豚を太らせる」）。</li>
-<li>「将来のために暗号資産やFXをやろう」と<strong>偽の取引所画面</strong>に登録させる。</li>
-<li>最初は少額を出金させて信用させ、数百万円を入金させた途端に出金拒否して音信不通に！</li>
+<li><strong>信頼構築</strong>：美男・美女からアプローチ。数ヶ月かけて親密な関係を築く（「豚を太らせる」）。</li>
+<li><strong>偽取引所へ誘導</strong>：「2人の将来のために」と暗号資産・FXの<strong>偽アプリ</strong>に登録させる。</li>
+<li><strong>出金不能</strong>：最初は少額を出金させて信用させ、大金を入金させた途端に出金拒否・音信不通に！</li>
 </ol>
-</section>
-<section id="sns投資詐欺ロマンス詐欺を防ぐ絶対の鉄則" class="slide level3">
-<h3>SNS投資詐欺・ロマンス詐欺を防ぐ絶対の鉄則</h3>
 <div title="🚨 絶対の鉄則">
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
@@ -601,7 +583,7 @@
 <p><strong>🚨 絶対の鉄則</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>「SNSやマッチングアプリで知り合った相手が、投資やお金の話を切り出してきたら100%詐欺」</strong>です。例外は1件もありません。</p>
+<p><strong>「SNSやマッチングアプリで知り合った相手が、投資やお金の話を切り出してきたら100%詐欺」</strong>です。例外は一切ありません！</p>
 </div>
 </div>
 </div>
@@ -695,26 +677,18 @@
 </section>
 <section id="なぜ賢い人でも詐欺メールに引っかかるのか" class="slide level3">
 <h3>なぜ賢い人でも詐欺メールに引っかかるのか？</h3>
-<h4 id="巧妙に突かれる4大感情トリガー">⚡ 巧妙に突かれる「4大感情トリガー」</h4>
+<h4 id="巧妙に突かれる4大感情トリガーと脳の麻痺">⚡ 巧妙に突かれる「4大感情トリガー」と脳の麻痺</h4>
 <ul>
-<li><strong>① 緊急性（焦り）</strong>：「24時間以内に確認」「今すぐ対応しないと失効」</li>
-<li><strong>② 恐怖・不安</strong>：「税金未納」「アカウント停止」「不正アクセスの通知」</li>
-<li><strong>③ 権威（信用）</strong>：「大学教務課」「警察庁」「国税庁」「Appleサポート」</li>
-<li><strong>④ 利得（期待）</strong>：「給付金の還付」「10万円当選おめでとうございます」</li>
-</ul>
-</section>
-<section id="詐欺メールに騙される心理学的メカニズム" class="slide level3">
-<h3>詐欺メールに騙される心理学的メカニズム</h3>
-<h4 id="冷静な思考を奪う感情のハイジャック">🧠 冷静な思考を奪う「感情のハイジャック」</h4>
+<li><strong>突かれる4大感情</strong>：
 <ul>
-<li><strong>脳の思考プロセス（システム1 vs システム2）</strong>：
-<ul>
-<li><strong>システム2（論理・熟慮）</strong>：冷静にURLを確認し、文面の不自然さを疑う脳の働き。</li>
-<li><strong>システム1（直感・感情）</strong>：「焦り」や「恐怖」を感じた瞬間に主導権を奪う。</li>
+<li><strong>① 緊急性（焦り）</strong>：「24時間以内に確認」「今すぐ失効」</li>
+<li><strong>② 恐怖・不安</strong>：「未納」「アカウント凍結」「不正アクセスの通知」</li>
+<li><strong>③ 権威（信用）</strong>：「警察庁」「国税庁」「教務課」「Apple」</li>
+<li><strong>④ 利得（期待）</strong>：「給付金の還付」「10万円当選」</li>
 </ul></li>
-<li><strong>騙される根本原因</strong>：
+<li><strong>騙される心理メカニズム（システム1 vs システム2）</strong>：
 <ul>
-<li>詐欺メールは巧妙な感情トリガーでシステム2を麻痺させ、<strong>本能的な防衛反応で反射的に偽リンクを押させる</strong>よう心理学的に設計されています。</li>
+<li>「焦り・恐怖」を感じた瞬間、論理的思考（システム2）が麻痺し、感情的・反射的本能（システム1）が主導権を奪って偽リンクを押してしまう！</li>
 </ul></li>
 </ul>
 </section>
@@ -811,25 +785,14 @@
 </section>
 <section id="巨大ビジネスと化したランサムウェア" class="slide level3">
 <h3>巨大ビジネスと化した「ランサムウェア」</h3>
-<h4 id="昔と今の決定的な違い">昔と今の決定的な違い</h4>
+<h4 id="なぜ個人ではなく企業や病院が狙われるのか">🏦 なぜ個人ではなく「企業や病院」が狙われるのか？</h4>
 <ul>
-<li><strong>かつて（個人狙いの小遣い稼ぎ）</strong>
+<li><strong>昔と今の違い</strong>：かつての「個人PCの写真を人質に数万円」から、<strong>「組織犯罪マフィアの巨額ビジネス」</strong>へ完全変貌。</li>
+<li><strong>組織が狙われる理由</strong>：
 <ul>
-<li>個人のPCにウイルスを送り、「家族写真や思い出のデータを戻したければ数万円払え」という手口。</li>
+<li>「1日止まるだけで数億円の損失が出る大企業」や「人命に関わる総合病院」を人質にとることで、<strong>数億〜数十億円の身代金</strong>を脅し取れる。</li>
+<li>暗号資産（ビットコイン等）により、足がつかずに世界中から身代金を回収可能に。</li>
 </ul></li>
-<li><strong>現在（組織犯罪ビジネス）</strong>
-<ul>
-<li><strong>大企業、総合病院、重要インフラを標的としたプロのサイバーマフィア</strong>へと変貌！</li>
-</ul></li>
-</ul>
-</section>
-<section id="なぜ個人ではなく企業や病院が狙われるのか" class="slide level3">
-<h3>なぜ個人ではなく「企業や病院」が狙われるのか？</h3>
-<h4 id="狙い撃ちにされる理由">🏦 狙い撃ちにされる理由</h4>
-<ul>
-<li>個人から数万円取るより、「1日システムが止まるだけで数億円の損害が出る組織」を人質にとった方が、<strong>数億〜数十億円の身代金</strong>を脅し取れるから！</li>
-<li>人命に関わる病院や、操業停止に耐えられない製造業・インフラがターゲットにされる。</li>
-<li>暗号資産（ビットコイン等）の普及により、世界中どこからでも足がつかずに巨額資金を回収可能に。</li>
 </ul>
 </section>
 <section id="凶悪化する手口二重恐喝ダブルエクストーション" class="slide level3">
@@ -1051,15 +1014,12 @@
 <li>会社や大学のPCに入っている「EDR」は何を見張っている？</li>
 </ul>
 </section>
-<section id="遠隔授業リモート会議の事故画面共有通知バレ" class="slide level3">
-<h3>遠隔授業・リモート会議の事故：画面共有通知バレ</h3>
-<h4 id="よくある公開処刑事故">😱 よくある公開処刑事故</h4>
+<section id="画面共有通知バレの事故と防ぐ3大鉄則" class="slide level3">
+<h3>画面共有通知バレの事故と防ぐ3大鉄則</h3>
+<h4 id="全員に見られてしまったプライベート通知">😱 全員に見られてしまったプライベート通知</h4>
 <ul>
-<li>Zoomで資料共有中、右上にLINEやDiscordの「今日の飲み会どうする？」「〇〇教授マジ無理」という通知が全員に丸見え！</li>
+<li>ZoomやTeamsで画面共有中、右上にLINE等の「飲み会どうする？」「教授マジ無理」という通知がポップアップして全員に公開される事故が多発！</li>
 </ul>
-</section>
-<section id="リモート会議授業での通知バレを防ぐ画面共有の3大鉄則" class="slide level3">
-<h3>リモート会議・授業での通知バレを防ぐ「画面共有の3大鉄則」</h3>
 <div title="🛡️ 画面共有の3大鉄則">
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -1071,37 +1031,26 @@
 </div>
 <div class="callout-content">
 <ol type="1">
-<li><strong>画面全体ではなく「ウィンドウ指定共有」</strong>：デスクトップ全体ではなくスライドだけ共有。</li>
-<li><strong>「集中モード（通知オフ）」の活用</strong>：画面共有中は通知を自動非表示にする。</li>
-<li><strong>ブラウザ専用プロファイル</strong>：発表用に余計なタブのない別窓を用意。</li>
+<li><strong>「ウィンドウ指定共有」を使う</strong>：デスクトップ全体ではなくスライドのアプリだけを共有。</li>
+<li><strong>「集中モード（通知オフ）」の活用</strong>：画面共有中は通知バナーを自動非表示にする。</li>
+<li><strong>通知プレビューの非表示</strong>：万一通知が出ても、送信者やメッセージ本文を隠す設定にしておく。</li>
 </ol>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="お城の堀は埋まった-境界型防御の基本構造" class="slide level3">
-<h3>お城の堀は埋まった —— 境界型防御の基本構造</h3>
-<h4 id="従来の境界型防御お城と堀モデル">🏰 従来の「境界型防御」（お城と堀モデル）</h4>
+<section id="お城の堀は埋まった-境界型防御の崩壊" class="slide level3">
+<h3>お城の堀は埋まった —— 境界型防御の崩壊</h3>
+<h4 id="社内ネット安全という神話が崩れた理由">🏰 「社内ネット＝安全」という神話が崩れた理由</h4>
 <ul>
-<li><strong>基本発想</strong>：社内LAN＝安全（城内）、インターネット＝危険（城外）。</li>
-<li>ファイアウォールという「強固な城壁」を周囲に築き、外からの侵入を防ぐ設計。</li>
-<li>「城壁の内側にいる者は全員味方・安全」という性善説に基づいたセキュリティモデル。</li>
-</ul>
-</section>
-<section id="なぜ境界型防御は崩壊したのか" class="slide level3">
-<h3>なぜ境界型防御は崩壊したのか？</h3>
-<h4 id="現代の環境変化と2大破綻要因">💥 現代の環境変化と2大破綻要因</h4>
+<li><strong>かつての「境界型防御」</strong>：社内LANにファイアウォール（城壁）を築き、内側を無条件に信用する設計。</li>
+<li><strong>崩壊した2大破綻要因</strong>：
 <ol type="1">
-<li><strong>境界の消失（クラウドとテレワーク）</strong>：
-<ul>
-<li>自宅やカフェから業務を行い、データも社内サーバーではなくクラウド（AWS、Google）へ移行。</li>
-</ul></li>
-<li><strong>内部侵入後の脆弱性（ラテラルムーブメント）</strong>：
-<ul>
-<li>VPNの脆弱性やフィッシングで一度城壁を突破されると、<strong>城内（内部ネット）はノーガードでやりたい放題</strong>に感染拡大！</li>
-</ul></li>
-</ol>
+<li><strong>境界の消失（クラウドとテレワーク）</strong>：社員が自宅やスマホから直接クラウドを使い、城壁の外側で業務が完結。</li>
+<li><strong>侵入後のフリーパス（ラテラルムーブメント）</strong>：一度VPN等を突破されると、城内はノーガードでやりたい放題に感染拡大！</li>
+</ol></li>
+</ul>
 </section>
 <section id="図解かつての境界型防御とお城の崩壊" class="slide level3">
 <h3>【図解】かつての「境界型防御」とお城の崩壊</h3>
@@ -1135,14 +1084,11 @@
 </section>
 <section id="ゼロトラスト誰も信じない毎回確認する" class="slide level3">
 <h3>ゼロトラスト＝「誰も信じない、毎回確認する」</h3>
-<h4 id="never-trust-always-verify">🛡️ Never Trust, Always Verify</h4>
+<h4 id="never-trust-always-verify決して信頼せず常に検証せよ">🛡️ Never Trust, Always Verify（決して信頼せず、常に検証せよ）</h4>
 <ul>
-<li>社内からの通信でも最初から信頼せず、アクセスごとに全てを検証する。</li>
-<li>「正しいユーザーか？」「安全な端末か？」「不審な場所ではないか？」。</li>
+<li>社内ネットワークや役員の端末であっても無条件に信用せず、<strong>「アクセスごとに毎回すべての正当性を検証」</strong>する新しいセキュリティ思想。</li>
+<li>「正しいユーザーか？」「端末にウイルスがいないか？」「不審な場所からのアクセスではないか？」を常時判定。</li>
 </ul>
-</section>
-<section id="たとえ話-空港の搭乗ゲートでたとえると" class="slide level3">
-<h3>【たとえ話】✈️ 空港の搭乗ゲートでたとえると？</h3>
 <div title="✈️ 空港の搭乗ゲートでたとえると？">
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -1154,8 +1100,8 @@
 </div>
 <div class="callout-content">
 <ul>
-<li><strong>昔（境界型）</strong>：入口ゲートを一度通ったら、空港内どこでも顔パス。</li>
-<li><strong>ゼロトラスト</strong>：免税店、搭乗口、機内…と<strong>ゲートを通った後でも毎回チケットとパスポートの再確認を求める</strong>厳重なチェック体制！</li>
+<li><strong>境界型（昔）</strong>：空港の入口で1回確認したら、あとはどの飛行機にも乗り放題（ガバガバ）。</li>
+<li><strong>ゼロトラスト</strong>：搭乗口、座席、操縦室のドアを開けるたびに、<strong>毎回パスポートと指紋を再照合する仕組み</strong>です！</li>
 </ul>
 </div>
 </div>
@@ -1249,35 +1195,14 @@
 </tbody>
 </table>
 </section>
-<section id="利用者が守るべき基本動作①-端末とメディアの防衛" class="slide level3">
-<h3>利用者が守るべき基本動作① —— 端末とメディアの防衛</h3>
-<h4 id="日常から実践できる2大原則">🛡️ 日常から実践できる2大原則</h4>
+<section id="利用者が守るべき基本動作-端末防衛とシャドーitの禁止" class="slide level3">
+<h3>利用者が守るべき基本動作 —— 端末防衛とシャドーITの禁止</h3>
+<h4 id="個人と組織を守る3大防衛ルール">🛡️ 個人と組織を守る3大防衛ルール</h4>
 <ol type="1">
-<li><strong>OSやアプリの更新を放置しない</strong>：
-<ul>
-<li>攻撃者に狙われる「壊れた鍵穴（セキュリティ脆弱性）」を塞ぐ緊急工事。</li>
-<li>自動アップデートを有効にし、通知が来たら先延ばしにせず適用する。</li>
-</ul></li>
-<li><strong>私用USBメモリを安易に挿さない</strong>：
-<ul>
-<li>マルウェア感染媒体や重要データの情報漏洩経路として最も事故が多い。</li>
-<li>大学や職場の端末には私物USBを接続しない運用が基本。</li>
-</ul></li>
+<li><strong>OS・アプリの即時アップデート</strong>：脆弱性を放置せず、自動更新をオンにして「壊れた鍵穴」を塞ぐ。</li>
+<li><strong>私用USBメモリを挿さない</strong>：落ちているUSBや私物はマルウェア感染・情報漏洩の最大要因！</li>
+<li><strong>「シャドーIT」の絶対禁止</strong>：会社の許可なく私用LINEや個人Googleドライブに業務ファイルを転送しない（個人アカウント漏洩＝会社全体の機密漏洩）。</li>
 </ol>
-</section>
-<section id="利用者が守るべき基本動作②-シャドーitの禁止" class="slide level3">
-<h3>利用者が守るべき基本動作② —— シャドーITの禁止</h3>
-<h4 id="組織が把握していない野良クラウドの危険性">☁️ 組織が把握していない「野良クラウド」の危険性</h4>
-<ul>
-<li><strong>シャドーITとは？</strong>：
-<ul>
-<li>業務効率化のため、会社の許可なく私用のGoogleドライブやDropbox、LINE等に業務データを保存・送信する行為。</li>
-</ul></li>
-<li><strong>なぜ厳しく禁止されるのか？</strong>：
-<ul>
-<li>個人アカウントが乗っ取られたり誤共有設定された場合、組織側で検知・追跡が一切できず、壊滅的な情報漏洩につながるため！</li>
-</ul></li>
-</ul>
 </section>
 <section id="日本企業の悪習ppapパスワード付きzipの別送の罠" class="slide level3">
 <h3>日本企業の悪習「PPAP（パスワード付きZipの別送）」の罠</h3>
@@ -1329,28 +1254,18 @@
 <li>さっき検索した靴の広告が別サイトに出てくるのはなぜ？</li>
 </ul>
 </section>
-<section id="ブラウザのシークレットモードの大誤解" class="slide level3">
-<h3>ブラウザの「シークレットモード」の大誤解</h3>
-<h4 id="よくある大きな誤解">❌ よくある大きな誤解</h4>
+<section id="ブラウザのシークレットモードの大誤解と真実" class="slide level3">
+<h3>ブラウザの「シークレットモード」の大誤解と真実</h3>
+<h4 id="よくある大誤解-vs-技術的な真実">❌ よくある大誤解 vs ⭕ 技術的な真実</h4>
 <ul>
-<li>「シークレットモードを使えば、学校のWi-Fiやプロバイダ、Googleにも自分の行動が完全にバレない無敵の匿名モードになる」</li>
-<li>「警察やWebサイト管理者からも完全に身元を隠せる」</li>
-</ul>
-</section>
-<section id="シークレットモードの技術的な真実" class="slide level3">
-<h3>シークレットモードの技術的な真実</h3>
-<h4 id="隠せるもの-vs-隠せないもの">⭕ 隠せるもの vs 隠せないもの</h4>
+<li><strong>❌ 大誤解</strong>：「シークレットモードなら学校Wi-Fiや警察、Googleにも完全にバレない無敵の匿名モード」</li>
+<li><strong>⭕ 隠せるもの（手元の端末内のみ）</strong>：
 <ul>
-<li><strong>隠せるもの（手元の端末内のみ）</strong>：
-<ul>
-<li>ブラウザの閲覧履歴・検索履歴</li>
-<li>一時的なCookieや入力フォームの保存データ</li>
+<li>ブラウザの閲覧履歴・検索履歴、一時的なCookieや入力フォーム。</li>
 </ul></li>
-<li><strong>隠せないもの（外部ネットワーク・サーバー）</strong>：
+<li><strong>❌ 隠せないもの（外部からは丸見え）</strong>：
 <ul>
-<li>学校や会社のネットワーク管理者（どのサイトを見たか丸見え）</li>
-<li>インターネットプロバイダ（通信事業者）の通信ログ</li>
-<li>アクセス先のWebサイトやGoogle等のサーバー</li>
+<li>学校や会社のネットワーク管理者、プロバイダの通信ログ、アクセス先サーバー。</li>
 </ul></li>
 </ul>
 </section>
@@ -1372,98 +1287,60 @@
 </div>
 </div>
 </section>
-<section id="写真の位置情報exifに潜む自宅バレのリスク" class="slide level3">
-<h3>写真の位置情報（Exif）に潜む自宅バレのリスク</h3>
-<h4 id="写真データに刻まれるgps座標">📍 写真データに刻まれるGPS座標</h4>
+<section id="写真の位置情報exifと特定班の罠" class="slide level3">
+<h3>写真の位置情報（Exif）と特定班の罠</h3>
+<h4 id="写真データに刻まれるgps座標と背景の特定リスク">📍 写真データに刻まれるGPS座標と背景の特定リスク</h4>
 <ul>
-<li>スマホ写真は「正確な緯度・経度」「撮影日時」が記録されている。</li>
-<li>SNS投稿時は自動消去されるが、<strong>メール添付、AirDrop、個人ブログ、フリマアプリでは残ったまま相手に渡る危険あり！</strong></li>
+<li><strong>Exifデータ</strong>：スマホ写真には「正確な緯度・経度」「撮影日時」が埋め込まれている。</li>
+<li><strong>特定班の手口</strong>：電柱の地名、マンホール、建物の配置、窓の外の景色、瞳の反射から自宅や最寄り駅が割り出される。</li>
+<li>SNS投稿時は多くのアプリで自動消去されるが、<strong>メール添付、AirDrop、個人ブログ、フリマ出品では残ったまま相手に渡る危険大！</strong></li>
 </ul>
 </section>
-<section id="ネットの特定班はどうやって背景から家を特定するのか" class="slide level3">
-<h3>🕵️ ネットの特定班はどうやって背景から家を特定するのか？</h3>
-<h4 id="ネットの特定班はどう家を当てる">🕵️ ネットの特定班はどう家を当てる？</h4>
-<ul>
-<li>電柱の地名看板、マンホールの紋章</li>
-<li>窓の外のビルや鉄塔の配置</li>
-<li>アイドルの瞳に映り込んだ駅前の景色</li>
-</ul>
-</section>
-<section id="写真投稿の自衛鉄則①②-位置情報オフと時間差投稿" class="slide level3">
-<h3>写真投稿の自衛鉄則①② —— 位置情報オフと時間差投稿</h3>
-<h4 id="カメラの位置情報オフ">1. カメラの位置情報オフ</h4>
-<ul>
-<li><p>自宅周辺で撮る写真は、カメラアプリの位置情報付与をオフにする。 #### 2. タイムラグ投稿</p></li>
-<li><p>「今ここにいます！」ではなく、帰宅後や数日後に投稿する。</p></li>
-</ul>
-</section>
-<section id="写真投稿の自衛鉄則③-窓の外瞳の反射背景の徹底確認" class="slide level3">
-<h3>写真投稿の自衛鉄則③ —— 窓の外・瞳の反射・背景の徹底確認</h3>
-<h4 id="背景の徹底確認">3. 背景の徹底確認</h4>
-<ul>
-<li>最寄り駅のホームドア、電車の路線図、学校の制服、カレンダーの予定が写り込んでいないかチェック！</li>
-</ul>
+<section id="写真投稿の自衛鉄則-自宅バレを完全防御する" class="slide level3">
+<h3>写真投稿の自衛鉄則 —— 自宅バレを完全防御する</h3>
+<h4 id="日常で守るべき3大ルール">🛡️ 日常で守るべき3大ルール</h4>
+<ol type="1">
+<li><strong>カメラの位置情報をオフ</strong>：自宅周辺で撮る写真は、カメラの位置情報権限をオフにする。</li>
+<li><strong>タイムラグ投稿</strong>：「今ここにいる」ではなく、帰宅後や数日経ってから投稿する。</li>
+<li><strong>背景の徹底確認</strong>：最寄り駅の看板、路線図、学校の制服、カレンダーの予定が写り込んでいないか必ず拡大チェック！</li>
+</ol>
 </section>
 <section id="そもそもcookieクッキーって何-ネットの預かり証" class="slide level3">
 <h3>そもそも「Cookie（クッキー）」って何？ —— ネットの預かり証</h3>
-<h4 id="お菓子のクッキーではなくブラウザに預けるメモ帳">🍪 お菓子のクッキーではなく「ブラウザに預けるメモ帳」</h4>
+<h4 id="ブラウザに預ける小さなテキストメモ帳">🍪 ブラウザに預ける小さなテキストメモ帳</h4>
 <ul>
-<li>Webサイトを訪問したとき、Webサーバーがあなたのブラウザ（スマホやPC）にそっと渡す<strong>「小さなテキストメモ」</strong>。</li>
-<li>次回同じサイトを訪れた際、ブラウザがサーバーにそのメモを見せることで「あ、さっきの○○さんですね！」と認識されます。</li>
-<li>サーバー側に負担をかけず、利用者の利便性を飛躍的に高めるWebの根幹技術です。</li>
-</ul>
-</section>
-<section id="cookie本来の目的-これがないとネットは超不便" class="slide level3">
-<h3>Cookie本来の目的 —— これがないとネットは超不便！</h3>
-<h4 id="web体験を支える3大必須役割">💡 Web体験を支える3大必須役割</h4>
+<li>Webサイトを訪問したとき、サーバーがあなたのブラウザ（スマホやPC）にそっと渡す<strong>「状態記憶メモ」</strong>。</li>
+<li><strong>本来の3大必須役割（これがないとネットは超不便！）</strong>：
 <ul>
-<li><strong>ログイン状態の維持</strong>：
-<ul>
-<li>ページを移動するたびに毎回ID・パスワードを打ち直さずに済む。</li>
+<li><strong>ログイン状態の維持</strong>：ページ移動ごとに毎回ID/PASSを打ち直さずに済む。</li>
+<li><strong>ショッピングカートの保持</strong>：別ページを見てもカートの中身が消えない。</li>
+<li><strong>個人設定の記憶</strong>：ダークモードや言語設定を次回訪問時もキープ。</li>
 </ul></li>
-<li><strong>ショッピングカートの保持</strong>：
-<ul>
-<li>商品をカートに入れたまま他のページを見ても中身が消えない。</li>
-</ul></li>
-<li><strong>サイトの個人設定の記憶</strong>：
-<ul>
-<li>ダークモード設定や言語設定（日本語表示など）が次回も維持される。</li>
-</ul></li>
+<li>結論：Cookie自体は悪者ではなく、現代Webの利便性を支える必須技術です。</li>
 </ul>
 </section>
 <section id="ファーストパーティcookie-vs-サードパーティcookie" class="slide level3">
 <h3>ファーストパーティCookie vs サードパーティCookie</h3>
-<p>Cookie自体はWebを便利にする無害な仕組みですが、<strong>「誰が発行したか」</strong>で危険性が激変します。</p>
-<h4 id="ファーストパーティcookie安全必須">🟢 ファーストパーティCookie（安全・必須）</h4>
+<h4 id="今見ているサイト安全-vs-外部広告会社追跡">🟢 今見ているサイト（安全） vs 🔴 外部広告会社（追跡）</h4>
 <ul>
-<li><strong>今あなたが直接見ているサイト自身</strong>（例: amazon.co.jp）が発行するメモ。</li>
-<li>ログイン維持やカート保持など、そのサイト内でのみ使われるため安全。</li>
+<li><strong>🟢 ファーストパーティCookie（安全・必須）</strong>：
+<ul>
+<li><strong>今直接アクセスしているサイト自身</strong>（例: amazon.co.jp）が発行。ログインやカート用で無害。</li>
+</ul></li>
+<li><strong>🔴 サードパーティCookie（追跡とプライバシー侵害の温床）</strong>：
+<ul>
+<li>サイト内に埋め込まれた<strong>「外部の広告会社や分析ツール」</strong>が発行。</li>
+<li>異なるWebサイトをまたいで<strong>「いつ・どんなサイトを見たか（行動履歴）」を裏で監視・追跡（トラッキング）</strong>し、個人の嗜好データを勝手にプロファイリングする！</li>
+</ul></li>
 </ul>
 </section>
-<section id="サードパーティcookie-追跡とプライバシー侵害の温床" class="slide level3">
-<h3>サードパーティCookie —— 追跡とプライバシー侵害の温床</h3>
-<h4 id="サードパーティcookie外部発行の追跡メモ">🔴 サードパーティCookie（外部発行の追跡メモ）</h4>
+<section id="さっき見たスニーカーが追いかけてくる怪談-リターゲティング広告" class="slide level3">
+<h3>さっき見たスニーカーが追いかけてくる怪談 —— リターゲティング広告</h3>
+<h4 id="サイトをまたぐ追跡のからくり">👟 サイトをまたぐ追跡のからくり</h4>
 <ul>
-<li>サイト内に埋め込まれた<strong>「外部の広告会社や分析ツール」</strong>が発行するメモ。</li>
-<li>異なるWebサイトをまたいで、あなたが<strong>「いつ・どんなサイトを見たか（興味関心・行動履歴）」を裏で監視・追跡（トラッキング）</strong>する！</li>
-<li>これにより、ユーザーの嗜好や購買行動が本人の知らない間に蓄積されます。</li>
-</ul>
-</section>
-<section id="さっき見たスニーカーが追いかけてくる怪談" class="slide level3">
-<h3>さっき見たスニーカーが追いかけてくる怪談</h3>
-<h4 id="リターゲティング広告の正体">👟 リターゲティング広告の正体</h4>
-<ul>
-<li>靴の通販サイトAを見た後、ニュースサイトBを開くとさっき迷っていたスニーカーの広告が表示される。</li>
-<li>「スマホに会話を盗聴されているのでは？」と怖がる人が多いが、真犯人は<strong>「サードパーティCookie」</strong>。</li>
-<li>閲覧履歴やカート放棄データが瞬時に広告配信ネットワークへ共有されています。</li>
-</ul>
-</section>
-<section id="リターゲティング広告の追跡メカニズム" class="slide level3">
-<h3>リターゲティング広告の追跡メカニズム</h3>
-<h4 id="サイトをまたぐ追跡のからくり">🕵️ サイトをまたぐ追跡のからくり</h4>
-<ul>
-<li>サイトAにもサイトBにも、同じ「大手広告配信会社」の計測タグが埋め込まれている。</li>
-<li>広告会社がCookieを通じて「端末ID＝靴Aに興味あり」と紐付け、別サイトへ移動したあなたに同じ広告を出し続ける！</li>
+<li>靴の通販サイトAを見た後、無関係なニュースサイトBを開くと、さっき迷っていたスニーカーの広告がピタリと表示される。</li>
+<li>「スマホに盗聴されている？」と怖がる人が多いが、真犯人は<strong>「サードパーティCookie」</strong>。</li>
+<li>サイトAとサイトBの双方が同じ広告会社と提携しており、Cookieの端末IDをもとに<strong>「この端末は靴Aに興味あり」と紐付けて別サイトでも追いかけてくる</strong>仕組みです。</li>
 </ul>
 </section>
 <section id="図解サードパーティcookieによるリターゲティング追跡シーケンス" class="slide level3">
@@ -1588,224 +1465,100 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 
 </section>
 
-<section id="学生が巻き込まれやすい法的トラブルとai倫理" class="title-slide slide level2 center">
-<h2>5. 学生が巻き込まれやすい法的トラブルとAI倫理</h2>
+<section id="身近なサイバー犯罪と法律-不正アクセス禁止法" class="title-slide slide level2 center">
+<h2>5. 身近なサイバー犯罪と法律 —— 不正アクセス禁止法</h2>
 
 </section>
 <section id="考えてみたい問い-4" class="slide level3">
 <h3>考えてみたい問い</h3>
 <ul>
-<li>捨てアカや裏アカでネットに誹謗中傷を書いたら、なぜすぐバレる？</li>
-<li>友達の面白い動画をTikTokに無断アップしたらどんな法律違反？</li>
-<li>生成AIにバイト先の顧客情報を入力してはいけない本当の理由は？</li>
+<li>友達のスマホのパスコードを勝手に解除して中身を見るのは犯罪？</li>
+<li>元恋人のSNSアカウントに勝手にログインしたらどうなる？</li>
+<li>パスワードを他人に教えるだけで処罰される法律がある？</li>
 </ul>
-</section>
-<section id="snsの誹謗中傷と発信者情報開示請求捨てアカの幻想" class="slide level3">
-<h3>SNSの誹謗中傷と発信者情報開示請求（捨てアカの幻想）</h3>
-<h4 id="匿名だからバレないの大嘘">⚖️ 「匿名だからバレない」の大嘘</h4>
-<ul>
-<li>プロフィールが空の捨てアカウントや鍵アカウントであっても、ネット上の全アクセス・投稿には<strong>IPアドレスと精密なタイムスタンプ</strong>が記録されています。</li>
-<li>被害者が裁判所に申し立てを行うことで、SNS事業者と携帯キャリアを経由して契約者の氏名・住所が完全に特定されます。</li>
-</ul>
-<div title="⚖️ 侮辱罪の厳罰化と民事賠償">
-<div class="callout callout-important callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>⚖️ 侮辱罪の厳罰化と民事賠償</strong></p>
-</div>
-<div class="callout-content">
-<p>侮辱罪に<strong>「1年以下の拘禁刑または30万円以下の罰金」</strong>が導入され刑事事件として前科がつくほか、数百万円規模の損害賠償・慰謝料請求通知が自宅に直接届きます。</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="図解匿名投稿から自宅特定賠償請求までの開示フロー" class="slide level3">
-<h3>【図解】匿名投稿から自宅特定・賠償請求までの開示フロー</h3>
-<div class="cell" data-reveal="true" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart TD
-    A["匿名アカウントで誹謗中傷・デマを投稿"] --&gt; B["被害者が裁判所へ「発信者情報開示」を申立"]
-    B --&gt; C["裁判所命令により SNS社から「IPアドレス」が開示"]
-    C --&gt; D["IPアドレスをもとに&lt;br/&gt;携帯キャリア・プロバイダから契約者情報開示"]
-    D --&gt; E["💥 加害者の「本名・自宅住所」が特定され、巨額の損害賠償請求通知が自宅に届く"]
-    style A fill:#ffebee,stroke:#c62828
-    style E fill:#ffcdd2,stroke:#d32f2f,stroke-width:2px
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-</section>
-<section id="デジタルタトゥーと肖像権-友人を勝手にsnsに載せるリスク" class="slide level3">
-<h3>デジタルタトゥーと肖像権 —— 友人を勝手にSNSに載せるリスク</h3>
-<h4 id="ノリで投稿したショート動画の代償">📱 「ノリ」で投稿したショート動画の代償</h4>
-<ul>
-<li>泥酔した友達や変顔動画、悪ふざけ動画をTikTokやInstagramリールに無断投稿 → <strong>肖像権侵害・プライバシー権侵害・名誉毀損罪</strong>。</li>
-<li>「友達同士のウケ狙い」「限定公開だから大丈夫」という軽い感覚が大惨事を招きます。</li>
-</ul>
-</section>
-<section id="一生消えないデジタルタトゥーの恐怖" class="slide level3">
-<h3>一生消えない「デジタルタトゥー」の恐怖</h3>
-<h4 id="拡散魚拓による半永久的残存">🕸️ 拡散・魚拓による半永久的残存</h4>
-<ul>
-<li>一度ネット上に流出した動画や画像は、第三者によって即座に画面録画・転載される。</li>
-<li>まとめサイトや裏掲示板、ウェブ魚拓（Wayback Machine）に永久保存され、<strong>就活の身辺調査や将来の結婚・昇進</strong>で一生付きまとう！</li>
-</ul>
-</section>
-<section id="図解ノリのsns動画投稿がデジタルタトゥー化するフロー" class="slide level3">
-<h3>【図解】「ノリ」のSNS動画投稿がデジタルタトゥー化するフロー</h3>
-<div class="cell" data-reveal="true" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart TD
-    A["SNSに悪ふざけ・泥酔動画を軽いノリで投稿"] --&gt; B["第三者に画面録画・転載されまとめサイトへ拡散"]
-    B --&gt; C["炎上を恐れて元動画・元アカウントを慌てて削除"]
-    C --&gt; D["魚拓・転載動画・まとめサイトのログはネット上に永久残存"]
-    D --&gt; E["💥 就職活動の企業バックグラウンド調査で発覚・内定取消"]
-    style A fill:#fff3e0,stroke:#f57c00
-    style D fill:#ffebee,stroke:#c62828
-    style E fill:#ffcdd2,stroke:#d32f2f,stroke-width:2px
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
 </section>
 <section id="友達のスマホを勝手に覗いたら犯罪不正アクセス禁止法" class="slide level3">
 <h3>友達のスマホを勝手に覗いたら犯罪？（不正アクセス禁止法）</h3>
-<ul>
-<li><strong>「悪ふざけ」では済まされない法律の壁</strong>
+<h4 id="悪ふざけでは済まされない法律の壁">⚖️ 「悪ふざけ」では済まされない法律の壁</h4>
 <ul>
 <li>友人のスマホのパスコードを勝手に解除して中身を見る。</li>
 <li>元恋人のSNSパスワードでログインしてDMを覗く。</li>
-<li><strong>不正アクセス禁止法違反であり刑事罰（犯罪）</strong>！</li>
-</ul></li>
+<li><strong>不正アクセス禁止法違反（不正アクセス行為の禁止等に関する法律）であり、れっきとした刑事罰（犯罪）</strong>です！</li>
+<li>「パスワードを知っていたから」といって、<strong>利用権限のない他人が勝手にログインすること自体が明確な違法行為</strong>になります。</li>
 </ul>
 </section>
-<section id="比較一覧友達のスマホを勝手に覗いたら犯罪不正アクセス禁止法" class="slide level3">
-<h3>【比較一覧】友達のスマホを勝手に覗いたら犯罪？（不正アクセス禁止法）</h3>
+<section id="比較一覧不正アクセス禁止法で処罰される3大行為" class="slide level3">
+<h3>【比較一覧】不正アクセス禁止法で処罰される3大行為</h3>
 <table class="caption-top">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">行為</th>
-<th style="text-align: left;">罪名</th>
+<th style="text-align: left;">法律上の罪名</th>
 <th style="text-align: left;">法定刑</th>
+<th style="text-align: left;">具体例</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">無断ログイン</td>
-<td style="text-align: left;">不正アクセス行為</td>
+<td style="text-align: left;"><strong>勝手にログイン</strong></td>
+<td style="text-align: left;">不正アクセス行為（第3条）</td>
 <td style="text-align: left;">3年以下の懲役 / 100万円以下の罰金</td>
+<td style="text-align: left;">他人のID/PASSで無断ログイン、他人の端末を勝手に操作</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">パスワードを他人に教える</td>
-<td style="text-align: left;">不正アクセスの助長</td>
+<td style="text-align: left;"><strong>他人に教える</strong></td>
+<td style="text-align: left;">不正アクセスの助長（第5条）</td>
 <td style="text-align: left;">1年以下の懲役 / 50万円以下の罰金</td>
+<td style="text-align: left;">入手した友人のパスワードを他人に教える、掲示板に晒す</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">勝手にSNS投稿する</td>
-<td style="text-align: left;">電磁的記録不正作出</td>
-<td style="text-align: left;">5年以下の懲役 / 50万円以下の罰金</td>
+<td style="text-align: left;"><strong>パスワードを不正取得</strong></td>
+<td style="text-align: left;">不正取得行為（第4条）</td>
+<td style="text-align: left;">1年以下の懲役 / 50万円以下の罰金</td>
+<td style="text-align: left;">フィッシングサイトで盗む、覗き見（ショルダーハック）</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="無料マンガ動画の違法ダウンロードの罪" class="slide level3">
-<h3>無料マンガ・動画の違法ダウンロードの罪</h3>
-<h4 id="ダウンロードだけでも刑事罰の対象">🏴‍☠️ ダウンロードだけでも刑事罰の対象</h4>
-<ul>
-<li>海賊版と知りながら有償著作物（漫画・アニメ・映画・音楽等）をダウンロードする行為は刑事罰の対象（2年以下の懲役 / 200万円以下の罰金）。</li>
-<li>「無料で読めるからラッキー」という安易な感覚で利用すると、民事での損害賠償請求も受ける重大なリスクがあります。</li>
-</ul>
-</section>
-<section id="bittorrentトレントの致命的な恐怖" class="slide level3">
-<h3>BitTorrent（トレント）の致命的な恐怖</h3>
-<h4 id="受信が同時に世界への違法配信になる構造">⚠️ 「受信」が同時に「世界への違法配信」になる構造</h4>
-<ul>
-<li>トレント等のP2Pソフトは<strong>「ダウンロードしながら同時に世界中の他人に自動アップロード配信する」</strong>構造。</li>
-<li>単なる受動的DLのつもりでも、<strong>法律上は「違法配信者（加害者）」</strong>として警察の家宅捜索や著作権者からの巨額損害賠償請求の対象になる！</li>
-</ul>
-</section>
-<section id="図解bittorrentトレントの仕組みと摘発フロー" class="slide level3">
-<h3>【図解】BitTorrent（トレント）の仕組みと摘発フロー</h3>
-<div class="cell" data-reveal="true" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart TD
-    User["利用者のPC（トレント利用）"] &lt;--&gt;|"高速DLしながら同時に世界へ自動送信・配信"| P2P["🌐 世界中のP2Pピア（不特定多数）"]
-    P2P --&gt;|"通信パケットとIPアドレスが完全露出"| Monitor["👮 著作権保護団体の監視システム"]
-    Monitor --&gt;|"通信ログからIP特定"| ISP["プロバイダへ発信者情報開示請求"]
-    ISP --&gt;|"契約者特定"| Court["💥 警察の家宅捜索 ＆ 著作権者からの巨額損害賠償請求"]
-    style User fill:#fff3e0,stroke:#f57c00
-    style Monitor fill:#ffebee,stroke:#c62828
-    style Court fill:#ffcdd2,stroke:#d32f2f,stroke-width:2px
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-</section>
-<section id="生成aiに入力してはいけないもの" class="slide level3">
-<h3>生成AIに入力してはいけないもの</h3>
-<h4 id="入力データが学習に使われるリスク">🤖 入力データが学習に使われるリスク</h4>
-<ul>
-<li>無料版ChatGPT等のプロンプトは、AIの再学習に使われる可能性がある。</li>
-<li><strong>絶対に入れてはいけない情報</strong>
-<ul>
-<li>❌ バイト先の機密情報（顧客名簿、売上、マニュアル）</li>
-<li>❌ 未発表の研究データ・プログラム</li>
-<li>❌ 友人・家族の個人情報や相談</li>
-</ul></li>
-</ul>
-</section>
-<section id="生成aiの安全設定-学習データへの利用をオプトアウトoffにする" class="slide level3">
-<h3>生成AIの安全設定 —— 学習データへの利用をオプトアウト（OFF）にする</h3>
-<div title="🛡️ 安全設定">
+<section id="不正アクセスとサイバー犯罪の総まとめ" class="slide level3">
+<h3>不正アクセスとサイバー犯罪の総まとめ</h3>
+<h4 id="システムと通信の安全を守るための5原則">🛡️ システムと通信の安全を守るための5原則</h4>
+<ol type="1">
+<li><strong>画面の見た目を疑う</strong>：偽Wi-Fi、クリックジャッキング、偽警告に騙されず、正規URLを確認する。</li>
+<li><strong>人の心の隙を塞ぐ</strong>：フィッシングや闇バイトの甘い誘いを退け、標的型メールの添付を開かない。</li>
+<li><strong>境界防御を過信しない</strong>：ゼロトラストの思想を持ち、EDRや3-2-1バックアップで万一に備える。</li>
+<li><strong>追跡とプライバシーの自衛</strong>：サードパーティCookieの拒否、Exif位置情報の削除を習慣づける。</li>
+<li><strong>法と倫理を守る</strong>：他人のアカウントへの無断ログインは重大な犯罪（不正アクセス禁止法）と自覚する。</li>
+</ol>
+<div title="🎓 脅威を知ることが最強の盾になる">
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>🛡️ 安全設定</strong></p>
+<p><strong>🎓 脅威を知ることが最強の盾になる</strong></p>
 </div>
 <div class="callout-content">
-<p>ChatGPT：「Settings」$ o<span class="math inline">\(「Data Controls」\)</span> o$「Improve the model for everyone」を<strong>オフ（オプトアウト）</strong>にする！</p>
+<p>サイバー攻撃は遠い世界の事件ではなく、あなたのアカウントやPCを「踏み台」にして広がります。正しい知識と防犯の基本動作を身につけ、安全なデジタルライフを送りましょう！</p>
 </div>
 </div>
 </div>
 </div>
-</section>
-<section class="slide level3">
-
 </section>
 <section id="考えてみよう情報セキュリティとサイバー脅威の振り返り" class="slide level3">
 <h3>🤔 考えてみよう（情報セキュリティとサイバー脅威の振り返り）</h3>
 <h4 id="日常生活のセルフチェック">💡 日常生活のセルフチェック</h4>
 <ul>
 <li>友達からSNSで「電話番号貸して」「このリンク踏んで」と言われたら、本人に別の手段（通話や対面）で確認できますか？</li>
-<li>自分のスマホで、地図やカメラを使う必要のないアプリに「位置情報」「写真」を無条件で許可していませんか？</li>
-<li>生成AIにレポート作成を手伝ってもらう際、機密情報や他人の個人情報を入力しないよう意識できていますか？</li>
+<li>会社や大学のPCで、不審なUSBメモリを挿したり私用クラウドにファイルを送ったり（シャドーIT）していませんか？</li>
+<li>ランサムウェアやデータ消失に備えて、「3-2-1バックアップ」の実践を意識できていますか？</li>
 </ul>
 
 </section>
