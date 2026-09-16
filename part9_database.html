@@ -218,7 +218,7 @@
 <li><strong>データの整合性を守る「正規化」の技法</strong>（1NF〜3NFと購入時単価の経済的例外）</li>
 <li><strong>ビジネスデータを操るSQL</strong>（集合の宣言、集約、JOIN結合）</li>
 <li><strong>金融・取引を支える「トランザクション」とACID特性</strong>（送金・ロストアップデート・座席ロック）</li>
-<li><strong>分散システムと社会インフラ（CAP定理と決済システム）</strong>（API/JSON・CAP定理・Google Spanner）</li>
+<li><strong>分散システムと社会インフラ（CAP定理と決済システム）</strong>（CAP定理・Google Spanner）</li>
 </ol>
 </section>
 <section id="本日の到達目標-データの裏側にある制度設計を掴む" class="slide level3">
@@ -240,9 +240,9 @@
 <ul>
 <li>送金側から引き落とされた瞬間、受取側に同額が加算されなければならない（途中で通信が切れたら？）。</li>
 </ul></li>
-<li><strong>フリマアプリやチケット販売</strong>：
+<li><strong>チケット販売・市場取引</strong>：
 <ul>
-<li>残り1点の限定商品に、同時に2人の買い手が購入ボタンを押したらどうなるか？</li>
+<li>残り1点の限定資産に、同時に複数の買い手が注文を出したらどうなるか？</li>
 </ul></li>
 <li><strong>企業会計とサプライチェーン</strong>：
 <ul>
@@ -262,7 +262,7 @@
 <ul>
 <li>市場や企業の取引をいかに安全・確実に成立させるか（ACID特性・分散システム）。</li>
 </ul></li>
-<li>データベースを学ぶことは、<strong>経済活動と取引のルールを数理的・論理的に見通す思考のレンズを手に入れること</strong>です！</li>
+<li>データベースを学ぶことは、<strong>経済活動と取引のルールを数理的・論理的に見通す思考のレンズを手に入れること</strong>です。</li>
 </ul>
 </section>
 <section class="slide level3">
@@ -341,7 +341,7 @@
 </tbody>
 </table>
 <ul>
-<li>一見分かりやすい表ですが、ここには<strong>「更新時アノマリー（Update Anomaly）」</strong>と呼ばれる3大リスクが潜んでいます！</li>
+<li>一見分かりやすい表ですが、ここには<strong>「更新時アノマリー（Update Anomaly）」</strong>と呼ばれる3大リスクが潜んでいます。</li>
 </ul>
 </section>
 <section id="修正更新アノマリー表記揺れと情報の非対称性" class="slide level3">
@@ -465,6 +465,23 @@
 <li>注文のない見込み客も単独登録でき、注文を消しても顧客情報は無傷で残ります。</li>
 </ul>
 </section>
+<section id="主キーpkと外部キーfk" class="slide level3">
+<h3>主キー（PK）と外部キー（FK）</h3>
+<h4 id="テーブル同士を論理的に結合する仕組み">🔑 テーブル同士を論理的に結合する仕組み</h4>
+<ul>
+<li><strong>主キー（PK: Primary Key）</strong>：
+<ul>
+<li>テーブル内で各行を一意に特定する識別子（重複・NULLは禁止）。</li>
+<li>例：顧客テーブルの「顧客ID」。</li>
+</ul></li>
+<li><strong>外部キー（FK: Foreign Key）</strong>：
+<ul>
+<li>別のテーブルの主キーを参照し、テーブル間の関係を定義する列。</li>
+<li>例：注文テーブルの「顧客ID」。</li>
+</ul></li>
+<li>これにより、冗長な重複を持たずに整合性を保ったデータ連携が可能になります。</li>
+</ul>
+</section>
 <section id="億件の検索全表走査full-table-scanの限界" class="slide level3">
 <h3>1億件の検索：全表走査（Full Table Scan）の限界</h3>
 <h4 id="件ずつ先頭から探すナイーブな探索">🐌 1件ずつ先頭から探すナイーブな探索</h4>
@@ -501,23 +518,6 @@
 </div>
 </div>
 </div>
-</section>
-<section id="実践チェック" class="slide level3">
-<h3>📱 実践チェック</h3>
-<h4 id="関係モデルの基本原則を確認">📊 関係モデルの基本原則を確認</h4>
-<ul>
-<li>主キー（PK: Primary Key）と外部キー（FK: Foreign Key）の違いは何か？
-<ul>
-<li><strong>主キー（PK）</strong>：そのテーブル内でレコードを唯一無二に特定する背番号（例：顧客ID）。</li>
-<li><strong>外部キー（FK）</strong>：別のテーブルの主キーを参照し、関係性を結ぶための番号（例：注文テーブル内の顧客ID）。</li>
-</ul></li>
-</ul>
-</section>
-<section id="考えてみよう振り返り" class="slide level3">
-<h3>🤔 考えてみよう（振り返り）</h3>
-<ul>
-<li>大学の教務システムを1枚のExcelシートで作った場合、「休学中の学生」や「履修者ゼロの新設科目」を登録しようとするとどんなアノマリーが起きるだろうか？</li>
-</ul>
 </section>
 <section class="slide level3">
 
@@ -693,8 +693,8 @@
 </ul></li>
 </ul>
 </section>
-<section id="連関エンティティ中間テーブルの魔法" class="slide level3">
-<h3>連関エンティティ（中間テーブル）の魔法</h3>
+<section id="連関エンティティ中間テーブルの役割" class="slide level3">
+<h3>連関エンティティ（中間テーブル）の役割</h3>
 <h4 id="多対多を2つの1対多に分解する">🔗 「多対多」を「2つの1対多」に分解する</h4>
 <div class="cell" data-reveal="true" data-layout-align="default">
 <div class="cell-output-display">
@@ -713,30 +713,8 @@
 </div>
 </div>
 <ul>
-<li>両者の間に<strong>連関エンティティ（中間テーブル）「注文明細（ORDER_ITEM）」</strong>を挟む。</li>
+<li>両者の間に<strong>連関エンティティ（中間テーブル）「注文明細（ORDER_ITEM）」</strong>を配置する。</li>
 <li>これにより、多対多の複雑な関係が「整然とした2つの1対多」に分解され、数量や購入時単価を正確に管理できるようになります。</li>
-</ul>
-</section>
-<section id="実践チェック-1" class="slide level3">
-<h3>📱 実践チェック</h3>
-<h4 id="reaモデリングの確認">📐 REAモデリングの確認</h4>
-<ul>
-<li>大学の履修登録システムをREAでモデル化すると：
-<ul>
-<li><strong>リソース</strong>：講義（開講科目）、教室</li>
-<li><strong>エージェント</strong>：学生、担当教員</li>
-<li><strong>イベント</strong>：履修登録（いつ、どの学生が、どの科目を登録したか）</li>
-<li>学生と科目の多対多を解消する連関エンティティは「履修実績データ」！</li>
-</ul></li>
-</ul>
-</section>
-<section id="考えてみよう振り返り-1" class="slide level3">
-<h3>🤔 考えてみよう（振り返り）</h3>
-<ul>
-<li>Uber Eatsのような配達サービスをREAモデリングする場合：
-<ul>
-<li>「レストラン」「配達員」「注文者」「料理」「配達イベント」はそれぞれリソース・イベント・エージェントのどれに分類されるだろうか？</li>
-</ul></li>
 </ul>
 </section>
 <section class="slide level3">
@@ -761,12 +739,12 @@
 <ul>
 <li>直感や思いつきでテーブルを設計すると、後から必ずデータの破綻やアノマリーが発生します。</li>
 <li><strong>正規化</strong>とは、データの重複や不整合を防ぐために、<strong>数学的な従属関係に基づいてテーブルを段階的に無駄のない形へ分解する手続き</strong>です。</li>
-<li>ビジネス実務においては、<strong>第3正規形（3NF）</strong>までを正しく理解し適用できれば十分です！</li>
+<li>ビジネス実務においては、<strong>第3正規形（3NF）</strong>までを正しく理解し適用できれば十分です。</li>
 </ul>
 </section>
 <section id="第1正規形1nf繰り返し項目の排除" class="slide level3">
 <h3>3.1 第1正規形（1NF）：繰り返し項目の排除</h3>
-<h4 id="ルール1つのセルに複数の値配列カンマ区切りを入れてはならない">🚫 ルール：1つのセルに複数の値（配列・カンマ区切り）を入れてはならない！</h4>
+<h4 id="ルール1つのセルの中に複数の値配列カンマ区切りを入れてはならない">🚫 ルール：1つのセルの中に、複数の値（配列・カンマ区切り）を入れてはならない</h4>
 <h5 id="非正規形違反例1セルに複数の値が存在">【非正規形（違反例：1セルに複数の値が存在）】</h5>
 <table class="caption-top">
 <thead>
@@ -790,7 +768,7 @@
 </tbody>
 </table>
 <ul>
-<li>Excelではよく見かける形式ですが、データベースでは大惨事になります：
+<li>Excelではよく見かける形式ですが、データベースでは大問題になります：
 <ul>
 <li>「計量経済学を履修している学生」を高速に検索できない（部分一致検索になり激重）。</li>
 <li>履修科目ごとの学生数を集約（COUNT）できない。</li>
@@ -839,7 +817,7 @@
 </section>
 <section id="第2正規形2nf部分関数従属の排除" class="slide level3">
 <h3>3.2 第2正規形（2NF）：部分関数従属の排除</h3>
-<h4 id="ルール複合主キーの一部分だけで決まる列を別テーブルに分離する">🚫 ルール：複合主キーの「一部分」だけで決まる列を別テーブルに分離する！</h4>
+<h4 id="ルール複合主キーの一部分だけで決まる列を別テーブルに分離する">🚫 ルール：複合主キーの「一部分」だけで決まる列を別テーブルに分離する</h4>
 <p>上記の表に各科目の「担当教員」が加わった場合を考えます。</p>
 <h5 id="第2正規形違反部分関数従属が存在">【第2正規形違反（部分関数従属が存在）】</h5>
 <table class="caption-top">
@@ -875,14 +853,14 @@
 <ul>
 <li>各列が「何によって一意に決まるか（関数従属）」を観察します：
 <ul>
-<li><strong>氏名</strong>は、複合キーの片割れである「<strong>学生番号</strong>」さえ分かれば決まる（科目は関係ない）。</li>
-<li><strong>担当教員</strong>は、複合キーの片割れである「<strong>履修科目</strong>」さえ分かれば決まる（学生は関係ない）。</li>
+<li><strong>氏名</strong>は、複合キーの片割れである「<strong>学生番号</strong>」さえ分かれば決まる（科目は無関係）。</li>
+<li><strong>担当教員</strong>は、複合キーの片割れである「<strong>履修科目</strong>」さえ分かれば決まる（学生は無関係）。</li>
 </ul></li>
 </ul>
 </section>
 <section id="第2正規形2nfへの分解" class="slide level3">
 <h3>第2正規形（2NF）への分解</h3>
-<h4 id="キーの一部に甘えている列を独立させる">✂️ キーの一部に甘えている列を独立させる</h4>
+<h4 id="キーの一部に従属している列を独立させる">✂️ キーの一部に従属している列を独立させる</h4>
 <p>主キー全体 <code>(学生番号, 履修科目)</code> に依存していない列を独立したテーブルに分離します。</p>
 <div class="columns">
 <div class="column" style="width:33%;">
@@ -955,12 +933,12 @@
 </table>
 </div></div>
 <ul>
-<li>これで第2正規形が達成され、氏名や担当教員の重複更新漏れが消滅します！</li>
+<li>これで第2正規形が達成され、氏名や担当教員の重複更新漏れが消滅します。</li>
 </ul>
 </section>
 <section id="第3正規形3nf推移的関数従属の排除" class="slide level3">
 <h3>3.3 第3正規形（3NF）：推移的関数従属の排除</h3>
-<h4 id="ルール主キー以外の列によって決まる別の列芋づる式の従属を分離する">🚫 ルール：主キー以外の列によって決まる別の列（芋づる式の従属）を分離する！</h4>
+<h4 id="ルール主キー以外の列によって決まる別の列推移的従属を分離する">🚫 ルール：主キー以外の列によって決まる別の列（推移的従属）を分離する</h4>
 <p>主キーが単一の「社員番号」である社員テーブルを考えます。</p>
 <h5 id="第3正規形違反推移的関数従属を含むテーブル">【第3正規形違反（推移的関数従属を含むテーブル）】</h5>
 <table class="caption-top">
@@ -1000,14 +978,14 @@
 <ul>
 <li>従属の流れを追うと：
 <ul>
-<li><strong>社員番号 $ o$ 部署コード $ o$ 部署名, 部署フロア</strong></li>
+<li><strong>社員番号 <span class="math inline">\(\to\)</span> 部署コード <span class="math inline">\(\to\)</span> 部署名, 部署フロア</strong></li>
 </ul></li>
-<li>主キーが決まると部署コードが決まり、その部署コードによって部署名とフロアが決まる（<strong>A $ o$ B $ o$ C の「また貸し」関係</strong>）。</li>
+<li>主キーが決まると部署コードが決まり、その部署コードによって部署名とフロアが決まる（<strong>A <span class="math inline">\(\to\)</span> B <span class="math inline">\(\to\)</span> C の推移関係</strong>）。</li>
 </ul>
 </section>
 <section id="第3正規形3nfへの分解" class="slide level3">
 <h3>第3正規形（3NF）への分解</h3>
-<h4 id="部署が移転した時の全社員一括更新リスクを排除する">🏢 部署が移転した時の全社員一括更新リスクを排除する</h4>
+<h4 id="部署移転時の全社員レコード一括更新リスクを排除する">🏢 部署移転時の全社員レコード一括更新リスクを排除する</h4>
 <p>もし「経済調査部」が8階に移転した場合、社員テーブル全員のフロアを更新しなければならないリスクを解消します。</p>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -1063,12 +1041,12 @@
 </table>
 </div></div>
 <ul>
-<li>これで部署情報が独立マスタとして管理され、更新アノマリーは完全に消滅します！</li>
+<li>これで部署情報が独立マスタとして管理され、更新アノマリーは完全に消滅します。</li>
 </ul>
 </section>
 <section id="経済的例外なぜ購入時単価はあえて重複させるのか" class="slide level3">
 <h3>3.4 経済的例外：なぜ「購入時単価」はあえて重複させるのか？</h3>
-<h4 id="理論とビジネス実務の決定的な対立">❓ 理論とビジネス実務の決定的な対立</h4>
+<h4 id="理論とビジネス実務の対立">❓ 理論とビジネス実務の対立</h4>
 <ul>
 <li><strong>純粋な理論派の疑問</strong>：
 <ul>
@@ -1098,12 +1076,12 @@
 </section>
 <section id="もし注文明細に単価を残さなかったら何が起きるか" class="slide level3">
 <h3>もし注文明細に単価を残さなかったら何が起きるか？</h3>
-<h4 id="過去の決算書まで勝手に書き換わる粉飾事故">💥 過去の決算書まで勝手に書き換わる粉飾事故！</h4>
+<h4 id="過去の決算書まで勝手に書き換わる粉飾事故">💥 過去の決算書まで勝手に書き換わる粉飾事故</h4>
 <ul>
 <li>もし注文明細に単価を持たせず、常に商品マスタの定価を参照していたら：
 <ul>
 <li>将来、商品の定価が値上げされた瞬間に、<strong>「過去の会計年度の売上実績データまで勝手に値上がりしてしまう」</strong>！</li>
-<li>すでに税務署に提出した確定申告や決算書の売上金額と、システムの売上集計が一致しなくなる大事故を引き起こします。</li>
+<li>すでに確定した決算書の売上金額と、システムの売上集計が一致しなくなる大事故を引き起こします。</li>
 </ul></li>
 </ul>
 <div title="📝 理論と実務の調和">
@@ -1125,22 +1103,6 @@
 </div>
 </div>
 </section>
-<section id="実践チェック-2" class="slide level3">
-<h3>📱 実践チェック</h3>
-<h4 id="正規化のまとめ">📐 正規化のまとめ</h4>
-<ul>
-<li><strong>第1正規形 (1NF)</strong>：1つのマスに複数の値を入れない（スカラ値化）。</li>
-<li><strong>第2正規形 (2NF)</strong>：複合キーの一部だけで決まる列を切り離す。</li>
-<li><strong>第3正規形 (3NF)</strong>：主キー以外の列に芋づる式に従属する列を切り離す。</li>
-<li><strong>意図的な非正規化</strong>：過去の取引スナップショット（購入時単価など）は固定保持する！</li>
-</ul>
-</section>
-<section id="考えてみよう振り返り-2" class="slide level3">
-<h3>🤔 考えてみよう（振り返り）</h3>
-<ul>
-<li>ネット通販で「届け先住所」を注文テーブルに記録せず、常に顧客マスタの現住所を参照するように設計した場合、どんなトラブルが起きるだろうか？</li>
-</ul>
-</section>
 <section class="slide level3">
 
 </section>
@@ -1161,7 +1123,7 @@
 <h3>SQL（Structured Query Language）の特徴</h3>
 <h4 id="手続きhowではなく集合の条件whatを宣言する">📢 「手続き（How）」ではなく「集合の条件（What）」を宣言する</h4>
 <ul>
-<li><strong>一般的な言語（Python, C, Javaなど）</strong>：
+<li><strong>手続き型言語（Python, C, Javaなど）</strong>：
 <ul>
 <li>「データを1行ずつループで回し、もし条件に合致したらリストに追加する」（手続き的命令）。</li>
 </ul></li>
@@ -1210,8 +1172,8 @@
 <span id="cb2-14"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span></span>
 <span id="cb2-15"><a href=""></a>    order_month <span class="kw">ASC</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="where-と-having-の決定的な違い" class="slide level3">
-<h3>⚠️ WHERE と HAVING の決定的な違い</h3>
+<section id="where-と-having-の違い" class="slide level3">
+<h3>⚠️ WHERE と HAVING の違い</h3>
 <div title="⚠️ 初心者が最も混同しやすいポイント">
 <div class="callout callout-warning callout-titled callout-style-default">
 <div class="callout-body">
@@ -1278,24 +1240,6 @@
 </div></div>
 <ul>
 <li>「休眠顧客リストの作成」や「未購入者への販促メール配信」には LEFT OUTER JOIN が不可欠です。</li>
-</ul>
-</section>
-<section id="実践チェック-3" class="slide level3">
-<h3>📱 実践チェック</h3>
-<h4 id="sqlの基本動作を確認">💻 SQLの基本動作を確認</h4>
-<ul>
-<li>以下の集計を行いたい場合、どの構文を使うか？
-<ul>
-<li>「各支店の売上平均を求め、平均売上が500万円以上の支店を表示する」</li>
-<li>支店ごとにまとめる <span class="math inline">\(\to\)</span> <code>GROUP BY 支店名</code></li>
-<li>平均売上が500万以上 <span class="math inline">\(\to\)</span> <code>HAVING AVG(売上) &gt;= 5000000</code></li>
-</ul></li>
-</ul>
-</section>
-<section id="考えてみよう振り返り-3" class="slide level3">
-<h3>🤔 考えてみよう（振り返り）</h3>
-<ul>
-<li>全顧客に対してアンケートを送りたいとき、INNER JOIN と LEFT OUTER JOIN のどちらを使って顧客リストを作成すべきだろうか？</li>
 </ul>
 </section>
 <section class="slide level3">
@@ -1375,22 +1319,33 @@
 </table>
 </section>
 <section id="分離性isolationが破綻すると起きる経済的被害" class="slide level3">
-<h3>分離性（Isolation）が破綻すると起きる経済的被害</h3>
+<h3>5.2 分離性（Isolation）が破綻すると起きる経済的被害</h3>
 <h4 id="ロストアップデート更新の喪失銀行が大損するシナリオ">💸 ① ロストアップデート（更新の喪失）：銀行が大損するシナリオ</h4>
-<p>残高10,000円の口座から、ATMとクレカ自動振替が同時に5,000円引き落とした場合：</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource mermaid number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href=""></a>sequenceDiagram</span>
-<span id="cb5-2"><a href=""></a>    autonumber</span>
-<span id="cb5-3"><a href=""></a>    participant A as "🏧 ATM引き出し (処理1)"</span>
-<span id="cb5-4"><a href=""></a>    participant DB as "🏦 銀行口座残高 (初期値: 10,000円)"</span>
-<span id="cb5-5"><a href=""></a>    participant B as "📱 クレカ自動振替 (処理2)"</span>
-<span id="cb5-6"><a href=""></a></span>
-<span id="cb5-7"><a href=""></a>    A-&gt;&gt;DB: 1. 残高を読み取る (10,000円)</span>
-<span id="cb5-8"><a href=""></a>    B-&gt;&gt;DB: 2. 残高を読み取る (10,000円)</span>
-<span id="cb5-9"><a href=""></a>    Note over A: 3. 手元で計算: 10,000 - 5,000 = 5,000円</span>
-<span id="cb5-10"><a href=""></a>    Note over B: 4. 手元で計算: 10,000 - 5,000 = 5,000円</span>
-<span id="cb5-11"><a href=""></a>    A-&gt;&gt;DB: 5. 新残高 5,000円 を書き込む！</span>
-<span id="cb5-12"><a href=""></a>    B-&gt;&gt;DB: 6. 新残高 5,000円 を上書き保存！💥</span>
-<span id="cb5-13"><a href=""></a>    Note over DB: 【結果】合計10,000円引き出されたのに、&lt;br/&gt;残高にはなぜか5,000円残ってしまう！</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>残高10,000円の口座から、ATMと口座振替が同時に5,000円引き落とした場合：</p>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">sequenceDiagram
+    autonumber
+    participant A as "🏧 ATM引き出し (処理1)"
+    participant DB as "🏦 銀行口座残高 (初期値: 10,000円)"
+    participant B as "📱 自動振替 (処理2)"
+
+    A-&gt;&gt;DB: 1. 残高を読み取る (10,000円)
+    B-&gt;&gt;DB: 2. 残高を読み取る (10,000円)
+    Note over A: 3. 手元で計算: 10,000 - 5,000 = 5,000円
+    Note over B: 4. 手元で計算: 10,000 - 5,000 = 5,000円
+    A-&gt;&gt;DB: 5. 新残高 5,000円 を書き込む！
+    B-&gt;&gt;DB: 6. 新残高 5,000円 を上書き保存！💥
+    Note over DB: 【結果】合計10,000円引き出されたのに、&lt;br/&gt;残高にはなぜか5,000円残ってしまう！
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 <ul>
 <li>処理1の引き落とし結果が、処理2によって上書きされて消滅（喪失）。銀行は5,000円の丸損になります！</li>
 </ul>
@@ -1410,34 +1365,45 @@
 </section>
 <section id="ダブルブッキングを防ぐ行ロック排他制御" class="slide level3">
 <h3>ダブルブッキングを防ぐ「行ロック（排他制御）」</h3>
-<h4 id="映画館や新幹線チケットの最後の1席争奪戦">🔒 映画館や新幹線チケットの最後の1席争奪戦</h4>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource mermaid number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a href=""></a>sequenceDiagram</span>
-<span id="cb6-2"><a href=""></a>    autonumber</span>
-<span id="cb6-3"><a href=""></a>    participant A as "ユーザーA"</span>
-<span id="cb6-4"><a href=""></a>    participant S as "予約DBサーバー"</span>
-<span id="cb6-5"><a href=""></a>    participant B as "ユーザーB (タッチ差)"</span>
-<span id="cb6-6"><a href=""></a>    A-&gt;&gt;S: 最後の1席の予約を要求</span>
-<span id="cb6-7"><a href=""></a>    Note over S: 🔒 対象座席データに行ロックをかける！</span>
-<span id="cb6-8"><a href=""></a>    B-&gt;&gt;S: 同じ座席の予約を要求</span>
-<span id="cb6-9"><a href=""></a>    Note over S: ⚠️ ロック中のためBの処理を待機 / 拒絶</span>
-<span id="cb6-10"><a href=""></a>    S--&gt;&gt;A: 座席確保・予約完了通知 ✅</span>
-<span id="cb6-11"><a href=""></a>    Note over S: 🔓 ロック解除（残席0確定）</span>
-<span id="cb6-12"><a href=""></a>    S--&gt;&gt;B: 「満席のため予約できませんでした」❌</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<h4 id="座席予約や限定資産の争奪戦">🔒 座席予約や限定資産の争奪戦</h4>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">sequenceDiagram
+    autonumber
+    participant A as "ユーザーA"
+    participant S as "予約DBサーバー"
+    participant B as "ユーザーB (タッチ差)"
+    A-&gt;&gt;S: 最後の1席の予約を要求
+    Note over S: 🔒 対象座席データに行ロックをかける！
+    B-&gt;&gt;S: 同じ座席の予約を要求
+    Note over S: ⚠️ ロック中のためBの処理を待機 / 拒絶
+    S--&gt;&gt;A: 座席確保・予約完了通知 ✅
+    Note over S: 🔓 ロック解除（残席0確定）
+    S--&gt;&gt;B: 「満席のため予約できませんでした」❌
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 <ul>
-<li>Aさんが座席を選択した瞬間に<strong>「行ロック（Locking）」</strong>をかけ、Bさんの割り込みを確実に遮断します。</li>
+<li>Aさんがデータを選択した瞬間に<strong>「行ロック（Locking）」</strong>をかけ、Bさんの割り込みを確実に遮断します。</li>
 </ul>
 </section>
 <section id="高速化の救世主mvcc多版同時実行制御" class="slide level3">
 <h3>高速化の救世主：MVCC（多版同時実行制御）</h3>
 <h4 id="過去のスナップショットを見せる技術">📸 「過去のスナップショット」を見せる技術</h4>
 <ul>
-<li>行ロックは確実ですが、何万人もが同時にアクセスすると待ち行列ができてシステムが激重になります。</li>
+<li>行ロックは確実ですが、多数のユーザーが同時にアクセスすると待ち行列ができてシステムが激重になります。</li>
 <li><strong>MVCC（Multi-Version Concurrency Control）</strong>：
 <ul>
 <li>データを更新する際、古いデータを上書きせず「新しい版（バージョン）」として追記。</li>
-<li>読み取り中のユーザーには、<strong>「トランザクションが始まった瞬間のスナップショット」</strong>を見せ続ける！</li>
+<li>読み取り中のトランザクションには、<strong>「トランザクションが開始された時点のスナップショット」</strong>を見せ続ける！</li>
 </ul></li>
-<li><strong>「読み取りは書き込みをブロックせず、書き込みは読み取りをブロックしない」</strong>超高速並行処理の標準技術です。</li>
+<li><strong>「読み取りは書き込みをブロックせず、書き込みは読み取りをブロックしない」</strong>高並行処理の標準技術です。</li>
 </ul>
 </section>
 <section id="銀行の強整合性-vs-snsの結果整合性" class="slide level3">
@@ -1462,35 +1428,16 @@
 <td style="text-align: left;"><strong>強整合性<br>(Strong Consistency)</strong></td>
 <td style="text-align: left;">世界中で常に1ミリのズレも許さない。<br>すべてのノードで同期が完了するまで処理を待たせる。</td>
 <td style="text-align: center;"><strong>ゼロ</strong><br>（絶対にズレてはならない）</td>
-<td style="text-align: left;">銀行残高、決済、座席予約、暗号資産</td>
+<td style="text-align: left;">銀行残高、決済、座席予約、証券取引</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>結果整合性<br>(Eventual Consistency)</strong></td>
 <td style="text-align: left;">「今この瞬間」はズレていても構わない。<br><strong>数秒〜数分後に最終的に一致すればOK</strong>として軽快さを最優先。</td>
 <td style="text-align: center;">数秒〜数分<br>（一時的ズレを許容）</td>
-<td style="text-align: left;">SNSの「いいね」数、YouTube再生数、閲覧履歴</td>
+<td style="text-align: left;">SNSの「いいね」数、動画視聴回数、閲覧履歴</td>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="実践チェック-4" class="slide level3">
-<h3>📱 実践チェック</h3>
-<h4 id="身近なトランザクション">💡 身近なトランザクション</h4>
-<p>「All or Nothing」でなければ困るものはどれ？</p>
-<ol type="1">
-<li>メルカリでの購入と売上金ポイント支払い</li>
-<li>LINEメッセージ送信と既読</li>
-<li>ゲームのガチャと課金石の消費</li>
-</ol>
-<ul>
-<li><span class="math inline">\(\to\)</span> <strong>1 と 3</strong>（お金や貴重な資産が動く取引は絶対に中途半端が許されない！）</li>
-</ul>
-</section>
-<section id="考えてみよう振り返り-4" class="slide level3">
-<h3>🤔 考えてみよう（振り返り）</h3>
-<ul>
-<li>証券取引所の株式売買システムで「分離性（Isolation）」が破綻した場合、どんな不公正取引や市場混乱が起きるだろうか？</li>
-</ul>
 </section>
 <section class="slide level3">
 
@@ -1503,70 +1450,10 @@
 <section id="考えてみたい問い-5" class="slide level3">
 <h3>考えてみたい問い</h3>
 <ul>
-<li>スマホアプリはどうやって遠く離れたクラウドサーバーと会話しているのか？</li>
-<li>世界中のコンピュータが話す共通語「JSON」とは？</li>
+<li>なぜ地球規模の分散システムでは「完全な一貫性と可用性」を両立できないのか？</li>
 <li>分散インフラの物理限界である「CAP定理」とは？</li>
-<li>なぜGoogleは「原子時計」をデータセンターに配備したのか？</li>
-</ul>
-</section>
-<section id="アプリとサーバーの公式窓口api" class="slide level3">
-<h3>アプリとサーバーの公式窓口「API」</h3>
-<h4 id="ソフトウェア同士をつなぐ接続ルール">🔌 ソフトウェア同士をつなぐ接続ルール</h4>
-<ul>
-<li><strong>API（Application Programming Interface）</strong>の略称。</li>
-<li>スマホアプリが、遠く離れたクラウドサーバーに向かって<strong>「データをください！」「これを登録して！」と注文するための公式窓口・共通ルール</strong>。</li>
-<li>人間向けのデザイン（UI）ではなく、プログラム同士がデータを受け渡すための専用規格です。</li>
-</ul>
-<div title="🍽️ レストランでたとえると？">
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>🍽️ レストランでたとえると？</strong></p>
-</div>
-<div class="callout-content">
-<ul>
-<li><strong>お客さん（アプリ）</strong>：「オムライス1つ」と伝票（リクエスト）を書く。</li>
-<li><strong>ウェイター（API）</strong>：伝票を厨房（サーバー）に届ける。</li>
-<li><strong>タッパー（JSON）</strong>：素材をシンプルな箱に詰めて渡す。</li>
-<li><strong>お皿（UI）</strong>：アプリが綺麗に盛り付けて画面に表示！</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="図解クライアントとサーバーの通信とjson" class="slide level3">
-<h3>【図解】クライアントとサーバーの通信とJSON</h3>
-<div class="cell" data-reveal="true" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart LR
-    A["📱 スマホアプリ&lt;br/&gt;(空っぽの器)"] --&gt;|「最新データをちょうだい」&lt;br/&gt;HTTP Request| B["☁️ クラウドサーバー"]
-    B --&gt;|「データはこちらです」&lt;br/&gt;JSON Response| A
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb7-1"><a href=""></a><span class="fu">{</span></span>
-<span id="cb7-2"><a href=""></a>  <span class="dt">"status"</span><span class="fu">:</span> <span class="st">"success"</span><span class="fu">,</span></span>
-<span id="cb7-3"><a href=""></a>  <span class="dt">"user"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb7-4"><a href=""></a>    <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"山田太郎"</span><span class="fu">,</span></span>
-<span id="cb7-5"><a href=""></a>    <span class="dt">"is_student"</span><span class="fu">:</span> <span class="kw">true</span></span>
-<span id="cb7-6"><a href=""></a>  <span class="fu">},</span></span>
-<span id="cb7-7"><a href=""></a>  <span class="dt">"items"</span><span class="fu">:</span> <span class="ot">[</span></span>
-<span id="cb7-8"><a href=""></a>    <span class="fu">{</span> <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"経済学入門"</span><span class="fu">,</span> <span class="dt">"price"</span><span class="fu">:</span> <span class="dv">2800</span> <span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb7-9"><a href=""></a>    <span class="fu">{</span> <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"統計分析基礎"</span><span class="fu">,</span> <span class="dt">"price"</span><span class="fu">:</span> <span class="dv">3200</span> <span class="fu">}</span></span>
-<span id="cb7-10"><a href=""></a>  <span class="ot">]</span></span>
-<span id="cb7-11"><a href=""></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li>人間も機械も直感的に読める軽量テキスト形式。キーと値のペアで世界中のデータがやり取りされています。</li>
+<li>銀行（CP型）とSNS（AP型）で、システム設計思想はどう根本的に異なるのか？</li>
+<li>なぜGoogleは「原子時計」を世界中のデータセンターに配備したのか？</li>
 </ul>
 </section>
 <section id="cap定理完璧な分散システムは存在しない" class="slide level3">
@@ -1596,6 +1483,23 @@
 </div>
 </div>
 </section>
+<section id="cap定理の3大要素" class="slide level3">
+<h3>CAP定理の3大要素</h3>
+<ol type="1">
+<li><strong>一貫性（Consistency）</strong>：
+<ul>
+<li>どのサーバに問い合わせても、必ず最新の同一データが返る。</li>
+</ul></li>
+<li><strong>可用性（Availability）</strong>：
+<ul>
+<li>一部のサーバがダウンしても、システム全体はエラーを返さず稼働し続ける。</li>
+</ul></li>
+<li><strong>分断耐性（Partition Tolerance）</strong>：
+<ul>
+<li>サーバ間の通信回線が切断（ネットワーク分断）されても破綻しない。</li>
+</ul></li>
+</ol>
+</section>
 <section id="cp-vs-ap-の究極の二者択一" class="slide level3">
 <h3>CP vs AP の究極の二者択一</h3>
 <p>現実のネットワークである以上、海底ケーブル切断などの「分断（P）」はゼロにできません。したがってシステムは実質的に2択を迫られます。</p>
@@ -1619,98 +1523,44 @@
 <td style="text-align: center;"><strong>CP</strong></td>
 <td style="text-align: left;"><strong>データの一貫性・正確性</strong><br>（誤ったデータは絶対悪）</td>
 <td style="text-align: left;">整合性が取れない場合は<strong>処理を停止・エラー返却</strong></td>
-<td style="text-align: left;">銀行送金、暗号資産、証券取引、航空券予約</td>
+<td style="text-align: left;">銀行口座、証券取引所、航空券予約</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;"><strong>AP</strong></td>
 <td style="text-align: left;"><strong>システムの無停止・高可用性</strong><br>（画面停止は絶対悪）</td>
 <td style="text-align: left;">古いかもしれないデータを<strong>ひとまず即答・後で同期</strong></td>
-<td style="text-align: left;">X (Twitter) のいいね、YouTube再生回数、閲覧履歴</td>
+<td style="text-align: left;">SNSのいいね数、動画視聴回数、ECサイト閲覧履歴</td>
 </tr>
 </tbody>
 </table>
 <ul>
-<li>銀行は「止めてでも二重送金を防ぐ（CP）」、SNSは「1秒遅れても画面を止めない（AP）」。</li>
+<li><strong>CPの思想</strong>：「誤った残高を表示したり二重送金が起きるくらいなら、一時的にシステムを止めて利用者を待たせた方がマシである」。</li>
+<li><strong>APの思想</strong>：「いいねの数が1秒遅れて反映されたところで誰も破産しない。画面が真っ白になって使えなくなる方がユーザー体験として最悪である」。</li>
 </ul>
 </section>
 <section id="究極の技術google-spannerと原子時計" class="slide level3">
 <h3>6.2 究極の技術：Google Spannerと原子時計</h3>
-<h4 id="全世界で分散しながら厳密な一貫性cpを実現できないか">⏱️ 「全世界で分散しながら、厳密な一貫性（CP）を実現できないか？」</h4>
+<h4 id="全世界で分散稼働しながら厳密な一貫性cpを実現できないか">⏱️ 「全世界で分散稼働しながら、厳密な一貫性（CP）を実現できないか？」</h4>
 <ul>
-<li>従来の常識：地球規模でサーバーを分散させると、光の速度の限界により通信遅延が生じ、厳密な一貫性（CP）を保つと激遅になってしまう。</li>
-<li><strong>2012年、Googleが発表した驚愕のシステム「Google Spanner」</strong>：
+<li>従来の常識：地球規模でサーバーを分散させると、光の速度の限界により通信遅延が生じ、厳密な一貫性（CP）を保つと極めて低速になってしまう。</li>
+<li><strong>2012年、Googleが発表した分散データベース「Google Spanner」</strong>：
 <ul>
 <li>世界中のGoogleデータセンターに<strong>GPS受信機とルビジウム原子時計</strong>を物理的に配備！</li>
 <li>サーバー間の時計のズレ（不確実性区間 <span class="math inline">\(\varepsilon\)</span>）を<strong>わずか数ミリ秒以下</strong>に抑え込む技術「TrueTime API」を開発。</li>
 </ul></li>
 </ul>
 </section>
-<section id="アインシュタインの相対性理論をねじ伏せた分散db" class="slide level3">
-<h3>アインシュタインの相対性理論をねじ伏せた分散DB</h3>
-<h4 id="物理学の限界をハードウェアの物量とアルゴリズムで克服">🛰️ 物理学の限界をハードウェアの物量とアルゴリズムで克服</h4>
+<section id="相対性理論の制約を克服した分散db" class="slide level3">
+<h3>相対性理論の制約を克服した分散DB</h3>
+<h4 id="物理学の限界をハードウェアの物量とアルゴリズムでねじ伏せる">🛰️ 物理学の限界をハードウェアの物量とアルゴリズムでねじ伏せる</h4>
 <ul>
 <li><strong>なぜ原子時計が必要だったのか？</strong>：
 <ul>
-<li>地球上のサーバー同士は、光速の限界や相対性理論（重力や速度による時間の進み方の差）により、完全に同じ「現在時刻」を共有できない。</li>
+<li>地球上のサーバー同士は、光速の限界や相対性理論（重力や移動速度による時間の進み方の差）により、完全に同じ「現在時刻」を共有できない。</li>
 <li>Googleは「時間のズレの最大幅（数ミリ秒）」を数学的に保証し、<strong>そのズレの時間だけ意図的にコミットを待機する（Wait-out-the-uncertainty）</strong>アルゴリズムを構築！</li>
 </ul></li>
 <li>これにより、<strong>全世界で分散稼働しながら、実時間の因果関係と完全に一致した厳密な一貫性（外部一貫性）</strong>を達成しました。</li>
-</ul>
-</section>
-<section id="実践チェック-5" class="slide level3">
-<h3>📱 実践チェック</h3>
-<h4 id="インフラ設計の確認">🌐 インフラ設計の確認</h4>
-<ul>
-<li>あなたがフリマアプリを設計する場合：
-<ul>
-<li>「商品の閲覧数」は CP と AP のどちらで設計すべきか？ <span class="math inline">\(\to\)</span> <strong>AP</strong>（誤差があっても即表示）</li>
-<li>「売上金の出金申請」は CP と AP のどちらで設計すべきか？ <span class="math inline">\(\to\)</span> <strong>CP</strong>（二重出金を絶対に防ぐ）</li>
-</ul></li>
-</ul>
-</section>
-<section id="考えてみよう振り返り-5" class="slide level3">
-<h3>🤔 考えてみよう（振り返り）</h3>
-<ul>
-<li>自然災害で大規模な通信障害が起きたとき、銀行のATMが「停止する（CP）」のはなぜ技術的・経済的に正しい判断だと言えるだろうか？</li>
-</ul>
-</section>
-<section class="slide level3">
-
-</section>
-
-<section id="おわりにデータモデリングは世界の切り取り方である" class="title-slide slide level2 center">
-<h2>おわりに：データモデリングは「世界の切り取り方」である</h2>
-
-</section>
-<section id="データベース設計に唯一絶対の正解はない" class="slide level3">
-<h3>データベース設計に「唯一絶対の正解」はない</h3>
-<h4 id="すべてはビジネスと経済の意思決定である">🧭 すべてはビジネスと経済の意思決定である</h4>
-<ul>
-<li><strong>取引をどのように定義するか？</strong></li>
-<li><strong>何を「不変の事実（イベント）」として残し、何を「現在の状態（リソース）」とするか？</strong></li>
-<li><strong>厳密な一貫性（CP）を追求するか、それともスピードと可用性（AP）を優先するか？</strong></li>
-<li>これらはすべて、企業がどのようなインセンティブ構造を持ち、どのようなリスクを許容・回避するかという<strong>ビジネス・経済的意思決定そのもの</strong>です。</li>
-</ul>
-</section>
-<section id="混沌とした現実を見通す思考のレンズ" class="slide level3">
-<h3>混沌とした現実を見通す「思考のレンズ」</h3>
-<h4 id="データの裏側を知る知性">🎓 データの裏側を知る知性</h4>
-<ul>
-<li>関係モデルとデータベース工学の基礎を学ぶことは、単なるITスキルやプログラミング技能の習得ではありません。</li>
-<li>混沌とした現実世界の経済活動・企業活動を、<strong>「整然としたロジックとルールの体系」として見通す強力な思考のレンズ</strong>を手に入れることです。</li>
-<li>あなたがビジネスの現場に出たとき、この知性は、組織の制度を正しく設計し、不正や破綻を防ぐ最強の武器となるはずです！</li>
-</ul>
-</section>
-<section id="全9回の修了にあたって-グランドフィナーレ" class="slide level3">
-<h3>🏛️ 全9回の修了にあたって —— グランドフィナーレ</h3>
-<h4 id="デジタル社会の見えない基盤を理解した誇りを胸に">🌟 デジタル社会の「見えない基盤」を理解した誇りを胸に</h4>
-<ul>
-<li><strong>第1回〜第2回</strong>：身近な認証・パスキーとサイバー防犯</li>
-<li><strong>第3回〜第4回</strong>：FeliCa・QRコード決済、暗号資産・Web3の経済革命</li>
-<li><strong>第5回〜第8回</strong>：SNSアルゴリズム、メガクラウド、5G通信、テレビ放送と配信</li>
-<li><strong>そして第9回</strong>：すべてを裏側で支える「データベース（ACID）」と「通信プロトコル」</li>
-<li>あなたはもう、テクノロジーを「得体の知れないブラックボックス」として恐れる必要はありません。</li>
-<li><strong>仕組みを知る知性を羅針盤にして、自信を持って現代デジタル社会を歩んでいってください！</strong></li>
+<li>現代のグローバル金融や巨大プラットフォームを支える究極の分散インフラ基盤となっています。</li>
 </ul>
 
 </section>
