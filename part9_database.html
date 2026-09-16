@@ -1318,11 +1318,60 @@
 </tbody>
 </table>
 </section>
-<section id="原子性atomicityと-②-一貫性consistency" class="slide level3">
-<h3>① 原子性（Atomicity）と ② 一貫性（Consistency）</h3>
+<section id="原子性atomicity全か無かのロールバック保証" class="slide level3">
+<h3>① 原子性（Atomicity）：「全か無か」のロールバック保証</h3>
 <h4 id="途中でシステムが死んだら時計の針を完全に巻き戻す">🔄 途中でシステムが死んだら「時計の針を完全に巻き戻す」</h4>
 
 <img data-src="images/acid_rollback_visual.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:85.0%"></section>
+<section id="一貫性consistency不正な取引を弾く最後の防波堤" class="slide level3">
+<h3>② 一貫性（Consistency）：不正な取引を弾く「最後の防波堤」</h3>
+<h4 id="アプリがバグだらけでもデータベースの制約が社会ルールを強制する">🛡️ アプリがバグだらけでも、データベースの制約が「社会ルール」を強制する</h4>
+<ul>
+<li><strong>「一貫性」の本質</strong>：
+<ul>
+<li>単にデータが揃っていることではなく、<strong>「事前に定義されたビジネスルール（不変条件）を1ミリも破らせない」</strong>こと。</li>
+</ul></li>
+<li><strong>データベースが備える強固な「制約（Constraints）」</strong>：</li>
+</ul>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">制約の種類</th>
+<th style="text-align: left;">ビジネス上の具体例</th>
+<th style="text-align: left;">破られそうになった時の挙動</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>検査制約 (CHECK)</strong></td>
+<td style="text-align: left;">口座残高がマイナス（<span class="math inline">\(&lt; 0\)</span>）になることを禁止</td>
+<td style="text-align: left;">残高不足の出金トランザクションを<strong>即座に拒絶・ロールバック</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>参照整合性 (FK)</strong></td>
+<td style="text-align: left;">実在しない幽霊口座宛ての送金を禁止</td>
+<td style="text-align: left;">存在しないIDへの関連付けを<strong>物理的に拒絶</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>一意性制約 (UNIQUE)</strong></td>
+<td style="text-align: left;">1つの送金IDや契約番号の二重登録を禁止</td>
+<td style="text-align: left;">二重引き落とし・二重振込の発生を<strong>根本から遮断</strong></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>なぜこれが決定的なのか？</strong>：
+<ul>
+<li>人間が書くスマホアプリやWebプログラムには必ずバグや脆弱性が潜みます。</li>
+<li>しかし、DBMSの制約が堅牢であれば、<strong>どんなバグやサイバー攻撃があっても、不正な状態への遷移をデータベースが最後の防波堤となって遮断</strong>します！</li>
+</ul></li>
+</ul>
+</section>
 <section id="耐久性durability大停電でも確定した契約が消えない理由" class="slide level3">
 <h3>④ 耐久性（Durability）：大停電でも「確定した契約」が消えない理由</h3>
 <h4 id="コミットの0.001秒後に電源が落ちてもなぜ預金や株式取引は失われないのか">💾 コミットの0.001秒後に電源が落ちても、なぜ預金や株式取引は失われないのか？</h4>
