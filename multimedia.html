@@ -258,9 +258,9 @@
 <ul>
 <li>走査線・HDMI、地デジとCAS、TVer・コネクテッドTV</li>
 </ul></li>
-<li><strong>第9回：データベースと通信の裏側 —— 経済・ビジネスと情報インフラの基盤</strong>
+<li><strong>第9回：経済学とビジネスのための現代データベース入門</strong>
 <ul>
-<li>キャッシュ・同期、REAモデリング、正規化、ACID、API/JSON、CAP定理、動画圧縮</li>
+<li>更新時アノマリー、REAモデリング、正規化、ACID特性、API・JSON、CAP定理</li>
 </ul></li>
 </ul>
 </div></div>
@@ -323,8 +323,8 @@
 </tr>
 <tr class="odd">
 <td style="text-align: center;"><strong>第9回</strong></td>
-<td style="text-align: left;"><strong>データベースと通信の裏側 —— 経済・ビジネスと情報インフラの基盤</strong></td>
-<td style="text-align: left;">キャッシュと同期、更新時アノマリー、関係モデル、REAモデリング、正規化、SQL、ACID特性、API・JSON、CAP定理、動画圧縮</td>
+<td style="text-align: left;"><strong>経済学とビジネスのための現代データベース入門</strong></td>
+<td style="text-align: left;">更新時アノマリー、関係モデル、B+ツリー、REAモデリング、第1〜第3正規形、SQL、ACID特性、CAP定理、Google Spanner</td>
 </tr>
 </tbody>
 </table>
@@ -8523,36 +8523,35 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 </section>
 </section>
 <section>
-<section id="データベースと通信の裏側-経済ビジネスと情報インフラの基盤" class="title-slide slide level1 center">
-<h1>データベースと通信の裏側 —— 経済・ビジネスと情報インフラの基盤</h1>
+<section id="経済学とビジネスのための現代データベース入門" class="title-slide slide level1 center">
+<h1>経済学とビジネスのための現代データベース入門</h1>
 
 </section>
 <section id="本日の講義マップ-全6章のアジェンダ" class="slide level3">
 <h3>本日の講義マップ —— 全6章のアジェンダ</h3>
 <ol type="1">
-<li><strong>身近なデータの正体とExcelの限界</strong>（キャッシュ・同期・更新時アノマリー・B+ツリー）</li>
+<li><strong>Excelの限界と「関係モデル」の誕生</strong>（更新時アノマリー・取引コスト・B+ツリー）</li>
 <li><strong>ビジネスをモデル化する（ER図とREAモデリング）</strong>（会計学とリソース・イベント・注文明細）</li>
 <li><strong>データの整合性を守る「正規化」の技法</strong>（1NF〜3NFと購入時単価の経済的例外）</li>
 <li><strong>ビジネスデータを操るSQL</strong>（集合の宣言、集約、JOIN結合）</li>
 <li><strong>金融・取引を支える「トランザクション」とACID特性</strong>（送金・ロストアップデート・座席ロック）</li>
-<li><strong>アプリとクラウドをつなぐ分散インフラと通信の真実</strong>（API・JSON・CAP定理・Ping値・動画圧縮）</li>
+<li><strong>分散システムと社会インフラ（CAP定理と決済システム）</strong>（API/JSON・CAP定理・Google Spanner）</li>
 </ol>
 </section>
-<section id="本日の到達目標-データの裏側にある技術と制度を掴む" class="slide level3">
-<h3>本日の到達目標 —— データの裏側にある「技術と制度」を掴む</h3>
+<section id="本日の到達目標-データの裏側にある制度設計を掴む" class="slide level3">
+<h3>本日の到達目標 —— データの裏側にある「制度設計」を掴む</h3>
 <h4 id="本日の講義で身につく力-2">🎯 本日の講義で身につく力</h4>
 <ul>
-<li>スマホのキャッシュや「同期 vs バックアップ」の罠を理解し、安全に端末を管理できる</li>
-<li>企業がExcelではなくデータベース（RDB）を基幹にする理由（アノマリー・取引コスト）を説明できる</li>
+<li>企業がなぜExcelではなくデータベース（RDB）を基幹に据えるのか（アノマリーと取引コスト）を説明できる</li>
 <li>複式簿記に基づく「REAモデリング」で、ビジネスルールを破綻なくモデル化できる</li>
-<li>第1〜第3正規形の本質と、過去の合意価格（単価）をあえて重複保存する経済的理由を説明できる</li>
-<li>金融取引を守る「ACID特性」と、ダブルブッキングやロストアップデートを防ぐ仕組みを把握する</li>
-<li>APIとJSONによるアプリ間通信、CAP定理、そしてGoogle Spannerが原子時計で拓いた世界分散DBの原理を論理的に理解できる</li>
+<li>第1〜第3正規形の本質と、あえて非正規化する「経済的例外（価格スナップショット）」を理解できる</li>
+<li>金融取引を担保する「ACID特性」と、並行処理で起きる経済的被害（ロストアップデート等）を防ぐ仕組みを把握する</li>
+<li>分散インフラの物理限界である「CAP定理」と、Google Spannerが原子時計でねじ伏せた外部一貫性を論理的に説明できる</li>
 </ul>
 </section>
-<section id="はじめになぜ経済学部現代社会でデータベースを学ぶのか" class="slide level3">
-<h3>はじめに：なぜ経済学部・現代社会でデータベースを学ぶのか？</h3>
-<h4 id="現代の経済活動金融市場企業組織の背後にあるdbms">🏛️ 現代の経済活動・金融市場・企業組織の背後にあるDBMS</h4>
+<section id="はじめになぜ経済学部でデータベースを学ぶのか" class="slide level3">
+<h3>はじめに：なぜ経済学部でデータベースを学ぶのか？</h3>
+<h4 id="現代経済金融企業組織の背後にあるdbms">🏛️ 現代経済・金融・企業組織の背後にあるDBMS</h4>
 <ul>
 <li><strong>銀行口座間の資金移動</strong>：
 <ul>
@@ -8586,106 +8585,18 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <section class="slide level3">
 
 </section>
-<section id="身近なデータの正体とexcelの限界" class="title-slide slide level2 center">
-<h2>1. 身近なデータの正体とExcelの限界</h2>
+<section id="excelの限界と関係モデルの誕生" class="title-slide slide level2 center">
+<h2>1. Excelの限界と「関係モデル」の誕生</h2>
 
 </section>
 <section id="考えてみたい問い-33" class="slide level3">
 <h3>考えてみたい問い</h3>
 <ul>
-<li>写真や動画を消したのに「容量がいっぱいです」と出るのはなぜ？</li>
-<li>「クラウドの写真を消したら本体からも消えた！？」なぜ？</li>
-<li>1枚の巨大なExcelシートで売上を管理すると、どんな経済的事故が起きる？</li>
+<li>なぜ多くの企業が「Excelでの顧客・売上管理」で重大なトラブルを起こすのか？</li>
+<li>1枚の大きな表にすべてを記録しようとすると、どんな矛盾（アノマリー）が起きる？</li>
+<li>1970年に提唱された「リレーショナルモデル（関係モデル）」は何を解決したのか？</li>
 <li>1億件のデータから、なぜデータベースは0.001秒で目的の行を見つけられる？</li>
 </ul>
-</section>
-<section id="スマホ容量を食い潰すその他キャッシュの正体" class="slide level3">
-<h3>スマホ容量を食い潰す「その他・キャッシュ」の正体</h3>
-<h4 id="キャッシュcacheとは">🗑️ キャッシュ（Cache）とは？</h4>
-<ul>
-<li>一度開いた画像やWebページを「次回素早く表示するため」に端末内に一時保存したデータ。</li>
-<li><strong>最大の犯人</strong>：LINEのトークルーム画像、Instagram/TikTokの視聴履歴、SafariのWebキャッシュ。</li>
-</ul>
-<div title="📚 机の上の本でたとえると？">
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>📚 机の上の本でたとえると？</strong></p>
-</div>
-<div class="callout-content">
-<p>よく使う教科書を、毎回遠くの本棚（ネット）まで取りに行くのが面倒だから、<strong>「机の上に一時的に出しっぱなしにしておく」</strong>のがキャッシュです。机の上が本で埋まったら（容量不足）、一度机を片付ける（キャッシュ削除）必要があります！</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="実践lineのキャッシュを安全に削除して容量を空ける" class="slide level3">
-<h3>【実践】LINEのキャッシュを安全に削除して容量を空ける</h3>
-<h4 id="分でできる容量復活テクニック">📱 1分でできる容量復活テクニック</h4>
-<ol type="1">
-<li>LINEの「設定（歯車アイコン）」を開く</li>
-<li>「トーク」を選択</li>
-<li>「データの削除」をタップ</li>
-<li><strong>「キャッシュ」のみにチェックを入れて削除！</strong></li>
-</ol>
-<div title="✨ メッセージや写真は消えない！">
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>✨ メッセージや写真は消えない！</strong></p>
-</div>
-<div class="callout-content">
-<p>写真やテキストメッセージ自体はサーバーや端末本体に残り、一時保存のゴミデータだけが消えるため、安全に数GB〜十数GBの空き容量が復活します！</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="同期とバックアップの致命的な勘違い" class="slide level3">
-<h3>「同期」と「バックアップ」の致命的な勘違い</h3>
-<h4 id="同期sync-icloud-googleフォトの標準動作">🔄 同期（Sync: iCloud / Googleフォトの標準動作）</h4>
-<ul>
-<li><strong>「手元とクラウドを常にまったく同じ状態に保つ」仕組み（双方向連動・鏡の関係）</strong>。</li>
-</ul>
-<div class="callout-danger" title="⚠️ よくある大悲劇：写真の全滅！">
-<p>スマホの容量を空けようとして端末の写真アプリから写真を削除すると、<strong>「鏡」であるクラウド側の写真も連動して即座に完全消去</strong>されます！<br>
-「クラウドにあるから本体を消しても大丈夫」という思い込みが一番危険です。</p>
-</div>
-</section>
-<section id="バックアップは独立した別金庫への退避" class="slide level3">
-<h3>バックアップは「独立した別金庫への退避」</h3>
-<h4 id="バックアップbackup-一方向の独立退避">📦 バックアップ（Backup: 一方向の独立退避）</h4>
-<ul>
-<li><strong>「ある時点のデータの完全な複製を、独立した別金庫に保存する」仕組み</strong>。</li>
-<li>手元の端末から切り離された別の場所（外付けHDDや独立ストレージ）に保管。</li>
-<li>スマホ本体の写真を削除しても、別金庫にあるバックアップデータには何の影響もありません！</li>
-</ul>
-<div class="cell" data-reveal="true" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart LR
-    subgraph Sync["🔄 同期（双方向連動: 鏡の関係）"]
-        A["📱 スマホ本体"] &lt;--&gt;|削除も変更も即座に連動| B["☁️ クラウドストレージ"]
-    end
-    subgraph Backup["📦 バックアップ（一方向退避: 金庫の関係）"]
-        C["📱 スマホ本体"] --&gt;|定期的に複製を退避保管| D[("🗄️ 独立した別金庫")]
-    end
-    style Sync fill:#fff3e0,stroke:#f57c00
-    style Backup fill:#e8f5e9,stroke:#2e7d32
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
 </section>
 <section id="表計算シートが引き起こす3つの経済的損失" class="slide level3">
 <h3>表計算シートが引き起こす3つの経済的損失</h3>
@@ -8750,22 +8661,38 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <li>一見分かりやすい表ですが、ここには<strong>「更新時アノマリー（Update Anomaly）」</strong>と呼ばれる3大リスクが潜んでいます！</li>
 </ul>
 </section>
-<section id="excelが引き起こす3大更新時アノマリー" class="slide level3">
-<h3>Excelが引き起こす3大更新時アノマリー</h3>
-<ol type="1">
-<li><strong>修正（更新）アノマリー</strong>：
+<section id="修正更新アノマリー表記揺れと情報の非対称性" class="slide level3">
+<h3>① 修正（更新）アノマリー：表記揺れと情報の非対称性</h3>
+<h4 id="箇所の変更で生じるデータの矛盾">✍️ 1箇所の変更で生じるデータの矛盾</h4>
 <ul>
-<li>田中氏が電話番号を変えた時、過去の全レコードを探して手動更新しなければならず、1箇所でも漏れると<strong>同じ顧客で電話番号が食い違う矛盾</strong>が発生。</li>
-</ul></li>
-<li><strong>挿入アノマリー</strong>：
+<li>もし「田中 太郎」氏が電話番号を変更した場合：
 <ul>
-<li>「まだ買い物をしていない新規見込み客」を登録しようとすると、注文番号や商品名が空欄（<strong>NULL</strong>）の歪な行を作らざるを得ない。</li>
+<li>田中氏の過去の全レコードを探し出して、手動で更新しなければならない。</li>
+<li>1箇所でも修正漏れがあると、<strong>「同じ顧客なのに注文履歴によって電話番号が異なる」</strong>という深刻な不整合が発生！</li>
 </ul></li>
-<li><strong>削除アノマリー</strong>：
+<li>レコードが数十万件に達したとき、手作業での同期は完全に破綻します。</li>
+</ul>
+</section>
+<section id="挿入アノマリー存在しない取引の記録不能" class="slide level3">
+<h3>② 挿入アノマリー：存在しない取引の記録不能</h3>
+<h4 id="取引とマスタの同居が生む歪み">🚫 取引とマスタの同居が生む歪み</h4>
 <ul>
-<li>佐藤氏の注文（1002）をキャンセルして行を削除すると、<strong>「統計分析基礎という商品が単価3,200円である」という商品情報そのものが社内から消滅</strong>する！</li>
+<li><strong>新規見込み客を登録したい場合</strong>：
+<ul>
+<li>「まだ一度も買い物をしたことがない顧客」の連絡先をこの表に登録しようとする。</li>
+<li>すると、「注文番号」や「商品名」「金額」が存在しないため、<strong>空欄（NULL）だらけの歪な行</strong>を作らざるを得ない！</li>
 </ul></li>
-</ol>
+<li>商品マスタや顧客情報を「取引の記録」と同一の表に同居させているために生じる本質的な欠陥です。</li>
+</ul>
+</section>
+<section id="削除アノマリー意図せぬ情報の連鎖消滅" class="slide level3">
+<h3>③ 削除アノマリー：意図せぬ情報の連鎖消滅</h3>
+<h4 id="注文のキャンセルで商品情報が消滅する悲劇">🗑️ 注文のキャンセルで商品情報が消滅する悲劇</h4>
+<ul>
+<li>佐藤花子氏の注文（1002）がキャンセルになり、この行をシートから削除したとします。</li>
+<li>すると、<strong>「統計分析基礎という商品が単価3,200円である」という商品マスタ情報そのものが社内から完全に消滅</strong>してしまいます！</li>
+<li>取引の取り消しが、企業の保有財産情報の消滅を招いてしまうのです。</li>
+</ul>
 </section>
 <section id="経済学的洞察取引コストと情報の冗長性" class="slide level3">
 <h3>💡 経済学的洞察：取引コストと情報の冗長性</h3>
@@ -8894,10 +8821,13 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 </section>
 <section id="実践チェック-19" class="slide level3">
 <h3>📱 実践チェック</h3>
-<h4 id="身近なデータ管理の確認">🗄️ 身近なデータ管理の確認</h4>
+<h4 id="関係モデルの基本原則を確認">📊 関係モデルの基本原則を確認</h4>
 <ul>
-<li>スマホの「ストレージを最適化」機能と「ローカル完全保存」の違いを説明できるか？</li>
-<li>なぜ企業の基幹システムでは、Excelファイルを共有フォルダに置くのではなくRDBを使うのか？</li>
+<li>主キー（PK: Primary Key）と外部キー（FK: Foreign Key）の違いは何か？
+<ul>
+<li><strong>主キー（PK）</strong>：そのテーブル内でレコードを唯一無二に特定する背番号（例：顧客ID）。</li>
+<li><strong>外部キー（FK）</strong>：別のテーブルの主キーを参照し、関係性を結ぶための番号（例：注文テーブル内の顧客ID）。</li>
+</ul></li>
 </ul>
 </section>
 <section id="考えてみよう振り返り-15" class="slide level3">
@@ -9883,8 +9813,8 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 
 </section>
 
-<section id="アプリとクラウドをつなぐ分散インフラと通信の真実" class="title-slide slide level2 center">
-<h2>6. アプリとクラウドをつなぐ分散インフラと通信の真実</h2>
+<section id="分散システムと社会インフラcap定理と決済システム" class="title-slide slide level2 center">
+<h2>6. 分散システムと社会インフラ（CAP定理と決済システム）</h2>
 
 </section>
 <section id="考えてみたい問い-38" class="slide level3">
@@ -9893,27 +9823,16 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <li>スマホアプリはどうやって遠く離れたクラウドサーバーと会話しているのか？</li>
 <li>世界中のコンピュータが話す共通語「JSON」とは？</li>
 <li>分散インフラの物理限界である「CAP定理」とは？</li>
-<li>なぜ回線は高速（1Gbps）なのに、対戦ゲームで「ラグい」と感じるのか？</li>
+<li>なぜGoogleは「原子時計」をデータセンターに配備したのか？</li>
 </ul>
 </section>
-<section id="そもそもapiって何-アプリとサーバーの公式窓口" class="slide level3">
-<h3>そもそも「API」って何？ —— アプリとサーバーの公式窓口</h3>
-<h4 id="ソフトウェア同士をつなぐ注文窓口接続ルール">🔌 ソフトウェア同士をつなぐ「注文窓口・接続ルール」</h4>
+<section id="アプリとサーバーの公式窓口api" class="slide level3">
+<h3>アプリとサーバーの公式窓口「API」</h3>
+<h4 id="ソフトウェア同士をつなぐ接続ルール">🔌 ソフトウェア同士をつなぐ接続ルール</h4>
 <ul>
 <li><strong>API（Application Programming Interface）</strong>の略称。</li>
 <li>スマホアプリが、遠く離れたクラウドサーバーに向かって<strong>「データをください！」「これを登録して！」と注文するための公式窓口・共通ルール</strong>。</li>
 <li>人間向けのデザイン（UI）ではなく、プログラム同士がデータを受け渡すための専用規格です。</li>
-</ul>
-</section>
-<section id="スマホアプリの中身は空っぽの器" class="slide level3">
-<h3>スマホアプリの中身は「空っぽの器」</h3>
-<ul>
-<li><strong>アプリ本体の正体</strong>
-<ul>
-<li>Instagramやメルカリのアプリ内には、タイムラインの写真や投稿は1文字も入っていない。</li>
-<li>入っているのは「枠組み」と「通信プログラム」だけ。</li>
-<li>起動するたびにお手紙（HTTPリクエスト）を送って最新データを取得している。</li>
-</ul></li>
 </ul>
 <div title="🍽️ レストランでたとえると？">
 <div class="callout callout-tip callout-titled callout-style-default">
@@ -9929,7 +9848,7 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <li><strong>お客さん（アプリ）</strong>：「オムライス1つ」と伝票（リクエスト）を書く。</li>
 <li><strong>ウェイター（API）</strong>：伝票を厨房（サーバー）に届ける。</li>
 <li><strong>タッパー（JSON）</strong>：素材をシンプルな箱に詰めて渡す。</li>
-<li><strong>お皿（UI）</strong>：アプリが綺麗に盛り付けて表示！</li>
+<li><strong>お皿（UI）</strong>：アプリが綺麗に盛り付けて画面に表示！</li>
 </ul>
 </div>
 </div>
@@ -9944,7 +9863,7 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <p></p><figure class=""><p></p>
 <div>
 <pre class="mermaid mermaid-js">flowchart LR
-    A["📱 スマホアプリ&lt;br/&gt;(空っぽの器)"] --&gt;|「最新の投稿をちょうだい」&lt;br/&gt;HTTP Request| B["☁️ クラウドサーバー"]
+    A["📱 スマホアプリ&lt;br/&gt;(空っぽの器)"] --&gt;|「最新データをちょうだい」&lt;br/&gt;HTTP Request| B["☁️ クラウドサーバー"]
     B --&gt;|「データはこちらです」&lt;br/&gt;JSON Response| A
 </pre>
 </div>
@@ -10055,96 +9974,14 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 <li>これにより、<strong>全世界で分散稼働しながら、実時間の因果関係と完全に一致した厳密な一貫性（外部一貫性）</strong>を達成しました。</li>
 </ul>
 </section>
-<section id="ネットの通信速度mbps-vs-応答速度ping値" class="slide level3">
-<h3>ネットの通信速度（Mbps） vs 応答速度（Ping値）</h3>
-<h4 id="なぜ回線が速いのにラグいのか">🏎️ なぜ回線が速いのに「ラグい」のか？</h4>
-<table class="caption-top">
-<colgroup>
-<col style="width: 28%">
-<col style="width: 35%">
-<col style="width: 35%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">項目</th>
-<th style="text-align: center;">通信速度 (Mbps / 帯域幅)</th>
-<th style="text-align: center;">応答速度 (Ping値 / レイテンシ)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>意味</strong></td>
-<td style="text-align: center;">1秒間に運べる<strong>データの総量</strong></td>
-<td style="text-align: center;">信号が往復する<strong>タイムラグ（時間）</strong></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>たとえ</strong></td>
-<td style="text-align: center;"><strong>トラックの荷台の広さ・車線数</strong></td>
-<td style="text-align: center;"><strong>レーサーの反射神経・最高速度</strong></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>影響</strong></td>
-<td style="text-align: center;">YouTube動画再生、アプリのDL速度</td>
-<td style="text-align: center;"><strong>オンライン対戦ゲーム、通話の遅延</strong></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>理想値</strong></td>
-<td style="text-align: center;">大きいほど良い（100Mbps以上）</td>
-<td style="text-align: center;"><strong>小さいほど良い（15ms以下）</strong></td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>どんなに1Gbpsの超高速回線でも、Ping値が100msを超えていると対戦ゲームで「撃ち負け」たり操作遅延が発生します。</li>
-</ul>
-</section>
-<section id="月末にギガが消える正体-動画圧縮とビットレート" class="slide level3">
-<h3>月末に「ギガ」が消える正体 —— 動画圧縮とビットレート</h3>
-<h4 id="ビットレート1秒あたりのデータ量の差">📊 ビットレート（1秒あたりのデータ量）の差</h4>
-<ul>
-<li><strong>音楽ストリーミング（Spotify等）</strong>：約320 kbps <span class="math inline">\(\to\)</span> 1時間で約140 MB</li>
-<li><strong>動画（1080p フルHD）</strong>：約4,000 kbps <span class="math inline">\(\to\)</span> 1時間で約1.8 GB（音楽の13倍！）</li>
-<li><strong>動画（4K 超高画質）</strong>：約20,000 kbps <span class="math inline">\(\to\)</span> 1時間で約9 GB！</li>
-</ul>
-<div title="🎬 動画圧縮の奇跡">
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>🎬 動画圧縮の奇跡</strong></p>
-</div>
-<div class="callout-content">
-<p>非圧縮の生動画は1分で数百GB。現代の圧縮技術（H.264, AV1）は「人間の目に見えない微小な色の差を間引く」「動いていない背景は送らない」ことで1/100以下に縮めてパケットを節約しています。</p>
-</div>
-</div>
-</div>
-</div>
-<div title="⚠️ Wi-Fiアシストの罠">
-<div class="callout callout-warning callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>⚠️ Wi-Fiアシストの罠</strong></p>
-</div>
-<div class="callout-content">
-<p>iPhoneの「Wi-Fiアシスト」は、Wi-Fi電波が弱いと勝手にギガを消費する機能。「設定」<span class="math inline">\(\to\)</span>「モバイル通信」の一番下でオフにしておくのが自衛策！</p>
-</div>
-</div>
-</div>
-</div>
-</section>
 <section id="実践チェック-24" class="slide level3">
 <h3>📱 実践チェック</h3>
-<h4 id="ネットワークとインフラの確認">🌐 ネットワークとインフラの確認</h4>
+<h4 id="インフラ設計の確認">🌐 インフラ設計の確認</h4>
 <ul>
-<li>ブラウザで <code>fast.com</code> を開いてみよう。
+<li>あなたがフリマアプリを設計する場合：
 <ul>
-<li>「ダウンロード速度（Mbps）」と、「詳細を表示」を押した時の「レイテンシ（Ping値: ms）」を計測してみよう。</li>
-<li>自分の回線が「動画向き（高Mbps）」か「ゲーム向き（低Ping）」かが一目で分かります！</li>
+<li>「商品の閲覧数」は CP と AP のどちらで設計すべきか？ <span class="math inline">\(\to\)</span> <strong>AP</strong>（誤差があっても即表示）</li>
+<li>「売上金の出金申請」は CP と AP のどちらで設計すべきか？ <span class="math inline">\(\to\)</span> <strong>CP</strong>（二重出金を絶対に防ぐ）</li>
 </ul></li>
 </ul>
 </section>
