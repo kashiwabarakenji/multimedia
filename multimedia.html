@@ -9635,8 +9635,53 @@ $ o$ 誰がカンニングしたかは隠せるのに、<strong>全体の本当�
 </tbody>
 </table>
 </section>
+<section id="原子性atomicityと-②-一貫性consistency" class="slide level3">
+<h3>① 原子性（Atomicity）と ② 一貫性（Consistency）</h3>
+<h4 id="途中でシステムが死んだら時計の針を完全に巻き戻す">🔄 途中でシステムが死んだら「時計の針を完全に巻き戻す」</h4>
+
+<img data-src="images/acid_rollback_visual.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:85.0%"></section>
+<section id="耐久性durability大停電でも確定した契約が消えない理由" class="slide level3">
+<h3>④ 耐久性（Durability）：大停電でも「確定した契約」が消えない理由</h3>
+<h4 id="コミットの0.001秒後に電源が落ちてもなぜ預金や株式取引は失われないのか">💾 コミットの0.001秒後に電源が落ちても、なぜ預金や株式取引は失われないのか？</h4>
+<ul>
+<li><strong>メモリの物理的限界</strong>：
+<ul>
+<li>高速に動作する作業用メモリ（RAM）は、電源が切れた瞬間に全データが蒸発する。</li>
+<li>かといって、毎回ディスクの巨大な表（テーブル）を書き換えていては、処理が激遅になり社会の決済が麻痺してしまう。</li>
+</ul></li>
+<li><strong>先行書き込みログ（WAL: Write-Ahead Logging）の知恵</strong>：
+<ul>
+<li>データを表に反映する前に、まず<strong>「確定した取引事実」だけを一直線の追記専用ログ（WAL）として電光石火でディスクに記録</strong>する。</li>
+<li>ログへの書き込みが完了した瞬間に、ユーザーへ「取引成功（COMMIT）」を通知する。</li>
+</ul></li>
+</ul>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    A["取引発生&lt;br/&gt;(10,000円送金)"] --&gt; B["⚡ メモリ上で高速計算"]
+    B --&gt; C["📝 先行書き込みログ (WAL)&lt;br/&gt;ディスクへ直ちに追記保存！"]
+    C --&gt;|ログ確定| D["✅ COMMIT完了通知"]
+    D -.-&gt;|後から非同期に反映| E["🗄️ 本番データベース表"]
+    style C fill:#fff9c4,stroke:#fbc02d,stroke-width:2px
+    style D fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<ul>
+<li><strong>クラッシュ後の自動復旧（REDO）</strong>：
+<ul>
+<li>停電から再起動した際、DBMSはWALログを先頭から読み直し、事故直前の最新状態まで自動で時間を進めて完全復元します。</li>
+</ul></li>
+</ul>
+</section>
 <section id="分離性isolationが破綻すると起きる経済的被害" class="slide level3">
-<h3>5.2 分離性（Isolation）が破綻すると起きる経済的被害</h3>
+<h3>5.2 ③ 分離性（Isolation）が破綻すると起きる経済的被害</h3>
 <h4 id="ロストアップデート更新の喪失銀行が大損するシナリオ">💸 ① ロストアップデート（更新の喪失）：銀行が大損するシナリオ</h4>
 <p>残高10,000円の口座から、ATMと口座振替が同時に5,000円引き落とした場合：</p>
 <div class="cell" data-reveal="true" data-layout-align="default">
