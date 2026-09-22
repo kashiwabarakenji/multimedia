@@ -69,23 +69,23 @@ format:
 
 ---
 
-{{< include part1_auth.qmd >}}
+{{< include auth.qmd >}}
 
-{{< include part2_security.qmd >}}
+{{< include security.qmd >}}
 
-{{< include part3_money.qmd >}}
+{{< include money.qmd >}}
 
-{{< include part4_crypto.qmd >}}
+{{< include crypto.qmd >}}
 
-{{< include part5_sns.qmd >}}
+{{< include sns.qmd >}}
 
-{{< include part6_cloud.qmd >}}
+{{< include cloud.qmd >}}
 
-{{< include part7_mobile.qmd >}}
+{{< include mobile.qmd >}}
 
-{{< include part8_broadcast.qmd >}}
+{{< include broadcast.qmd >}}
 
-{{< include part9_database.qmd >}}
+{{< include database.qmd >}}
 
 
 
