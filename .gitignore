@@ -4,3 +4,9 @@ test_slide_files/
 .DS_Store
 
 /.quarto/
+
+**/*.quarto_ipynb
+
+# rendered output
+*.html
+*_files/

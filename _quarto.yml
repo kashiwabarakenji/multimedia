@@ -7,7 +7,7 @@ format:
     slide-level: 3
     slide-number: true
     transition: slide
-    toc: true
+    toc: false
     toc-depth: 1
     chalkboard: true
     scrollable: false
