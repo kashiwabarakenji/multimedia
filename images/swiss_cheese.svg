@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 440" font-family="-apple-system, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif">
+  <defs>
+    <marker id="head" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#c62828"/>
+    </marker>
+  </defs>
+
+  <!-- 攻撃 -->
+  <text x="60" y="44" font-size="20" font-weight="700" fill="#c62828" text-anchor="middle">攻撃</text>
+
+  <!-- 守る資産 -->
+  <rect x="860" y="135" width="120" height="110" rx="10" fill="#e3f2fd" stroke="#1565c0" stroke-width="2"/>
+  <text x="920" y="182" font-size="20" font-weight="700" fill="#0d47a1" text-anchor="middle">守る</text>
+  <text x="920" y="208" font-size="20" font-weight="700" fill="#0d47a1" text-anchor="middle">データ</text>
+
+  <!-- 層の見出し -->
+  <g font-size="17" font-weight="700" fill="#1a237e" text-anchor="middle">
+    <text x="235" y="44">② 侵入</text>
+    <text x="415" y="44">③ 権限の拡大</text>
+    <text x="595" y="44">④ 横展開</text>
+    <text x="775" y="44">⑤ 目的の実行</text>
+  </g>
+
+  <!-- 4枚のチーズ（層） -->
+  <g fill="#ffe082" stroke="#e0a100" stroke-width="2">
+    <rect x="205" y="60" width="60" height="270" rx="8"/>
+    <rect x="385" y="60" width="60" height="270" rx="8"/>
+    <rect x="565" y="60" width="60" height="270" rx="8"/>
+    <rect x="745" y="60" width="60" height="270" rx="8"/>
+  </g>
+
+  <!-- 穴（層ごとに位置が違う） -->
+  <g fill="#ffffff" stroke="#e0a100" stroke-width="1.5">
+    <ellipse cx="235" cy="150" rx="16" ry="20"/>
+    <ellipse cx="235" cy="300" rx="12" ry="14"/>
+    <ellipse cx="415" cy="95" rx="12" ry="15"/>
+    <ellipse cx="415" cy="150" rx="16" ry="20"/>
+    <ellipse cx="415" cy="250" rx="16" ry="20"/>
+    <ellipse cx="595" cy="150" rx="16" ry="20"/>
+    <ellipse cx="595" cy="285" rx="12" ry="15"/>
+    <ellipse cx="775" cy="100" rx="12" ry="15"/>
+    <ellipse cx="775" cy="230" rx="16" ry="20"/>
+  </g>
+
+  <!-- 攻撃A：3枚の穴を抜けるが、4枚目で止まる -->
+  <line x1="30" y1="150" x2="738" y2="150" stroke="#c62828" stroke-width="4" marker-end="url(#head)"/>
+  <!-- 攻撃B：1枚目で止まる -->
+  <line x1="30" y1="250" x2="198" y2="250" stroke="#c62828" stroke-width="4" marker-end="url(#head)"/>
+
+  <text x="685" y="128" font-size="15" font-weight="700" fill="#c62828" text-anchor="middle">ここで止まる</text>
+  <text x="120" y="232" font-size="15" font-weight="700" fill="#c62828" text-anchor="middle">ここで止まる</text>
+
+  <!-- 各層の対策 -->
+  <g font-size="15" fill="#333" text-anchor="middle">
+    <text x="235" y="360">教育・訓練</text>
+    <text x="235" y="381">パスキー・多要素認証</text>
+    <text x="235" y="402">迅速な更新</text>
+    <text x="415" y="360">最小権限</text>
+    <text x="415" y="381">（必要な権限だけ）</text>
+    <text x="595" y="360">ネットワーク分割</text>
+    <text x="595" y="381">ゼロトラスト</text>
+    <text x="775" y="360">EDRで検知・隔離</text>
+    <text x="775" y="381">切り離した</text>
+    <text x="775" y="402">バックアップ</text>
+  </g>
+</svg>
