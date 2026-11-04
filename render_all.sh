@@ -11,7 +11,8 @@ quarto render multimedia.qmd
 SLIDES=(
   "auth.qmd"
   "security.qmd"
-  "money.qmd"
+  "payment.qmd"
+  "identity.qmd"
   "crypto.qmd"
   "sns.qmd"
   "cloud.qmd"
